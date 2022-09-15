@@ -15,3 +15,8 @@ Publishing artifact to Nexus snapshot and release repo using maven.
 10. Run mvn clean deploy, this will publish to snapshot repo
 11. Change the version from 1.0-Snapshot to 1.0
 12. Run mvn clean deploy -P release, it will deploy it to release repo
+
+# Maven Installation
+
+# Maven Lifecycle Phases
+- https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
