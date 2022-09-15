@@ -1,10 +1,10 @@
-# Install Nexus Repository Manager
+## Install Nexus Repository Manager
 - https://github.com/awanmbandi/maven-nexus-project-eagles-batch/blob/maven-nexus-install/nexus-install.sh
 
-# Install Apache Maven
+## Install Apache Maven
 - https://github.com/awanmbandi/maven-nexus-project-eagles-batch/blob/maven-nexus-install/maven-install.md
 
-# Configure Nexus Repository
+## Configure Nexus Repository
 Series of tutorial code snippets for use
 #Maven publish tutorial steps
 Publishing artifact to Nexus snapshot and release repo using maven.
@@ -31,6 +31,6 @@ Publishing artifact to Nexus snapshot and release repo using maven.
 11. Change the version from 1.0-Snapshot to 1.0
 12. Run `mvn deploy` to deploy to Snapshot Repo or `mvn clean deploy -P release`, to deploy it to Release Repo
 
-# Maven Lifecycle Phases
+## Maven Lifecycle Phases
 - https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-lifecycle-is-made-up-of-phases
 
