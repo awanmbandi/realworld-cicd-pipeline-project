@@ -37,6 +37,7 @@ under the License.
   <mirrors>
   </mirrors>
   <profiles>
+    <!--Apache Tomcat Deployment Server Environment Profile Start-->
     <profile>
       <id>env-dev</id>
 
@@ -51,7 +52,8 @@ under the License.
         <tomcatPath>/path/to/tomcat/instance</tomcatPath>
       </properties>
     </profile>
-	
+  <!--Apache Tomcat Deployment Server Environment Profile End-->
+	<!--Nexus Repository Manager's Profile Start-->
 	<profile>
      <id>snapshot</id>
      <repositories>
@@ -73,6 +75,7 @@ under the License.
        </repository>
      </repositories>
    </profile>
+   <!--Nexus Repository Manager's Profile End-->
    <!--SonarQube/Sonar Profile-->
    <profile>
       <id>sonar</id>
