@@ -22,6 +22,7 @@ under the License.
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <pluginGroups>
+    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
   </pluginGroups>
   <proxies>
   </proxies>
@@ -72,6 +73,16 @@ under the License.
        </repository>
      </repositories>
    </profile>
-    
+   <!--SonarQube/Sonar Profile-->
+   <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.host.url></sonar.host.url>
+      </properties>
+    </profile>
+    <!--End SonarQube/Sonar Profile-->
   </profiles>
 </settings>
