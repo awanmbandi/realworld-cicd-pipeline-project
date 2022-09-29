@@ -1,0 +1,21 @@
+global:
+  scrape_interval: 15s
+  external_labels:
+    monitor: 'prometheus'
+
+scrape_configs:
+  - job_name: 'node'
+    ec2_sd_configs:
+      - region: us-east-1
+        access_key: yourkey
+        secret_key: yourkey
+        port: 9100
+    relabel_configs:
+      - source_labels: [__meta_ec2_public_ip]
+        regex: '(.*)' #default value
+        target_label: _address_
+        replacement: '${1}:9100'
+        # action: keep
+        # Use the instance ID as the instance label
+      - source_labels: [__meta_ec2_tag_Name]
+        target_label: instance
