@@ -1,0 +1,158 @@
+[
+    {
+        "ParameterKey": "VenturaProdVPCciderBlockPara",
+        "ParameterValue": "10.0.0.0/16"
+    },
+    {
+        "ParameterKey": "VenturaProdNATalbSN1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdNATalbSN2azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdWebSN1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdWebSN2azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdAppSN1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdAppSN2azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdDBSN1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdDBSN21azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdNATalbSN1CidrBlockPara",
+        "ParameterValue": "10.0.1.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdNATalbSN2CidrBlockPara",
+        "ParameterValue": "10.0.2.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdWebSN1CidrBlockPara",
+        "ParameterValue": "10.0.3.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdWebSN2CidrBlockPara",
+        "ParameterValue": "10.0.4.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdAppSN1CidrBlockPara",
+        "ParameterValue": "10.0.5.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdAppSN2CidrBlockPara",
+        "ParameterValue": "10.0.6.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdDBSN1CidrBlockPara",
+        "ParameterValue": "10.0.7.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdDBSN2CidrBlockPara",
+        "ParameterValue": "10.0.8.0/24"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer1ImageIdPara",
+        "ParameterValue": "ami-002070d43b0a4f171"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer1InstanceTypePara",
+        "ParameterValue": "t2.micro"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer1KeyNamePara",
+        "ParameterValue": "work-mac-os"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer2azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer2ImageIdPara",
+        "ParameterValue": "ami-002070d43b0a4f171"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer2InstanceTypePara",
+        "ParameterValue": "t2.micro"
+    },
+    {
+        "ParameterKey": "VenturaProdWebServer2KeyNamePara",
+        "ParameterValue": "work-mac-os"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer1azPara",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer1ImageIdPara",
+        "ParameterValue": "ami-002070d43b0a4f171"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer1InstanceTypePara",
+        "ParameterValue": "t2.micro"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer1KeyNamePara",
+        "ParameterValue": "work-mac-os"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer2azPara",
+        "ParameterValue": "us-east-1b"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer2ImageIdPara",
+        "ParameterValue": "ami-002070d43b0a4f171"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer2InstanceTypePara",
+        "ParameterValue": "t2.micro"
+    },
+    {
+        "ParameterKey": "VenturaProdAppServer2KeyNamePara",
+        "ParameterValue": "work-mac-os"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceAllocatedStoragePara",
+        "ParameterValue": "20"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceDBInstanceClassPara",
+        "ParameterValue": "db.t3.micro"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceEnginePara",
+        "ParameterValue": "MySQL"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceMasterUsernamePara",
+        "ParameterValue": "admin"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceMasterUserPasswordPara",
+        "ParameterValue": "bhngs98712"
+    },
+    {
+        "ParameterKey": "VenturaProdDBInstanceMultiAZPara",
+        "ParameterValue": "false"
+    }
+]
