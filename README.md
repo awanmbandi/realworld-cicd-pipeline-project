@@ -1,3 +1,3 @@
 # Jenkins Complete CI/CD Pipeline (Java Web Application)
 
-![CompleteCICDProject!](https://lucid.app/documents/view/2ecfbe11-3b9f-4b5a-9c47-abb37f6d58eb)
+![CompleteCICDProject!](https://lucid.app/publicSegments/view/ce9ebd34-ae84-48b5-a871-e234452c056a/image.png)
