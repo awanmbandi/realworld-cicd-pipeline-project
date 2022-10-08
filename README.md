@@ -6,6 +6,7 @@
 
 1a) Create a GitHub Repository `Jenkins-CI/CD-Pipeline-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository).
+    
 1b) Jenkins/Maven/Ansible
     - Create an Amazon Linux 2 VM instance and call it "jenkins-maven-ansible"
     - Instance type: t2.medium
@@ -13,6 +14,7 @@
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/eagles-batch-devops-projects/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
     - Launch Instance
+
 2) SonarQube
     - Create an Create an Ubuntu 18.04 VM instance and call it "SonarQube"
     - Instance type: t2.medium
@@ -20,6 +22,7 @@
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/eagles-batch-devops-projects/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
     - Launch Instance
+
 3) Nexus
     - Create an Amazon Linux 2 VM instance and call it "Nexus"
     - Instance type: t2.medium
@@ -27,6 +30,7 @@
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/eagles-batch-devops-projects/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
     - Launch Instance
+
 4) EC2 (Dev/Stage/Prod)
     - Create 3 Amazon Linux 2 VM instance and call them (Names: Dev-Env, Stage-Env and Prod-Env)
     - Instance type: t2.micro
