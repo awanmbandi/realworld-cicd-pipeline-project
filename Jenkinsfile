@@ -71,7 +71,7 @@ pipeline {
     // }
     stage('Deploy to Stage') {
       environment {
-        HOSTS = "dev"
+        HOSTS = "dev" // Make sure to update to "stage"
       }
       steps {
         sh "ansible-playbook ${WORKSPACE}/deploy.yaml --extra-vars \"hosts=$HOSTS workspace_path=$WORKSPACE\""
