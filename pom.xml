@@ -94,10 +94,12 @@
 
     <pluginManagement>
       <plugins>
+        <!--
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.2.0</version>
         <plugin>
+        -->
 
         <plugin>
           <artifactId>maven-checkstyle-plugin</artifactId>
