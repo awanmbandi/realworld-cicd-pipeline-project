@@ -47,7 +47,7 @@ pipeline {
       steps {
         sh """mvn sonar:sonar \
             -Dsonar.projectKey=CICD-Project \
-            -Dsonar.host.url=http://172.31.86.190:9000 \
+            -Dsonar.host.url=http://18.237.127.238:9000 \
             -Dsonar.login=1580f2f071aaaf51fb883fd4429dc0179ee56569"""
       }
     }
