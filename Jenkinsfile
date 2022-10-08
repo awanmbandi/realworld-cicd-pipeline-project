@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn mvn dependency:purge-local-repository -DmanualInclude="groupId:artifactId" clean package'
       }
       post {
         success {
