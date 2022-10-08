@@ -14,20 +14,7 @@
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-  </properties>  
-
-  <proxies>
-   <proxy>
-      <id>example-proxy</id>
-      <active>true</active>
-      <protocol>http</protocol>
-      <host>52.40.3.6:8081</host>
-      <port>8080</port>
-      <username>admin</username>
-      <password>admin</password>
-      <nonProxyHosts>http://52.40.3.6:8081/repository/maven_project/</nonProxyHosts>
-    </proxy>
-  </proxies>     
+  </properties>      
          
   <modules>
     <module>server</module>
