@@ -15,6 +15,9 @@ phases:
   pre_build:
     commands:
       - apt-get update
+      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+      - apt -y install nodejs
+      - node -v
       - apt-get install -y jq checkstyle
       - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
       - tar xzf apache-maven-3.5.4-bin.tar.gz
