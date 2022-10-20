@@ -1,5 +1,5 @@
 # AWS Native CI/CD Pipeline Project Architecture (Java Web Application)
-![CompleteAWSNativeCICDProject!](https://lucid.app/publicSegments/view/c34c42ef-f87e-44a7-a027-badd761d31b4/image.png)
+![CompleteAWSNativeCICDProject!](https://lucid.app/publicSegments/view/798557ac-1687-465b-888b-e7c28207a3c9/image.png)
 
 Copy the contents of this folder and its subfolders to the CodeCommit repo 
 
