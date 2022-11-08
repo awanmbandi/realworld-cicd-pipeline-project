@@ -61,7 +61,7 @@
 
 8) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
-    - Link: https://join.slack.com/t/jjtech-eagles-cicd/shared_invite/zt-1go3k7pz7-uSy3D4ai3Pb7KJk2G1sc1g 
+    - Link: https://app.slack.com/client/T043JRQBB5L/C044F5PH3DE 
 
 9) Configure Promitheus
     - Login/SSH to your Prometheus Server
