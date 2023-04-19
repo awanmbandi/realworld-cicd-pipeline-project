@@ -1,4 +1,4 @@
-# Jenkins CI/CD Pipeline Project Architecture (Java Web Application)
+# End-to-End Jenkins CI/CD Pipeline Project Architecture (Java Web Application)
 ![CompleteCICDProject!](https://lucid.app/publicSegments/view/0c183bd6-73f4-4547-93e1-5246db5e863c/image.png) 
 
 # Jenkins Complete CI/CD Pipeline Environment Setup 
