@@ -43,6 +43,10 @@ pipeline {
             }
         }
     }
+    stage('JACOCO Code Coverage') {
+            junit 'target/surefire-reports/**/*.xml'
+            jacoco()
+    }
     stage('SonarQube Scan') {
       steps {
         sh """mvn sonar:sonar \
