@@ -43,19 +43,6 @@ pipeline {
             }
         }
     }
-    //stage('JACOCO Code Coverage') {
-    // steps {
-        //sh './jenkins_build.sh'
-    //    junit '*/build/test-results/*.xml'
-    //    step( [ $class: 'JacocoPublisher' ] )
-    // }
-    //}
-    stage('JACOCO Code Coverage') {
-      steps {
-          junit 'target/surefire-reports/**/*.xml'
-          jacoco()
-      }
-    }
     stage('SonarQube Scan') {
       steps {
         sh """mvn sonar:sonar \
