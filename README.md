@@ -304,6 +304,7 @@
         - Pipeline Maven Integration
         - Maven Release Plug-In
         - Slack Notification
+        - Code Coverage API Plugin (Jacoco)
     - Install all plugings without restart 
 
 18) Confirm and make test your installations/setups  
