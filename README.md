@@ -63,6 +63,129 @@
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://app.slack.com/client/T043JRQBB5L/C044F5PH3DE 
 
+## Configure All Systems
+### Jenkins setup
+1) #### Access Jenkins
+    Copy your Jenkins Public IP Address and paste on the browser = ExternalIP:8080
+    - Login to your Jenkins instance using your Shell (GitBash or your Mac Terminal)
+    - Copy the Path from the Jenkins UI to get the Administrator Password
+        - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+        - Copy the password and login to Jenkins
+    - Plugins: Choose Install Suggested Plugings 
+    - Provide 
+        - Username: **admin**
+        - Password: **admin**
+        - Name and Email can also be admin. You can use `admin` all, as its a poc.
+    - Continue and Start using Jenkins
+
+2)  #### Plugin installations:
+    - Click on "Manage Jenkins"
+    - Click on "Plugin Manager"
+    - Click "Available"
+    - Search and Install the following Plugings "Install Without Restart"
+        - **SonarQube Scanner**
+        - **Prometheus metrics**
+        - **CloudBees Disk Usage Simple**
+        - **Slack Notification**
+    - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
+
+
+3)  #### Pipeline creation
+    - Click on **New Item**
+    - Enter an item name: **app-cicd-pipeline** & select the category as **Pipeline**
+    - Now scroll-down and in the Pipeline section --> Definition --> Select Pipeline script from SCM
+    - SCM: **Git**
+    - Repositories
+        - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
+        - Branch Specifier (blank for 'any'): */main
+        - Script Path: Jenkinsfile
+    - Save
+
+
+4)  #### Global tools configuration:
+    - Click on Manage Jenkins --> Global Tool Configuration
+
+        **JDK** --> Add JDK --> Make sure **Install automatically** is enabled --> 
+        
+        **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
+
+        ![JDKSetup!](https://github.com/cvamsikrishna11/devops-fully-automated/blob/main/jdk_setup.png)
+
+        * Click on Add installer
+        * Select Extract *.zip/*.tar.gz --> Fill the below values
+        * Name: **localJdk**
+        * Download URL for binary archive: **https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz**
+        * Subdirectory of extracted archive: **jdk-11.0.1**
+    - **Maven** --> Add Maven --> Make sure **Install automatically** is enabled --> Install from Apache --> Fill the below values
+        * Name: **localMaven**
+        * Version: Keep the default version as it is 
+
+5)  #### Credentials setup(SonarQube, Nexus, Ansible, Slack):
+    - Click on Manage Jenkins --> Manage Credentials --> Global credentials (unrestricted) --> Add Credentials
+
+        1)  ###### SonarQube secret token (sonarqube-token)
+            - Kind: Secret text :
+                    Generating SonarQube secret token
+                    - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
+                    - Click on profile --> My Account --> Security --> Tokens
+                    - Generate Tokens: Fill **jenkins-token**
+                    - Click on **Generate**
+                    - Copy the token
+            - Secret: Fill the secret token value that we have created on the SonarQube server
+            - ID: sonarqube-token
+            - Description: sonarqube-token
+            - Click on Create
+
+        2)  ###### Nexus username & password (nexus-credentials)
+            - Kind: Username with password                  
+            - Username: admin
+            - Enable Treat username as secret
+            - Password: admin
+            - ID: nexus-credentials
+            - Description: nexus-credentials
+            - Click on Create    
+
+        3)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
+            - Kind: Username with password                  
+            - Username: ansadmin
+            - Enable Treat username as secret
+            - Password: ansadmin
+            - ID: ansible-deploy-server-credentials
+            - Description: ansible-deploy-server-credentials
+            - Click on Create    
+
+        4)  ###### Slack secret token (slack-token)
+            - Kind: Secret text            
+            - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
+            - ID: slack-token
+            - Description: slack-token
+            - Click on Create                 
+
+    
+6)  #### Configure system:    
+
+        1)  - Click on Manage Jenkins --> Global Tool Configuration
+            - Go to section SonarQube servers --> **Add SonarQube **
+            - Name: **SonarQube**
+            - Server URL: http://Replace-With-SonarQube-Server-Private-IP:9000          (replace SonarQube privat IP here)
+            - Click on Save    
+
+        2)  - Click on Manage Jenkins --> Configure System
+            - Go to section Prometheus
+            - Collecting metrics period in seconds: **15**
+            - Click on Save
+
+        3)  - Click on Manage Jenkins --> Configure System
+            - Go to section Slack
+            - Use new team subdomain & integration token credentials created in the above slack joining step
+            - Workspace: **Replace with Team Subdomain value** (created above)
+            - Credentials: select the slack-token credentials (created above) 
+            - Default channel / member id: #general
+            - Click on Save  
+
+
+## ####### Observing!!!!!!!!! #######
+
 9) Configure Promitheus
     - Login/SSH to your Prometheus Server
     - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
