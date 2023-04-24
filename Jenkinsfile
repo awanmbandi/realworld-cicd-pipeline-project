@@ -52,10 +52,11 @@ pipeline {
         }
     }
     stage('Quality Gate') {
-            steps {
-                waitForQualityGate abortPipeline: true
-           }
-     }
+      steps 
+        timeout(time : 1, unit : 'HOURS'){
+          waitForQualityGate abortPipeline: true
+      }
+    }
     stage('Upload to Artifactory') {
       steps {
         sh "mvn clean deploy -DskipTests"
