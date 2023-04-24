@@ -173,7 +173,7 @@
             - ID: ansible-deploy-server-credentials
             - Description: ansible-deploy-server-credentials
             - Click on Create   
-  ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.41.04%20AM.png)
+![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.41.04%20AM.png)
 
 6)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
