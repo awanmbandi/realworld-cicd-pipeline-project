@@ -131,44 +131,31 @@
       * Name: **localMaven**
       * Version: Keep the default version as it is 
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
-
-4B) ### Configure System
-    - Click on ``Manage Jenkins`` --> ``Configure System`` --> `SonarQube Servers`
-    ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
     
-5)  #### Credentials setup(SonarQube, Nexus, Ansible, Slack):
+5)  #### Credentials setup(SonarQube, Ansible, Slack):
     - Click on Manage Jenkins --> Manage Credentials --> Global credentials (unrestricted) --> Add Credentials
 
-        1)  ###### SonarQube secret token (sonarqube-token)
+        1)  ###### SonarQube secret token (SonarQube-Token)
             - Kind: Secret text :
                     Generating SonarQube secret token
                     - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
                     - Click on profile --> My Account --> Security --> Tokens
                     - Generate Tokens: Fill **jenkins-token**
                     - Click on **Generate**
-                    - Copy the token
-            - Secret: Fill the secret token value that we have created on the SonarQube server
-            - ID: sonarqube-token
-            - Description: sonarqube-token
+                    - Copy the token 
+            - Secret: Fill the SonarQube token value that we have created on the SonarQube server
+            - ID: ``SonarQube-Token``
+            - Description: ``SonarQube-Token``
             - Click on Create
 
-        2)  ###### Nexus username & password (nexus-credentials)
-            - Kind: Username with password                  
-            - Username: admin
-            - Enable Treat username as secret
-            - Password: admin
-            - ID: nexus-credentials
-            - Description: nexus-credentials
-            - Click on Create    
-
         3)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
-            - Kind: Username with password                  
+            - Kind: Username with password          
             - Username: ansadmin
             - Enable Treat username as secret
             - Password: ansadmin
             - ID: ansible-deploy-server-credentials
             - Description: ansible-deploy-server-credentials
-            - Click on Create    
+            - Click on Create
 
         4)  ###### Slack secret token (slack-token)
             - Kind: Secret text            
@@ -177,28 +164,18 @@
             - Description: slack-token
             - Click on Create                 
 
-    
 6)  #### Configure system:    
-
-        1)  - Click on Manage Jenkins --> Global Tool Configuration
-            - Go to section SonarQube servers --> **Add SonarQube **
-            - Name: **SonarQube**
-            - Server URL: http://Replace-With-SonarQube-Server-Private-IP:9000          (replace SonarQube privat IP here)
-            - Click on Save    
-
-        2)  - Click on Manage Jenkins --> Configure System
-            - Go to section Prometheus
-            - Collecting metrics period in seconds: **15**
-            - Click on Save
+        1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
+            - `SonarQube Servers`
+            ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
         3)  - Click on Manage Jenkins --> Configure System
             - Go to section Slack
             - Use new team subdomain & integration token credentials created in the above slack joining step
             - Workspace: **Replace with Team Subdomain value** (created above)
             - Credentials: select the slack-token credentials (created above) 
-            - Default channel / member id: #general
+            - Default channel / member id: #PROVIDE_YOUR_CHANNEL_NAME_HERE
             - Click on Save  
-
 
 ## ####### Observing!!!!!!!!! #######
 
