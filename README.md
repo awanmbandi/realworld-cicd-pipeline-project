@@ -227,7 +227,7 @@
 
     - Go ahead and Confirm in the Jenkinsfile you have the “Quality Gate Stage”. The stage code should look like the below;
     ```
-    stage('Quality Gate') {
+    stage('SonarQube Gatekeeper') {
         steps {
           timeout(time : 1, unit : 'HOURS'){
           waitForQualityGate abortPipeline: true
