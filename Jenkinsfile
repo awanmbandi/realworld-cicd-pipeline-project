@@ -44,10 +44,10 @@ pipeline {
         }
     }
     stage('SonarQube scanning') {
+        environment {
+            SonarQube_Token = credentials("sonarqube")
+        }
         steps {
-            environment {
-                SonarQube_Token = credentials("sonarqube")
-            }
             withSonarQubeEnv('SonarQube') { 
                 sh """
                 mvn sonar:sonar \
