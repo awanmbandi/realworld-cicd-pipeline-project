@@ -70,6 +70,10 @@
       - Click `Add Jenkins CI Integration`
       - SAVE SETTINGS/CONFIGURATIONS
       - Leave this page open
+    
+    #### Update Your Jenkinsfile 
+		     - Update Jenkinsfile and pass your Channel Name
+		     - Save and Push to GitHub
 
 ## Configure All Systems
 ### Jenkins setup
@@ -189,6 +193,30 @@
             - Test Connection
             - Click on Save
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
+
+### SonarQube Configuration
+1)  ### Access SonarQube from browser
+    - http://<ipaddress>:9000
+    - Default user name: “admin”
+    - Default password: “admin”
+    - Please enter a name and generate token
+    ![SonarQubeSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.54.38%20AM.png)
+
+    - We have to copy the above code and update it in JenkinsFile
+    - Save it as well on your NotePad or Datafile 
+    - NOTE: You'll need this Token in Jenkins when creating credentials
+
+2)  ### Setup SonarQube Quality Gate
+    - Click on Project Settings and > Select “Quality Gates”
+    ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.58.28%20AM.png)
+    - Click on Create Quality Gate
+    ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.00.25%20AM.png)
+
+
+
+
+
+
 
 ## ####### Observing!!!!!!!!! #######
 
