@@ -44,17 +44,16 @@ pipeline {
         }
     }
     stage('SonarQube scanning') {
-        environment {
-            SonarQube_Token = credentials("sonarqube")
-        }
         steps {
             withSonarQubeEnv('SonarQube') { 
+                withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_TOKEN')]) {
                 sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=jjtech-cicd-pipeline \
                 -Dsonar.host.url=http://3.87.232.121:9000 \
-                -Dsonar.login=$sonarqube
+                -Dsonar.login=$SONAR_TOKEN
                 """
+                }
             }
         }
     }
