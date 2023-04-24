@@ -251,9 +251,8 @@
     - Once you select create repository and select maven2(group)
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.45.38%20AM.png)
 
-2)  ### Configure Nexus With Jenkins
-A.  Install Maven (If Not Already Installed):
-    
+### Configure Nexus With Jenkins
+A.  Install Maven (If Not Already Installed)
     ```
     sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
     
