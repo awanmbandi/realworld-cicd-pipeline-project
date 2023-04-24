@@ -51,10 +51,11 @@ pipeline {
               -Dsonar.login=f29b9b05e1e3e5dd9c582de652fad3693b88b89b"""
         }
     }
-    stage('Quality Gate') {
-      steps 
-        timeout(time : 1, unit : 'HOURS'){
-          waitForQualityGate abortPipeline: true
+    stage("Quality Gate") {
+        steps{
+            timeout(time : 1, unit : 'HOURS'){
+              waitForQualityGate abortPipeline: true
+        }
       }
     }
     stage('Upload to Artifactory') {
