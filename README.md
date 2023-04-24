@@ -86,11 +86,13 @@
     - Click "Available"
     - Search and Install the following Plugings "Install Without Restart"
         - **SonarQube Scanner**
-        - **Prometheus metrics**
-        - **CloudBees Disk Usage Simple**
+        - **Maven Integration**
+        - **Pipeline Maven Integration**
+        - **Maven Release Plug-In**
         - **Slack Notification**
+        - **Code Coverage API Plugin** (still being worked on)
     - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
-
+    ![CompleteCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.52.35%20AM.png)
 
 3)  #### Pipeline creation
     - Click on **New Item**
