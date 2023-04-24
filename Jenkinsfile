@@ -45,12 +45,15 @@ pipeline {
     }
     stage('SonarQube scanning') {
         steps {
+            environment {
+                SonarQube_Token = credentials("sonarqube")
+            }
             withSonarQubeEnv('SonarQube') { 
                 sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=jjtech-cicd-pipeline \
                 -Dsonar.host.url=http://3.87.232.121:9000 \
-                -Dsonar.login=f29b9b05e1e3e5dd9c582de652fad3693b88b89b
+                -Dsonar.login=$sonarqube
                 """
             }
         }
