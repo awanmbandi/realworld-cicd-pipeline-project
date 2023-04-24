@@ -113,7 +113,7 @@
         
         **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
 
-        ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png)
+  ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png)
 
         * Click on Add installer
         * Select Extract *.zip/*.tar.gz --> Fill the below values
@@ -122,7 +122,8 @@
         * Subdirectory of extracted archive: **jdk-11.0.1**
     - **Maven** --> Add Maven --> Make sure **Install automatically** is enabled --> Install from Apache --> Fill the below values
         * Name: **localMaven**
-        * Version: Keep the default version as it is 
+        * Version: Keep the default version as it is
+  ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.16.16%20AM.png)
     
 
 5)  #### Credentials setup(SonarQube, Nexus, Ansible, Slack):
