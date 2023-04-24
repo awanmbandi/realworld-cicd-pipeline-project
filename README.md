@@ -105,7 +105,6 @@
     - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
     ![JenkinsSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.52.35%20AM.png)
 
-
 3)  #### Pipeline creation
     - Click on **New Item**
     - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
@@ -239,6 +238,19 @@
      - FAIL Your Quality Gate: Go back to SonarQube >>> Open your Project >>> Click on Quality Gates at the top >>> Select your Project Quality Gate >>> Click EDIT >>> Change the Value to “0” >>> Update Condition
      - Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
      - Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
+
+### Nexus Configuration
+1)  ### Accessing Nexus: 
+    The nexus service on port 8081. To access the nexus dashboard, visit http://:8081. You will be able to see the nexus homepage as shown below.
+    - Default username: ``admin``
+    - Default Password: ```sudo cat /app/sonatype-work/nexus3/admin.password```
+    - NOTE: Once you login, you will be prompted to reset the password
+
+    - Go ahead and create your Nexus Project Repository
+    ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.26.04%20AM.png) 
+    - Once you select create repository and select maven2(group)
+    ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.45.38%20AM.png)
+
 
 
 
