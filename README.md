@@ -71,13 +71,14 @@
     - Copy the Path from the Jenkins UI to get the Administrator Password
         - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
         - Copy the password and login to Jenkins
+    ![CompleteCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png)
     - Plugins: Choose Install Suggested Plugings 
     - Provide 
         - Username: **admin**
         - Password: **admin**
         - Name and Email can also be admin. You can use `admin` all, as its a poc.
     - Continue and Start using Jenkins
-    ![CompleteCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png)
+    ![CompleteCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png)
 
 2)  #### Plugin installations:
     - Click on "Manage Jenkins"
