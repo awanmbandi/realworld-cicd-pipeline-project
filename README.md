@@ -61,7 +61,15 @@
 
 8) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
-    - Link: https://app.slack.com/client/T043JRQBB5L/C044F5PH3DE 
+    - Link: https://join.slack.com/t/realworldcicdproject/shared_invite/zt-1tryd7x1v-g8a~zEJBKKchVvvK87jkeQ  
+      - You can either join through the browser or your local Slack App
+      - Create a `Private Channel` using the naming convention `yourFirstorLastname-cicd-project-alerts`
+      - Click on the Drop down on the Channel and select Integrations and take `Add an App`
+      - Search for `Jenkins` and click on `View` >> `Configuration/Install` >> `Add to Slack` 
+      - On Post to Channel: Click the Drop Down and select your channel above `yourFirstorLastname-cicd-project-alerts`
+      - Click `Add Jenkins CI Integration`
+      - SAVE SETTINGS/CONFIGURATIONS
+      - Leave this page open
 
 ## Configure All Systems
 ### Jenkins setup
@@ -96,15 +104,17 @@
 
 3)  #### Pipeline creation
     - Click on **New Item**
-    - Enter an item name: **app-cicd-pipeline** & select the category as **Pipeline**
+    - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
     - Now scroll-down and in the Pipeline section --> Definition --> Select Pipeline script from SCM
+    - GitHub project: `Provide Your Project Repo Git URL`
+    - GitHub hook trigger for GITScm polling: `Check the box` 
+      - NOTE: Make sure to also configure it on GitHub's side
     - SCM: **Git**
     - Repositories
         - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
         - Branch Specifier (blank for 'any'): */main
         - Script Path: Jenkinsfile
     - Save
-
 
 4)  #### Global tools configuration:
     - Click on Manage Jenkins --> Global Tool Configuration
@@ -148,21 +158,22 @@
             - Description: ``SonarQube-Token``
             - Click on Create
 
-        2)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
+        2)  ###### Slack secret token (slack-token)
+            - Kind: Secret text            
+            - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
+            - ID: slack-token
+            - Description: slack-token
+            - Click on Create    
+
+        3)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
             - Kind: Username with password          
             - Username: ansadmin
             - Enable Treat username as secret
             - Password: ansadmin
             - ID: ansible-deploy-server-credentials
             - Description: ansible-deploy-server-credentials
-            - Click on Create
-
-        3)  ###### Slack secret token (slack-token)
-            - Kind: Secret text            
-            - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
-            - ID: slack-token
-            - Description: slack-token
-            - Click on Create                 
+            - Click on Create   
+  ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.41.04%20AM.png)
 
 6)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
@@ -175,6 +186,7 @@
             - Workspace: **Replace with Team Subdomain value** (created above)
             - Credentials: select the slack-token credentials (created above) 
             - Default channel / member id: #PROVIDE_YOUR_CHANNEL_NAME_HERE
+            - Test Connection
             - Click on Save
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
