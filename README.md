@@ -219,6 +219,27 @@
     - Click on Projects >> Administration >> Select `Quality Gate`
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.05.47%20AM.png)
 
+3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
+    - Still on `Administration`
+    - Select `Webhook`
+    - Click on `Create Webhook` 
+    ![SonarQubeSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.08.26%20AM.png)
+
+    - Go ahead and Confirm in the Jenkinsfile you have the “Quality Gate Stage”. The stage code should look like the below;
+    ```
+    stage('Quality Gate') {
+        steps {
+          timeout(time : 1, unit : 'HOURS'){
+          waitForQualityGate abortPipeline: true
+          }
+       }
+    }
+    ```
+     - Run Your Pipeline To Test Your Quality Gate (It should PASS QG)
+     - FAIL Your Quality Gate: Go back to SonarQube >>> Open your Project >>> Click on Quality Gates at the top >>> Select your Project Quality Gate >>> Click EDIT >>> Change the Value to “0” >>> Update Condition
+     - Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
+     - Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
+
 
 
 
