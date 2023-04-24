@@ -46,7 +46,7 @@ pipeline {
     stage('SonarQube scanning') {
         steps {
             withSonarQubeEnv('SonarQube') { 
-                    sh """
+                sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=jjtech-cicd-pipeline \
                 -Dsonar.host.url=http://3.87.232.121:9000 \
