@@ -121,6 +121,12 @@
         * Name: **localJdk**
         * Download URL for binary archive: **https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz**
         * Subdirectory of extracted archive: **jdk-11.0.1**
+    - **Git** >>> Add Git >>> Install automatically(Optional)
+      ![GitSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.36.23%20AM.png)
+    
+    - **SonarQube Scanner** >>> Add SonarQube Scanner >>> Install automatically(Optional)
+      ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
+
     - **Maven** --> Add Maven --> Make sure **Install automatically** is enabled --> Install from Apache --> Fill the below values
         * Name: **localMaven**
         * Version: Keep the default version as it is 
