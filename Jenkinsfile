@@ -56,7 +56,6 @@ pipeline {
                     }
                 }
             }
-        }
     // stage('SonarQube Scan') {
     //   steps {
     //     sh """mvn sonar:sonar \
