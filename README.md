@@ -71,12 +71,14 @@
     - Copy the Path from the Jenkins UI to get the Administrator Password
         - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
         - Copy the password and login to Jenkins
+    ![JenkinsSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png) 
     - Plugins: Choose Install Suggested Plugings 
     - Provide 
         - Username: **admin**
         - Password: **admin**
         - Name and Email can also be admin. You can use `admin` all, as its a poc.
     - Continue and Start using Jenkins
+    ![JenkinsSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
 
 2)  #### Plugin installations:
     - Click on "Manage Jenkins"
@@ -84,10 +86,12 @@
     - Click "Available"
     - Search and Install the following Plugings "Install Without Restart"
         - **SonarQube Scanner**
-        - **Prometheus metrics**
-        - **CloudBees Disk Usage Simple**
+        - **Maven Integration**
+        - **Pipeline Maven Integration**
+        - **Maven Release Plug-In**
         - **Slack Notification**
     - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
+    ![JenkinsSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.52.35%20AM.png)
 
 
 3)  #### Pipeline creation
@@ -104,12 +108,13 @@
 
 4)  #### Global tools configuration:
     - Click on Manage Jenkins --> Global Tool Configuration
+    ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
         **JDK** --> Add JDK --> Make sure **Install automatically** is enabled --> 
         
         **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
 
-        ![JDKSetup!](https://github.com/cvamsikrishna11/devops-fully-automated/blob/main/jdk_setup.png)
+        ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
         * Click on Add installer
         * Select Extract *.zip/*.tar.gz --> Fill the below values
