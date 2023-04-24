@@ -46,16 +46,16 @@ pipeline {
     stage('SonarQube Scan') {
       steps {
         sh """mvn sonar:sonar \
-              -Dsonar.projectKey=JavaWebApp \
-              -Dsonar.host.url=http://172.31.4.143:9000 \
-              -Dsonar.login=e9733df3fcd6ed54cef307d8ac4cc00eeb2d3611"""
-      }
+              -Dsonar.projectKey=jjtech-cicd-pipeline \
+              -Dsonar.host.url=http://172.31.83.105:9000 \
+              -Dsonar.login=f29b9b05e1e3e5dd9c582de652fad3693b88b89b"""
+        }
     }
-    // stage('Quality Gate') {
-            // steps {
-                // waitForQualityGate abortPipeline: true
-           // }
-     // }
+    stage('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: true
+           }
+     }
     stage('Upload to Artifactory') {
       steps {
         sh "mvn clean deploy -DskipTests"
