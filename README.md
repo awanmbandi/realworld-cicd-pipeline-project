@@ -130,7 +130,7 @@
     - **Maven** --> Add Maven --> Make sure **Install automatically** is enabled --> Install from Apache --> Fill the below values
         * Name: **localMaven**
         * Version: Keep the default version as it is 
-      ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
+  ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
 
 5)  #### Credentials setup(SonarQube, Nexus, Ansible, Slack):
     - Click on Manage Jenkins --> Manage Credentials --> Global credentials (unrestricted) --> Add Credentials
