@@ -148,7 +148,7 @@
             - Description: ``SonarQube-Token``
             - Click on Create
 
-        3)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
+        2)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
             - Kind: Username with password          
             - Username: ansadmin
             - Enable Treat username as secret
@@ -157,7 +157,7 @@
             - Description: ansible-deploy-server-credentials
             - Click on Create
 
-        4)  ###### Slack secret token (slack-token)
+        3)  ###### Slack secret token (slack-token)
             - Kind: Secret text            
             - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
             - ID: slack-token
@@ -165,12 +165,12 @@
             - Click on Create                 
 
 6)  #### Configure system:    
-        1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
-            - `SonarQube Servers`
-            ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
+    1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
+        - `SonarQube Servers`
+        ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
-        3)  - Click on Manage Jenkins --> Configure System
-            - Go to section Slack
+    2)  - Click on Manage Jenkins --> Configure System
+        - Go to section Slack
             - Use new team subdomain & integration token credentials created in the above slack joining step
             - Workspace: **Replace with Team Subdomain value** (created above)
             - Credentials: select the slack-token credentials (created above) 
