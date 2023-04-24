@@ -167,7 +167,7 @@
 6)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
         - `SonarQube Servers`
-        ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
+        ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
     2)  - Click on Manage Jenkins --> Configure System
         - Go to section Slack
@@ -175,7 +175,8 @@
             - Workspace: **Replace with Team Subdomain value** (created above)
             - Credentials: select the slack-token credentials (created above) 
             - Default channel / member id: #PROVIDE_YOUR_CHANNEL_NAME_HERE
-            - Click on Save  
+            - Click on Save
+        ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
 ## ####### Observing!!!!!!!!! #######
 
