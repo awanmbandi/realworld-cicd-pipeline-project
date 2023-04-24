@@ -50,6 +50,11 @@ pipeline {
               -Dsonar.host.url=http://172.31.83.105:9000 \
               -Dsonar.login=f29b9b05e1e3e5dd9c582de652fad3693b88b89b"""
         }
+        steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean package sonar:sonar'
+            }
+        }
     }
     stage("Quality Gate") {
         steps{
