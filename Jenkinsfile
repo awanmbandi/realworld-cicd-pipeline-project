@@ -45,7 +45,7 @@ pipeline {
     }
     stage('SonarQube scanning') {
         steps {
-            withSonarQubeEnv('SonarQube') {
+            withSonarQubeEnv('SonarQube') { 
                     sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=jjtech-cicd-pipeline \
@@ -55,7 +55,6 @@ pipeline {
             }
         }
     }
-
     stage('Quality Gate') {
         steps {
             waitForQualityGate abortPipeline: true
