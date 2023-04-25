@@ -69,8 +69,8 @@ pipeline {
     stage('Upload artifact to Nexus') {
         steps {
             withCredentials([usernamePassword(credentialsId: 'Nexus-Credential', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
-            sh "sudo sed -i \"s/.*<username><\\/username>/<username>$USER_NAME<\\/username>/g\" ${WORKSPACE}/jenkins-nexus/settings.xml"
-            sh "sudo sed -i \"s/.*<password><\\/password>/<password>$PASSWORD<\\/password>/g\" ${WORKSPACE}/jenkins-nexus/settings.xml"
+            sh 'sudo sed -i \'s/.*<username><\\/username>/<username>$USER_NAME<\\/username>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
+            sh 'sudo sed -i \'s/.*<password><\\/password>/<password>$PASSWORD<\\/password>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
             sh 'sudo cp ${WORKSPACE}/jenkins-nexus/settings.xml /var/lib/jenkins/.m2'
             sh 'mvn clean deploy -DskipTests'
             }
