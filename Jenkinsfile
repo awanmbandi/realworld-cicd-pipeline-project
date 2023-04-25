@@ -10,7 +10,7 @@ pipeline {
     //NEXUS_PASSWORD = "$Nexus-Token"
     //NEXUS_URL = "172.31.18.62:8081"
     //NEXUS_REPOSITORY = "maven_project"
-    NEXUS_REPO_ID    = "maven_project"
+    //NEXUS_REPO_ID    = "maven_project"
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     ARTVERSION = "${env.BUILD_ID}"
   }

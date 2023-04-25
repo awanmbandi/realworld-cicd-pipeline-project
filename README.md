@@ -485,6 +485,8 @@ A.  Install Maven (If Not Already Installed)
         - Pipeline Maven Integration
         - Maven Release Plug-In
         - Slack Notification
+        - Nexus Artifact Uploader
+        - Build Timestamp Plugin (Needed for Artifact versioning)
         - Code Coverage API Plugin (Jacoco)
     - Install all plugings without restart 
 ![PluginInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
