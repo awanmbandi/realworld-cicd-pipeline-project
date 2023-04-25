@@ -111,7 +111,7 @@ pipeline {
             HOSTS = 'dev'
         }
         steps {
-            //withCredentials([usernamePassword(credentialsId: 'ansible-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
+            withCredentials([sshUserPrivateKey(credentialsId: "ansible-deployment-ssh-key", keyFileVariable: 'ANSIBLE_DEPLOYMENT_SSH_KEY')]) {
                 //sh "ansible-playbook -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml ${WORKSPACE}/deploy.yaml --extra-vars \"ansible_user=$USER_NAME ansible_password=$PASSWORD hosts=tag_Environment_$HOSTS workspace_path=$WORKSPACE\""
             sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping --private-key=${ANSIBLE_DEPLOYMENT_SSH_KEY}"
             //}
