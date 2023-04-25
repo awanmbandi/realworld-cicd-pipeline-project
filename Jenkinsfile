@@ -8,6 +8,11 @@ pipeline {
     WORKSPACE = "${env.WORKSPACE}"
     //NEXUS_USER = "$NEXUS_CREDS_USR"
     //NEXUS_PASSWORD = "$Nexus-Token"
+    //NEXUS_URL = "172.31.18.62:8081"
+    //NEXUS_REPOSITORY = "maven_project"
+    NEXUS_REPO_ID    = "maven_project"
+    NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
+    ARTVERSION = "${env.BUILD_ID}"
   }
   tools {
     maven 'localMaven'
@@ -66,21 +71,41 @@ pipeline {
           }
        }
     }
-    stage('Upload artifact to Nexus') {
-        steps {
-            withCredentials([usernamePassword(credentialsId: 'Nexus-Credential', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
-            sh 'sudo sed -i \'s/.*<username><\\/username>/<username>${USER_NAME}<\\/username>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
-            sh 'sudo sed -i \'s/.*<password><\\/password>/<password>${PASSWORD}<\\/password>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
-            sh 'sudo cp ${WORKSPACE}/jenkins-nexus/settings.xml /var/lib/jenkins/.m2'
-            sh 'mvn clean deploy -DskipTests'
-            }
+    stage("Nexus Artifact Uploader"){
+        steps{
+           nexusArtifactUploader(
+              nexusVersion: 'nexus3',
+              protocol: 'http',
+              nexusUrl: '172.31.18.62:8081',
+              groupId: 'webapp',
+              version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+              repository: "${NEXUS_REPO_ID}",
+              credentialsId: "${NEXUS_CREDENTIAL_ID}",
+              artifacts: [
+                  [artifactId: 'webapp',
+                  classifier: '',
+                  file: 'target/webapp.war',
+                  type: 'war']
+              ]
+           )
         }
     }
+    // stage('Upload artifact to Nexus') {
+    //     steps {
+    //         withCredentials([usernamePassword(credentialsId: 'Nexus-Credential', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
+    //         sh 'sudo sed -i \'s/.*<username><\\/username>/<username>${USER_NAME}<\\/username>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
+    //         sh 'sudo sed -i \'s/.*<password><\\/password>/<password>${PASSWORD}<\\/password>/g\' ${WORKSPACE}/jenkins-nexus/settings.xml'
+    //         sh 'sudo cp ${WORKSPACE}/jenkins-nexus/settings.xml /var/lib/jenkins/.m2'
+    //         sh 'mvn clean deploy -DskipTests'
+    //         }
+    //     }
+    // }
     // stage('Upload to Artifactory') {
     //   steps {
     //     sh "mvn clean deploy -DskipTests"
     //   }
     // }
+    
     stage('Deploy to DEV') {
       environment {
         HOSTS = "dev"
