@@ -128,7 +128,7 @@ pipeline {
             //sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping --private-key=${ANSIBLE_DEPLOYMENT_SSH_KEY}"
             }
         }
-    //}
+    }
     stage('Approval') {
         steps {
             input('Do you want to proceed?')
@@ -142,7 +142,7 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'ansible-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
                 sh "ansible-playbook -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml ${WORKSPACE}/deploy.yaml --extra-vars \"ansible_user=$USER_NAME ansible_password=$PASSWORD hosts=tag_Environment_$HOSTS workspace_path=$WORKSPACE\""
             sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping --private-key=${ANSIBLE_DEPLOYMENT_SSH_KEY} --user ec2-user"
-            //}
+            }
          }
       }
    }
