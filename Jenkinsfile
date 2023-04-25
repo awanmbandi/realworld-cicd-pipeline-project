@@ -84,7 +84,7 @@ pipeline {
               artifacts: [
                   [artifactId: 'webapp',
                   classifier: '',
-                  file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+                  file: '/webapp/target/webapp.war',
                   type: 'war']
               ]
            )
