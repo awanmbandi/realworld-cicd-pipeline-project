@@ -246,115 +246,68 @@
     - Default Password: ```sudo cat /app/sonatype-work/nexus3/admin.password```
     - NOTE: Once you login, you will be prompted to reset the password
 
-    - Go ahead and create your Nexus Project Repository
+    ### Go ahead and create your Nexus Project Repositories
+    - CREATE 1st REPO: Click on the Gear Icon >>> Repository >>> Create Repository >>> Select `maven2(hosted)` >>> Name: `maven-project-releases` >>> Create Repository
+
+    - CREATE 2nd REPO: Click Create Repository >>> Select `maven2(hosted)` >>> Name: `maven-project-snapshots` >>> Version Policy: Select `Snapshot` >>> Create Repository
+
+    - CREATE 3rd REPO: Click Create Repository >>> Select `maven2(proxy)` >>> Name: `maven-project-central` >>> Create Repository
+
+    - CREATE 4th REPO: Click Create Repository >>> Select `maven2(group)` >>> Name: `maven-project-group` >>> Assign All The Repos You Created to The Group >>> Create Repository
+
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.26.04%20AM.png) 
     - Once you select create repository and select maven2(group)
-    ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.45.38%20AM.png)
 
-### Configure Nexus With Jenkins
-A.  Install Maven (If Not Already Installed)
-    
-    ```
-    sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-    
-    sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-    
-    sudo yum install -y apache-maven
-    ```
+### Update Maven POM and Integrate/Configure Nexus With Jenkins
+A) Update Maven `POM.xml` file
+- Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
+```
+<url>http://172.31.82.00:8081/repository/maven-project-snapshot/</url>
 
--  We have to encrypt nexus password and update it in the file below
-    ```
-    mvn -emp admin
-    ```
--  We have to encrypt nexus password and update it in the file below
-    ```
-    mvn -emp admin
-    ```
--  Create folder in the root folder
-  ```
-   sudo su
-   cd /root
-   mkdir .m2
-  
-  ```
--  You will get an encrypted password from the above command, you need to change it in the below file.
-  ```
-  cd .m2
-  ```
--  create settings-security.xml file and 
-  ```
-  vi settings-security.xml
-  ```
--  Add the content to above file after change above password from line 6
-  ```
-  <?xml version="1.0"?>
-  <settingsSecurity>
-    <master>{admin}</master>
-  </settingsSecurity>
-  ```
--  We have to encrypt nexus password and update it in 9
-  ```
-  mvn -ep admin
-  ```
--  create settings.xml file 
-  ```
-  vi settings.xml
-  ```
--  Copy the below content after change the password from line 6. Also Update the Nexus IP Address on line 21 with your Nexus Private IP
+<url>http://172.31.82.00:8081/repository/maven-project-release/</url>
+```
 
+-  Add the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
+- The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
   ```
-<?xml version="1.0" encoding="UTF-8"?>
+  environment {
+    WORKSPACE = "${env.WORKSPACE}"
+    NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
+  }
+  ```
 
-<settings xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+- Here we're using the `Nexus Artifact Uploader` stage config to store the app artifact
+  ```
+  stage("Nexus Artifact Uploader"){
+      steps{
+          nexusArtifactUploader(
+            nexusVersion: 'nexus3',
+            protocol: 'http',
+            nexusUrl: '172.31.82.36:8081',
+            groupId: 'webapp',
+            version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+            repository: 'maven-project-release',  //"${NEXUS_REPOSITORY}",
+            credentialsId: "${NEXUS_CREDENTIAL_ID}",
+            artifacts: [
+                [artifactId: 'webapp',
+                classifier: '',
+                file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+                type: 'war']
+            ]
+          )
+      }
+  }
+  ```
+- After confirming all changes, go ahead and save, then push to GitHub.
+- Test your Pipeline to Make sure the Artifacts Upload Succeeds.
 
-  <localRepository>/var/lib/jenkins/.m2/repository</localRepository>
 
-<servers>
-  <server>
-        <id>nexus</id>
-        <username>admin</username>
-        <password>{admin}</password>
-    </server>
-</servers>
 
-<mirrors>
-    <mirror>
-      <id>nexus</id>
-      <name>nexus</name>
-      <url>http://13.235.132.119:8081/repository/maven_project/</url>
-      <mirrorOf>*</mirrorOf>
-    </mirror>
-  </mirrors>
 
-</settings>
-  ```
--  move above two files to /var/lib/jenkins/.m2
-  ```
-  mv settings.xml /var/lib/jenkins/.m2
-  mv settings-security.xml /var/lib/jenkins/.m2
-  ```
--  To check
-  ```
-  ls /var/lib/jenkins/.m2
-  ```
--  Get into the folder 
-  ```
-  cd /var/lib/jenkins/.m2
-  ```
--  Change ownership of the 2 files
-  ```
-  chown jenkins:jenkins settings.xml settings-security.xml
-  ```
--  Change permissions of the 2 files
-  ```
-  chmod 755 settings.xml settings-security.xml
-  ```
--  
-  ```
-  
-  ```
+
+
+
+
 3)  ### Navigate to Jenkins Dashboard (Run/Test The Job) 
 - Trigger the build again to see the “Upload to Artifact” to green in the pipeline
 
