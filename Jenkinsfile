@@ -7,7 +7,7 @@ pipeline {
   environment {
     WORKSPACE = "${env.WORKSPACE}"
     //NEXUS_USER = "$NEXUS_CREDS_USR"
-    NEXUS_PASSWORD = "$nexus-credentials"
+    //NEXUS_PASSWORD = "$nexus-credentials"
   }
   tools {
     maven 'localMaven'
@@ -48,7 +48,7 @@ pipeline {
     stage('SonarQube scanning') {
         steps {
             withSonarQubeEnv('SonarQube') { 
-                withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_TOKEN')]) {
+                withCredentials([string(credentialsId: 'SonarQube-Token', variable: 'SONAR_TOKEN')]) {
                 sh """
                 mvn sonar:sonar \
                 -Dsonar.projectKey=jjtech-cicd-pipeline \
