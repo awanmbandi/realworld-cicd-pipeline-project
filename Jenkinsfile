@@ -105,7 +105,6 @@ pipeline {
     //     sh "mvn clean deploy -DskipTests"
     //   }
     // }
-    
     stage('Deploy to DEV') {
       environment {
         HOSTS = "dev"
