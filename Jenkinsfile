@@ -7,7 +7,7 @@ pipeline {
   environment {
     WORKSPACE = "${env.WORKSPACE}"
     //NEXUS_USER = "$NEXUS_CREDS_USR"
-    //NEXUS_PASSWORD = "$nexus-credentials"
+    NEXUS_PASSWORD = "$Nexus-Token"
   }
   tools {
     maven 'localMaven'
