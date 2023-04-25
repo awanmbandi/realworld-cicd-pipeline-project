@@ -14,17 +14,17 @@ pipeline {
     jdk 'localJdk'
   }
   stages {
-    // stage('Build') {
-    //   steps {
-    //     sh 'mvn clean package'
-    //   }
-    //   post {
-    //     success {
-    //       echo ' now Archiving '
-    //       archiveArtifacts artifacts: '**/*.war'
-    //     }
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+      post {
+        success {
+          echo ' now Archiving '
+          archiveArtifacts artifacts: '**/*.war'
+        }
+      }
+    }
     stage('Unit Test'){
         steps {
             sh 'mvn test'
