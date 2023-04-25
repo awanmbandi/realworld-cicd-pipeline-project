@@ -13,7 +13,7 @@ pipeline {
     //NEXUS_REPO_ID    = "maven_project"
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     ARTVERSION = "${env.BUILD_ID}"
-    ANSIBLE_DEPLOYMENT_SSH_KEY = 'ansible-deployment-ssh-key'
+    //ANSIBLE_DEPLOYMENT_SSH_KEY = 'ansible-deployment-ssh-key'
   }
   tools {
     maven 'localMaven'
