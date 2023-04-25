@@ -79,12 +79,12 @@ pipeline {
               nexusUrl: '172.31.82.36:8081',
               groupId: 'webapp',
               version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-              repository: "${NEXUS_REPOSITORY}",
+              repository: 'maven-snapshots'  //"${NEXUS_REPOSITORY}",
               credentialsId: "${NEXUS_CREDENTIAL_ID}",
               artifacts: [
                   [artifactId: 'webapp',
                   classifier: '',
-                  file: '/webapp/target/webapp.war',
+                  file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
                   type: 'war']
               ]
            )
