@@ -487,5 +487,6 @@ A.  Install Maven (If Not Already Installed)
         - Slack Notification
         - Code Coverage API Plugin (Jacoco)
     - Install all plugings without restart 
+![PluginInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
 
 18) Confirm and make test your installations/setups  
