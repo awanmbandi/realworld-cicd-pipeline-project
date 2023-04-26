@@ -242,45 +242,44 @@
     
 5)  #### Credentials setup(SonarQube, Ansible, Slack):
     - Click on Manage Jenkins --> Manage Credentials --> Global credentials (unrestricted) --> Add Credentials
+    1)  ###### SonarQube secret token (SonarQube-Token)
+        - Kind: Secret text :
+                Generating SonarQube secret token
+                - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
+                - Click on profile --> My Account --> Security --> Tokens
+                - Generate Tokens: Fill **jenkins-token**
+                - Click on **Generate**
+                - Copy the token 
+        - Secret: Fill the SonarQube token value that we have created on the SonarQube server
+        - ID: ``SonarQube-Token``
+        - Description: ``SonarQube-Token``
+        - Click on Create
 
-        1)  ###### SonarQube secret token (SonarQube-Token)
-            - Kind: Secret text :
-                    Generating SonarQube secret token
-                    - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
-                    - Click on profile --> My Account --> Security --> Tokens
-                    - Generate Tokens: Fill **jenkins-token**
-                    - Click on **Generate**
-                    - Copy the token 
-            - Secret: Fill the SonarQube token value that we have created on the SonarQube server
-            - ID: ``SonarQube-Token``
-            - Description: ``SonarQube-Token``
-            - Click on Create
+    2)  ###### Slack secret token (slack-token)
+        - Kind: Secret text            
+        - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
+        - ID: slack-token
+        - Description: slack-token
+        - Click on Create  
 
-        2)  ###### Slack secret token (slack-token)
-            - Kind: Secret text            
-            - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
-            - ID: slack-token
-            - Description: slack-token
-            - Click on Create  
+    3)  ###### Nexus username & password (nexus-credentials)
+        - Kind: Username with password                  
+        - Username: admin
+        - Enable Treat username as secret
+        - Password: admin
+        - ID: nexus-credentials
+        - Description: nexus-credentials
+        - Click on Create   
 
-        3)  ###### Nexus username & password (nexus-credentials)
-            - Kind: Username with password                  
-            - Username: admin
-            - Enable Treat username as secret
-            - Password: admin
-            - ID: nexus-credentials
-            - Description: nexus-credentials
-            - Click on Create   
-
-        4)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
-            - Kind: Username with password          
-            - Username: ansadmin
-            - Enable Treat username as secret
-            - Password: ansadmin
-            - ID: ansible-deploy-server-credentials
-            - Description: ansible-deploy-server-credentials
-            - Click on Create   
-        ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
+    4)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
+        - Kind: Username with password          
+        - Username: ansadmin
+        - Enable Treat username as secret
+        - Password: ansadmin
+        - ID: ansible-deploy-server-credentials
+        - Description: ansible-deploy-server-credentials
+        - Click on Create   
+    ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
 
 6)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
