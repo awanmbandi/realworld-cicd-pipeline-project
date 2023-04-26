@@ -247,7 +247,7 @@
     
 5)  #### Credentials setup(SonarQube, Ansible, Slack):
     - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
-      1)  ###### SonarQube secret token (SonarQube-Token)
+      1)  ##### SonarQube secret token (SonarQube-Token)
           - Kind: Secret text :
                   Generating SonarQube secret token
                   - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
@@ -260,14 +260,14 @@
           - Description: ``SonarQube-Token``
           - Click on Create
 
-      2)  ###### Slack secret token (slack-token)
+      2)  ##### Slack secret token (slack-token)
           - Kind: Secret text            
           - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
           - ID: slack-token
           - Description: slack-token
           - Click on Create  
 
-      3)  ###### Nexus credentials (username & password)
+      3)  ##### Nexus credentials (username & password)
           - Kind: Username with password                  
           - Username: admin
           - Enable Treat username as secret
@@ -276,7 +276,7 @@
           - Description: nexus-credentials
           - Click on Create   
 
-      4)  ###### Ansible deployment server credential (username & password)
+      4)  ##### Ansible deployment server credential (username & password)
           - Kind: Username with password          
           - Username: ansadmin
           - Enable Treat username as secret
