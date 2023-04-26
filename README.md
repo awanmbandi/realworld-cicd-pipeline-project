@@ -152,6 +152,7 @@
       - New Username: admin
       - New Password: admin
       - Save and Continue
+  ![ConfigureGrafana!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/raspberry-grafana-login-window-e1560717895280.png)
   - Once you get into Grafana, follow the below steps to Import a Dashboard into Grafana to visualize your Infrastructure/App Metrics
       - Click on "Configuration/Settings" on your left
       - Click on "Data Sources"
