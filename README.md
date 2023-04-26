@@ -3,7 +3,7 @@
 
 # Jenkins Complete CI/CD Pipeline Environment Setup 
 
-1) Create a GitHub Repository `realworld-cicd-pipeline-project` and push the code in this branch(main) to 
+1) Create a GitHub Repository `Jenkins-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
     - Login to your GitHub Account
@@ -131,6 +131,7 @@
       - NexusPublicIPaddress:9100   
       - SonarQubePublicIPaddress:9100   
   - Exit
+  ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
 
 ### Update the Prometheus config file and include all the IP Addresses of the Pipeline Instances that are 
   running the Node Exporter API. That'll include ("Dev", "Stage", "Prod", "Jenkins-Maven-Ansible", "Nexus" and "SonarQube")
@@ -143,6 +144,7 @@
       - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
   - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
   - Done
+  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/prometheus-targets.png)
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
   - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
@@ -169,6 +171,7 @@
       - CLICK on "Import"
   - Refresh your Grafana Dashbaord 
       - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
+  ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
 
 ### Jenkins setup
 1) #### Access Jenkins
