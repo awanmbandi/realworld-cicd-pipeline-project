@@ -413,18 +413,7 @@ systemctl restart sshd
 
 
 
-
-
 ## ####### Observing!!!!!!!!! #######
 
-
-
-15) Update Your Jenkins file with your Slack Channel Name
-    - Go back to your local, open your "Jenkins-CICD-Project" repo/folder/directory on VSCODE
-    - Open your "Jenkinsfile"
-    - Update the slack channel name on line "97"
-    - Change name from "jenkins-cicd-pipeline-alerts" to yours
-    - Add the changes to git, commit and push to GitHub
-    - Confirm the changes reflects on GitHub
 
 
