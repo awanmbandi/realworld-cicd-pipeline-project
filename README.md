@@ -145,29 +145,29 @@
     - Done
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
-    - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
-    - Once the UI Opens pass the following username and password
-        - Username: admin
-        - Password: admin
-        - New Username: admin
-        - New Password: admin
-        - Save and Continue
-    - Once you get into Grafana, follow the below steps to Import a Dashboard into Grafana to visualize your Infrastructure/App Metrics
-        - Click on "Configuration/Settings" on your left
-        - Click on "Data Sources"
-        - Click on "Add Data Source"
-        - Select Prometheus
-        - Underneath HTTP URL: http://PrometheusPublicOrPrivateIPaddress:9090
-        - Click on "SAVE and TEST"
-    - Navigate to "Create" on your left (the `+` sign)
-        - Click on "Import"
-        - Copy the following link: https://grafana.com/grafana/dashboards/1860
-        - Paste the above link where you have "Import Via Grafana.com"
-        - Click on Load (The one right beside the link you just pasted)
-        - Scrol down to "Prometheus" and select the "Data Source" you defined ealier which is "Prometheus"
-        - CLICK on "Import"
-    - Refresh your Grafana Dashbaord 
-        - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
+  - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
+  - Once the UI Opens pass the following username and password
+      - Username: admin
+      - Password: admin
+      - New Username: admin
+      - New Password: admin
+      - Save and Continue
+  - Once you get into Grafana, follow the below steps to Import a Dashboard into Grafana to visualize your Infrastructure/App Metrics
+      - Click on "Configuration/Settings" on your left
+      - Click on "Data Sources"
+      - Click on "Add Data Source"
+      - Select Prometheus
+      - Underneath HTTP URL: http://PrometheusPublicOrPrivateIPaddress:9090
+      - Click on "SAVE and TEST"
+  - Navigate to "Create" on your left (the `+` sign)
+      - Click on "Import"
+      - Copy the following link: https://grafana.com/grafana/dashboards/1860
+      - Paste the above link where you have "Import Via Grafana.com"
+      - Click on Load (The one right beside the link you just pasted)
+      - Scrol down to "Prometheus" and select the "Data Source" you defined ealier which is "Prometheus"
+      - CLICK on "Import"
+  - Refresh your Grafana Dashbaord 
+      - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
 
 ### Jenkins setup
 1) #### Access Jenkins
