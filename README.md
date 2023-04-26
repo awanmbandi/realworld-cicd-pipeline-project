@@ -409,7 +409,7 @@ systemctl restart sshd
 ```
 - Confirm that your deployments where all successful accross all Environments
 
-### NOTE: By Completing this project, consider yourself as a Professional DevOps Engineer 
+### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer 
 You've been able to accomplish something very unique and special which most people only dream of in their IT journey. During an interview, you may be asked some challenging questions or be faced with a trial assignment that requires determination. Never forget you have what it takes to add more than enough VALUE to any organization and to STAND OUT in any interview no matter who is sitted on the interview seat.
 
 ### Congratulations Team!!!👨🏼‍💻 Congratulations Team!!!👨🏼‍💻
