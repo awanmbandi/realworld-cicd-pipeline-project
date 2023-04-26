@@ -255,35 +255,38 @@
               - Click on **Generate**
               - Copy the token 
           - ###### Store SonarQube Secret token in Jenkins:
+              - Click on ``Add Credentials``
               - Kind: Secret text!! 
               - Secret: Fill the SonarQube token value that we have created on the SonarQube server
               - ID: ``SonarQube-Token``
-              - Description: ``SonarQube-Token``
+              - Description: SonarQube-Token
               - Click on Create
 
       2)  ##### Slack secret token (slack-token)
           - Click on ``Add Credentials``
           - Kind: Secret text            
           - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
-          - ID: slack-token
+          - ID: ``slack-token``
           - Description: slack-token
           - Click on Create  
 
       3)  ##### Nexus credentials (username & password)
+          - Click on ``Add Credentials``
           - Kind: Username with password                  
           - Username: admin
           - Enable Treat username as secret
           - Password: admin
-          - ID: nexus-credentials
+          - ID: ``nexus-credentials``
           - Description: nexus-credentials
           - Click on Create   
 
       4)  ##### Ansible deployment server credential (username & password)
+          - Click on ``Add Credentials``
           - Kind: Username with password          
           - Username: ansadmin
           - Enable Treat username as secret
           - Password: ansadmin
-          - ID: ansible-deploy-server-credentials
+          - ID: ``ansible-deploy-server-credentials``
           - Description: ansible-deploy-server-credentials
           - Click on Create   
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
