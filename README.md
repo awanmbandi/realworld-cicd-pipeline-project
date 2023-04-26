@@ -9,7 +9,7 @@
     - Login to your GitHub Account
     - Create a Repository called "Jenkins-CICD-Project"
     - Clone the Repository in the "Repository" directory/folder in your local
-    - Download the code in in this repository "Main branch": https://github.com/awanmbandi/eagles-batch-devops-projects.git
+    - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
     - Unzip the code/zipped file
     - Copy and Paste everything from the zipped file into the repository you cloned in your local
     - Add the code to git, commit and push it to your upstream branch "main or master"
@@ -83,7 +83,7 @@
 ## Configure All Systems
 ### Configure Promitheus
   - Login/SSH to your Prometheus Server
-  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "eagles-batch-devops-projects"
   - Swtitch to the "prometheus-and-grafana" git branch  
   - Run: ./install-prometheus.sh
@@ -92,7 +92,7 @@
 
 ### Configure Grafana
   - Login/SSH to your Grafana Server
-  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "eagles-batch-devops-projects"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files)
@@ -104,7 +104,7 @@
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
   - Install git by running: sudo yum install git -y 
-  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "eagles-batch-devops-projects"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files)
@@ -120,7 +120,7 @@
   - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
   - Perform the following operations on all of them
   - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
-  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "eagles-batch-devops-projects"
   - Swtitch to the "prometheus-and-grafana" git branch 
   - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
