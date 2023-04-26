@@ -262,6 +262,7 @@
               - Click on Create
 
       2)  ##### Slack secret token (slack-token)
+          - Click on ``Add Credentials``
           - Kind: Secret text            
           - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
           - ID: slack-token
