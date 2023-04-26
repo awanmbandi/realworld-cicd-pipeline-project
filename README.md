@@ -420,7 +420,3 @@ Never forget that you have what it takes to add more than enough VALUE to any or
 
 
 
-## ####### Observing!!!!!!!!! #######
-
-
-
