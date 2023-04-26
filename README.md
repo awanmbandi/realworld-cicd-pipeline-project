@@ -266,7 +266,7 @@
           - Click on ``Add Credentials``
           - Kind: Secret text            
           - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
-          - ID: ``slack-token``
+          - ID: ``Slack-Token``
           - Description: slack-token
           - Click on Create  
 
@@ -276,8 +276,8 @@
           - Username: admin
           - Enable Treat username as secret
           - Password: admin
-          - ID: ``nexus-credentials``
-          - Description: nexus-credentials
+          - ID: ``Nexus-Credential``
+          - Description: nexus-credential
           - Click on Create   
 
       4)  ##### Ansible deployment server credential (username & password)
@@ -286,8 +286,8 @@
           - Username: ansadmin
           - Enable Treat username as secret
           - Password: ansadmin
-          - ID: ``ansible-deploy-server-credentials``
-          - Description: ansible-deploy-server-credentials
+          - ID: ``Ansible-Credential``
+          - Description: Ansible-Credential
           - Click on Create   
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
 
