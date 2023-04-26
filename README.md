@@ -207,21 +207,7 @@
     - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
     ![PluginInstallation!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
 
-3)  #### Pipeline creation
-    - Click on **New Item**
-    - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
-    - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
-    - GitHub project: `Provide Your Project Repo Git URL`
-    - GitHub hook trigger for GITScm polling: `Check the box` 
-      - NOTE: Make sure to also configure it on GitHub's side
-    - SCM: **Git**
-    - Repositories
-        - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
-        - Branch Specifier (blank for 'any'): */main
-        - Script Path: Jenkinsfile
-    - Save
-
-4)  #### Global tools configuration:
+3)  #### Global tools configuration:
     - Click on Manage Jenkins -->> Global Tool Configuration
     ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
@@ -247,7 +233,7 @@
       * Version: Keep the default version as it is 
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
     
-5)  #### Credentials setup(SonarQube, Ansible, Slack):
+4)  #### Credentials setup(SonarQube, Ansible, Slack):
     - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
@@ -293,7 +279,7 @@
           - Click on Create   
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
 
-6)  #### Configure system:    
+5)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` -->> ``Configure System`` 
         - `SonarQube Servers`
         ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
@@ -353,6 +339,23 @@
      - FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
      - Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
      - Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
+
+### Pipeline creation
+- Update The ``Jenkinsfile`` If Neccessary
+    - Click on **New Item**
+    - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
+    - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
+    - GitHub project: `Provide Your Project Repo Git URL`
+    - GitHub hook trigger for GITScm polling: `Check the box` 
+      - NOTE: Make sure to also configure it on GitHub's side
+    - SCM: **Git**
+    - Repositories
+        - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
+        - Branch Specifier (blank for 'any'): */main
+        - Script Path: Jenkinsfile
+    - Save
+    - NOTE: Make Sure Your Pipeline Succeeds Until Quality Gate.
+    - TEST Pipeline 
 
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
