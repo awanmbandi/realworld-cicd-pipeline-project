@@ -414,7 +414,7 @@ You've been able to accomplish something very unique and special which most peop
 
 Never forget that you have what it takes to add more than enough VALUE to any organization out there in the industry and to STAND OUT in any interview setting no matter who is sitted on the interview seat.
 
-### Congratulations Team!!!👨🏼‍💻 Congratulations Team!!!👨🏼‍💻
+### Congratulations Team!!!👨🏼‍💻 Congratulations!!!👨🏼‍💻
 
 
 
