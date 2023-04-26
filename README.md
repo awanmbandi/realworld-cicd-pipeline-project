@@ -306,7 +306,7 @@
     - Save it as well on your NotePad or Datafile 
     - NOTE: You'll need this Token in Jenkins when creating credentials
 
-2)  ### Setup SonarQube Quality Gate
+2)  ### Setup SonarQube GateKeeper
     - Click on Project Settings and > Select “Quality Gates”
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.58.28%20AM.png)
     - Click on Create Quality Gate
@@ -354,7 +354,7 @@
         - Branch Specifier (blank for 'any'): */main
         - Script Path: Jenkinsfile
     - Save
-    - NOTE: Make Sure Your Pipeline Succeeds Until Quality Gate.
+    - NOTE: Make Sure Your Pipeline Succeeds Until SonarQube Quality Gate.
     - TEST Pipeline 
 
 ### Nexus Configuration
