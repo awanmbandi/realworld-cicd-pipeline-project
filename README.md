@@ -262,7 +262,7 @@
           - Description: slack-token
           - Click on Create  
 
-      3)  ###### Nexus username & password (nexus-credentials)
+      3)  ###### Nexus credentials (username & password)
           - Kind: Username with password                  
           - Username: admin
           - Enable Treat username as secret
@@ -271,7 +271,7 @@
           - Description: nexus-credentials
           - Click on Create   
 
-      4)  ###### Ansible deployment server username & password (ansible-deploy-server-credentials)
+      4)  ###### Ansible deployment server credential (username & password)
           - Kind: Username with password          
           - Username: ansadmin
           - Enable Treat username as secret
