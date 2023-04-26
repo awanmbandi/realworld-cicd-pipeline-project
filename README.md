@@ -408,11 +408,13 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 systemctl restart sshd
 ```
 - Confirm that your deployments where all successful accross all Environments
+![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/success-all-stages-completed.png)
 - Once you trigger the build . You can find the whole pipeline is green and deployment succeded.
 - You can access the web application using the url below
 ```
 http://dev-or-stage-or-prod-PubIP:8080/webapp/
 ```
+![DevStageProdDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.19.29%20PM.png)
 
 ### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
 You've been able to accomplish something very unique and special which most people only dream of in their IT journey. Remmber that during an interview, you may be asked some challenging questions or be faced with a trial assignment that require you to both utilize your existing skillsets and think out of the box. During this time you must be very confident and determined in your pursuit. 
