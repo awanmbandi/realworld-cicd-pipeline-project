@@ -343,7 +343,7 @@
 ### Pipeline creation
 - Update The ``Jenkinsfile`` If Neccessary
     - Click on **New Item**
-    - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
+    - Enter an item name: **Jenkins-Complete-CICD-Pipeline** & select the category as **Pipeline**
     - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
     - GitHub project: `Provide Your Project Repo Git URL`
     - GitHub hook trigger for GITScm polling: `Check the box` 
