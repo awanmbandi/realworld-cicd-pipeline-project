@@ -299,17 +299,19 @@ A) Update Maven `POM.xml` file
   }
   ```
 - After confirming all changes, go ahead and save, then push to GitHub.
-- Test your Pipeline to Make sure the Artifacts Upload Succeeds.
+- Test your Pipeline to Make sure the ``Artifacts Upload Succeeds``.
+### Navigate to Jenkins Dashboard (Run/Test The Job)
 
-
-
-
-
-
-
-
-3)  ### Navigate to Jenkins Dashboard (Run/Test The Job) 
-- Trigger the build again to see the “Upload to Artifact” to green in the pipeline
+## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
+- Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
+```
+#!/bin/bash
+sudo su
+useradd ansibleadmin
+echo ansibleadmin | passwd ansibleadmin --stdin
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+systemctl restart sshd
+```
 
 
 
