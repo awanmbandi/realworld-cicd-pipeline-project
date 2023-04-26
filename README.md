@@ -407,7 +407,10 @@ echo ansibleadmin | passwd ansibleadmin --stdin
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
 ```
+- Confirm that your deployments where all successful accross all Environments
+- By Completing this project, consider yourself as a Professional DevOps Engineer 
 
+## Congratulations Team!!! Congratulations Team!!!
 
 
 
