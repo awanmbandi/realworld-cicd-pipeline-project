@@ -408,9 +408,9 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 systemctl restart sshd
 ```
 - Confirm that your deployments where all successful accross all Environments
-- By Completing this project, consider yourself as a Professional DevOps Engineer 
 
-## Congratulations Team!!! Congratulations Team!!!
+### By Completing this project, consider yourself as a Professional DevOps Engineer 
+### Congratulations Team!!!👨🏼‍💻 Congratulations Team!!!👨🏼‍💻
 
 
 
