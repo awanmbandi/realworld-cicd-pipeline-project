@@ -3,7 +3,7 @@
 
 # Jenkins Complete CI/CD Pipeline Environment Setup 
 
-1) Create a GitHub Repository `Jenkins-CICD-Project` and push the code in this branch(main) to 
+1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
     - Login to your GitHub Account
@@ -65,7 +65,7 @@
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `yourFirstorLastname-cicd-project-alerts`
       - Click on the Drop down on the Channel and select Integrations and take `Add an App`
-      - Search for `Jenkins` and click on `View` >> `Configuration/Install` >> `Add to Slack` 
+      - Search for `Jenkins` and click on `View` -->> `Configuration/Install` -->> `Add to Slack` 
       - On Post to Channel: Click the Drop Down and select your channel above `yourFirstorLastname-cicd-project-alerts`
       - Click `Add Jenkins CI Integration`
       - SAVE SETTINGS/CONFIGURATIONS
@@ -208,7 +208,7 @@
 3)  #### Pipeline creation
     - Click on **New Item**
     - Enter an item name: **JJTech-CICD-Pipeline-Project** & select the category as **Pipeline**
-    - Now scroll-down and in the Pipeline section --> Definition --> Select Pipeline script from SCM
+    - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
     - GitHub project: `Provide Your Project Repo Git URL`
     - GitHub hook trigger for GITScm polling: `Check the box` 
       - NOTE: Make sure to also configure it on GitHub's side
@@ -220,38 +220,38 @@
     - Save
 
 4)  #### Global tools configuration:
-    - Click on Manage Jenkins --> Global Tool Configuration
+    - Click on Manage Jenkins -->> Global Tool Configuration
     ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
-        **JDK** --> Add JDK --> Make sure **Install automatically** is enabled --> 
+        **JDK** -->> Add JDK -->> Make sure **Install automatically** is enabled -->> 
         
         **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
 
         ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
         * Click on Add installer
-        * Select Extract *.zip/*.tar.gz --> Fill the below values
+        * Select Extract *.zip/*.tar.gz -->> Fill the below values
         * Name: **localJdk**
         * Download URL for binary archive: **https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz**
         * Subdirectory of extracted archive: **jdk-11.0.1**
-    - **Git** >>> Add Git >>> Install automatically(Optional)
+    - **Git** -->> Add Git -->> Install automatically(Optional)
       ![GitSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.36.23%20AM.png)
     
-    - **SonarQube Scanner** >>> Add SonarQube Scanner >>> Install automatically(Optional)
+    - **SonarQube Scanner** -->> Add SonarQube Scanner -->> Install automatically(Optional)
       ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
 
-    - **Maven** --> Add Maven --> Make sure **Install automatically** is enabled --> Install from Apache --> Fill the below values
+    - **Maven** -->> Add Maven -->> Make sure **Install automatically** is enabled -->> Install from Apache -->> Fill the below values
       * Name: **localMaven**
       * Version: Keep the default version as it is 
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
     
 5)  #### Credentials setup(SonarQube, Ansible, Slack):
-    - Click on Manage Jenkins --> Manage Credentials --> Global credentials (unrestricted) --> Add Credentials
+    - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
       1)  ###### SonarQube secret token (SonarQube-Token)
           - Kind: Secret text :
                   Generating SonarQube secret token
                   - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
-                  - Click on profile --> My Account --> Security --> Tokens
+                  - Click on profile -->> My Account -->> Security -->> Tokens
                   - Generate Tokens: Fill **jenkins-token**
                   - Click on **Generate**
                   - Copy the token 
@@ -287,11 +287,11 @@
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
 
 6)  #### Configure system:    
-    1)  - Click on ``Manage Jenkins`` --> ``Configure System`` 
+    1)  - Click on ``Manage Jenkins`` -->> ``Configure System`` 
         - `SonarQube Servers`
         ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
-    2)  - Click on Manage Jenkins --> Configure System
+    2)  - Click on Manage Jenkins -->> Configure System
         - Go to section Slack
             - Use new team subdomain & integration token credentials created in the above slack joining step
             - Workspace: **Replace with Team Subdomain value** (created above)
@@ -323,7 +323,7 @@
     
     - Add Quality to SonarQube Project
     -  ``NOTE:`` Make sure to update the `SonarQube` stage in your `Jenkinsfile` and Test the Pipeline so your project will be visible on the SonarQube Project Dashboard.
-    - Click on Projects >> Administration >> Select `Quality Gate`
+    - Click on Projects -->> Administration -->> Select `Quality Gate`
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.05.47%20AM.png)
 
 3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
@@ -343,7 +343,7 @@
     }
     ```
      - Run Your Pipeline To Test Your Quality Gate (It should PASS QG)
-     - FAIL Your Quality Gate: Go back to SonarQube >>> Open your Project >>> Click on Quality Gates at the top >>> Select your Project Quality Gate >>> Click EDIT >>> Change the Value to “0” >>> Update Condition
+     - FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
      - Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
      - Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
 
@@ -355,13 +355,13 @@
     - NOTE: Once you login, you will be prompted to reset the password
 
     ### Go ahead and create your Nexus Project Repositories
-    - CREATE 1st REPO: Click on the Gear Icon >>> Repository >>> Create Repository >>> Select `maven2(hosted)` >>> Name: `maven-project-releases` >>> Create Repository
+    - CREATE 1st REPO: Click on the Gear Icon -->> Repository -->> Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-releases` -->> Create Repository
 
-    - CREATE 2nd REPO: Click Create Repository >>> Select `maven2(hosted)` >>> Name: `maven-project-snapshots` >>> Version Policy: Select `Snapshot` >>> Create Repository
+    - CREATE 2nd REPO: Click Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-snapshots` -->> Version Policy: Select `Snapshot` -->> Create Repository
 
-    - CREATE 3rd REPO: Click Create Repository >>> Select `maven2(proxy)` >>> Name: `maven-project-central` >>> Create Repository
+    - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Create Repository
 
-    - CREATE 4th REPO: Click Create Repository >>> Select `maven2(group)` >>> Name: `maven-project-group` >>> Assign All The Repos You Created to The Group >>> Create Repository
+    - CREATE 4th REPO: Click Create Repository -->> Select `maven2(group)` -->> Name: `maven-project-group` -->> Assign All The Repos You Created to The Group -->> Create Repository
 
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.26.04%20AM.png) 
     - Once you select create repository and select maven2(group)
