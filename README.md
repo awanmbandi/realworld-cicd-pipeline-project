@@ -300,7 +300,7 @@ A) Update Maven `POM.xml` file
   ```
 - After confirming all changes, go ahead and save, then push to GitHub.
 - Test your Pipeline to Make sure the ``Artifacts Upload Succeeds``.
-### Navigate to Jenkins Dashboard (Run/Test The Job)
+- Navigate to Jenkins Dashboard (Run/Test The Job)
 
 ## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
 - Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
