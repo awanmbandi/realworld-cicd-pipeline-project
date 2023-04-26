@@ -65,10 +65,10 @@
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://join.slack.com/t/realworldcicdproject/shared_invite/zt-1tryd7x1v-g8a~zEJBKKchVvvK87jkeQ  
       - You can either join through the browser or your local Slack App
-      - Create a `Private Channel` using the naming convention `yourFirstorLastname-cicd-project-alerts`
+      - Create a `Private Channel` using the naming convention `cicd-pipeline-project-alerts`
       - Click on the Drop down on the Channel and select Integrations and take `Add an App`
       - Search for `Jenkins` and click on `View` -->> `Configuration/Install` -->> `Add to Slack` 
-      - On Post to Channel: Click the Drop Down and select your channel above `yourFirstorLastname-cicd-project-alerts`
+      - On Post to Channel: Click the Drop Down and select your channel above `cicd-pipeline-project-alerts`
       - Click `Add Jenkins CI Integration`
       - SAVE SETTINGS/CONFIGURATIONS
       - Leave this page open
