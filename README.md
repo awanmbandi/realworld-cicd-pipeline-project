@@ -82,67 +82,67 @@
 
 ## Configure All Systems
 ### Configure Promitheus
-    - Login/SSH to your Prometheus Server
-    - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
-    - Change directory to "eagles-batch-devops-projects"
-    - Swtitch to the "prometheus-and-grafana" git branch  
-    - Run: ./install-prometheus.sh
-    - Confirm the status shows "Active (running)"
-    - Exit
+  - Login/SSH to your Prometheus Server
+  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Change directory to "eagles-batch-devops-projects"
+  - Swtitch to the "prometheus-and-grafana" git branch  
+  - Run: ./install-prometheus.sh
+  - Confirm the status shows "Active (running)"
+  - Exit
 
 ### Configure Grafana
-    - Login/SSH to your Grafana Server
-    - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
-    - Change directory to "eagles-batch-devops-projects"
-    - Swtitch to the "prometheus-and-grafana" git branch 
-    - Run: ls or ll  (to confirm you have the branch files)
-    - Run: ./install-grafana.sh
-    - Confirm the status shows "Active (running)"
-    - Exit
+  - Login/SSH to your Grafana Server
+  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Change directory to "eagles-batch-devops-projects"
+  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Run: ls or ll  (to confirm you have the branch files)
+  - Run: ./install-grafana.sh
+  - Confirm the status shows "Active (running)"
+  - Exit
 
 ### Configure The "Node Exporter" accross the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
-    - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
-    - Perform the following operations on all of them
-    - Install git by running: sudo yum install git -y 
-    - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
-    - Change directory to "eagles-batch-devops-projects"
-    - Swtitch to the "prometheus-and-grafana" git branch 
-    - Run: ls or ll  (to confirm you have the branch files)
-    - Run: ./install-node-exporter.sh
-    - Confirm the status shows "Active (running)"
-    - Access the Node Exporters running on port "9100", open your browser and run the below
-        - Dev-EnvPublicIPaddress:9100   (Confirm this page is accessible)
-        - Stage-EnvPublicIPaddress:9100   (Confirm this page is accessible)
-        - Prod-EnvPublicIPaddress:9100   (Confirm this page is accessible)
-    - Exit
+  - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
+  - Perform the following operations on all of them
+  - Install git by running: sudo yum install git -y 
+  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Change directory to "eagles-batch-devops-projects"
+  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Run: ls or ll  (to confirm you have the branch files)
+  - Run: ./install-node-exporter.sh
+  - Confirm the status shows "Active (running)"
+  - Access the Node Exporters running on port "9100", open your browser and run the below
+      - Dev-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+      - Stage-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+      - Prod-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+  - Exit
 
 ### Configure The "Node Exporter" on the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" instances 
-    - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
-    - Perform the following operations on all of them
-    - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
-    - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
-    - Change directory to "eagles-batch-devops-projects"
-    - Swtitch to the "prometheus-and-grafana" git branch 
-    - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
-    - Run: ./install-node-exporter.sh
-    - Make sure the status shows "Active (running)"
-    - Access the Node Exporters running on port "9100", open your browser and run the below
-        - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
-        - NexusPublicIPaddress:9100   
-        - SonarQubePublicIPaddress:9100   
-    - Exit
+  - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
+  - Perform the following operations on all of them
+  - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
+  - Clone the following repository: https://github.com/awanmbandi/eagles-batch-devops-projects.git
+  - Change directory to "eagles-batch-devops-projects"
+  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
+  - Run: ./install-node-exporter.sh
+  - Make sure the status shows "Active (running)"
+  - Access the Node Exporters running on port "9100", open your browser and run the below
+      - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
+      - NexusPublicIPaddress:9100   
+      - SonarQubePublicIPaddress:9100   
+  - Exit
 
 ### Update the Prometheus config file and include all the IP Addresses of the Pipeline Instances that are 
-    running the Node Exporter API. That'll include ("Dev", "Stage", "Prod", "Jenkins-Maven-Ansible", "Nexus" and "SonarQube")
-    - SSH into the Prometheus instance either using your GitBash (Windows) or Terminal (macOS) or browser
-    - Run the command: sudo vi /etc/prometheus/prometheus.yml
-        - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
-        - Save the Config File and Quit
-    - Open a TAB on your choice browser
-    - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9100 e.g "PrometheusPublicIPAddres:9100"
-        - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
-    - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
-    - Done
+  running the Node Exporter API. That'll include ("Dev", "Stage", "Prod", "Jenkins-Maven-Ansible", "Nexus" and "SonarQube")
+  - SSH into the Prometheus instance either using your GitBash (Windows) or Terminal (macOS) or browser
+  - Run the command: sudo vi /etc/prometheus/prometheus.yml
+      - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
+      - Save the Config File and Quit
+  - Open a TAB on your choice browser
+  - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9100 e.g "PrometheusPublicIPAddres:9100"
+      - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
+  - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
+  - Done
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
   - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
