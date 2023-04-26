@@ -254,12 +254,12 @@
               - Generate Tokens: Fill **jenkins-token**
               - Click on **Generate**
               - Copy the token 
-
-          - Kind: Secret text!! 
-          - Secret: Fill the SonarQube token value that we have created on the SonarQube server
-          - ID: ``SonarQube-Token``
-          - Description: ``SonarQube-Token``
-          - Click on Create
+          - ###### Store SonarQube Secret token in Jenkins:
+              - Kind: Secret text!! 
+              - Secret: Fill the SonarQube token value that we have created on the SonarQube server
+              - ID: ``SonarQube-Token``
+              - Description: ``SonarQube-Token``
+              - Click on Create
 
       2)  ##### Slack secret token (slack-token)
           - Kind: Secret text            
