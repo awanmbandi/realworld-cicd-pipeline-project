@@ -248,12 +248,13 @@
 5)  #### Credentials setup(SonarQube, Ansible, Slack):
     - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
       1)  ##### SonarQube secret token (SonarQube-Token)
+          - Generating SonarQube secret token
+                - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
+                - Click on profile -->> My Account -->> Security -->> Tokens
+                - Generate Tokens: Fill **jenkins-token**
+                - Click on **Generate**
+                - Copy the token 
           - Kind: Secret text!! 
-                  - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
-                  - Click on profile -->> My Account -->> Security -->> Tokens
-                  - Generate Tokens: Fill **jenkins-token**
-                  - Click on **Generate**
-                  - Copy the token 
           - Secret: Fill the SonarQube token value that we have created on the SonarQube server
           - ID: ``SonarQube-Token``
           - Description: ``SonarQube-Token``
