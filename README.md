@@ -395,10 +395,10 @@
     ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
     1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
     - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
-    ```
+    ````
     Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
     SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
-    ```
+    ````
 
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
