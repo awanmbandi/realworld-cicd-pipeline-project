@@ -372,9 +372,9 @@
     - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Create Repository
 
     - CREATE 4th REPO: Click Create Repository -->> Select `maven2(group)` -->> Name: `maven-project-group` -->> Assign All The Repos You Created to The Group -->> Create Repository
+    - Once you select create repository and select maven2(group)
 
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.26.04%20AM.png) 
-    - Once you select create repository and select maven2(group)
 
 ### Update Maven POM and Integrate/Configure Nexus With Jenkins
 A) Update Maven `POM.xml` file
