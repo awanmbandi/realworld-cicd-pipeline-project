@@ -394,7 +394,7 @@
 
     ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
     1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
-      - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
+    - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
     ```
     Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
     SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
@@ -412,7 +412,7 @@
 
     - CREATE 2nd REPO: Click Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-snapshots` -->> Version Policy: Select `Snapshot` -->> Create Repository
 
-    - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Create Repository
+    - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Remote Storage: provide this link https://repo.maven.apache.org/maven2 -->> Create Repository
 
     - CREATE 4th REPO: Click Create Repository -->> Select `maven2(group)` -->> Name: `maven-project-group` -->> Assign All The Repos You Created to The Group -->> Create Repository
     - Once you select create repository and select maven2(group)
