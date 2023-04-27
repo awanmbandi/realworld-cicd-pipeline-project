@@ -38,7 +38,7 @@
     - Launch Instance
 
 3) SonarQube
-    - Create an Create an Ubuntu 18.04 VM instance and call it "SonarQube"
+    - Create an Create an Ubuntu 20.04 VM instance and call it "SonarQube"
     - Instance type: t2.medium
     - Security Group (Open): 9000, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
