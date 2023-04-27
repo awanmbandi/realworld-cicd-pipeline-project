@@ -16,7 +16,7 @@
 - [Grafana](https://grafana.com/) Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
 - [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes log files and helps organizations derive insights from the data.
 
-# Jenkins Complete CI/CD Pipeline Environment Setup 
+# Jenkins Complete CI/CD Pipeline Environment Setup Runbook
 1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
