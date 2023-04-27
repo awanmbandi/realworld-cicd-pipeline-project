@@ -1,0 +1,1 @@
+echo "ansadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
