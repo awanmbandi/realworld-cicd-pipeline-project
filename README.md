@@ -359,6 +359,11 @@
 
 ### Pipeline creation
 - Update The ``Jenkinsfile`` If Neccessary
+- Update `SonarQube IP address` in your `Jenkinsfile`
+- Update the `SonarQube projectKey or name` in your `Jenkinsfile`
+- Update your `Slack Channel Name` in the `Jenkinsfile` 
+    
+    - Log into Jenkins: ``http://Jenkins-Public-IP:8080/``
     - Click on **New Item**
     - Enter an item name: **Jenkins-Complete-CICD-Pipeline** & select the category as **Pipeline**
     - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
