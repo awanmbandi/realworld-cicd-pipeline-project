@@ -287,9 +287,9 @@
           - ###### Nexus credentials (username & password)
 	          - Click on ``Add Credentials``
 	          - Kind: Username with password                  
-	          - Username: admin
+	          - Username: ``admin``
 	          - Enable Treat username as secret
-	          - Password: admin
+	          - Password: ``admin``
 	          - ID: ``Nexus-Credential``
 	          - Description: nexus-credential
 	          - Click on Create   
@@ -297,9 +297,9 @@
       4)  ##### Ansible deployment server credential (username & password)
           - Click on ``Add Credentials``
           - Kind: Username with password          
-          - Username: ansibleadmin
+          - Username: ``ansibleadmin``
           - Enable Treat username as secret
-          - Password: ansibleadmin
+          - Password: ``ansibleadmin``
           - ID: ``Ansible-Credential``
           - Description: Ansible-Credential
           - Click on Create   
