@@ -363,7 +363,7 @@
 - Update the `SonarQube projectKey or name` in your `Jenkinsfile`
 - Update your `Slack Channel Name` in the `Jenkinsfile` 
     
-    - Log into Jenkins: ``http://Jenkins-Public-IP:8080/``
+    - Log into Jenkins: http://Jenkins-Public-IP:8080/
     - Click on **New Item**
     - Enter an item name: **Jenkins-Complete-CICD-Pipeline** & select the category as **Pipeline**
     - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
@@ -402,7 +402,7 @@
 
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
-    The nexus service on port 8081. To access the nexus dashboard, visit http://:8081. You will be able to see the nexus homepage as shown below.
+    The nexus service on port 8081. To access the nexus dashboard, visit http://Nexus-Pub-IP:8081. You will be able to see the nexus homepage as shown below.
     - Default username: ``admin``
     - Default Password: ```sudo cat /app/sonatype-work/nexus3/admin.password```
     - NOTE: Once you login, you will be prompted to reset the password
