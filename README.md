@@ -460,28 +460,42 @@ A) Update Maven `POM.xml` file
   }
   ```
 - After confirming all changes, go ahead and save, then push to GitHub.
-- Test your Pipeline to Make sure the ``Artifacts Upload Succeeds``.
-- Navigate to Jenkins Dashboard (Run/Test The Job)
+- Test your Pipeline to ``Make Sure That The Artifacts Upload Stage Succeeds``.
+- Navigate to Jenkins Dashboard (Run/Test The Job) 
+![PipelineStagesArtifactSuccess!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/second-pipeline-run.png)
+
+- Navigate to `Nexus` as well to confirm that the artifact was `Stored` in the `maven-project-releases` repository
+![ArtifactStored!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.08.33%20PM.png)
 
 ## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
 - NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
+- NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
 ```
 #!/bin/bash
+# Tomcat Server Installation
 sudo su
+amazon-linux-extras install tomcat8.5 -y
+systemctl enable tomcat
+systemctl start tomcat
+
+# Provisioning Ansible Deployer Access
 useradd ansibleadmin
 echo ansibleadmin | passwd ansibleadmin --stdin
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
+echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
+
+- TEST PIPELINE DEPLOYMENT
 - Confirm that your deployments where all successful accross all Environments
-![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/success-all-stages-completed.png)
+![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.44.30%20PM.png)
 - Once you trigger the build . You can find the whole pipeline is green and deployment succeded.
 - You can access the web application using the url below
 ```
-http://dev-or-stage-or-prod-PubIP:8080/webapp/
+http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
 ```
-![DevStageProdDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.19.29%20PM.png)
+![DevStageProdDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.50.42%20PM.png)
 
 ### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
 You've been able to accomplish something very unique and special which most people only dream of in their IT journey. Remmber that during an interview, you may be asked some challenging questions or be faced with a trial assignment that require you to both utilize your existing skillsets and think out of the box. During this time you must be very confident and determined in your pursuit. 
