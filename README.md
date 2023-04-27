@@ -368,8 +368,8 @@
     - SCM: **Git**
     - Repositories
         - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
-        - Branch Specifier (blank for 'any'): */main
-        - Script Path: Jenkinsfile
+        - Branch Specifier (blank for 'any'): ``*/main``
+        - Script Path: ``Jenkinsfile``
     - Save
     - NOTE: Make Sure Your Pipeline Succeeds Until SonarQube Quality Gate.
     - TEST Pipeline 
