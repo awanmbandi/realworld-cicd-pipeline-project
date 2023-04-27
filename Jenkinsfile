@@ -3,12 +3,6 @@ def COLOR_MAP = [
     'FAILURE': 'danger',
     'UNSTABLE': 'danger'
 ]
-def STATUS_MAP = [
-    'SUCCESS': 'success', 
-    'FAILURE': 'failed', 
-    'UNSTABLE': 'failed', 
-    'ABORTED': 'failed'
-]
 pipeline {
   agent any
   environment {
@@ -137,7 +131,7 @@ pipeline {
     always {
         echo 'Slack Notifications.'
         slackSend channel: '#cicd-project-alerts', //update and provide your channel name
-        color: STATUS_MAP[currentBuild.currentResult],
+        color: COLOR_MAP[currentBuild.currentResult],
         message: "*${currentBuild.currentResult}:* Job Name '${env.JOB_NAME}' build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Project Workspace: ${env.WORKSPACE} \n More info at: ${env.BUILD_URL}"
     }
   }
