@@ -487,7 +487,7 @@ systemctl restart sshd
 echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
 
-## TEST PIPELINE DEPLOYMENT
+### TEST PIPELINE DEPLOYMENT
 - Confirm that your deployments where all successful accross all Environments
 ![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.44.30%20PM.png)
 - Once you trigger the build . You can find the whole pipeline is green and deployment succeded.
