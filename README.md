@@ -490,15 +490,13 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
 
 ### TEST PIPELINE DEPLOYMENT
-- Confirm that your deployments where all successful accross all Environments
+- Confirm/Confirm that your deployments where all successful accross all Environments
 ![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.44.30%20PM.png)
 
-- Slack Success Feedback.
+- Verify/Confirm Slack Success Feedback.
 ![SlackSuccessAllStages!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%205.06.44%20PM.png)
 
-- You can access the web application using the url below
-http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
-
+- Confirm Access to the newly deployed web application via: http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
 ![FinalProductDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.50.42%20PM.png)
 
 ### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
