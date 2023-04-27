@@ -379,7 +379,7 @@
     - NOTE: Make Sure Your Pipeline Succeeds Until ``SonarQube GateKeeper``. Upload to Artifactory would fail.
     - TEST Pipeline 
 
-#### A. Pipeline Test Results 
+### A. Pipeline Test Results 
 - Jenkins Pipeline Job
 ![JenkinsJobResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-pipeline-first-run.png)
 
@@ -392,7 +392,7 @@
 - SonarQube GateKeeper Webhook Payload
 ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
 
-### Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
+### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
 1. If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
 - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
 ```
