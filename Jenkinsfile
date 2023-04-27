@@ -64,7 +64,7 @@ pipeline {
             }
         }
     }
-    stage('SonarQube Gatekeeper') {
+    stage('SonarQube GateKeeper') {
         steps {
           timeout(time : 1, unit : 'HOURS'){
           waitForQualityGate abortPipeline: true
@@ -90,7 +90,7 @@ pipeline {
            )
         }
     }
-    stage('Deploy to Dev Env') {
+    stage('Deploy to Development Env') {
         environment {
             HOSTS = 'dev'
         }
@@ -100,7 +100,7 @@ pipeline {
             }
         }
     }
-    stage('Deploy to Stage Env') {
+    stage('Deploy to Staging Env') {
         environment {
             HOSTS = 'stage'
         }
@@ -115,7 +115,7 @@ pipeline {
             input('Do you want to proceed?')
         }
     }
-    stage('Deploy to Prod Env') {
+    stage('Deploy to Production Env') {
         environment {
             HOSTS = 'prod'
         }
