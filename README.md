@@ -379,17 +379,17 @@
     - NOTE: Make Sure Your Pipeline Succeeds Until ``SonarQube GateKeeper``. Upload to Artifactory would fail.
     - TEST Pipeline 
 
-#### A. Test Results 
-a. Jenkins Pipeline Job
+#### A. Pipeline Test Results 
+- Jenkins Pipeline Job
 ![JenkinsJobResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-pipeline-first-run.png)
 
-b. SonarQube Code Inspection Result
+- SonarQube Code Inspection Result
 ![SonarQubeResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-result.png)
 
-a. Slack Continuous Feedback Alert
+- Slack Continuous Feedback Alert
 ![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
 
-a. SonarQube GateKeeper Webhook Payload
+- SonarQube GateKeeper Webhook Payload
 ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
 
 ### Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
