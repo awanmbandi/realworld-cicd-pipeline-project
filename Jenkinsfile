@@ -131,8 +131,7 @@ pipeline {
         echo 'Slack Notifications.'
         slackSend channel: '#cicd-project-alerts', //update and provide your channel name
         color: COLOR_MAP[currentBuild.currentResult],
-        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
-        //${env.BUILD_ID}-${env.BUILD_TIMESTAMP}
+        message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME}, build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Pipeline Data: ${env.JENKINS_HOME} \n More info at: ${env.BUILD_URL}"
     }
   }
 }
