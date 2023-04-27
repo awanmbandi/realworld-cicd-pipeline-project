@@ -13,18 +13,22 @@ systemctl start jenkins
 # Installing Git
 yum install git -y
 
-# Tomcat Server Installation
-sudo su
-amazon-linux-extras install tomcat8.5 -y
-systemctl enable tomcat
-systemctl start tomcat
+# Installing Ansible
+amazon-linux-extras install ansible2 -y
+yum install python-pip -y
+pip install boto3
 
 # Provisioning Ansible Deployer Access
 useradd ansibleadmin
 echo ansibleadmin | passwd ansibleadmin --stdin
+sed -i "s/.*#host_key_checking = False/host_key_checking = False/g" /etc/ansible/ansible.cfg
+sed -i "s/.*#enable_plugins = host_list, virtualbox, yaml, constructed/enable_plugins = aws_ec2/g" /etc/ansible/ansible.cfg
+ansible-galaxy collection install amazon.aws
+
+# Enable Password Authentication and Grant Sudo Privilege
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
-echo "ansadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Apache Maven Installation/Config
 #sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
