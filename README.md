@@ -256,7 +256,7 @@
           - ###### Generating SonarQube secret token:
               - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
               - Click on profile -->> My Account -->> Security -->> Tokens
-              - Generate Tokens: Fill **SonarQube-Token**
+              - Generate Tokens: Fill ``SonarQube-Token``
               - Click on **Generate**
               - Copy the token 
           - ###### Store SonarQube Secret token in Jenkins:
