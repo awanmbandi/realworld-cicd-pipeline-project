@@ -2,15 +2,33 @@
   hosts: dev
   vars:
     src_path: "{{ workspace_path }}/webapp/target/webapp.war"
-    dest_path: "/var/lib/tomcat/webapps"
+    dest_path: "/var/lib/tomcat/webapps/webapp.war"
     config_file_src_path: "{{ hosts }}-config.yaml"
     config_file_dest_path: "/home"
   tasks:
-    - name: copying file with playbook
-      become: true
-      copy:
-        src: "{{ src_path }}"
+    - maven_artifact:
+        group_id: webapp
+        artifact_id: webapp
+        repository_url: 'http://10.0.3.11:8081/repository/maven-releases/'
+        username: admin
+        password: admin
         dest: "{{ dest_path }}"
-        owner: ansadmin
-        group: ansadmin
-        mode: 0644
+    
+#     - name: copying file with playbook
+#       become: true
+#       copy:
+#         src: "{{ src_path }}"
+#         dest: "{{ dest_path }}"
+#         owner: ansadmin
+#         group: ansadmin
+#         mode: 0644
+
+
+
+# - maven_artifact:
+#     group_id: com.setup
+#     artifact_id: customerfile
+#     repository_url: 'http://10.0.3.11:8081/repository/maven-releases/'
+#     username: uname
+#     password: pass
+#     dest: /tmp/customerfile.jar
