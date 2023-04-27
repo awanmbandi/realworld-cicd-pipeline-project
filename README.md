@@ -275,23 +275,24 @@
           - Description: slack-token
           - Click on Create  
 
-      3)  - ###### Login to Nexus and Set Password
+      3)  ##### Nexus Credentials (Username and Password)
+          - ###### Login to Nexus and Set Password
               - Access Nexus: http://Nexus-Pub-IP:8081/
-	      - Default Username: admin
-	      - NOTE: Login into your "Nexus" VM and "cat" the following file to get the password.
-	      - Command: ``sudo cat /opt/nexus/sonatype-work/nexus3/admin.password``
-	      - Password: `Fill In The Password and Click Sign In`
-	      - Click Next -->> Provide New Password: "admin" 
-	      - Configure Anonymous Access: "Enable anonymous access" -->> Finish
+	          - Default Username: admin
+	          - NOTE: Login into your "Nexus" VM and "cat" the following file to get the password.
+	          - Command: ``sudo cat /opt/nexus/sonatype-work/nexus3/admin.password``
+	          - Password: `Fill In The Password and Click Sign In`
+	          - Click Next -->> Provide New Password: "admin" 
+	          - Configure Anonymous Access: "Enable anonymous access" -->> Finish
           - ###### Nexus credentials (username & password)
-	      - Click on ``Add Credentials``
-	      - Kind: Username with password                  
-	      - Username: admin
-	      - Enable Treat username as secret
-	      - Password: admin
-	      - ID: ``Nexus-Credential``
-	      - Description: nexus-credential
-	      - Click on Create   
+	          - Click on ``Add Credentials``
+	          - Kind: Username with password                  
+	          - Username: admin
+	          - Enable Treat username as secret
+	          - Password: admin
+	          - ID: ``Nexus-Credential``
+	          - Description: nexus-credential
+	          - Click on Create   
 
       4)  ##### Ansible deployment server credential (username & password)
           - Click on ``Add Credentials``
