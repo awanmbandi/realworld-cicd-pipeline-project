@@ -297,13 +297,13 @@
       4)  ##### Ansible deployment server credential (username & password)
           - Click on ``Add Credentials``
           - Kind: Username with password          
-          - Username: ansadmin
+          - Username: ansibleadmin
           - Enable Treat username as secret
-          - Password: ansadmin
+          - Password: ansibleadmin
           - ID: ``Ansible-Credential``
           - Description: Ansible-Credential
           - Click on Create   
-      ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%201.35.26%20PM.png)
+      ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.10.40%20PM.png)
 
 5)  #### Configure system:    
     1)  - Click on ``Manage Jenkins`` -->> ``Configure System`` 
