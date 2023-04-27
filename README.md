@@ -322,9 +322,9 @@
 
 ### SonarQube Configuration
 2)  ### Setup SonarQube GateKeeper
-    - Click on Project Settings and > Select “Quality Gates”
+    - Click on -->> Quality Gate 
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.17.50%20PM.png)
-    - Click on Create Quality Gate
+    - Click on -->> Create
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.00.25%20AM.png)
     - Add a Quality Gate Condition to Validate the Code Against (Code Smells or Bugs)
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.02.36%20AM.png)
