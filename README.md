@@ -58,6 +58,8 @@
     - Instance type: t2.micro
     - Security Group (Open): 8080, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - Launch Instance
 
 6) Prometheus
     - Create an Ubuntu 20.04 VM instance and call it "Prometheus"
