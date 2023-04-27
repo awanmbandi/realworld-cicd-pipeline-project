@@ -496,7 +496,7 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 - Verify/Confirm Slack Success Feedback.
 ![SlackSuccessAllStages!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%205.06.44%20PM.png)
 
-- Confirm Access to the newly deployed web application via: http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
+- Confirm Access to your application: http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
 ![FinalProductDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.50.42%20PM.png)
 
 ### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
