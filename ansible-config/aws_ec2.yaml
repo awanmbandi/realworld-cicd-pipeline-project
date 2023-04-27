@@ -1,0 +1,19 @@
+plugin: aws_ec2
+
+regions:
+  - us-east-1
+
+filters:
+  # All instances with their `Environment` tag set to `dev`
+#  tag:Environment: dev
+  # All dev and QA hosts
+  tag:Environment:
+    - dev
+    - stage
+    - prod
+  # Getting the details of running instances only
+  instance-state-name: running
+# Grouping the instances based on tags
+keyed_groups:
+  - key: tags
+    prefix: tag
