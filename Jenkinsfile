@@ -13,7 +13,6 @@ pipeline {
     //NEXUS_REPO_ID    = "maven_project"
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
     ARTVERSION = "${env.BUILD_ID}"
-    //ANSIBLE_DEPLOYMENT_SSH_KEY = 'ansible-deployment-ssh-key'
   }
   tools {
     maven 'localMaven'
@@ -51,7 +50,7 @@ pipeline {
             }
         }
     }
-    stage('SonarQube scanning') {
+    stage('SonarQube Inspection') {
         steps {
             withSonarQubeEnv('SonarQube') { 
                 withCredentials([string(credentialsId: 'SonarQube-Token', variable: 'SONAR_TOKEN')]) {
@@ -65,7 +64,7 @@ pipeline {
             }
         }
     }
-    stage('Quality Gate') {
+    stage('SonarQube Gatekeeper') {
         steps {
           timeout(time : 1, unit : 'HOURS'){
           waitForQualityGate abortPipeline: true
@@ -97,9 +96,7 @@ pipeline {
         }
         steps {
             withCredentials([usernamePassword(credentialsId: 'ansible-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
-            //withCredentials([sshUserPrivateKey(credentialsId: 'ansible-deployment-ssh-key', keyFileVariable: 'ANSIBLE_DEPLOYMENT_SSH_KEY')]) {
                 sh "ansible-playbook -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml ${WORKSPACE}/deploy.yaml --extra-vars \"ansible_user=$USER_NAME ansible_password=$PASSWORD hosts=tag_Environment_$HOSTS workspace_path=$WORKSPACE\""
-            //sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping"
             }
         }
     }
@@ -110,7 +107,6 @@ pipeline {
         steps {
             withCredentials([usernamePassword(credentialsId: 'ansible-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
                 sh "ansible-playbook -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml ${WORKSPACE}/deploy.yaml --extra-vars \"ansible_user=$USER_NAME ansible_password=$PASSWORD hosts=tag_Environment_$HOSTS workspace_path=$WORKSPACE\""
-            //sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping --private-key=${ANSIBLE_DEPLOYMENT_SSH_KEY}"
             }
         }
     }
@@ -126,7 +122,6 @@ pipeline {
         steps {
             withCredentials([usernamePassword(credentialsId: 'ansible-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
                 sh "ansible-playbook -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml ${WORKSPACE}/deploy.yaml --extra-vars \"ansible_user=$USER_NAME ansible_password=$PASSWORD hosts=tag_Environment_$HOSTS workspace_path=$WORKSPACE\""
-            sh "sudo ansible aws_ec2 -i ${WORKSPACE}/ansible-setup/aws_ec2.yaml -m ping --private-key=${ANSIBLE_DEPLOYMENT_SSH_KEY} --user ec2-user"
             }
          }
       }
