@@ -344,7 +344,7 @@
 
     - Go ahead and Confirm in the Jenkinsfile you have the “Quality Gate Stage”. The stage code should look like the below;
     ```
-    stage('SonarQube Gatekeeper') {
+    stage('SonarQube GateKeeper') {
         steps {
           timeout(time : 1, unit : 'HOURS'){
           waitForQualityGate abortPipeline: true
@@ -353,9 +353,9 @@
     }
     ```
      - Run Your Pipeline To Test Your Quality Gate (It should PASS QG)
-     - FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
-     - Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
-     - Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
+     - **(OPTIONAL)** FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
+     - **(OPTIONAL)** Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
+     - **(OPTIONAL)** Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
 
 ### Pipeline creation
 - Update The ``Jenkinsfile`` If Neccessary
