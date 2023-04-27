@@ -380,25 +380,25 @@
     - TEST Pipeline 
 
     ### A. Pipeline Test Results 
-- Jenkins Pipeline Job
-![JenkinsJobResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-pipeline-first-run.png)
+        - Jenkins Pipeline Job
+        ![JenkinsJobResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-pipeline-first-run.png)
 
-- SonarQube Code Inspection Result
-![SonarQubeResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-result.png)
+        - SonarQube Code Inspection Result
+        ![SonarQubeResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-result.png)
 
-- Slack Continuous Feedback Alert
-![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
+        - Slack Continuous Feedback Alert
+        ![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
 
-- SonarQube GateKeeper Webhook Payload
-![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
+        - SonarQube GateKeeper Webhook Payload
+        ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
 
     ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
-1. If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
-- If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
-```
-Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
-SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
-```
+        1. If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
+        - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
+        ```
+        Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
+        SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
+        ```
 
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
