@@ -423,9 +423,9 @@
 A) Update Maven `POM.xml` file
 - Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
 ```
-<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshot/</url>
+<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshots/</url>
 
-<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-release/</url>
+<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-releases/</url>
 ```
 
 -  Add the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
@@ -447,7 +447,7 @@ A) Update Maven `POM.xml` file
             nexusUrl: '172.31.82.36:8081',
             groupId: 'webapp',
             version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
-            repository: 'maven-project-release',  //"${NEXUS_REPOSITORY}",
+            repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
             credentialsId: "${NEXUS_CREDENTIAL_ID}",
             artifacts: [
                 [artifactId: 'webapp',
