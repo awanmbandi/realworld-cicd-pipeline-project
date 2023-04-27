@@ -2,15 +2,16 @@
   hosts: "{{hosts}}"
   vars:
     src_path: "{{ workspace_path }}/webapp/target/webapp.war"
-    dest_path: "/var/lib/tomcat/webapps/webapp.war"
+    dest_path: "/var/lib/tomcat/webapps"
     config_file_src_path: "{{ hosts }}-config.yaml"
     config_file_dest_path: "/home"
   tasks:
-    - maven_artifact:
-        group_id: webapp
-        artifact_id: webapp
-        repository_url: 'http://172.31.82.36:8081/repository/maven-project-release/'
-        username: sds
-        password: sds
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: "{{ src_path }}"
         dest: "{{ dest_path }}"
+        owner: ansadmin
+        group: ansadmin
+        mode: 0644
 
