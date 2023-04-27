@@ -17,7 +17,6 @@
 - [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes log files and helps organizations derive insights from the data.
 
 # Jenkins Complete CI/CD Pipeline Environment Setup 
-
 1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
