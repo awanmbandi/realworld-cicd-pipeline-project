@@ -379,6 +379,14 @@
     - NOTE: Make Sure Your Pipeline Succeeds Until SonarQube Quality Gate.
     - TEST Pipeline 
 
+### Troubleshooting (Possible Failures and Suggested Solutions)
+1. If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
+- If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
+```
+Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
+SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
+```
+
 ### Nexus Configuration
 1)  ### Accessing Nexus: 
     The nexus service on port 8081. To access the nexus dashboard, visit http://:8081. You will be able to see the nexus homepage as shown below.
