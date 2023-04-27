@@ -464,7 +464,8 @@ A) Update Maven `POM.xml` file
 - Navigate to Jenkins Dashboard (Run/Test The Job)
 
 ## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
-- Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
+- NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
+- Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
 ```
 #!/bin/bash
 sudo su
