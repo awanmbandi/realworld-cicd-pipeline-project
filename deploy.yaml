@@ -10,7 +10,7 @@
         group_id: webapp
         artifact_id: webapp
         repository_url: 'http://172.31.82.36:8081/repository/maven-project-release/'
-        username: admin
-        password: admin
+        username: sds
+        password: sds
         dest: "{{ dest_path }}"
 
