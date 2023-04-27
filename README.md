@@ -219,7 +219,7 @@
         - **Maven Release Plug-In**
         - **Slack Notification**
         - **Nexus Artifact Uploader**
-        - **Build Timestamp Plugin (Needed for Artifact versioning)**
+        - **Build Timestamp (Needed for Artifact versioning)**
     - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
     ![PluginInstallation!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
 
@@ -247,9 +247,10 @@
     - **Maven** -->> Add Maven -->> Make sure **Install automatically** is enabled -->> Install from Apache -->> Fill the below values
       * Name: **localMaven**
       * Version: Keep the default version as it is 
+    - Click on SAVE
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
     
-4)  #### Credentials setup(SonarQube, Ansible, Slack):
+4)  #### Credentials setup(SonarQube, Nexus, Ansible and Slack):
     - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
@@ -319,17 +320,6 @@
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
 ### SonarQube Configuration
-1)  ### Access SonarQube from browser
-    - http://<ipaddress>:9000
-    - Default user name: “admin”
-    - Default password: “admin”
-    - Please enter a name and generate token
-    ![SonarQubeSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.54.38%20AM.png)
-
-    - We have to copy the above code and update it in JenkinsFile
-    - Save it as well on your NotePad or Datafile 
-    - NOTE: You'll need this Token in Jenkins when creating credentials
-
 2)  ### Setup SonarQube GateKeeper
     - Click on Project Settings and > Select “Quality Gates”
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.58.28%20AM.png)
