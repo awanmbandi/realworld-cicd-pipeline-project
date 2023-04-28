@@ -23,7 +23,7 @@
     - Access your Splunk Installation at http:://3.137.207.15:8000 and log into splunk
     ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
 
-###### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
+### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
     - Exit out from `root user` to `ec2-user`
     ```
     exit
