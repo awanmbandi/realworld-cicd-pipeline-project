@@ -281,7 +281,7 @@ cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
 
-#### Step 3: View Application Logs on Splunk
+#### Step 3: View Application Logs in Splunk
 - Login to your `Splunk Server` at http://Splunk-Server-IP:8000
 - Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
 ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
