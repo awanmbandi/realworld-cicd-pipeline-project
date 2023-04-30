@@ -223,6 +223,7 @@
     ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
 - Access your Splunk Installation at http://Splunk-Server-IP:8000 and log into splunk
+    - Username: `admin`, Password: `Same Password You Just Configured Above`
     ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
 
 - **NOTE:** Once you login to the splunk UI platform
