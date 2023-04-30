@@ -18,7 +18,7 @@
     ```
     - Enter administrator username and password, remember this because you will need this to log into the application
     - NOTE: The Password must be up to `8` characters.
-    ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM.png)
+    ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
     - Access your Splunk Installation at http:://3.137.207.15:8000 and log into splunk
     ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
@@ -66,9 +66,9 @@ cd /opt/splunkforwarder/bin
 ./splunk restart
 ```
 
-- Set the forwarder to monitor the ``/var/log/tomcat or /var/log`` directory and restart
+- Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
 ```
-./splunk add monitor /var/log/tomcat
+./splunk add monitor /var/log/tomcat/
 ```
 
 - Set the port for the splunk server to listen on 9997 and restart
