@@ -14,7 +14,7 @@
 - [Slack](https://slack.com/) Slack is a communication platform designed for collaboration which can be leveraged to build and develop a very robust DevOps culture. Will be used for Continuous feedback loop.
 - [Prometheus](https://prometheus.io/) Prometheus is a free software application used for event/metric monitoring and alerting for both application and infrastructure.
 - [Grafana](https://grafana.com/) Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
-- [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes log files and helps organizations derive insights from the data.
+- [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes application/system log files and helps organizations derive insights from the data.
 
 # Jenkins Complete CI/CD Pipeline Environment Setup Runbook
 1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
@@ -56,7 +56,7 @@
 5) EC2 (Dev/Stage/Prod)
     - Create 3 Amazon Linux 2 VM instance and call them (Names: Dev-Env, Stage-Env and Prod-Env)
     - Instance type: t2.micro
-    - Security Group (Open): 8080, 9100 and 22 to 0.0.0.0/0
+    - Security Group (Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
@@ -74,6 +74,14 @@
     - Security Group (Open): 3000 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - Launch Instance
+
+8) EC2 (Splunk)
+    - Create an Amazon Linux 2 VM instance and call it (Names: Splunk-Server)
+    - Instance type: t2.micro
+    - Security Group (Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - Launch Instance
+
 #### NOTE: Confirm and make sure you have a total of 8 VM instances
 ![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.51.21%20PM.png)
 
@@ -210,7 +218,7 @@
     cd /opt/splunk/bin
     ./splunk start --accept-license --answer-yes
     ```
-- Enter administrator username and password, remember this because you will need this to log into the application
+- Enter administrator ``username`` and ``password``, remember this because you will need this to log into the application
 - NOTE: The Password must be up to `8` characters.
     ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
