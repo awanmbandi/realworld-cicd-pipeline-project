@@ -226,7 +226,7 @@
     - Username: `admin`, Password: `Same Password You Just Configured Above`
     ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
 
-- **NOTE:** Once you login to the splunk UI platform
+- **NOTE:** Once you login to the splunk Indexer
     - Click on `Settings` -->> Click `Server Settings` -->> Click `General Settings`
     - Go ahead and Change the `Pause indexing if free disk space` from `5000 to 50`
     - Click on `Save`
