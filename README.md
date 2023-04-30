@@ -247,8 +247,13 @@ sudo bash
 cd /opt/splunkforwarder/bin
 ./splunk start --accept-license --answer-yes
 ```
+#### Step 3: View Application Logs on Splunk
+- Login to your `Splunk Server` at http://Splunk-Server-IP:8000
+- Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
+![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
 
-![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
+- Application Data Indexed
+![SplunkSetup5!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
 
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
 ```
