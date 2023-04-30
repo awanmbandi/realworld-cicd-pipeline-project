@@ -16,8 +16,8 @@
     cd /opt/splunk/bin
     ./splunk start --accept-license --answer-yes
     ```
-    - Enter administrator username and password, remember this because you will need this to log into the application
-    - NOTE: The Password must be up to `8` characters.
+- Enter administrator username and password, remember this because you will need this to log into the application
+- NOTE: The Password must be up to `8` characters.
     ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
     - Access your Splunk Installation at http:://3.137.207.15:8000 and log into splunk
