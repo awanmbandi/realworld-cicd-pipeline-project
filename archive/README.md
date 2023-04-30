@@ -1,5 +1,5 @@
 ## Setup Splunk 
-### A) SSH Into your `Splunk` instance including `Dev`, `Stage` and `Prod` Instances for Splunk configuration
+### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances to Configure Splunk
 - **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
     - Download the Splunk RPM installer package for Linux
@@ -76,5 +76,4 @@ cd /opt/splunkforwarder/bin
 cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
-
 ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
