@@ -192,7 +192,7 @@
       - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
   ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
 
-### Setup Splunk 
+### Setup Splunk Server and Configure Forwarders
 #### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances to Configure Splunk
 - **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
@@ -225,6 +225,7 @@
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
 - **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
+- **NOTE:** Do Not install the Splunk Server in these resources/environments
 - **SSH** Into your instances, as normal user `ec2-user` or ubuntu or centos etc
 ```
 exit
@@ -247,13 +248,8 @@ sudo bash
 cd /opt/splunkforwarder/bin
 ./splunk start --accept-license --answer-yes
 ```
-#### Step 3: View Application Logs on Splunk
-- Login to your `Splunk Server` at http://Splunk-Server-IP:8000
-- Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
-![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
 
-- Application Data Indexed
-![SplunkSetup5!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
+![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
 
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
 ```
@@ -275,6 +271,13 @@ cd /opt/splunkforwarder/bin
 cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
+
+#### Step 3: View Application Logs on Splunk
+- Login to your `Splunk Server` at http://Splunk-Server-IP:8000
+- Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
+![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
+
+- Application Data Indexed
 ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
 
 ### Jenkins setup
