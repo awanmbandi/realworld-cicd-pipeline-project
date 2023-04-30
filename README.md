@@ -225,52 +225,53 @@
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
 ############################################################################# - **NOTE:** Use the following Forwarding
-    - Exit out from `root user` to `ec2-user`
-    ```
-    exit
-    ```
-    - Download the Splunk forwarder RPM installer package 
-    ```
-    wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm"
-    ```
-    - Install the Forwarder
-    ```
-    ls -al
-    sudo yum install ./splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm -y
-    ```
+- Exit out from `root user` to `ec2-user`
+```
+exit
+```
+- Download the Splunk forwarder RPM installer package 
+```
+wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm"
+```
+- Install the Forwarder
+```
+ls -al
+sudo yum install ./splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm -y
+```
 
-    - Change to the splunkforwarder bin directory and start the forwarder
-    - NOTE: The Password must be at least `8` characters long.
-    - Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
-    ```
-    sudo bash
-    cd /opt/splunkforwarder/bin
-    ./splunk start --accept-license --answer-yes
-    ```
+- Change to the splunkforwarder bin directory and start the forwarder
+- NOTE: The Password must be at least `8` characters long.
+- Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
+```
+sudo bash
+cd /opt/splunkforwarder/bin
+./splunk start --accept-license --answer-yes
+```
 
-    ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
+![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
 
-    - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
-    ```
-    ./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997
-    ```
+- Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
+```
+./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997
+```
 
-    - Restart Splunk on the VM you are configuring the Forwarder
-    ```
-    ./splunk restart
-    ```
+- Restart Splunk on the VM you are configuring the Forwarder
+```
+./splunk restart
+```
 
-    - Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
-    ```
-    ./splunk add monitor /var/log/tomcat/
-    ```
+- Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
+```
+./splunk add monitor /var/log/tomcat/
+```
 
-    - Set the port for the splunk server to listen on 9997 and restart
-    ```
-    cd /opt/splunk/bin
-    ./splunk enable listen 9997
-    ```
-    ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
+- Set the port for the splunk server to listen on 9997 and restart
+```
+cd /opt/splunk/bin
+./splunk enable listen 9997
+```
+![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
+
 
 ### Jenkins setup
 1) #### Access Jenkins
