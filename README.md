@@ -224,8 +224,8 @@
     ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.34.45%20PM.png)
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
-############################################################################# - **NOTE:** Use the following Forwarding
-- Exit out from `root user` to `ec2-user`
+- **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
+- **SSH** Into your instances, as normal user `ec2-user` or ubuntu or centos etc
 ```
 exit
 ```
@@ -271,7 +271,6 @@ cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
 ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
-
 
 ### Jenkins setup
 1) #### Access Jenkins
