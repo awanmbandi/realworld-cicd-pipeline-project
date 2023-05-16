@@ -1,0 +1,52 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('CloudFormation Syntax Test') {
+            steps {
+                sh 'aws cloudformation validate-template --template-body file://cloudformation-template.yml'
+            }
+        }
+        
+        stage('cfn-nag Test') {
+            steps {
+                // Install Ruby
+                sh 'sudo yum install gcc'
+                
+                // Install gem
+                sh 'sudo yum -y install gem'
+                sh 'sudo gem install cfn-nag'
+                sh 'cfn_nag_scan --input-path cloudformation-template.yml'
+            }
+        }
+        
+        stage('TaskCat Test') {
+            steps {
+                // Install TaskCat
+                sh 'pip install taskcat'
+                
+                // Run TaskCat tests
+                sh 'taskcat test run --config taskcat_config.yml'
+                
+                // Upload TaskCat results (optional)
+                sh 'taskcat-results --output-dir taskcat-results --s3-bucket my-s3-bucket --s3-prefix taskcat-results'
+            }
+        }
+        
+        stage('CloudFormation Integration Test') {
+            steps {
+                // Deploy the CloudFormation stack
+                sh 'aws cloudformation deploy --template-file cloudformation-template.yml --stack-name my-stack-name'
+                
+                // Wait for the stack to complete
+                sh 'aws cloudformation wait stack-create-complete --stack-name my-stack-name'
+                
+                // Verify the integration with other services
+                sh 'aws s3api list-buckets'
+                
+                // Delete the CloudFormation stack
+                sh 'aws cloudformation delete-stack --stack-name my-stack-name'
+            }
+        }
+    }
+}
