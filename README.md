@@ -1,7 +1,7 @@
 # Development Environemnt
 ![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
 
-## Configure Environment
+## Configure Environments
 
 ### 1. Install Nexus Repository Manager
 - https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install.sh
