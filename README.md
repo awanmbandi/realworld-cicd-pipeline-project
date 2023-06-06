@@ -1,4 +1,4 @@
-# DevOps - Development Environemnt
+# Development Environemnt
 ![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
 
 ## Install Nexus Repository Manager
