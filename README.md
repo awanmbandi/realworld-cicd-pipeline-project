@@ -3,13 +3,13 @@
 
 ## Configure Environment
 
-### Install Nexus Repository Manager
+###1. Install Nexus Repository Manager
 - https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install.sh
 
-### Install Apache Maven
+###2. Install Apache Maven
 - https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/maven-install.md
 
-### Install SonarQube
+###3. Install SonarQube
 - https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/sonarqube-install.sh
 
 ## Configure Nexus Repository
