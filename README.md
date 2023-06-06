@@ -1,11 +1,14 @@
+# DevOps - Development Environemnt
+![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
+
 ## Install Nexus Repository Manager
-- https://github.com/awanmbandi/maven-nexus-project-eagles-batch/blob/maven-nexus-install/nexus-install.sh
+- https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install.sh
 
 ## Install Apache Maven
-- https://github.com/awanmbandi/maven-nexus-project-eagles-batch/blob/maven-nexus-install/maven-install.md
+- https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/maven-install.md
 
 ## Install SonarQube
-- https://github.com/awanmbandi/eagles-batch-devops-projects/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
+- https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/sonarqube-install.sh
 
 ## Configure Nexus Repository
 Series of tutorial code snippets for use
@@ -36,21 +39,3 @@ Publishing artifact to Nexus snapshot and release repo using maven.
 
 ## Maven Lifecycle Phases
 - https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#a-build-lifecycle-is-made-up-of-phases
-
-## Maven + SonarQube 
-mvn clean sonar:sonar \
-  -Dsonar.projectKey=JavaWebApp \
-  -Dsonar.host.url=http://44.203.4.255:9000 \
-  -Dsonar.login=<sonarqube prject token>
-
-## Before Running the `deploy` Command make sure to update the Nexus pom.xml and settings.xml with Nexus IP addedd, Username and Password. Make sure the plugings are defined as well
-mvn clean package sonar:sonar \
-  -Dsonar.projectKey=JavaWebApp-Project3 \
-  -Dsonar.host.url=http://44.203.4.255:9000 \
-  -Dsonar.login=<sonarqube prject token>
-
-## Clean, Build, Test and Deploy(to Nexus)
-mvn clean package sonar:sonar deploy \
-  -Dsonar.projectKey=JavaWebApp-Project3 \
-  -Dsonar.host.url=http://44.203.4.255:9000 \
-  -Dsonar.login=<sonarqube prject token>
