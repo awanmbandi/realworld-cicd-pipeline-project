@@ -13,5 +13,7 @@ sudo yum install git -y
 ```
 
 ## Post Operations
+```
 git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
 git checkout maven-sonarqube-nexus
+```
