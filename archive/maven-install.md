@@ -1,5 +1,6 @@
 ## Install and Configure Java11 and Apache Maven
 ```
+#!/bin/bash
 sudo yum update
 sudo amazon-linux-extras install java-openjdk11
 java --version
