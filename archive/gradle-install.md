@@ -1,4 +1,4 @@
-## SSH into your gradle vm
+## 1.0 SSH into your gradle vm and Configure Gradle
 ```
 sudo yum install java-1.8.0-devel -y
 cd /opt
@@ -54,6 +54,14 @@ chmod +x gradlew
 gradle sonarqube
 ```
 
+- OR
+```
+./gradlew sonarqube \
+  -Dsonar.projectKey=Gradle-JavaWebApp \
+  -Dsonar.host.url=http://13.58.160.12:9000 \
+  -Dsonar.login=658513ed6810d58fae16edb3f434833b109501a2
+```
+
 ## 3. TROUBLESHOOTING
 1. If you get an error about a certain "lock" when running SonarQube scan, please go ahead and run the following command to remove the lock and then Re-run the command that failed.
 ```
@@ -66,3 +74,36 @@ rm -rf ~/.sonar
 ```
 - Stop and Restart your Instance
 - Then Re-run your SonarQube Scan and it should Succeed.
+
+## 4.0 Integrate Nexus
+1. Create a ``Maven2(hosted), Snapshot Repository`` in Nexus called `gradle-java-webapp-repository`
+2. Edit the Nexus Block od Code in the "build.gradle" file. Update it with your "Nexus IP" and "Repository Name"
+```
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            // bootJar is the default build task configured by Spring Boot
+            artifact bootJar
+        }
+    }
+    repositories {
+        maven {
+            url = "http://172.31.19.105:8081/repository/gradle-java-webapp-repository/"
+            credentials {
+                username "admin"
+                password "admin"
+            }
+        }
+    }
+}
+```
+
+3. Confirm that you've already Build and Test with SonarQube. Now Publish to Nexus
+```
+gradle publish
+```
+
+4. Navigrate to Nexus >> Click on the BOX Icon >> Browse >> Click on the `gradle-java-webapp-repository` to Confirm that the Artifact was Published.
+
+5. Congratulations

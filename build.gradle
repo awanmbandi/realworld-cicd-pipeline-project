@@ -3,7 +3,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'war'
-    id "org.sonarqube" version "3.3"
+    id "maven-publish" // Nexus plugin
+    id "org.sonarqube" version "3.3" // Sonar plugin
 }
 
 group = 'com.example'
