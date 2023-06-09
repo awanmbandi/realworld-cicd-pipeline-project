@@ -1,15 +1,24 @@
+## Launch Gradle Environment and Configure
+- Name: Gradle-Build-Env
+- AMI: Amazon linux 2
+- Instance type: t2.small
+- 
+
 ## 1.0 SSH into your gradle vm and Configure Gradle
 ```
-sudo yum install java-1.8.0-devel -y
+sudo yum update -y
+sudo amazon-linux-extras install java-openjdk11 -y
 cd /opt
 sudo wget https://distfiles.macports.org/gradle/gradle-6.8.3-bin.zip
 sudo unzip gradle-6.8.3-bin.zip
 export PATH=$PATH:/opt/gradle-6.8.3/bin
+gradle -v
 ```
 
 ## Install Git and Clone your Project repo
 ```
 sudo yum install git -y
+cd /home/ec2-user
 git clone PROJECT_REPOSITORY_URL
 cd PROJECT_REPO
 ```
