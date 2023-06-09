@@ -1,0 +1,55 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+    id "maven-publish" // Nexus plugin
+    id "org.sonarqube" version "2.7" // Sonar plugin
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+                property "sonar.projectName", "Gradle-JavaWebApp-3"
+                property "sonar.host.url", "http://172.31.17.137:9000"
+                property "sonar.login", "6fc75617e04650d48e86d9053af11868f6efb349"
+    }
+}
+
+// Nexus Upload
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            // bootJar is the default build task configured by Spring Boot
+            artifact bootJar
+        }
+    }
+    repositories {
+        maven {
+            url = "http://172.31.19.105:8081/repository/gradle-java-webapp-repository/"
+            credentials {
+                username "admin"
+                password "admin"
+            }
+        }
+    }
+}

@@ -1,0 +1,4 @@
+echo "JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.19.0.7-1.amzn2.0.1.x86_64" >> .bash_profile
+echo "PATH=$PATH:$JAVA_HOME/bin" >> .bash_profile
+
+
