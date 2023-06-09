@@ -51,10 +51,30 @@ yum install git -y
         - Credentials: Select `Maven-Build-Env-Credential`
     - Host Key Verification Strategy: `Non Verifying Verification Strategy`
     - Availability: `Keep this agent online as much as possible`
-    - Click `SAVE`
+- NODE PROPERTIES
+    - Select `Environment variables`
+        - Click `Add`
+        - 1st Variable:
+            - Name: `GRADLE_HOME`
+            - Value: `/opt/gradle-6.8.3`
+        - 2nd Variable:
+            - Name: `PATH`
+            - Value: `$GRADLE_HOME/bin:$PATH`
 
-    - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
-    - NOTE: Repeat the process for adding additional Nodes
+    - Click `SAVE`
+- NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
+- NOTE: Repeat the process for adding additional Nodes
+
+## Plugin Installation Before Job Creation
+- Install: `Delivery Pipeline` plugin
+    - Click on `Dashboard` on Jenkins
+    - Click on The `+` on your Jenkins Dashboard and Configure the View
+    - Select ``Enable start of new pipeline build``
+    - Pipelines >> Components >> Click `Add`
+        - Name: `Maven-Continuous-Integration-Pipeline` or `Gradle-Continuous-Integration-Pipeline`
+        - Initial Job: Select either the `Maven Build Job or 1st Job` or `Gradle Build Job or 1st Job`
+    - APPLY and SAVE
+
 
 
 

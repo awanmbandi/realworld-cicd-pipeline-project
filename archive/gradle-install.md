@@ -11,7 +11,10 @@ sudo amazon-linux-extras install java-openjdk11 -y
 cd /opt
 sudo wget https://distfiles.macports.org/gradle/gradle-6.8.3-bin.zip
 sudo unzip gradle-6.8.3-bin.zip
-export PATH=$PATH:/opt/gradle-6.8.3/bin
+vi .bash_profile
+export GRADLE_HOME=/opt/gradle-6.8.3
+export PATH=$GRADLE_HOME/bin:$PATH
+source .bash_profile
 gradle -v
 ```
 
@@ -53,17 +56,18 @@ sonarqube {
 }
 ```
 
-2. Assign execution "x" permission to your "gradlew" config file
-```
-chmod +x gradlew
-```
-
 3. Execute SonarQube Code Analysis on generated artifact with the following command
 ```
 gradle sonarqube
 ```
 
-- OR
+## OPTIONAL (Not Needed If You Configured The Above Variables, PATH and SONAR Config)
+2. Assign execution "x" permission to your "gradlew" config file
+```
+chmod +x gradlew
+```
+
+- 
 ```
 ./gradlew sonarqube \
   -Dsonar.projectKey=Gradle-JavaWebApp \
@@ -115,4 +119,4 @@ gradle publish
 
 4. Navigrate to Nexus >> Click on the BOX Icon >> Browse >> Click on the `gradle-java-webapp-repository` to Confirm that the Artifact was Published.
 
-5. Congratulations
+## Congratulations
