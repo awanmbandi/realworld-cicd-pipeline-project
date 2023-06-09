@@ -24,18 +24,20 @@ yum install git -y
 
 ### Configure Master and Clinet Configuration
 - Click on "Manage Jenkins" >> Click "Nodes and Cloud" >> Click "New Node"
-- Node Name: Maven-Build-Env and Select "Permanent Agent" >> Click "CREATE"
+- Click `New Node`
+    - Node name: `Maven-Build-Env` 
+    - Type: `Permanent Agent` >> Click `CREATE`
 
-1. Configure "Maven-Build-Env"
-- Name:                  Maven-Build-Env
-- Number of Executors:   5 (for example, maximum jobs to execute at a time)
-- Remote root directory: /opt/maven-builds
-- Labels:                Maven-Build-Env
-- Usage:                 Use this node as much as possible
-- Launch method:         Launch agents via SSH
-    - Host:   Provide IP of Maven-Build-Server
+#### 1. Configure "Maven-Build-Env"
+- Name:                  `Maven-Build-Env`
+- Number of Executors:   `5` (for example, maximum jobs to execute at a time)
+- Remote root directory: `/opt/maven-builds`
+- Labels:                `Maven-Build-Env`
+- Usage:                 `Use this node as much as possible`
+- Launch method:         `Launch agents via SSH`
+    - Host:   `Provide IP of Maven-Build-Server`
     - Credentials: 
-        - Login to Maven VM
+        - Login to `Maven VM`
         - Run the following commands
             - sudo su
             - passwd root
@@ -49,6 +51,49 @@ yum install git -y
         - ID: `Maven-Build-Env-Credential`
         - Save
         - Credentials: Select `Maven-Build-Env-Credential`
+    - Host Key Verification Strategy: `Non Verifying Verification Strategy`
+    - Availability: `Keep this agent online as much as possible`
+- NODE PROPERTIES
+    - Select `Environment variables`
+        - Click `Add`
+        - 1st Variable:
+            - Name: `MAVEN_HOME`
+            - Value: `/usr/share/apache-maven`
+        - 2nd Variable:
+            - Name: `PATH`
+            - Value: `$MAVEN_HOME/bin:$PATH`
+
+    - Click `SAVE`
+- NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
+- NOTE: Repeat the process for adding additional Nodes
+
+#### 2. Configure "Gradle-Build-Env"
+- Click `New Node`
+    - Node name: `Gradle-Build-Env` 
+    - Type: `Permanent Agent` >> Click `CREATE`
+
+- Name:                  `Gradle-Build-Env`
+- Number of Executors:   `5` (for example, maximum jobs to execute at a time)
+- Remote root directory: `/opt/gradle-builds`
+- Labels:                `Gradle-Build-Env`
+- Usage:                 `Use this node as much as possible`
+- Launch method:         `Launch agents via SSH`
+    - Host:   `Provide IP of Gradle-Build-Server`
+    - Credentials: 
+        - Login to `Gradle VM`
+        - Run the following commands
+            - sudo su
+            - passwd root
+            - provide the password as "root", "root"
+            - vi /etc/ssh/sshd_config       (:/PasswordAuthentication)
+            - systemctl restart sshd
+    - Credentials:
+        - Click on `Add / Jenkins` and Select `Username and Password`
+        - Username: `root`
+        - Password: `root`
+        - ID: `Gradle-Build-Env-Credential`
+        - Save
+        - Credentials: Select `Gradle-Build-Env-Credential`
     - Host Key Verification Strategy: `Non Verifying Verification Strategy`
     - Availability: `Keep this agent online as much as possible`
 - NODE PROPERTIES
@@ -74,6 +119,20 @@ yum install git -y
         - Name: `Maven-Continuous-Integration-Pipeline` or `Gradle-Continuous-Integration-Pipeline`
         - Initial Job: Select either the `Maven Build Job or 1st Job` or `Gradle Build Job or 1st Job`
     - APPLY and SAVE
+
+## CREATE PIPELINE JOBS
+
+### 1. Create Maven Build, Test and Deploy Job
+
+### 2. Create Gradle Build, Test and Deploy Job
+
+## JOB INTEGRATION
+
+### Integrate The Maven JOBS Together To Create a CI Pipeline
+
+### Integrate The Gradle JOBS Together To Create a CI Pipeline
+
+## TEST YOUR PIPELINE
 
 
 

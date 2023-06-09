@@ -17,7 +17,14 @@ mvn -v
 sudo yum install git -y
 ```
 
-## Post Operations
+## Create The ".m2" Directory and Download Your "settings.xml" file to it to provide Maven Authourization to Nexus
+```
+sudo su
+mkdir .m2
+wget wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins/settings.xml -P /root/.m2/
+```
+
+## Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
 ```
 git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
 git checkout maven-sonarqube-nexus
