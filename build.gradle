@@ -33,3 +33,23 @@ sonarqube {
                 property "sonar.login", "6fc75617e04650d48e86d9053af11868f6efb349"
     }
 }
+
+// Nexus Upload
+publishing {
+    publications {
+        maven(MavenPublication) {
+
+            // bootJar is the default build task configured by Spring Boot
+            artifact bootJar
+        }
+    }
+    repositories {
+        maven {
+            url = "http://172.31.19.105:8081/repository/gradle-java-webapp-repository/"
+            credentials {
+                username "admin"
+                password "admin"
+            }
+        }
+    }
+}
