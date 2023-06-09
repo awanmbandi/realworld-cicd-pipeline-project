@@ -25,7 +25,6 @@ test {
     useJUnitPlatform()
 }
 
-// SonarQube Code Analysis Config
 sonarqube {
     properties {
         property "sonar.sourceEncoding", "UTF-8"
