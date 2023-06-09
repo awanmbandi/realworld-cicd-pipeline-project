@@ -1,5 +1,4 @@
 # CI With Jenkins Master and Client Architecture
-### Maven and Gradle Project Repositories Links
 1. [Maven Project Repository](https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/maven-sonarqube-nexus-jenkins) You'll find the project repo here.
 2. [Gradle Project Repository](https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/gradle-sonarqube-nexus-jenkins) You'll find the project repo here.
 
