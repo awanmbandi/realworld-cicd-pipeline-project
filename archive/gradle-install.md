@@ -24,6 +24,21 @@ gradle -v
 sudo yum install git -y
 ```
 
+## Password your `Root User: root` and Edit the `sshd_config` for Authentication
+- Username: root
+- Password: root
+- sshd_config: Edit `PermitRootLogin yes` and `PasswordAuthentication yes` 
+- Save File
+```
+sudo su
+passwd root
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+
+exit
+ssh root@GRADLE_VM_PUBLIC_IP
+```
+
 ## Install Git and Clone your Project repo
 ```
 cd /home/ec2-user

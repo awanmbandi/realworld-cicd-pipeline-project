@@ -28,6 +28,21 @@ mkdir /root/.m2
 wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins/settings.xml -P /root/.m2/
 ```
 
+## Password your `Root User: root` and Edit the `sshd_config` for Authentication
+- Username: root
+- Password: root
+- sshd_config: Edit `PermitRootLogin yes` and `PasswordAuthentication yes` 
+- Save File
+```
+sudo su
+passwd root
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+
+exit
+ssh root@MAVEN_VM_PUBLIC_IP
+```
+
 ## Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
 ```
 git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
