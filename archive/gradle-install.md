@@ -20,23 +20,25 @@ sudo chmod +x /etc/profile.d/gradle.sh
 source /etc/profile.d/gradle.sh
 gradle -v
 
-## Install Git
-sudo yum install git -y
-```
-
-## Password your `Root User: root` and Edit the `sshd_config` for Authentication
-- Username: root
-- Password: root
-- sshd_config: Edit `PermitRootLogin yes` and `PasswordAuthentication yes` 
-- Save File
-```
+## Provision Jenkins Master Access
 sudo su
-passwd root
-vi /etc/ssh/sshd_config
-systemctl restart sshd
+useradd jenkinsmaster 
+echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 
-exit
-ssh root@GRADLE_VM_PUBLIC_IP
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+systemctl restart sshd
+echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
+chown -R jenkinsmaster:jenkinsmaster /opt
+
+## Install git
+yum install git -y
+
+## Download settings.xml into .m2 for Authorization
+mkdir /home/jenkinsmaster/.m2
+wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins/settings.xml -P /home/jenkinsmaster/.m2/
+```
+
+- NOTE/Test: ssh jenkinsmaster@GRADLE_VM_PUBLIC_IP
 ```
 
 ## Install Git and Clone your Project repo
