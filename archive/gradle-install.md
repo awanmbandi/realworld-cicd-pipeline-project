@@ -1,26 +1,31 @@
 ## Launch Gradle Environment and Configure
 - Name: Gradle-Build-Env
-- AMI: Amazon linux 2
-- Instance type: t2.small
-- 
+- AMI: Ubuntu 20.04 LTS/HVM
+- Instance type: t2.micro
+- Security group ports: 22
 
 ## 1.0 SSH into your gradle vm and Configure Gradle
 ```
-sudo yum update -y
-sudo amazon-linux-extras install java-openjdk11 -y
-cd /opt
-sudo wget https://distfiles.macports.org/gradle/gradle-6.8.3-bin.zip
-sudo unzip gradle-6.8.3-bin.zip
-vi .bash_profile
-export GRADLE_HOME=/opt/gradle-6.8.3
-export PATH=$GRADLE_HOME/bin:$PATH
-source .bash_profile
+#!/bin/bash
+sudo apt update
+sudo apt install openjdk-11-jdk
+java -version
+VERSION=6.8.3
+wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
+sudo unzip -d /opt/gradle /tmp/gradle-${VERSION}-bin.zip
+sudo ln -s /opt/gradle/gradle-${VERSION} /opt/gradle/latest
+echo "export GRADLE_HOME=/opt/gradle/latest" >> /etc/profile.d/gradle.sh
+echo "export PATH=${GRADLE_HOME}/bin:${PATH}" >> /etc/profile.d/gradle.sh
+sudo chmod +x /etc/profile.d/gradle.sh
+source /etc/profile.d/gradle.sh
 gradle -v
+
+## Install Git
+sudo yum install git -y
 ```
 
 ## Install Git and Clone your Project repo
 ```
-sudo yum install git -y
 cd /home/ec2-user
 git clone PROJECT_REPOSITORY_URL
 cd PROJECT_REPO

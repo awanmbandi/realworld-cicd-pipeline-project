@@ -123,14 +123,103 @@ yum install git -y
 ## CREATE PIPELINE JOBS
 
 ### 1. Create Maven Build, Test and Deploy Job
+###### Maven Build Job
+- Click on `New Item`
+    - Name: `Maven-Continuous-Integration-Pipeline-Build`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: `mvn clean build`
+    - `APPLY` and `SAVE`
+
+###### Maven SonarQube Test Job
+- Click on `New Item`
+    - Name: `Maven-Continuous-Integration-Pipeline-SonarQube-Test`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: `mvn clean build`
+    - `APPLY` and `SAVE`
+
+###### Maven Nexus Upload Job
+- Click on `New Item`
+    - Name: `Maven-Continuous-Integration-Pipeline-Nexus-Upload`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: 
+          """mvn sonar:sonar \
+                -Dsonar.projectKey=Maven-JavaWebApp-Analysis \
+                -Dsonar.host.url=http://PROVIDE_PRIVATE_IP:9000 \
+                -Dsonar.login=SONARQUBE_PROJECT_AUTHORIZATION_TOKEN"""
+    
+    - `APPLY` and `SAVE`
 
 ### 2. Create Gradle Build, Test and Deploy Job
+###### Gradle Build Job
+- Click on `New Item`
+    - Name: `Gradle-Continuous-Integration-Pipeline-Build`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: `gradle clean build`
+    - `APPLY` and `SAVE`
+
+###### Gradle SonarQube Test Job
+- Click on `New Item`
+    - Name: `Gradle-Continuous-Integration-Pipeline-SonarQube-Test`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: `gradle sonarqube`
+    - `APPLY` and `SAVE`
+
+###### Gradle Nexus Deploy Job
+- Click on `New Item`
+    - Name: `Gradle-Continuous-Integration-Pipeline-Nexus-Upload`
+    - Type: `Freestyle`
+    - Click: `OK`
+        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
+    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
+    - Branches to build: `*/main` or `master`
+    - Build Steps: `Execute Shell`
+        - Command: `gradle publish`
+    - `APPLY` and `SAVE`
 
 ## JOB INTEGRATION
 
 ### Integrate The Maven JOBS Together To Create a CI Pipeline
+1. Click on your `First Job` > Click `Configure` 
+- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
+2. Click on your `Second Job` > Click `Configure` 
+- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
 ### Integrate The Gradle JOBS Together To Create a CI Pipeline
+1. Click on your `First Job` > Click `Configure` 
+- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
+2. Click on your `Second Job` > Click `Configure` 
+- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
 ## TEST YOUR PIPELINE
 
