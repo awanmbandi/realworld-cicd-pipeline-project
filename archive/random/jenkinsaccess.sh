@@ -1,4 +1,5 @@
 ## MAVEN BUILD ENV
+## AMI: Amazon Linux 2
 ## Provision Jenkins Master Access
 sudo su
 useradd jenkinsmaster 
@@ -12,6 +13,7 @@ chown -R jenkinsmaster:jenkinsmaster /opt
 
 
 ## GRADLE BUILD ENV
+## AMI: Ubuntu 18.04 LTS HVM
 ## Provision Jenkins Master Access
 sudo su
 useradd jenkinsmaster -m
