@@ -22,7 +22,6 @@ source .bash_profile
 mvn -v
 
 ## Provision Jenkins Master Access
-sudo su
 useradd jenkinsmaster 
 echo jenkinsmaster | passwd jenkinsmaster --stdin ## Amazon Linux
 
@@ -39,9 +38,7 @@ mkdir /home/jenkinsmaster/.m2
 wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins/settings.xml -P /home/jenkinsmaster/.m2/
 ```
 
-
 - NOTE/Test: ssh jenkinsmaster@MAVEN_VM_PUBLIC_IP
-```
 
 ## Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
 ```

@@ -21,7 +21,6 @@ source /etc/profile.d/gradle.sh
 gradle -v
 
 ## Provision Jenkins Master Access
-sudo su
 useradd jenkinsmaster 
 echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 
