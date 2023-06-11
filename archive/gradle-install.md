@@ -24,6 +24,7 @@ gradle -v
 useradd jenkinsmaster 
 echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 
+## Enable Password Authentication and Authorization
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
 echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
