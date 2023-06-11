@@ -1,4 +1,4 @@
-## MAVEN BUILD ENV
+## MAVEN BUILD ENVIRONMENT
 ## AMI: Amazon Linux 2
 ## Provision Jenkins Master Access
 sudo su
@@ -11,7 +11,7 @@ echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
 chown -R jenkinsmaster:jenkinsmaster /opt
 
 
-## GRADLE BUILD ENV
+## GRADLE BUILD ENVIRONMENT
 ## AMI: Ubuntu 18.04 LTS HVM
 ## Provision Jenkins Master Access
 sudo su
