@@ -28,7 +28,7 @@ yum install git -y
     - Node name: `Maven-Build-Env` 
     - Type: `Permanent Agent` >> Click `CREATE`
 
-#### 2.1 Configure "Maven-Build-Env"
+#### 2.1. Configure "Maven-Build-Env"
 - Name:                  `Maven-Build-Env`
 - Number of Executors:   `5` (for example, maximum jobs to execute at a time)
 - Remote root directory: `/opt/maven-builds`
