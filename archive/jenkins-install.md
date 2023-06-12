@@ -5,7 +5,7 @@
 - Key pair: Select or Create
 - Security group ports: 8080, 22
  
- ### Login and Install Jenkins
+ ## 2️⃣ Login and Install Jenkins
  ```
 #!/bin/bash
 sudo su
@@ -22,13 +22,13 @@ systemctl start jenkins
 yum install git -y
  ```
 
-## 2️⃣ Configure Master and Clinet Configuration
+## 3️⃣ Configure Master and Clinet Configuration
 - Click on "Manage Jenkins" >> Click "Nodes and Cloud" >> Click "New Node"
 - Click `New Node`
     - Node name: `Maven-Build-Env` 
     - Type: `Permanent Agent` >> Click `CREATE`
 
-#### 2.1. Configure "Maven-Build-Env"
+#### 3.1. Configure "Maven-Build-Env"
 - Name:                  `Maven-Build-Env`
 - Number of Executors:   `5` (for example, maximum jobs to execute at a time)
 - Remote root directory: `/opt/maven-builds`
@@ -67,7 +67,7 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-#### 2.2. Configure "Gradle-Build-Env"
+#### 3.2. Configure "Gradle-Build-Env"
 - Click `New Node`
     - Node name: `Gradle-Build-Env` 
     - Type: `Permanent Agent` >> Click `CREATE`
@@ -110,7 +110,7 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-## 3️⃣ Plugin Installation Before Job Creation
+## 4️⃣ Plugin Installation Before Job Creation
 - Install: `Delivery Pipeline` plugin
     - Click on `Dashboard` on Jenkins
     - Click on The `+` on your Jenkins Dashboard and Configure the View
@@ -120,9 +120,9 @@ yum install git -y
         - Initial Job: Select either the `Maven Build Job or 1st Job` or `Gradle Build Job or 1st Job`
     - APPLY and SAVE
 
-## 4️⃣ CREATE PROJECT PIPELINE JOBS
+## 5️⃣ CREATE PROJECT PIPELINE JOBS
 
-### 4.1. Create Maven Build, Test and Deploy Job
+### 5.1. Create Maven Build, Test and Deploy Job
 ###### Maven Build Job
 - Click on `New Item`
     - Name: `Maven-Continuous-Integration-Pipeline-Build`
@@ -167,7 +167,7 @@ yum install git -y
     
     - `APPLY` and `SAVE`
 
-### 4.2. Create Gradle Build, Test and Deploy Job
+### 5.2. Create Gradle Build, Test and Deploy Job
 ###### Gradle Build Job
 - Click on `New Item`
     - Name: `Gradle-Continuous-Integration-Pipeline-Build`
@@ -207,21 +207,21 @@ yum install git -y
         - Command: `gradle publish`
     - `APPLY` and `SAVE`
 
-## 5️⃣ JOB INTEGRATION
+## 6️⃣ JOB INTEGRATION
 
-### 5.1. Integrate The Maven JOBS Together To Create a CI Pipeline
+### 6.1. Integrate The Maven JOBS Together To Create a CI Pipeline
 1. Click on your `First Job` > Click `Configure` 
 - Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
 2. Click on your `Second Job` > Click `Configure` 
 - Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
-### 5.2. Integrate The Gradle JOBS Together To Create a CI Pipeline
+### 6.2. Integrate The Gradle JOBS Together To Create a CI Pipeline
 1. Click on your `First Job` > Click `Configure` 
 - Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
 2. Click on your `Second Job` > Click `Configure` 
 - Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
-## 6️⃣ TEST YOUR PIPELINE
+## 7️⃣ TEST YOUR PIPELINE
 
 
 

@@ -4,7 +4,7 @@
 - Instance type: t2.micro
 - Security group ports: 22
 
-### 1.1 SSH into your gradle vm and Configure Gradle
+## 2️⃣ SSH into your gradle vm and Configure Gradle
 ```
 #!/bin/bash
 sudo apt update
@@ -40,27 +40,27 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 
 - NOTE/Test: ssh jenkinsmaster@GRADLE_VM_PUBLIC_IP
 
-## Install Git and Clone your Project repo
+### 2.1. NOTE: (Only Neccessary if you're implementing this out locally) | Clone your Project repo
 ```
 cd /home/ec2-user
 git clone PROJECT_REPOSITORY_URL
 cd PROJECT_REPO
 ```
 
-## 2️⃣ Run a Test Build after configuring your Env and Pulling down the project Repo
+## 3️⃣ Run a Test Build after configuring your Env and Pulling down the project Repo
 ```
 gradle clean build
 ```
 
-### 2.1. Confirm Build Artifact Once the Gradle Build is done
+### 3.1. Confirm Build Artifact Once the Gradle Build is done
 #### Artifact Name is "springboot-tomcat-gradle-war-0.0.1-SNAPSHOT.war"
 ```
 cd /home/ec2-user/realworld-cicd-pipeline-project/build/libs
 ls /home/ec2-user/realworld-cicd-pipeline-project/build/libs
 ```
 
-## 3️⃣ Integrate Gradle with SonarQube
-### 3.1. Update bellow property values for SonarQube Integration
+## 4️⃣ Integrate Gradle with SonarQube
+### 4.1. Update bellow property values for SonarQube Integration
 1. Login to SonarQube and Create a Project called `Gradle-JavaWebApp`
 ```
 vi build.gradle
@@ -82,7 +82,7 @@ sonarqube {
 gradle sonarqube
 ```
 
-## 4️⃣ (OPTIONAL) (Not Needed If You Configured The Above Variables, PATH and SONAR Config)
+## 5️⃣ (OPTIONAL) (Not Needed If You Configured The Above Variables, PATH and SONAR Config)
 - Assign execution "x" permission to your "gradlew" config file
 ```
 chmod +x gradlew
@@ -96,7 +96,7 @@ chmod +x gradlew
   -Dsonar.login=658513ed6810d58fae16edb3f434833b109501a2
 ```
 
-## 5️⃣ TROUBLESHOOTING
+## 6️⃣ TROUBLESHOOTING
 1. If you get an error about a certain "lock" when running SonarQube scan, please go ahead and run the following command to remove the lock and then Re-run the command that failed.
 ```
 find ~/.gradle -type f -name "*.lock" -delete
@@ -109,7 +109,7 @@ rm -rf ~/.sonar
 - Stop and Restart your Instance
 - Then Re-run your SonarQube Scan and it should Succeed.
 
-## 6️⃣ Integrate Nexus
+## 7️⃣ Integrate Nexus
 1. Create a ``Maven2(hosted), Snapshot Repository`` in Nexus called `gradle-java-webapp-repository`
 2. Edit the Nexus Block od Code in the "build.gradle" file. Update it with your "Nexus IP" and "Repository Name"
 ```

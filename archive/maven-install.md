@@ -1,10 +1,10 @@
-## Launch Maven Environment and Configure
+## 1️⃣ Launch Maven Environment and Configure
 - Name: Maven-Build-Env
 - AMI: Amazon Linux 2
 - Instance type: t2.micro
 - Security group ports: 22
 
-## Install and Configure Java11 and Apache Maven
+## 2️⃣ Install and Configure Java11 and Apache Maven
 ```
 #!/bin/bash
 sudo su
@@ -41,7 +41,7 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 
 - NOTE/Test: ssh jenkinsmaster@MAVEN_VM_PUBLIC_IP
 
-## Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
+## 3️⃣ NOTE: Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
 ```
 git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
 git checkout maven-sonarqube-nexus
