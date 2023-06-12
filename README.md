@@ -490,9 +490,9 @@ cd /opt/splunk/bin
     ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
 
     ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
-    1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with the Project with `SonarQube Results`
+    1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with your `SonarQube Project` with `SonarQube Results`
     - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
-    ```
+    ```bash
     JENKINS CONSOLE OUTPUT
 
     Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
@@ -521,7 +521,7 @@ cd /opt/splunk/bin
 ### Update Maven POM and Integrate/Configure Nexus With Jenkins
 A) Update Maven `POM.xml` file
 - Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
-```
+```bash
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshots/</url>
 
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-releases/</url>
