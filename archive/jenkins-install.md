@@ -6,7 +6,7 @@
 - Security group ports: 8080, 22
  
  ## 2️⃣ Login and Install Jenkins
- ```
+ ```bash
 #!/bin/bash
 sudo su
 yum update –y

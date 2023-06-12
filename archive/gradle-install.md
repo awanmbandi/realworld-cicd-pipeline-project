@@ -5,7 +5,7 @@
 - Security group ports: 22
 
 ## 2️⃣ SSH into your gradle vm and Configure Gradle
-```
+```bash
 #!/bin/bash
 sudo apt update
 sudo apt install openjdk-11-jdk
@@ -41,20 +41,20 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 - NOTE/Test: ssh jenkinsmaster@GRADLE_VM_PUBLIC_IP
 
 ### 2.1. NOTE: (Only Neccessary if you're implementing this out locally) | Clone your Project repo
-```
+```bash
 cd /home/ec2-user
 git clone PROJECT_REPOSITORY_URL
 cd PROJECT_REPO
 ```
 
 ## 3️⃣ Run a Test Build after configuring your Env and Pulling down the project Repo
-```
+```bash
 gradle clean build
 ```
 
 ### 3.1. Confirm Build Artifact Once the Gradle Build is done
 #### Artifact Name is "springboot-tomcat-gradle-war-0.0.1-SNAPSHOT.war"
-```
+```bash
 cd /home/ec2-user/realworld-cicd-pipeline-project/build/libs
 ls /home/ec2-user/realworld-cicd-pipeline-project/build/libs
 ```
@@ -66,7 +66,7 @@ ls /home/ec2-user/realworld-cicd-pipeline-project/build/libs
 vi build.gradle
 ```
 - Look for the following piece of Code in the "build.gradle" config file
-```
+```bash
 sonarqube {
     properties {
         property "sonar.sourceEncoding", "UTF-8"
@@ -78,18 +78,18 @@ sonarqube {
 ```
 
 2. Execute SonarQube Code Analysis on generated artifact with the following command
-```
+```bash
 gradle sonarqube
 ```
 
 ## 5️⃣ (OPTIONAL) (Not Needed If You Configured The Above Variables, PATH and SONAR Config)
 - Assign execution "x" permission to your "gradlew" config file
-```
+```bash
 chmod +x gradlew
 ```
 
 - Then Run SonarQube Scan
-```
+```bash
 ./gradlew sonarqube \
   -Dsonar.projectKey=Gradle-JavaWebApp \
   -Dsonar.host.url=http://13.58.160.12:9000 \
@@ -98,12 +98,12 @@ chmod +x gradlew
 
 ## 6️⃣ TROUBLESHOOTING
 1. If you get an error about a certain "lock" when running SonarQube scan, please go ahead and run the following command to remove the lock and then Re-run the command that failed.
-```
+```bash
 find ~/.gradle -type f -name "*.lock" -delete
 ```
 
 2. If your Sonar scan still fails and this time it complains about "SonarQube analysis is already in progress" go ahead and run the following command and then Stop and Restart your Instance. 
-```
+```bash
 rm -rf ~/.sonar
 ```
 - Stop and Restart your Instance
@@ -112,7 +112,7 @@ rm -rf ~/.sonar
 ## 7️⃣ Integrate Nexus
 1. Create a ``Maven2(hosted), Snapshot Repository`` in Nexus called `gradle-java-webapp-repository`
 2. Edit the Nexus Block od Code in the "build.gradle" file. Update it with your "Nexus IP" and "Repository Name"
-```
+```bash
 publishing {
     publications {
         maven(MavenPublication) {
@@ -134,7 +134,7 @@ publishing {
 ```
 
 3. Confirm that you've already Build and Test with SonarQube. Now Publish to Nexus
-```
+```bash
 gradle publish
 ```
 

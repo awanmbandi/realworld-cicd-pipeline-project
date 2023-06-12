@@ -5,7 +5,7 @@
 - Security group ports: 22
 
 ## 2️⃣ Install and Configure Java11 and Apache Maven
-```
+```bash
 #!/bin/bash
 sudo su
 yum update
@@ -42,7 +42,7 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 - NOTE/Test: ssh jenkinsmaster@MAVEN_VM_PUBLIC_IP
 
 ## 3️⃣ NOTE: Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
-```
+```bash
 git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
 git checkout maven-sonarqube-nexus
 ```
