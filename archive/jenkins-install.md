@@ -1,4 +1,4 @@
-## 1.0 Launch an Amazon Linux 2 instance and Configure Jenkins
+## 1️⃣ Launch an Amazon Linux 2 instance and Configure Jenkins
 - name: Jenkins-Master
 - machine type: t2.medium
 - image/ami: Amazon Linux 2
