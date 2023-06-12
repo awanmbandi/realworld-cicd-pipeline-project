@@ -205,7 +205,7 @@
 - **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
     - Download the Splunk RPM installer package for Linux
-    ```
+    ```bash
     wget -O splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm"
     ```
     - Install Splunk
@@ -213,7 +213,7 @@
     sudo yum install ./splunk-9.0.2-17e00c557dc1-linux-2.6-x86_64.rpm -y
     ```
     - Start the splunk server 
-    ```
+    ```bash
     sudo bash
     cd /opt/splunk/bin
     ./splunk start --accept-license --answer-yes
@@ -244,7 +244,7 @@ exit
 wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm"
 ```
 - Install the Forwarder
-```
+```bash
 ls -al
 sudo yum install ./splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm -y
 ```
@@ -252,7 +252,7 @@ sudo yum install ./splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm -y
 - Change to the splunkforwarder bin directory and start the forwarder
 - NOTE: The Password must be at least `8` characters long.
 - Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
-```
+```bash
 sudo bash
 cd /opt/splunkforwarder/bin
 ./splunk start --accept-license --answer-yes
@@ -276,7 +276,7 @@ cd /opt/splunkforwarder/bin
 ```
 
 - Set the port for the splunk server to listen on 9997 and restart
-```
+```bash
 cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
@@ -440,7 +440,7 @@ cd /opt/splunk/bin
     ![SonarQubeSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.08.26%20AM.png)
 
     - Go ahead and Confirm in the Jenkinsfile you have the “Quality Gate Stage”. The stage code should look like the below;
-    ```
+    ```bash
     stage('SonarQube GateKeeper') {
         steps {
           timeout(time : 1, unit : 'HOURS'){
@@ -529,7 +529,7 @@ A) Update Maven `POM.xml` file
 
 -  Add the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
 - The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
-  ```
+  ```bash
   environment {
     WORKSPACE = "${env.WORKSPACE}"
     NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
@@ -537,7 +537,7 @@ A) Update Maven `POM.xml` file
   ```
 
 - Here we're using the `Nexus Artifact Uploader` stage config to store the app artifact
-  ```
+  ```bash
   stage("Nexus Artifact Uploader"){
       steps{
           nexusArtifactUploader(
