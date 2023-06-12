@@ -570,7 +570,7 @@ A) Update Maven `POM.xml` file
 - NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
 - NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
-```
+```bash
 #!/bin/bash
 # Tomcat Server Installation
 sudo su
