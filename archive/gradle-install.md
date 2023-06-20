@@ -13,7 +13,7 @@ wget -c https://services.gradle.org/distributions/gradle-6.8.3-bin.zip -P /tmp
 sudo apt install unzip -y
 sudo unzip -d /opt/gradle /tmp/gradle-6.8.3-bin.zip
 ls /opt/gradle
-sudo wget -c https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/jenkins-master-client-config/gradle.sh -P /etc/profile.d/
+sudo wget -c https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/jenkins-master-client-config/ -P /etc/profile.d/
 sudo chmod +x /etc/profile.d/gradle.sh
 source /etc/profile.d/gradle.sh
 gradle --version
