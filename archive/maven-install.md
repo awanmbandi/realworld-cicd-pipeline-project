@@ -40,7 +40,9 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 chown jenkinsmaster:jenkinsmaster /home/jenkinsmaster/.m2/
 chown jenkinsmaster:jenkinsmaster /home/jenkinsmaster/.m2/settings.xml
 ```
-
+```
+Set JAVA Default Version to: Java 11
+```
 - NOTE/Test: ssh jenkinsmaster@MAVEN_VM_PUBLIC_IP
 
 ## 3️⃣ NOTE: Post Operations (Only Neccessary If You Must Test The Environment Before Integrating Jenkins)
