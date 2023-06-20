@@ -7,7 +7,7 @@
 ## 2️⃣ SSH into your gradle vm and Configure Gradle
 ```bash
 #!/bin/bash
-sudo apt update
+sudo apt update -y
 sudo apt install openjdk-11-jdk
 java -version
 VERSION=6.8.3
