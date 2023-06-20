@@ -8,7 +8,7 @@
 ```bash
 #!/bin/bash
 sudo apt update -y
-sudo apt install openjdk-11-jdk
+sudo apt install openjdk-11-jdk -y
 java -version
 VERSION=6.8.3
 wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
