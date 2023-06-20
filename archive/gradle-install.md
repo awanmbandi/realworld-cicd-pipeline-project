@@ -33,7 +33,7 @@ echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 ## Enable Password Authentication and Authorization
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
-echo "jenkinsmaster ALL=(ALL:ALL) ALL" >> /etc/sudoers
+echo "jenkinsmaster ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -R jenkinsmaster:jenkinsmaster /opt
 
 ## Install git
