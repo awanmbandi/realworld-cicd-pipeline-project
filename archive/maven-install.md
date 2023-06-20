@@ -28,7 +28,7 @@ echo jenkinsmaster | passwd jenkinsmaster --stdin ## Amazon Linux
 ## Enable Password Authentication and Authorization
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
-echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
+echo "jenkinsmaster ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 chown -R jenkinsmaster:jenkinsmaster /opt
 
 ## Install Git SCM
