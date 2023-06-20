@@ -101,7 +101,7 @@ yum install git -y
         - Click `Add`
         - 1st Variable:
             - Name: `GRADLE_HOME`
-            - Value: `/opt/gradle-6.8.3`
+            - Value: `/opt/gradle/gradle-6.8.3`
         - 2nd Variable:
             - Name: `PATH`
             - Value: `$GRADLE_HOME/bin:$PATH`
