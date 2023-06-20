@@ -9,21 +9,14 @@
 #!/bin/bash
 sudo apt update -y
 sudo apt install openjdk-11-jdk -y
-java -version
-
-sleep 10
-
-echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> /home/ubuntu/.bashrc
-echo "export GRADLE_HOME=/opt/gradle/gradle-6.8.3" >> /home/ubuntu/.bashrc
-echo "export PATH=\$PATH:\$GRADLE_HOME/bin" >> /home/ubuntu/.bashrc
-sleep 5
-source /home/ubuntu/.bashrc
-
-wget https://services.gradle.org/distributions/gradle-6.8.3-bin.zip -P /tmp
+wget -c https://services.gradle.org/distributions/gradle-6.8.3-bin.zip -P /tmp
 sudo apt install unzip -y
-sudo unzip -d /opt/gradle /tmp/gradle-*.zip
-source ~/.bashrc
-gradle -v
+sudo unzip -d /opt/gradle /tmp/gradle-6.8.3-bin.zip
+ls /opt/gradle
+sudo wget -c https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/jenkins-master-client-config/gradle.sh -P /etc/profile.d/
+sudo chmod +x /etc/profile.d/gradle.sh
+source /etc/profile.d/gradle.sh
+gradle --version
 
 ## Provision Jenkins Master Access
 sudo su
