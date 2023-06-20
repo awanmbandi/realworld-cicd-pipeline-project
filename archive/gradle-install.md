@@ -10,25 +10,30 @@
 sudo apt update -y
 sudo apt install openjdk-11-jdk -y
 java -version
-VERSION=6.8.3
-sudo wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
+
+sleep 10
+
+echo "export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64" >> /home/ubuntu/.bashrc
+echo "export GRADLE_HOME=/opt/gradle/gradle-6.8.3" >> /home/ubuntu/.bashrc
+echo "export PATH=\$PATH:\$GRADLE_HOME/bin" >> /home/ubuntu/.bashrc
+sleep 5
+source /home/ubuntu/.bashrc
+
+wget https://services.gradle.org/distributions/gradle-6.8.3-bin.zip -P /tmp
 sudo apt install unzip -y
-sudo unzip -d /opt/gradle /tmp/gradle-${VERSION}-bin.zip
-sudo ln -s /opt/gradle/gradle-${VERSION} /opt/gradle/latest
-echo "export GRADLE_HOME=/opt/gradle/latest" >> /etc/profile.d/gradle.sh
-echo "export PATH=${GRADLE_HOME}/bin:${PATH}" >> /etc/profile.d/gradle.sh
-sudo chmod +x /etc/profile.d/gradle.sh
-source /etc/profile.d/gradle.sh
+sudo unzip -d /opt/gradle /tmp/gradle-*.zip
+source ~/.bashrc
 gradle -v
 
 ## Provision Jenkins Master Access
+sudo su
 useradd jenkinsmaster -m
 echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 
 ## Enable Password Authentication and Authorization
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
-echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
+echo "jenkinsmaster ALL=(ALL:ALL) ALL" >> /etc/sudoers
 chown -R jenkinsmaster:jenkinsmaster /opt
 
 ## Install git
