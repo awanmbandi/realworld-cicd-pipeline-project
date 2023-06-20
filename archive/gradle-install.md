@@ -23,7 +23,7 @@ source /etc/profile.d/gradle.sh
 gradle -v
 
 ## Provision Jenkins Master Access
-useradd jenkinsmaster 
+useradd jenkinsmaster -m
 echo "jenkinsmaster:jenkinsmaster" | chpasswd  ## Ubuntu
 
 ## Enable Password Authentication and Authorization
