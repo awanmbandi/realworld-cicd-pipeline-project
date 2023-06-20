@@ -1,6 +1,3 @@
-MAVEN_HOME=/usr/share/apache-maven" >> .bash_profile
-echo "PATH=$MAVEN_HOME/bin:$PATH" >> .bash_profile
-
 # .bash_profile
 
 # Get the aliases and functions
@@ -10,7 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 export PATH
 MAVEN_HOME=/usr/share/apache-maven
