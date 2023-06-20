@@ -15,9 +15,9 @@ sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
 
 ## Configure MAVEN_HOME and PATH Environment Variables
-rm ~/.bash_profile
-wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/jenkins-master-client-config/.bash_profile ~/.bash_profile
-source ~/.bash_profile
+rm .bash_profile
+wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/jenkins-master-client-config/.bash_profile
+source .bash_profile
 mvn -v
 
 ## Provision Jenkins Master User
