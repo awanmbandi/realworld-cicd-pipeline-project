@@ -146,10 +146,11 @@ yum install git -y
     - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
     - Branches to build: `*/main` or `master`
     - Build Steps: `Execute Shell`
-        - Command: `"""mvn sonar:sonar \
+        - Command:
+          """mvn sonar:sonar \
                 -Dsonar.projectKey=Maven-JavaWebApp-Analysis \
                 -Dsonar.host.url=http://PROVIDE_PRIVATE_IP:9000 \
-                -Dsonar.login=SONARQUBE_PROJECT_AUTHORIZATION_TOKEN"""`
+                -Dsonar.login=SONARQUBE_PROJECT_AUTHORIZATION_TOKEN"""
     - `APPLY` and `SAVE`
 
 ###### Maven Nexus Upload Job
