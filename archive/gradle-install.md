@@ -1,6 +1,6 @@
 ## 1️⃣ Launch Gradle Environment and Configure
 - Name: Gradle-Build-Env
-- AMI: Ubuntu 20.04 LTS/HVM
+- AMI: Ubuntu 22.04 LTS/HVM
 - Instance type: t2.micro
 - Security group ports: 22
 
