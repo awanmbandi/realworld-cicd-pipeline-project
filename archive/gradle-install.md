@@ -32,10 +32,6 @@ chown -R jenkinsmaster:jenkinsmaster /opt
 
 ## Install git
 yum install git -y
-
-## Download settings.xml into .m2 for Authorization
-mkdir /home/jenkinsmaster/.m2
-wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins/settings.xml -P /home/jenkinsmaster/.m2/
 ```
 
 - NOTE/Test: ssh jenkinsmaster@GRADLE_VM_PUBLIC_IP
