@@ -32,7 +32,7 @@ echo "jenkinsmaster ALL=(ALL)" >> /etc/sudoers
 chown -R jenkinsmaster:jenkinsmaster /opt
 
 ## Install git
-yum install git -y
+apt install git -y
 ```
 
 - NOTE/Test: ssh jenkinsmaster@GRADLE_VM_PUBLIC_IP
