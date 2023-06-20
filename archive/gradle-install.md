@@ -15,10 +15,10 @@ wget https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip -P /tmp
 sudo apt install unzip -y
 sudo unzip -d /opt/gradle /tmp/gradle-${VERSION}-bin.zip
 sudo ln -s /opt/gradle/gradle-${VERSION} /opt/gradle/latest
-echo "export GRADLE_HOME=/opt/gradle/latest" >> /etc/profile.d/gradle.sh
-echo "export PATH=${GRADLE_HOME}/bin:${PATH}" >> /etc/profile.d/gradle.sh
+sudo echo "export GRADLE_HOME=/opt/gradle/latest" >> /etc/profile.d/gradle.sh
+sudo echo "export PATH=${GRADLE_HOME}/bin:${PATH}" >> /etc/profile.d/gradle.sh
 sudo chmod +x /etc/profile.d/gradle.sh
-source /etc/profile.d/gradle.sh
+sudo source /etc/profile.d/gradle.sh
 gradle -v
 
 ## Provision Jenkins Master Access
