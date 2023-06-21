@@ -1,1 +1,1 @@
-# CloudFormation Jenkins CI/CD Pipeline
+# Jenkins Master Client Project - V2 - Declarative 
