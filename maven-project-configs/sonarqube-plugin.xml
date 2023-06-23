@@ -1,0 +1,15 @@
+<pluginGroups>
+    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+</pluginGroups>
+
+
+    <profile>
+        <id>sonar</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+
+            <sonar.host.url></sonar.host.url>
+        </properties>
+    </profile>
