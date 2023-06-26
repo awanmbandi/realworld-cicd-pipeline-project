@@ -9,7 +9,7 @@ buildscript {
         classpath 'org.akhikhl.gretty:gretty:+'
     }
 }
-
+apply plugin: "com.jfrog.artifactory"
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -38,9 +38,11 @@ dependencies {
     //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
 }
 
+/*
 allprojects {
     apply plugin: "com.jfrog.artifactory"
 }
+*/
 
 gretty {
     // supported values:
