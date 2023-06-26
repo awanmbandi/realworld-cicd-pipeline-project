@@ -1,4 +1,4 @@
-# End-to-End Jenkins CI/CD Pipeline Project Architecture (Java Web Application)
+# Real World CI/CD Pipeline Project Architecture (N2)
 ![CompleteCICDProject!](https://lucid.app/publicSegments/view/47680ec6-d955-4714-a456-1dc0f0d0ceb6/image.png) 
 
 ###### Project ToolBox 🧰
