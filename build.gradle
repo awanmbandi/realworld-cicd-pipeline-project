@@ -44,7 +44,7 @@ gretty {
 }
 
 war {
-    archiveBaseName 'gradle-war.war'
+    archiveFileName 'gradle-war.war'
 }
 
 test {
