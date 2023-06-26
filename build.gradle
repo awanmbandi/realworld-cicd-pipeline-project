@@ -66,7 +66,7 @@ task integrationTest(type: Test, dependsOn: 'test') {
         includeGroups 'integration'
     }
 }
-
+/*
 // Publish Artifacts To JFrog Artifact Repository Manager
 publishing {
     publications {
@@ -97,3 +97,4 @@ artifactory {
         }
     }
 }
+*/
