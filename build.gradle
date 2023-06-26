@@ -4,11 +4,14 @@ buildscript {
         // enable this to use snapshot versions of Gretty:
         // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
     }
-
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
     }
 }
+
+allprojects {
 apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -17,6 +20,7 @@ apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
 //apply plugin: 'com.jfrog.artifactory', version "4.32.0"
 apply plugin: 'maven-publish'
+}
 
 version = "1.1"
 
@@ -34,8 +38,6 @@ dependencies {
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 
     testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
-    //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-    //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
 }
 
 /*
