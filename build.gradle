@@ -78,8 +78,8 @@ task integrationTest(type: Test, dependsOn: 'test') {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            from components.java
+        mavenWeb(MavenPublication) {
+            from components.web
         }
     }
 }
