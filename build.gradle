@@ -114,27 +114,4 @@ artifactory {
         }
     }
 }
-/*
-// JFrog Artifactory Manager
-artifactory {
-    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
-    publish {
-        repository {
-            repoKey = 'example-repo-local'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'gradle-javawebapp-virtual-repo'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-    }
-}
-*/
+
