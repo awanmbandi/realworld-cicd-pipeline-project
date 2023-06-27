@@ -2,7 +2,7 @@ buildscript {
     repositories {
         jcenter()
         // enable this to use snapshot versions of Gretty:
-        maven { url 'http://34.72.79.70:8082/artifactory/gradle-javawebapp-local-repo/' }
+        //maven { url 'http://34.72.79.70:8082/artifactory/gradle-javawebapp-local-repo/' }
     }
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
