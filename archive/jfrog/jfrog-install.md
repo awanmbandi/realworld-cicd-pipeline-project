@@ -31,15 +31,36 @@ sudo apt-get update && sudo apt-get install jfrog-artifactory-oss
 
 
 ## Downloading Artifacts from JFrog Using REAT API:GET
+## THIS ONE <<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>
 curl -u admin:Admin@12345 -XGET "http://34.68.141.102:8082/artifactory/gradle-javawebapp-local-repo/gradle-war/1.1/gradle-war-1.1.war" --output gradle-war-1.1.war -T ~/Downloads/jfrog
 
 ## Downloading Artifacts from JFrog Using REAT API:GET With Encrypted Password
 curl -u admin:"sacavcdavasdvsdfvfsvs" -XGET "http://34.68.141.102:8082/artifactory/gradle-javawebapp-local-repo/gradle-war/1.1/gradle-war-1.1.war" --output gradle-war-1.1.war -T ~/Downloads/jfrog
 
 
-LATEST_ARTIFACT=`curl -u admin:Admin@12345 -s http://34.68.141.102:8082/artifactory/gradle-javawebapp-local-repo/ | grep -E gradle-war-[0-9\\.]+ | sed "s/<[^>]\\+>//g" | cut -d " " -f 1 | sort -V -r | head -n 1`
 
-wget http://34.68.141.102:8082/artifactory/gradle-javawebapp-local-repo/$LATEST_ARTIFACT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
