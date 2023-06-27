@@ -31,6 +31,8 @@ dependencies {
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 
     testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
+
+    classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '4.+')
 }
 
 gretty {
