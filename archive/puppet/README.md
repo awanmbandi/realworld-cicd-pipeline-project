@@ -3,40 +3,40 @@
 - https://www.puppet.com/downloads/puppet-enterprise?_ga=2.27784444.1130854862.1687842708-1333680495.1687659552&_gl=1%2A5p1ud5%2A_ga%2AMTMzMzY4MDQ5NS4xNjg3NjU5NTUy%2A_ga_7PSYLBBJPT%2AMTY4NzkwNDA5MS44LjEuMTY4NzkwNTkyMi4xMC4wLjA.
 
 ## Perform Installation and Configuration of PE on Ubuntu 20.04 LTS
-- Task 1: SSH into Your Ubuntu 20.04 VM
+- **Task 1:** SSH into Your Ubuntu 20.04 VM
 ```
 ssh -i PRIVATE_KEY_FILE USERNAME@HOST_IP
 ```
-- Task 1: Download The latest .TAR.GZ for Ubuntu 20.04
+- **Task 2:** Download The latest .TAR.GZ for Ubuntu 20.04
 ```
 wget --content-disposition 'https://pm.puppet.com/cgi-bin/download.cgi?dist=ubuntu&rel=20.04&arch=amd64&ver=latest'
 ```
-- Task 2: Untar the TAR file 
+- **Task 3:** Untar the TAR file 
 ```
 tar -xf 
 ```
-- Task 2: Run the PE Installer Config Script
+- **Task 4:** Run the PE Installer Config Script
 ```
 sudo ./puppet-enterprise-installer
 ```
-- Task 3: Configure and Setup PE Console Password
+- **Task 5:** Configure and Setup PE Console Password
 ```
 puppet infrastructure console_password
 ```
-- Task 4: Finalize PE Configuration by Running the Following Command `TTWICE`
+- **Task 6:** Finalize PE Configuration by Running the Following Command `TTWICE`
 ```
 puppet agent -t
 puppet agent -t
 ```
 
-- Task : Access the Puppet Enterprise Console
+- **Task 7:** Access the Puppet Enterprise Console
     - It's default Ports are `80` and `443`
     - Copy and Paste the External/Public DNS or IP on the browser
 ```
 https://d27a2a3cb12c.mylabserver.com
 ```
 
-- Task : Provide Username and Password
+- **Task 8:** Provide Username and Password
 ```
 Default Username: admin
 Password (We gave): adminadmin
