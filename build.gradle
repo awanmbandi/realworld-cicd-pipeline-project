@@ -2,33 +2,19 @@ buildscript {
     repositories {
         jcenter()
         // enable this to use snapshot versions of Gretty:
-        //maven { url 'http://34.72.79.70:8082/artifactory/gradle-javawebapp-local-repo/' }
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
     }
+
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
-        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
-        compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.36'
-        //implementation 'org.apache.directory.studio:org.slf4j.api:1.7.2'
-        //
-        //compile 'org.slf4j:slf4j-api:1.7.25'
-        //implementation 'org.slf4j:slf4j-log4j12:1.7.25'
-        //compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
-        //providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-        //testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
     }
 }
 
-allprojects {
-apply plugin: 'com.jfrog.artifactory'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
-//apply plugin: 'com.jfrog.artifactory', version "4.32.0"
-apply plugin: 'maven-publish'
-}
 
 version = "1.1"
 
@@ -36,18 +22,16 @@ defaultTasks 'clean', 'build'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
-/*
 dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
-}
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
 
-allprojects {
-    apply plugin: "com.jfrog.artifactory"
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
 }
-*/
 
 gretty {
     // supported values:
@@ -82,63 +66,3 @@ task integrationTest(type: Test, dependsOn: 'test') {
         includeGroups 'integration'
     }
 }
-
-// Publish Artifact
-artifactory {
-    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
-    publish {
-        repository {
-            repoKey = 'gradle-javawebapp-local-repo'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-        defaults {
-            publications('mavenJava')
-            publishArtifacts = true
-            publishPom = true 
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'gradle-javawebapp-virtual-repo'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-    }
-}
-/*
-// Publish Artifacts To JFrog Artifact Repository Manager
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
-}
-
-artifactory {
-    contextUrl = 'http://127.0.0.1:8081/artifactory'
-    publish {
-        repository {
-            repoKey = 'libs-snapshot-local' // The Artifactory repository key to publish to
-            username = "${artifactory_user}" // The publisher user name
-            password = "${artifactory_password}" // The publisher password
-        }
-        defaults {
-            // Reference to Gradle publications defined in the build script.
-            // This is how we tell the Artifactory Plugin which artifacts should be
-            // published to Artifactory.
-            publications('mavenJava')
-            publishArtifacts = true
-            // Properties to be attached to the published artifacts.
-            properties = ['qa.level': 'basic', 'dev.team' : 'core']
-            // Publish generated POM files to Artifactory (true by default)
-            publishPom = true
-        }
-    }
-}
-*/
