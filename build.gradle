@@ -8,6 +8,7 @@ buildscript {
         classpath 'org.akhikhl.gretty:gretty:+'
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+        implementation 'org.apache.directory.studio:org.slf4j.api:1.7.2'
         //
         //compile 'org.slf4j:slf4j-api:1.7.25'
         //implementation 'org.slf4j:slf4j-log4j12:1.7.25'
