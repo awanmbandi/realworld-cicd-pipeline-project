@@ -76,6 +76,14 @@ task integrationTest(type: Test, dependsOn: 'test') {
     }
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
 // JFrog Artifactory Manager
 artifactory {
     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
