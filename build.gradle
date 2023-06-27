@@ -81,6 +81,9 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
         }
+        bootJar {
+             enabled=false
+        }
     }
 }
 
