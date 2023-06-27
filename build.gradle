@@ -76,10 +76,19 @@ task integrationTest(type: Test, dependsOn: 'test') {
     }
 }
 
+/*
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+        }
+    }
+}
+*/
+publishing {
+    publications {
+        MavenPublication(MavenPublication) {
+            artifact bootWar
         }
     }
 }
