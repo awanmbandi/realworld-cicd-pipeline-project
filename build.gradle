@@ -81,8 +81,8 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
         }
-        bootJar {
-             enabled=false
+        MavenPublication(MavenPublication) {
+            artifact bootWar
         }
     }
 }
