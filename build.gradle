@@ -9,8 +9,8 @@ buildscript {
         //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
         //
-        compile 'org.slf4j:slf4j-api:1.7.25'
-        //implementation 'org.slf4j:slf4j-log4j12:1.7.25'
+        //compile 'org.slf4j:slf4j-api:1.7.25'
+        implementation 'org.slf4j:slf4j-log4j12:1.7.25'
         compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
         providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
         testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
