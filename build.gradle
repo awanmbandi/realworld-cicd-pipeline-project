@@ -23,6 +23,7 @@ apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven-publish'
 //apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
+apply plugin: 'pmd'
 
 // Artifact Secondary Folder Name/Version
 version = "1.1"
@@ -141,5 +142,11 @@ jacocoTestReport {
 checkstyle {
   toolVersion = '6.16.1'
   config = rootProject.resources.text.fromFile('checkstyle/rules/rules.xml')
+  ignoreFailures = true
+}
+
+pmd {
+  toolVersion = '5.4.1'
+  ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
   ignoreFailures = true
 }
