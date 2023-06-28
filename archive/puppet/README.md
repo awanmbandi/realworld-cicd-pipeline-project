@@ -205,7 +205,8 @@ sudo ./puppet-enterprise-installer
 
 ## Important Documentations
 1. What Get Installed: https://www.puppet.com/docs/pe/2023.2/what_gets_installed_and_where.html#certificates_installed
-2. sd
+2. Install and Setup Agent Nodes in PEM: https://www.puppet.com/docs/pe/2023.2/install_agent_console.html#install_agent_console
+
 
 
 
