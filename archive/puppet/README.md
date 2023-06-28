@@ -26,7 +26,9 @@ tar -xf
 sudo ./puppet-enterprise-installer
 ```
 - **Task 5:** Configure and Setup PE Console Password
+- **NOTE:** Provide PASSWORD as `adminadmin` for example
 ```
+sudo -i
 puppet infrastructure console_password
 ```
 - **Task 6:** Finalize PE Configuration by Running the Following Command `TTWICE`
