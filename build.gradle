@@ -146,7 +146,7 @@ checkstyle {
 }
 
 pmd {
-  toolVersion = '5.4.1'
+  toolVersion = '6.0.0'
   ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
   ignoreFailures = true
 }
