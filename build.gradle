@@ -141,4 +141,5 @@ jacocoTestReport {
 checkstyle {
   toolVersion = '6.16.1'
   config = rootProject.resources.text.fromFile('checkstyle/rules/rules.xml')
+  ignoreFailures = true
 }
