@@ -117,6 +117,7 @@ artifactory {
     }
 }
 
+/*
 jacocoTestReport{
     dependsOn test
 }
@@ -134,3 +135,4 @@ jacocoTestReport {
   }
 }
 //test.finalizedBy jacocoTestReport //This config enables Gradle to execute Jacoco Code Coverage everytime the Unit Test Runs
+*/
