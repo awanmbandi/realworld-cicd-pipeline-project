@@ -22,6 +22,7 @@ apply plugin: 'org.akhikhl.gretty'
 apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven-publish'
 //apply plugin: 'jacoco'
+apply plugin: 'checkstyle'
 
 // Artifact Secondary Folder Name/Version
 version = "1.1"
@@ -136,3 +137,8 @@ jacocoTestReport {
 }
 //test.finalizedBy jacocoTestReport //This config enables Gradle to execute Jacoco Code Coverage everytime the Unit Test Runs
 */
+
+checkstyle {
+  toolVersion = '6.16.1'
+  config = rootProject.resources.text.fromFile('etc/checkstyle/rules.xml')
+}
