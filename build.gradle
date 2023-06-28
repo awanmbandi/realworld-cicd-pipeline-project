@@ -117,9 +117,13 @@ artifactory {
     }
 }
 
+jacocoTestReport{
+    dependsOn test
+}
+
 // Jacoco Test Code Coverage
 jacoco {
-  toolVersion = "0.7.5.201505241946"
+  toolVersion = "0.8.8"
 }
 
 jacocoTestReport {
