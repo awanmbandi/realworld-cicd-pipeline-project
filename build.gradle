@@ -7,6 +7,7 @@ buildscript {
 
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
+        classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:2.0.0"
     }
 }
 
@@ -26,7 +27,8 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'project-report'  // Generates Reports and Provide Nice HTML Vidual For Reports Such as "Build", "Configs" and "Dependencies"
 apply plugin: 'build-dashboard' // Generates HTML based Reports for tools like CheckStyke, FindBugs, Jacoco, HTML Dependency, PMD, Java Unit Test
-apply plugin: 'findbugs'
+//apply plugin: 'findbugs'
+apply plugin: "com.github.spotbugs"
 
 // Artifact Secondary Folder Name/Version
 version = "1.1"
@@ -155,7 +157,7 @@ pmd {
   ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
   ignoreFailures = true
 }
-
+/*
 // FindBugs
 findbugs {
     ignoreFailures = false
@@ -171,7 +173,16 @@ tasks.withType(FindBugs) {
         html.enabled true
     }
 }
+*/
 
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    spotbugsMain.enabled = true
+    spotbugsTest.enabled = true
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+}
 
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Project Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
