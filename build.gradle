@@ -21,7 +21,7 @@ apply plugin: 'war'
 apply plugin: 'org.akhikhl.gretty'
 apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven-publish'
-//apply plugin: 'jacoco'
+apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'project-report'  // Generates Reports and Provide Nice HTML Vidual For Reports Such as "Build", "Configs" and "Dependencies"
@@ -148,7 +148,7 @@ checkstyle {
   ignoreFailures = true
 }
 
-
+// PMD: SAST Tool, used for Static Code Analysis just like SonarQube
 pmd {
   toolVersion = '6.0.0'
   ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
@@ -171,3 +171,33 @@ gradle clean projectReport //This Generates All "project-reports" reports includ
 gradle clean build projectReport buildDashboard
 
 */
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+    reportsDir = file("$buildDir/jacoco")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "junit:junit:4.+"
+}
+
+test {
+    jacoco {
+        append = false
+        destinationFile = file("$buildDir/jacoco/jacocoTest.exec")
+        classDumpFile = file("$buildDir/jacoco/classpathdumps")
+    }
+}
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}
