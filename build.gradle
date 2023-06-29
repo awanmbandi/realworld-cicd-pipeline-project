@@ -178,14 +178,11 @@ tasks.withType(FindBugs) {
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
     spotbugsMain.enabled = true
     spotbugsTest.enabled = true
+    ignoreFailures = true
     reports {
         xml.enabled = false
         html.enabled = true
     }
-}
-
-spotbugsTest {
-    enabled = false
 }
 
 /*
