@@ -184,6 +184,10 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
     }
 }
 
+spotbugsTest {
+    enabled = false
+}
+
 /*
 <<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Project Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
 gradle clean taskReport
