@@ -13,7 +13,7 @@ buildscript {
 
 plugins {
   id "com.jfrog.artifactory" version "4.18.3"
-  id 'com.github.spotbugs' version '5.0.14' apply false
+  id 'com.github.spotbugs' version '5.0.14' apply false // Generates HTML based Reports
 }
 
 apply plugin: 'java'
@@ -158,6 +158,7 @@ pmd {
   ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
   ignoreFailures = true
 }
+
 /*
 // FindBugs
 findbugs {
@@ -172,17 +173,6 @@ tasks.withType(FindBugs) {
     reports {
         xml.enabled false
         html.enabled true
-    }
-}
-*/
-/*
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    spotbugsMain.enabled = true
-    spotbugsTest.enabled = true
-    ignoreFailures = true
-    reports {
-        xml.enabled = false
-        html.enabled = true
     }
 }
 */
