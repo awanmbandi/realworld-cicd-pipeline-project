@@ -24,6 +24,7 @@ apply plugin: 'maven-publish'
 //apply plugin: 'jacoco'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
+apply plugin: 'project-report'  // Generates Reports and Provide Nice HTML Vidual For Reports Such as "Build", "Configs" and "Dependencies"
 
 // Artifact Secondary Folder Name/Version
 version = "1.1"
@@ -139,11 +140,13 @@ jacocoTestReport {
 //test.finalizedBy jacocoTestReport //This config enables Gradle to execute Jacoco Code Coverage everytime the Unit Test Runs
 */
 
+// Checkstyle SAST tool for compliant with specified coding rules
 checkstyle {
   toolVersion = '6.16.1'
   config = rootProject.resources.text.fromFile('checkstyle/rules/rules.xml')
   ignoreFailures = true
 }
+
 
 pmd {
   toolVersion = '6.0.0'
