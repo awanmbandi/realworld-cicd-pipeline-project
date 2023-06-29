@@ -7,7 +7,7 @@ buildscript {
 
     dependencies {
         classpath 'org.akhikhl.gretty:gretty:+'
-        classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:5.0.14"
+        classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:4.7.3"
     }
 }
 
