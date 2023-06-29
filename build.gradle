@@ -25,6 +25,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'project-report'  // Generates Reports and Provide Nice HTML Vidual For Reports Such as "Build", "Configs" and "Dependencies"
+apply plugin: 'build-dashboard' // Generates HTML based Reports for tools like CheckStyke, FindBugs, Jacoco, HTML Dependency, PMD, Java Unit Test
 
 // Artifact Secondary Folder Name/Version
 version = "1.1"
@@ -157,8 +158,16 @@ pmd {
 
 
 /*
-gradle taskReport
+<<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Project Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
+gradle clean taskReport
+gradle clean propertyReport
+gradle clean dependencyReport
 
+gradle clean htmldependencyReport
 
+gradle clean projectReport //This Generates All "project-reports" reports including Task, Property and Dependency
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Build Dashboard Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
+gradle clean build projectReport buildDashboard
 
 */
