@@ -153,3 +153,12 @@ pmd {
   ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
   ignoreFailures = true
 }
+
+
+
+/*
+gradle taskReport
+
+
+
+*/
