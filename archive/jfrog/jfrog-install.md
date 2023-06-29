@@ -80,3 +80,11 @@ wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_g
 echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list &&    sudo apt update &&
 sudo apt install -y jfrog-cli-v2-jf &&
 jf intro
+
+
+
+### SSHPASS To Connect With Another Instance and COPY Artifact
+sshpass -p "puppetdeployer" scp semanage.conf puppetdeployer@35.91.18.85:/home/puppetdeployer/
+
+
+scp /home/ec2-user/Github-Simulation/webapp/target/webapp.war root@54.185.250.110:/var/lib/tomcat/webapps
