@@ -1,5 +1,5 @@
 # Real World CI/CD Pipeline Project Architecture (N2)
-![CompleteCICDProject!](https://lucid.app/publicSegments/view/47680ec6-d955-4714-a456-1dc0f0d0ceb6/image.png) 
+![CompleteCICDProject!](https://lucid.app/publicSegments/view/30a8a296-1b3f-4184-a26f-5ff5e9965d35/image.png) 
 
 ###### Project ToolBox 🧰
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
