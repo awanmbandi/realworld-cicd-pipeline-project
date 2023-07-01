@@ -1,0 +1,207 @@
+buildscript {
+    repositories {
+        jcenter()
+        // enable this to use snapshot versions of Gretty:
+        // maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local' }
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:+'
+        //classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:2.0.0"
+    }
+}
+
+plugins {
+  id "com.jfrog.artifactory" version "4.18.3"
+  id 'com.github.spotbugs' version '5.0.14' apply false // Generates HTML based Reports
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+apply plugin: "com.jfrog.artifactory"
+apply plugin: 'maven-publish'
+//apply plugin: 'jacoco'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'project-report'  // Generates Reports and Provide Nice HTML Vidual For Reports Such as "Build", "Configs" and "Dependencies"
+apply plugin: 'build-dashboard' // Generates HTML based Reports for tools like CheckStyke, FindBugs, Jacoco, HTML Dependency, PMD, Java Unit Test
+//apply plugin: 'findbugs'
+//apply plugin: "com.github.spotbugs"
+
+// Artifact Secondary Folder Name/Version
+version = "1.1"
+
+defaultTasks 'clean', 'build'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.25'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.13.6'
+
+    //classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '4.+')
+    //classpath "org.jfrog.buildinfo:build-info-extractor-gradle:latest.release"
+}
+
+gretty {
+    // supported values:
+    // 'jetty7', 'jetty8', 'jetty9', 'jetty93', 'jetty94', 'tomcat7', 'tomcat8'
+    servletContainer = 'jetty9'
+    httpPort = 8080
+    contextPath = '/gradle-war'
+}
+
+war {
+    archiveName 'gradle-war.war'
+}
+
+test {
+    testLogging {
+        // show standard out and standard error of the test JVM(s) on the console
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+    useTestNG() {
+        excludeGroups 'integration'
+    }
+}
+
+task integrationTest(type: Test, dependsOn: 'test') {
+    testLogging {
+        // show standard out and standard error of the test JVM(s) on the console
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+    useTestNG() {
+        includeGroups 'integration'
+    }
+}
+
+publishing {
+    publications {
+        mavenWeb(MavenPublication) {
+            from components.web
+        }
+    }
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"
+    publish {
+        repository {
+            repoKey = 'gradle-javawebapp-local-repo-v2' // The Artifactory repository key to publish to
+            username = "${artifactory_user}" // The publisher user name
+            password = "${artifactory_password}" // The publisher password
+        }
+        defaults {
+            // Reference to Gradle publications defined in the build script.
+            // This is how we tell the Artifactory Plugin which artifacts should be
+            // published to Artifactory.
+            publications('mavenWeb')
+            publishArtifacts = true
+            // Properties to be attached to the published artifacts.
+            // properties = ['qa.level': 'basic', 'dev.team' : 'core']
+            // Publish generated POM files to Artifactory (true by default)
+            publishPom = true
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'gradle-javawebapp-virtual-repo'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+}
+
+/*
+jacocoTestReport{
+    dependsOn test
+}
+
+// Jacoco Test Code Coverage
+jacoco {
+  toolVersion = "0.8.8"
+}
+
+jacocoTestReport {
+  reports {
+    html.enabled = true
+    xml.enabled = true
+    csv.enabled = true
+  }
+}
+//test.finalizedBy jacocoTestReport //This config enables Gradle to execute Jacoco Code Coverage everytime the Unit Test Runs
+*/
+
+// Checkstyle SAST tool for compliant with specified coding rules
+checkstyle {
+  toolVersion = '6.16.1'
+  config = rootProject.resources.text.fromFile('checkstyle/rules/rules.xml')
+  ignoreFailures = true
+}
+
+// PMD: SAST Tool, used for Static Code Analysis just like SonarQube
+pmd {
+  toolVersion = '6.0.0'
+  ruleSetConfig = rootProject.resources.text.fromFile('pmd/ruleset.xml')
+  ignoreFailures = true
+}
+
+/*
+// FindBugs
+findbugs {
+    ignoreFailures = false
+    toolVersion = "3.0.1"
+    sourceSets=[sourceSets.main]
+    //excludeFilter = file("config/findbugs/excludeFilter.xml")
+    reportsDir = file("$project.buildDir/reports/findbugs")
+    effort = "max"
+}
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
+*/
+
+/*
+<<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Project Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
+gradle clean taskReport
+gradle clean propertyReport
+gradle clean dependencyReport
+
+gradle clean htmldependencyReport
+
+gradle clean projectReport //This Generates All "project-reports" reports including Task, Property and Dependency
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<Gradle Build Dashboard Report Plugin>>>>>>>>>>>>>>>>>>>>>>>>>>
+gradle clean build projectReport buildDashboard
+
+*/
+subprojects {
+    //spot bugs reports generated only this way
+    apply plugin: 'com.github.spotbugs'
+    spotbugs {
+        toolVersion = '4.2.3'
+    }
+
+    tasks.withType(SpotBugsTask) {
+        reports {
+            xml.enabled = false
+            html.enabled = true
+        }
+    }
+}
