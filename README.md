@@ -593,13 +593,13 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
     - Click on the repository `Settings`
         - Click on `Webhooks`
         - Click `Add webhook`
-            - Payload URL: http://<JENKINS_PUBLIC_IP_ADDRESS>/github-webhook/
+            - Payload URL: http://JENKINS_PUBLIC_IP_ADDRESS/github-webhook/
             - Content type: application/json
             - Active: Confirm it is Enabled
             - Click on `Add Webhook`
 
 2. Confirm that this is Enabled at the Level of the Jenkins Job as well
-    - Navigate to your Jenkins Application: http://<JENKINS_PUBLIC_IP_ADDRESS>:8080
+    - Navigate to your Jenkins Application: http://JENKINS_PUBLIC_IP_ADDRESS:8080
         - Click on the `Job Name`
         - Navigate to `Build Triggers`
             - Enable/Check the box `GitHub hook trigger for GITScm polling`
