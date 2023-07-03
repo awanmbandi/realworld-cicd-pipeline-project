@@ -567,6 +567,7 @@ A) Update Maven `POM.xml` file
 ![ArtifactStored!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.08.33%20PM.png)
 
 ## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
+- NOTE: That you passed a Userdata in the Jenkins/Maven/Ansible and Dev,Stage and Prod Instances to Configure the Environments already. So you do not have to perform these operations again. You just Have to confirm, the Configurations where all Successful.
 - NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
 - NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
@@ -585,6 +586,24 @@ sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_
 systemctl restart sshd
 echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
+
+### Setup a CI Integration Between `GitHub` and `Jenkins`
+1. Navigate to your GitHub project repository
+    - Open the repository
+    - Click on the repository `Settings`
+        - Click on `Webhooks`
+        - Click `Add webhook`
+            - Payload URL: http://<JENKINS_PUBLIC_IP_ADDRESS>/github-webhook/
+            - Content type: application/json
+            - Active: Confirm it is Enabled
+            - Click on `Add Webhook`
+
+2. Confirm that this is Enabled at the Level of the Jenkins Job as well
+    - Navigate to your Jenkins Application: http://<JENKINS_PUBLIC_IP_ADDRESS>:8080
+        - Click on the `Job Name`
+        - Navigate to `Build Triggers`
+            - Enable/Check the box `GitHub hook trigger for GITScm polling`
+        - Click on `Apply and Save`
 
 ### TEST PIPELINE DEPLOYMENT
 - Confirm/Confirm that your deployments where all successful accross all Environments
