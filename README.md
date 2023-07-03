@@ -283,7 +283,8 @@ cd /opt/splunkforwarder/bin
 ./splunk add monitor /var/log/tomcat/
 ```
 
-- Set the port for the splunk server to listen on 9997 and restart
+2. Navigate Back to Your `Splunk Indexer/Server` 
+- Set the port for the Splunk Indexer or Server to listen on 9997 and restart
 ```bash
 cd /opt/splunk/bin
 ./splunk enable listen 9997
