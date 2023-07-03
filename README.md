@@ -289,6 +289,10 @@ cd /opt/splunkforwarder/bin
 cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
+- Restart Splunk on the VM you are configuring the Forwarder
+```
+./splunk restart
+```
 
 #### Step 3: View Application Logs in Splunk
 - Login to your `Splunk Server` at http://Splunk-Server-IP:8000
