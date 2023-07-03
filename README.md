@@ -245,9 +245,7 @@
 - **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
 - **NOTE:** Do Not install the Splunk Server in these resources/environments
 - **SSH** Into your instances, as normal user `ec2-user` or ubuntu or centos etc
-```
-exit
-```
+
 - Download the Splunk forwarder RPM installer package 
 ```
 wget -O splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.5/linux/splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm"
