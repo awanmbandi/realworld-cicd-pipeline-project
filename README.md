@@ -76,7 +76,7 @@
     - Launch Instance
 
 8) EC2 (Splunk)
-    - Create an Amazon Linux 2 VM instance and call it (Names: Splunk-Server)
+    - Create an Amazon Linux 2 VM instance and call it (Names: Splunk-Indexer)
     - Instance type: t2.micro
     - Security Group (Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
