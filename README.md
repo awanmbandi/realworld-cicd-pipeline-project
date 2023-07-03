@@ -594,8 +594,8 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
         - Click on `Webhooks`
         - Click `Add webhook`
             - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
-            - Content type: application/json
-            - Active: Confirm it is Enabled
+            - Content type: `application/json`
+            - Active: Confirm it is `Enable`
             - Click on `Add Webhook`
 
 2. Confirm that this is Enabled at the Level of the Jenkins Job as well
