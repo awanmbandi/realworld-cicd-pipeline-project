@@ -206,11 +206,11 @@
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
     - Download the Splunk RPM installer package for Linux
     ```bash
-    wget -O splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm"
+    wget -O splunk-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.0.5/linux/splunk-9.0.5-e9494146ae5c.x86_64.rpm"
     ```
     - Install Splunk
     ```
-    sudo yum install ./splunk-9.0.2-17e00c557dc1-linux-2.6-x86_64.rpm -y
+    sudo yum install ./splunk-9.0.4.1-419ad9369127-linux-2.6-x86_64.rpm -y
     ```
     - Start the splunk server 
     ```bash
@@ -219,7 +219,7 @@
     ./splunk start --accept-license --answer-yes
     ```
 - Enter administrator ``username`` and ``password``, remember this because you will need this to log into the application
-- NOTE: The Password must be up to `8` characters.
+- NOTE: The Password must be up to `8` characters. You can assign `adminadmin`
     ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
 - Access your Splunk Installation at http://Splunk-Server-IP:8000 and log into splunk
@@ -227,9 +227,16 @@
     ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
 
 - **NOTE(MANDATORY):** Once you login to the splunk Indexer
-    - Click on `Settings` -->> Click `Server Settings` -->> Click `General Settings`
-    - Go ahead and Change the `Pause indexing if free disk space` from `5000 to 50`
+    - Click on `Settings` 
+        - Click `Server Settings` 
+        - Click `General Settings`
+        - Go ahead and Change the `Pause indexing if free disk space` from `5000 to 50`
     - Click on `Save`
+
+    - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
+        - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
+    - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
+    - Confirm that 
     ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.34.45%20PM.png)
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
