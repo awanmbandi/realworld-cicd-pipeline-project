@@ -233,14 +233,13 @@
         - Go ahead and Change the `Pause indexing if free disk space` from `5000 to 50`
     - Click on `Save`
 
-    - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
     - Confirm that 
     ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.34.45%20PM.png)
 
     - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
     - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
         - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
-
+    - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
 - **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
