@@ -253,7 +253,7 @@ wget -O splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.c
 - Install the Forwarder
 ```bash
 ls -al
-sudo yum install ./splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm -y
+sudo yum install ./splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm -y
 ```
 
 - Change to the splunkforwarder bin directory and start the forwarder
