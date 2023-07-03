@@ -248,7 +248,7 @@ exit
 ```
 - Download the Splunk forwarder RPM installer package 
 ```
-wget -O splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.4/linux/splunkforwarder-9.0.4-de405f4a7979-linux-2.6-x86_64.rpm"
+wget -O splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.5/linux/splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm"
 ```
 - Install the Forwarder
 ```bash
