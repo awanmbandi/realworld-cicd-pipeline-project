@@ -1,4 +1,4 @@
-# Real World CI/CD Pipeline Project Architecture (N2)
+# Next Generation CI/CD Pipeline Project Architecture (N2)
 ![CompleteCICDProject!](https://lucid.app/publicSegments/view/30a8a296-1b3f-4184-a26f-5ff5e9965d35/image.png) 
 
 ###### Project ToolBox 🧰
