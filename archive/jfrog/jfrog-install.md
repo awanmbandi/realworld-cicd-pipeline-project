@@ -84,7 +84,7 @@ jf intro
 
 
 ### SSHPASS To Connect With Another Instance and COPY Artifact
-sshpass -p "puppetdeployer" scp semanage.conf puppetdeployer@35.91.18.85:/home/puppetdeployer/
+sshpass -p "puppetdeployer" scp semanage.conf puppetdeployer@54.186.88.254:/home/puppetdeployer/
 
 
-scp /home/ec2-user/Github-Simulation/webapp/target/webapp.war root@54.185.250.110:/var/lib/tomcat/webapps
+scp /home/ec2-user/Github-Simulation/webapp/target/webapp.war root@54.186.88.254:/var/lib/tomcat/webapps
