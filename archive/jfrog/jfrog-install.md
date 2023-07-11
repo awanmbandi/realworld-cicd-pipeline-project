@@ -87,4 +87,4 @@ jf intro
 sshpass -p "puppetdeployer" scp semanage.conf puppetdeployer@54.186.88.254:/home/puppetdeployer/
 
 
-scp /home/ec2-user/Github-Simulation/webapp/target/webapp.war root@54.186.88.254:/var/lib/tomcat/webapps
+scp /home/mbandianyereawankoudi/realworld-cicd-pipeline-project/build/libs/gradle-war.war root@52.24.136.76:/var/lib/tomcat/webapps/

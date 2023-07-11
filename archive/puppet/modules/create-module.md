@@ -141,9 +141,9 @@ vi /etc/puppetlabs/code/environments/production/manifests/site.pp
 puppet parser validate site.pp
 ```
 
-- Pass the Following Code in your `site.pp` file. Replace the IP with Your `Puppet Client Node IP` address
+- Pass the Following Code in your `site.pp` file. Note the ``default`` represent your Prod Client Node.
 ```
-node 172.31.25.226 {
+node default {
   class { 'nginx': }
 }
 ```

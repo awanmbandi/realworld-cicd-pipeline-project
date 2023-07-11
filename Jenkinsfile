@@ -91,6 +91,23 @@ pipeline {
            )
         }
     }
+    stage("Promote Artifact To Dev"){
+        steps{
+            sh "curl -u myUser:myP455w0rd! -X PUT "http://JFrogHostIP:8081/artifactory/my-repository/my/new/artifact/directory/file.txt" -T Desktop/myNewFile.txt"
+        }
+        post{
+            always{
+                echo "====++++always++++===="
+            }
+            success{
+                echo "====++++A executed successfully++++===="
+            }
+            failure{
+                echo "====++++A execution failed++++===="
+            }
+    
+        }
+    }
     stage('Deploy to Development Env') {
         environment {
             HOSTS = 'dev'
