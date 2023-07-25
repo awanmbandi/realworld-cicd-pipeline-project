@@ -1,7 +1,7 @@
 ## Ecommerce Application Requirements (Developers) - User Stories
 Here are 50 JIRA tasks  that covers a wide range of features for an Ecommerce Application. Remember that your specific requirements may differ, so feel free to adapt and customize the tasks according to your project's needs.
 
-### Ticket Feature Labels
+### Ticket Feature Labels/Tags
 - Core
 - Admin
 
