@@ -1,5 +1,5 @@
 ## Ecommerce Application Requirements (Developers) - User Stories
-Certainly! Here are 50 example JIRA tasks with descriptions for different features of an ecommerce application:
+Here are 50 JIRA tasks cover a wide range of features for an ecommerce application. Remember that your specific requirements may differ, so feel free to adapt and customize the tasks according to your project's needs.
 
 ### 1). **Product Search Functionality**
 **Description:** Customers should be able to search for products easily so that I can find what I'm looking for quickly. The search functionality should allow me to search by product name, category, and other relevant attributes.
@@ -152,5 +152,3 @@ Description: The website to show real-time inventory status, avoiding situations
 
 ### 50). **Cross-Selling**
 Description: As an admin, I want to display cross-selling suggestions during the checkout process to encourage customers to add complementary products to their order.
-
-Here are 50 JIRA tasks cover a wide range of features for an ecommerce application. Remember that your specific requirements may differ, so feel free to adapt and customize the tasks according to your project's needs.
