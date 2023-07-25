@@ -2,7 +2,7 @@
 Certainly! Here are 50 example JIRA tasks with descriptions for different features of an ecommerce application:
 
 ### 1. **User Story - Product Search Functionality**
-Description: As a customer, I want to be able to search for products easily so that I can find what I'm looking for quickly. The search functionality should allow me to search by product name, category, and other relevant attributes.
+**Description:** As a customer, I want to be able to search for products easily so that I can find what I'm looking for quickly. The search functionality should allow me to search by product name, category, and other relevant attributes.
 
 2. **User Story - User Registration and Login**
 Description: As a customer, I want to be able to create an account and log in so that I can save my details, track orders, and have a personalized shopping experience.
