@@ -1,4 +1,5 @@
 ## Ecommerce Application Requirements (Developers) - User Stories
+![EcommerceApp!]([https://lucid.app/publicSegments/view/0c183bd6-73f4-4547-93e1-5246db5e863c/image.png](https://www.canva.com/design/DAFprTrQzfA/cs7VbAguDYC4mZil_5ldVg/edit?utm_content=DAFprTrQzfA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)) 
 Here are 50 JIRA tasks  that covers a wide range of features for an Ecommerce Application. Remember that your specific requirements may differ, so feel free to adapt and customize the tasks according to your project's needs.
 
 ### Ticket Feature Labels/Tags
