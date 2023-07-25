@@ -1,5 +1,5 @@
 ## Ecommerce Application Requirements (Developers) - User Stories
-![EcommerceApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Untitled%20design%20(1).png)) 
+![EcommerceApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Untitled%20design%20(1).png)
 Here are 50 JIRA tasks  that covers a wide range of features for an Ecommerce Application. Remember that your specific requirements may differ, so feel free to adapt and customize the tasks according to your project's needs.
 
 ### Ticket Feature Labels/Tags
