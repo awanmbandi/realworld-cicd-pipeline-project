@@ -1,4 +1,4 @@
-## Client Ecommerce Application Requirements (Developers) - User Stories
+## Ecommerce Application Requirements (Developers) - User Stories
 Certainly! Here are 50 example JIRA tasks with descriptions for different features of an ecommerce application:
 
 ### 1. **Product Search Functionality**
