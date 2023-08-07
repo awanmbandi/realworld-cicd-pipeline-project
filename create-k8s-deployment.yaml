@@ -1,0 +1,22 @@
+#Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iwayq-deploy
+  labels:
+    app: iwayq-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: iwayq-app
+  template:
+    metadata:
+      labels:
+        app: iwayq-app
+    spec:
+      containers:
+      - name: iwayq-container
+        image: iwayqdockertest/iwayq:1.0
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+    <server>
+      <username>admin</username>
+      <password>Admin123</password>
+      <id>central</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>Admin123</password>
+      <id>snapshots</id>
+    </server>
+  </servers>
+  <profiles>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>iwayq-libs-release-local</name>
+          <url>http://18.207.136.250:8082/artifactory/iwayq-libs-release</url>
+	  
+        </repository>
+       
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>iwayq-libs-release-local</name>
+          <url>http://18.207.136.250:8082/artifactory/iwayq-libs-release</url>
+	  <blocked>false</blocked>
+        </pluginRepository>
+        </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
