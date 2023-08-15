@@ -13,6 +13,7 @@ systemctl start jenkins
 # Apache Maven Installation/Config
 sudo yum update -y
 sudo amazon-linux-extras install java-openjdk11 -y
+sudo yum install java-1.8.0-devel -y  # Use for Java and Maven Compiler
 java --version
 sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
