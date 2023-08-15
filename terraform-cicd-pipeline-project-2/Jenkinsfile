@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Install Snyk CLI') {
+            steps {
+                sh 'npm install -g snyk'
+            }
+        }
+        
+        stage('Authenticate Snyk') {
+            steps {
+                withCredentials([string(credentialsId: 'snyk-api-token', variable: 'SNYK_TOKEN')]) {
+                    sh "snyk auth $SNYK_TOKEN"
+                }
+            }
+        }
+        
+        stage('Install Terraform') {
+            steps {
+                sh 'curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg'
+                sh 'echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list'
+                sh 'sudo apt-get update && sudo apt-get install terraform'
+            }
+        }
+        
+        stage('Terraform Setup and Apply') {
+            steps {
+                sh 'terraform init'
+                sh 'terraform apply -auto-approve'
+            }
+        }
+        
+        stage('Snyk Security Test') {
+            steps {
+                sh 'snyk test'
+            }
+        }
+        
+        stage('Terraform Destroy') {
+            steps {
+                sh 'terraform destroy -auto-approve'
+            }
+        }
+    }
+}
