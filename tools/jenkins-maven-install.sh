@@ -27,3 +27,10 @@ mvn -v
 
 # Installing Git
 yum install git -y
+
+# Make sure to set Java and Javac to Version 8 using the following commands
+##### Enter the following to set Java 8 as the default runtime on your EC2 instance.
+#    sudo /usr/sbin/alternatives --config java
+
+##### Enter the following to set Java 8 as the default compiler on your EC2 instance.
+#    sudo /usr/sbin/alternatives --config javac
