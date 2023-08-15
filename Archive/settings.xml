@@ -29,8 +29,8 @@ under the License.
   <servers>
     <server>
       <id>nexusdeploymentrepo</id>
-      <username>admin</username>  <!-- Provide Your Nexus Repository Server Username and Password -->
-      <password>admin</password>
+      <username>USER_NAME</username>  <!-- Provide Your Nexus Repository Server Username and Password -->
+      <password>USER_PASSWORD</password>
     </server>
 
   </servers>
@@ -60,7 +60,7 @@ under the License.
        <repository>
          <id>nexus-snapshot-repo</id>
          <name>your custom repo</name>
-         <url>http://172.31.2.122:8081/repository/nextgen-java-app-release-repo/</url>
+         <url>http://ARTIFACTORY_IP_ADDRESS:PORT_NUMBER/repository/SNAPSHOT_REPOSITORY_NAME/</url>
        </repository>
 	   
      </repositories>
@@ -71,7 +71,7 @@ under the License.
        <repository>
          <id>nexus-release-repo</id>
          <name>your custom repo</name>
-         <url>http://172.31.2.122:8081/repository/nextgen-java-app-release-repo/</url>
+         <url>http://ARTIFACTORY_IP_ADDRESS:PORT_NUMBER/repository/RELEASE_REPOSITORY_NAME/</url>
        </repository>
      </repositories>
    </profile>
