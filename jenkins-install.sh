@@ -28,7 +28,7 @@ ansible-galaxy collection install amazon.aws
 # Enable Password Authentication and Grant Sudo Privilege
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 systemctl restart sshd
-echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "benny ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Apache Maven Installation/Config
 #sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
