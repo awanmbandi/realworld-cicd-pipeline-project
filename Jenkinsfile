@@ -30,10 +30,10 @@ pipeline {
     }
     stage('SonarQube Inspection') {
         steps {
-           """mvn sonar:sonar \
-              -Dsonar.projectKey=Maven-JavaWebApp \
-              -Dsonar.host.url=http://172.31.5.173:9000 \
-              -Dsonar.login=ed7f1ae74cf8b693cadbd47043d4b9ed5ef50913"""
+            sh  """mvn sonar:sonar \
+                   -Dsonar.projectKey=Maven-JavaWebApp \
+                   -Dsonar.host.url=http://172.31.5.173:9000 \
+                   -Dsonar.login=ed7f1ae74cf8b693cadbd47043d4b9ed5ef50913"""
         }
     }
     stage("Upload Artifact To Nexus"){
