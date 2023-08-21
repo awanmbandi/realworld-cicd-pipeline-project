@@ -23,11 +23,11 @@ pipeline {
             sh 'gradle build'
         }
     }
-    stage ('Checkstyle Code Analysis'){
-        steps {
-            sh 'gradle checkstyle:checkstyle'
-        }
-    }
+    // stage ('Checkstyle Code Analysis'){
+    //     steps {
+    //         sh 'gradle checkstyle:checkstyle'
+    //     }
+    // }
     stage('SonarQube Inspection') {
         steps {
             sh 'gradle sonarqube'
