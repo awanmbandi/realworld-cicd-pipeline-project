@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'GRADLE_BUILD_ENV' // Use the Gradle slave node for this pipeline
+    label 'Gradle-Build-Env' // Use the Gradle slave node for this pipeline
   }
   stages {
     stage('Validate Project') {
