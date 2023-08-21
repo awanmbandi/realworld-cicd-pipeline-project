@@ -94,119 +94,45 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-## 4️⃣ Plugin Installation Before Job Creation
-- Install: `Delivery Pipeline` plugin
-    - Click on `Dashboard` on Jenkins
-    - Click on The `+` on your Jenkins Dashboard and Configure the View
-    - Select ``Enable start of new pipeline build``
-    - Pipelines >> Components >> Click `Add`
-        - Name: `Maven-Continuous-Integration-Pipeline` or `Gradle-Continuous-Integration-Pipeline`
-        - Initial Job: Select either the `Maven Build Job or 1st Job` or `Gradle Build Job or 1st Job`
-    - APPLY and SAVE
+## 4️⃣ CREATE MAVEN PROJECT PIPELINE JOB
 
-## 5️⃣ CREATE PROJECT PIPELINE JOBS
-
-### 5.1. Create Maven Build, Test and Deploy Job
+### 5.1. Create Maven Build, Test and Deploy Pipeline
 ###### Maven Build Job
 - Click on `New Item`
-    - Name: `Maven-Continuous-Integration-Pipeline-Build`
-    - Type: `Freestyle`
+    - Name: `Maven-Continuous-Integration-Pipeline`
+    - Type: `Pipeline`
     - Click: `OK`
         - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command: `mvn clean build`
+    - Check The Box: `GitHub hook trigger for GITScm polling`
+    - Pipeline
+      - Definition: Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Branches to build: `*/maven-sonarqube-nexus-jenkins`
+    - Script Path: `Jenkinsfile`
     - `APPLY` and `SAVE`
 
-###### Maven SonarQube Test Job
+## 4️⃣ CREATE GRADLE PROJECT PIPELINE JOB
+
+### 5.1. Create Gradle Build, Test and Deploy Pipeline
+###### Maven Build Job
 - Click on `New Item`
-    - Name: `Maven-Continuous-Integration-Pipeline-SonarQube-Test`
-    - Type: `Freestyle`
+    - Name: `Gradle-Continuous-Integration-Pipeline`
+    - Type: `Pipeline`
     - Click: `OK`
         - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command:
-          """mvn sonar:sonar \
-                -Dsonar.projectKey=Maven-JavaWebApp-Analysis \
-                -Dsonar.host.url=http://PROVIDE_PRIVATE_IP:9000 \
-                -Dsonar.login=SONARQUBE_PROJECT_AUTHORIZATION_TOKEN"""
+    - Check The Box: `GitHub hook trigger for GITScm polling`
+    - Pipeline
+      - Definition: Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
+    - Branches to build: `*/gradle-sonarqube-nexus-jenkins`
+    - Script Path: `Jenkinsfile`
     - `APPLY` and `SAVE`
 
-###### Maven Nexus Upload Job
-- Click on `New Item`
-    - Name: `Maven-Continuous-Integration-Pipeline-Nexus-Upload`
-    - Type: `Freestyle`
-    - Click: `OK`
-        - Select: `GitHub project`, Project url: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Maven-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_MAVEN_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command: 
-          `mvn deploy`
-    
-    - `APPLY` and `SAVE`
-
-### 5.2. Create Gradle Build, Test and Deploy Job
-###### Gradle Build Job
-- Click on `New Item`
-    - Name: `Gradle-Continuous-Integration-Pipeline-Build`
-    - Type: `Freestyle`
-    - Click: `OK`
-        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command: `gradle clean build`
-    - `APPLY` and `SAVE`
-
-###### Gradle SonarQube Test Job
-- Click on `New Item`
-    - Name: `Gradle-Continuous-Integration-Pipeline-SonarQube-Test`
-    - Type: `Freestyle`
-    - Click: `OK`
-        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command: `gradle sonarqube`
-    - `APPLY` and `SAVE`
-
-###### Gradle Nexus Deploy Job
-- Click on `New Item`
-    - Name: `Gradle-Continuous-Integration-Pipeline-Nexus-Upload`
-    - Type: `Freestyle`
-    - Click: `OK`
-        - Select: `GitHub project`, Project url: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Select `Restrict where this project can be run:`, Label Expression: `Gradle-Build-Env`
-    - Select `Git`, Repository URL: `YOUR_GRADLE_PROJECT_REPOSITORY`
-    - Branches to build: `*/main` or `master`
-    - Build Steps: `Execute Shell`
-        - Command: `gradle publish`
-    - `APPLY` and `SAVE`
-
-## 6️⃣ JOB INTEGRATION
+## 5️⃣ 6️⃣ Configure Jenkins/GitHub Webhook
 
 ### 6.1. Integrate The Maven JOBS Together To Create a CI Pipeline
-1. Click on your `First Job` > Click `Configure` 
-- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
-2. Click on your `Second Job` > Click `Configure` 
-- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
 ### 6.2. Integrate The Gradle JOBS Together To Create a CI Pipeline
-1. Click on your `First Job` > Click `Configure` 
-- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Second Job`
-2. Click on your `Second Job` > Click `Configure` 
-- Scroll to `Post-build Actions` Click `Add P-B-A` >> Projects to build "Select" `Third Job`
 
-## 7️⃣ TEST YOUR PIPELINE
+## 6️⃣ 7️⃣ TEST YOUR PIPELINE
 
 
 
