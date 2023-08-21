@@ -5,7 +5,10 @@ plugins {
     id 'war'
     id "maven-publish" // Nexus plugin
     id "org.sonarqube" version "2.7" // Sonar plugin
+    id "checkstyle"
 }
+
+//apply plugin: 'checkstyle'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
@@ -23,6 +26,13 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+// Checkstyle SAST tool for compliant with specified coding rules
+checkstyle {
+  toolVersion = '6.16.1'
+  config = rootProject.resources.text.fromFile('checkstyle/rules/rules.xml')
+  ignoreFailures = true
 }
 
 // SonarQube Code Analysis Config
