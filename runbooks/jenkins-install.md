@@ -73,8 +73,8 @@ yum install git -y
     - Host:   `Provide IP of Gradle-Build-Server`
     - Credentials:
         - Click on `Add / Jenkins` and Select `Username and Password`
-        - Username: `root`
-        - Password: `root`
+        - Username: `jenkinsmaster`
+        - Password: `jenkinsmaster`
         - ID: `Gradle-Build-Env-Credential`
         - Save
         - Credentials: Select `Gradle-Build-Env-Credential`
