@@ -8,7 +8,7 @@ plugins {
     id "checkstyle"
 }
 
-//apply plugin: 'checkstyle'
+apply plugin: 'checkstyle'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
