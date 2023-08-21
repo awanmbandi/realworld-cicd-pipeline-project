@@ -94,7 +94,18 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-## 4️⃣ CREATE MAVEN PROJECT PIPELINE JOB
+## 4️⃣ Setup a CI Integration Between `GitHub` and `Jenkins`
+1. Navigate to your GitHub project repository
+    - Open the repository
+    - Click on the repository `Settings`
+        - Click on `Webhooks`
+        - Click `Add webhook`
+            - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
+            - Content type: `application/json`
+            - Active: Confirm it is `Enable`
+            - Click on `Add Webhook`
+
+## 5️⃣ CREATE MAVEN PROJECT PIPELINE JOB
 
 ### 5.1. Create Maven Build, Test and Deploy Pipeline
 ###### Maven Build Job
@@ -110,7 +121,7 @@ yum install git -y
     - Script Path: `Jenkinsfile`
     - `APPLY` and `SAVE`
 
-## 4️⃣ CREATE GRADLE PROJECT PIPELINE JOB
+## 6️⃣ CREATE GRADLE PROJECT PIPELINE JOB
 
 ### 5.1. Create Gradle Build, Test and Deploy Pipeline
 ###### Maven Build Job
@@ -126,13 +137,7 @@ yum install git -y
     - Script Path: `Jenkinsfile`
     - `APPLY` and `SAVE`
 
-## 5️⃣ 6️⃣ Configure Jenkins/GitHub Webhook
-
-### 6.1. Integrate The Maven JOBS Together To Create a CI Pipeline
-
-### 6.2. Integrate The Gradle JOBS Together To Create a CI Pipeline
-
-## 6️⃣ 7️⃣ TEST YOUR PIPELINE
+## 7️⃣ TEST YOUR PIPELINE
 
 
 
