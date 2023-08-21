@@ -96,14 +96,14 @@ yum install git -y
 
 ## 4️⃣ Setup a CI Integration Between `GitHub` and `Jenkins`
 ### Navigate to your GitHub project repository
-    - Open the repository
-    - Click on the repository `Settings`
-        - Click on `Webhooks`
-        - Click `Add webhook`
-            - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
-            - Content type: `application/json`
-            - Active: Confirm it is `Enable`
-            - Click on `Add Webhook`
+   - Open the repository
+   - Click on the repository `Settings`
+       - Click on `Webhooks`
+       - Click `Add webhook`
+           - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
+           - Content type: `application/json`
+           - Active: Confirm it is `Enable`
+           - Click on `Add Webhook`
 
 ## 5️⃣ CREATE MAVEN PROJECT PIPELINE JOB
 
