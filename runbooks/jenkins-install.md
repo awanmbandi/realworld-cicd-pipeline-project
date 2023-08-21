@@ -36,18 +36,10 @@ yum install git -y
 - Usage:                 `Use this node as much as possible`
 - Launch method:         `Launch agents via SSH`
     - Host:   `Provide IP of Maven-Build-Server`
-    - Credentials: 
-        - Login to `Maven VM`
-        - Run the following commands
-            - sudo su
-            - passwd root
-            - provide the password as "jenkinsmaster", "jenkinsmaster"
-            - vi /etc/ssh/sshd_config       (:/PasswordAuthentication)
-            - systemctl restart sshd
     - Credentials:
         - Click on `Add / Jenkins` and Select `Username and Password`
-        - Username: `root`
-        - Password: `root`
+        - Username: `jenkinsmaster`
+        - Password: `jenkinsmaster`
         - ID: `Maven-Build-Env-Credential`
         - Save
         - Credentials: Select `Maven-Build-Env-Credential`
@@ -79,14 +71,6 @@ yum install git -y
 - Usage:                 `Use this node as much as possible`
 - Launch method:         `Launch agents via SSH`
     - Host:   `Provide IP of Gradle-Build-Server`
-    - Credentials: 
-        - Login to `Gradle VM`
-        - Run the following commands
-            - sudo su
-            - passwd root
-            - provide the password as "root", "root"
-            - vi /etc/ssh/sshd_config       (:/PasswordAuthentication)
-            - systemctl restart sshd
     - Credentials:
         - Click on `Add / Jenkins` and Select `Username and Password`
         - Username: `root`
