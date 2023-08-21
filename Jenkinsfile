@@ -18,7 +18,7 @@ pipeline {
             sh 'mvn verify -DskipUnitTests'
         }
     }
-    stage('Integration Test'){
+    stage('App Packaging'){
         steps {
             sh 'mvn package'
         }
