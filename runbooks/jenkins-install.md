@@ -41,7 +41,7 @@ yum install git -y
         - Run the following commands
             - sudo su
             - passwd root
-            - provide the password as "root", "root"
+            - provide the password as "jenkinsmaster", "jenkinsmaster"
             - vi /etc/ssh/sshd_config       (:/PasswordAuthentication)
             - systemctl restart sshd
     - Credentials:
