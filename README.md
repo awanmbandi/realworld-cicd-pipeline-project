@@ -6,12 +6,5 @@
 
 ![JenkinsDistributedBuildResults!](https://lucid.app/publicSegments/view/8516f60d-e144-4757-871f-e57e6f2305af/image.png)
 
-### All `Maven` and `Gradle` Jenkins Jobs
-![AllMavenAndGradleJobs!]()
-
-
-
-
-
 
 
