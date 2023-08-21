@@ -25,7 +25,7 @@ pipeline {
     }
     stage ('Checkstyle Code Analysis'){
         steps {
-            sh 'gradle checkstyle'
+            sh 'gradle checkstyleTest'
         }
     }
     stage('SonarQube Inspection') {
