@@ -8,8 +8,8 @@
       - Name: `maven-java-webapp-repository`
       - Click: `CREATE`
 
-  - CREATE GRADLE PROJECT ARTIFACT REPOSITORY
-  - Click on the Admin Repository Secition
+  - CREATE GRADLE PROJECT ARTIFACT REPOSITORY 
+  - Click on the Admin Repository Secition 
     - Click on `Repositories`
     - Click on `Create Repository`
       - Select: `Maven2(hosted)`
