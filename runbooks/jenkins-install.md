@@ -95,7 +95,7 @@ yum install git -y
 - NOTE: Repeat the process for adding additional Nodes
 
 ## 4️⃣ Setup a CI Integration Between `GitHub` and `Jenkins`
-1. Navigate to your GitHub project repository
+### Navigate to your GitHub project repository
     - Open the repository
     - Click on the repository `Settings`
         - Click on `Webhooks`
