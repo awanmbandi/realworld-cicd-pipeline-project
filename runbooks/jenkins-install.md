@@ -42,6 +42,7 @@ yum install git -y
 
 ## UPDATE YOUR MAVEN CONFIGURATIONS
 ### A) Update Maven (POM.xml, Settings.xml) And Gradle (build.gradle) File
+  - Switch to the <'maven-sonarqube-nexus-jenkins'> project branch
   - Update The Nexus IP Address In These Files
   - Update The Nexus Repository As Well To Yours "if different"
 
