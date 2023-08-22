@@ -58,6 +58,7 @@ yum install git -y
 
 ## UPDATE YOUR GRADLE CONFIGURATIONS
 ### A) Update The Nexus IP Address & Repository Name For Gradle Project In The "build.gradle" File
+ - Switch to the <'gradle-sonarqube-nexus-jenkins'>
  - Line: '57'
 
 ### B) Add The SonarQube Scanner Configurations API In The Gradle 'build.gradle' File
