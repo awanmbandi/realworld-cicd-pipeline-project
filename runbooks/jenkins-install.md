@@ -41,9 +41,11 @@ yum install git -y
       - Click: `CREATE`
 
 ## UPDATE YOUR MAVEN CONFIGURATIONS
-### A) Update Maven (POM.xml, Settings.xml) And Gradle (build.gradle) File
+### A) Update Maven (POM.xml & Settings.xml) File
   - Switch to the <'maven-sonarqube-nexus-jenkins'> project branch
   - Update The Nexus IP Address In These Files
+  - POM.xml: Line '64' and '68'
+  - Settings.xml: Line '63' and '74'
   - Update The Nexus Repository As Well To Yours "if different"
 
 ### B) Update The Maven 'User Data Scrip' With Your 'settings.xml' GitHub RawLink 
@@ -55,7 +57,7 @@ yum install git -y
  - Line: '31' - '38'
 
 ## UPDATE YOUR GRADLE CONFIGURATIONS
-### A) Update The Nexus Repository Name For Gradle Project In The "build.gradle" File
+### A) Update The Nexus IP Address & Repository Name For Gradle Project In The "build.gradle" File
  - Line: '57'
 
 ### B) Add The SonarQube Scanner Configurations API In The Gradle 'build.gradle' File
