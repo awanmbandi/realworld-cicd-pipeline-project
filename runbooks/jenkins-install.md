@@ -5,7 +5,7 @@
 - Key pair: Select or Create
 - Security group ports: 8080, 22
  
- ## 2️⃣ Login and Install Jenkins
+ ## 2️⃣ Pass As User Data or Login and Install Jenkins 
  ```bash
 #!/bin/bash
 sudo su
