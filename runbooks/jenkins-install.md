@@ -53,7 +53,6 @@ yum install git -y
  - Here: https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-declarative-master-client-confg/runbooks/maven-install.md#2%EF%B8%8F%E2%83%A3-install-and-configure-java11-and-apache-maven
 
 ### C) Add SonarQube Scanner Snippet Configurations In Maven Project 'Jenkinsfile' File 
- - Switch to the 'maven-sonarqube-nexus-jenkins' project branch
  - Line: '31' - '38'
 
 ## UPDATE YOUR GRADLE CONFIGURATIONS
