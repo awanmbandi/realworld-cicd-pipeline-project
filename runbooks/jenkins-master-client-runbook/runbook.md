@@ -29,9 +29,9 @@
 
 ### C) Login To Your Jenkins Master, Maven and Gradle Client & Check The JAVA Versions;
 #### NOTE: The JAVA Versions Must Be The Same 
- i) Jenkins JAVA Version  (version 11)
- ii) Maven JAVA Version   (version 11)
- iii) Gradle JAVA Version (version 11)
+ - Jenkins JAVA Version (version 11)
+ - Maven JAVA Version   (version 11)
+ - Gradle JAVA Version  (version 11)
 
 ## 3️⃣ Configure Nexus
 ### Login to Nexus
