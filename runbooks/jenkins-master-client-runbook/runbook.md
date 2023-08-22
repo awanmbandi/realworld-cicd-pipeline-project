@@ -1,26 +1,31 @@
 ## 1️⃣ Launch an Amazon Linux 2 instance and Install Jenkins
-- name: Jenkins-Master
-- machine type: t2.medium
-- image/ami: Amazon Linux 2
-- Key pair: Select or Create
-- Security group ports: 8080, 22
- 
- ## 2️⃣ Pass As User Data or Login and Install Jenkins 
- ```bash
-#!/bin/bash
-sudo su
-yum update –y
-wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-amazon-linux-extras install epel -y
-amazon-linux-extras install java-openjdk11 -y
-yum install jenkins -y
-systemctl enable jenkins
-systemctl start jenkins
+ - Jenkins Master Instance Name: `Jenkins-Master`
+    - machine type: `t2.medium`
+    - AMI (Image): `Amazon Linux 2`
+    - Key pair: Select or Create
+    - Security group ports: `8080` and `22`
+    - User Data or Login and Install Jenkins: https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-declarative-master-client-confg/runbooks/jenkins-install.md
+    - Launch Instance 
 
-## Installing Git
-yum install git -y
- ```
+
+## 2️⃣ Create Maven and Gradle Client/Slave Build Environments
+### A) Create Your MAVEN Client Build Environment
+ - Maven Instance Name: `Maven-Build-Env`
+    - AMI (Image): Amazon Linux 2 (free tier) 
+    - Instance type: `t2.micro`
+    - Security Group (Open): `22` to `0.0.0.0/0`
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-declarative-master-client-confg/runbooks/maven-install.md
+    - Launch Instance
+
+### B) Create Your GRADLE Client Build Environment
+ - Maven Instance Name: `Gradle-Build-Env`
+    - AMI (Image): Ubuntu 22.04 LTS/HVM (free tier) 
+    - Instance type: `t2.micro`
+    - Security Group (Open): `22` to `0.0.0.0/0`
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-declarative-master-client-confg/runbooks/gradle-install.md
+    - Launch Instance
 
 ## 3️⃣ Configure Nexus
 ### Login to Nexus
