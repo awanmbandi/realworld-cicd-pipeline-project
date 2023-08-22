@@ -24,7 +24,7 @@ yum install git -y
 
 ## 3️⃣ Configure Nexus
 ### Login to Nexus
-  A. CREATE MAVEN PROJECT ARTIFACT REPOSITORY
+  A) CREATE MAVEN PROJECT ARTIFACT REPOSITORY
   - Click on the Admin Repository Secition
     - Click on `Repositories`
     - Click on `Create Repository`
@@ -32,7 +32,7 @@ yum install git -y
       - Name: `maven-java-webapp-repository`
       - Click: `CREATE`
 
-  B. CREATE GRADLE PROJECT ARTIFACT REPOSITORY 
+  B) CREATE GRADLE PROJECT ARTIFACT REPOSITORY 
   - Click on the Admin Repository Secition 
     - Click on `Repositories`
     - Click on `Create Repository`
