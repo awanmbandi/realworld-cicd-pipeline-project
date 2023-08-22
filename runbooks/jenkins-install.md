@@ -22,13 +22,50 @@ systemctl start jenkins
 yum install git -y
  ```
 
-## 3️⃣ Configure Master and Clinet Configuration
+## 3️⃣ Configure Nexus
+### Login to Nexus
+  A. CREATE MAVEN PROJECT ARTIFACT REPOSITORY
+  - Click on the Admin Repository Secition
+    - Click on `Repositories`
+    - Click on `Create Repository`
+      - Select: `Maven2(hosted)`
+      - Name: `maven-java-webapp-repository`
+      - Click: `CREATE`
+
+  B. CREATE GRADLE PROJECT ARTIFACT REPOSITORY 
+  - Click on the Admin Repository Secition 
+    - Click on `Repositories`
+    - Click on `Create Repository`
+      - Select: `Maven2(hosted)`
+      - Name: `gradle-java-webapp-repository`
+      - Click: `CREATE`
+
+## UPDATE YOUR MAVEN CONFIGURATIONS
+### A) Update Maven (POM.xml, Settings.xml) And Gradle (build.gradle) File
+  - Update The Nexus IP Address In These Files
+  - Update The Nexus Repository As Well To Yours "if different"
+
+### B) Update The Maven 'User Data Scrip' With Your 'settings.xml' GitHub RawLink 
+ - Update the User data before Creating the Maven Build Instance/Env
+ - Here: https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-declarative-master-client-confg/runbooks/maven-install.md#2%EF%B8%8F%E2%83%A3-install-and-configure-java11-and-apache-maven
+
+### C) Add SonarQube Scanner Snippet Configurations In Maven Project 'Jenkinsfile' File 
+ - Line: '31' - '38'
+
+## UPDATE YOUR GRADLE CONFIGURATIONS
+### A) Update The Nexus Repository Name For Gradle Project In The "build.gradle" File
+ - Line: '57'
+
+### B) Add The SonarQube Scanner Configurations API In The Gradle 'build.gradle' File
+- Line: '37' - '44'
+
+## 4️⃣ CONFIGURE MASTER & CLIENT CONFIGURATION
 - Click on "Manage Jenkins" >> Click "Nodes and Cloud" >> Click "New Node"
 - Click `New Node`
     - Node name: `Maven-Build-Env` 
     - Type: `Permanent Agent` >> Click `CREATE`
 
-#### 3.1. Configure "Maven-Build-Env"
+#### 4.1. Configure "Maven-Build-Env"
 - Name:                  `Maven-Build-Env`
 - Number of Executors:   `5` (for example, maximum jobs to execute at a time)
 - Remote root directory: `/opt/maven-builds`
@@ -59,7 +96,7 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-#### 3.2. Configure "Gradle-Build-Env"
+#### 4.2. Configure "Gradle-Build-Env"
 - Click `New Node`
     - Node name: `Gradle-Build-Env` 
     - Type: `Permanent Agent` >> Click `CREATE`
@@ -94,7 +131,7 @@ yum install git -y
 - NOTE: Make sure the `Agent Status` shows `Agent successfully connected and online` on the Logs
 - NOTE: Repeat the process for adding additional Nodes
 
-## 4️⃣ Setup a CI Integration Between `GitHub` and `Jenkins`
+## 5️⃣ Setup a CI Integration Between `GitHub` and `Jenkins`
 ### Navigate to your GitHub project repository
    - Open the repository
    - Click on the repository `Settings`
@@ -105,9 +142,9 @@ yum install git -y
            - Active: Confirm it is `Enable`
            - Click on `Add Webhook`
 
-## 5️⃣ CREATE MAVEN PROJECT PIPELINE JOB
+## 6️⃣ CREATE MAVEN PROJECT PIPELINE JOB
 
-### 5.1. Create Maven Build, Test and Deploy Pipeline
+### 6.1. Create Maven Build, Test and Deploy Pipeline
 ###### Maven Build Job
 - Click on `New Item`
     - Name: `Maven-Continuous-Integration-Pipeline`
@@ -121,9 +158,9 @@ yum install git -y
     - Script Path: `Jenkinsfile`
     - `APPLY` and `SAVE`
 
-## 6️⃣ CREATE GRADLE PROJECT PIPELINE JOB
+## 7️⃣ CREATE GRADLE PROJECT PIPELINE JOB
 
-### 5.1. Create Gradle Build, Test and Deploy Pipeline
+### 7.1. Create Gradle Build, Test and Deploy Pipeline
 ###### Maven Build Job
 - Click on `New Item`
     - Name: `Gradle-Continuous-Integration-Pipeline`
