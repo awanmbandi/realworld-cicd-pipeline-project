@@ -35,4 +35,7 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
 sudo yum -y install jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+
+## Installing Git
+yum install git -y
 ```
