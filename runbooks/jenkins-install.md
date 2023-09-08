@@ -1,7 +1,7 @@
 ## 1️⃣ Launch an Amazon Linux 2 instance and Install Jenkins
 - name: Jenkins-Master
 - machine type: t2.medium
-- image/ami: Amazon Linux 2 or RHEL 9
+- image/ami: ``RHEL 9`` or Amazon Linux 2
 - Key pair: Select or Create
 - Security group ports: 8080, 22
  
@@ -39,3 +39,7 @@ sudo systemctl enable jenkins
 ## Installing Git
 yum install git -y
 ```
+
+<html><body>
+<h2>This is not the page you are looking for!</h2>
+</body></html>
