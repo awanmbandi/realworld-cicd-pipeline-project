@@ -15,7 +15,7 @@
     <repositories>
       <repository>
         <id>codeartifact</id>
-    <url>https://aws-native-cicd-maven-project-213424289791.d.codeartifact.us-west-2.amazonaws.com/maven/maven-central-store/</url>
+    <url>https://domain-accountid.d.codeartifact.region.amazonaws.com/maven/maven-central-store/</url>
       </repository>
     </repositories>
   </profile>
@@ -26,8 +26,8 @@
 <mirrors>
   <mirror>
     <id>codeartifact</id>
-    <name>aws-native-cicd-maven-project--maven-central-store</name>
-    <url>https://aws-native-cicd-maven-project-213424289791.d.codeartifact.us-west-2.amazonaws.com/maven/maven-central-store/</url>
+    <name>domainname--maven-central-store</name>
+    <url>https://domain-accountdid.d.codeartifact.region.amazonaws.com/maven/maven-central-store/</url>
     <mirrorOf>*</mirrorOf>
   </mirror>
 </mirrors>
