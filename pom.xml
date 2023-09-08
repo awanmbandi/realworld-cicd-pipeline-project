@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.visualpathit</groupId>
-    <artifactId>webapp</artifactId>
+    <artifactId>vprofile</artifactId>
     <packaging>war</packaging>
     <version>v2</version>
-    <name>JJTech Inc Webapp</name>
+    <name>Visualpathit VProfile Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
     <timestamp>${maven.build.timestamp}</timestamp>
@@ -183,9 +183,14 @@
             </plugin>
         <!-- CODE COVERAGE -->
             <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.7.2.201409121644</version>
+                     <groupId>org.apache.maven.plugins</groupId>
+                     <artifactId>maven-war-plugin</artifactId>
+                     <version>3.2.2</version>
+                    </plugin>
+ 		    <plugin>
+ 		        <groupId>org.jacoco</groupId>
+ 		        <artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.4</version>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>
@@ -210,7 +215,7 @@
       <repository>
         <id>codeartifact</id>
         <name>codeartifact</name>
-    <url>https://aws-native-cicd-maven-project-607436220640.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
+    <url>https://aws-native-cicd-maven-project-213424289791.d.codeartifact.us-west-2.amazonaws.com/maven/maven-central-store/</url>
       </repository>
     </repositories>
 </project>

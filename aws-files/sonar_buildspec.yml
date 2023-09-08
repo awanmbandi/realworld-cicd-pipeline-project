@@ -1,11 +1,11 @@
 version: 0.2
 env:
   parameter-store:
-    LOGIN: sonartoken
+    LOGIN: LOGIN
     HOST: HOST
     Organization: Organization
     Project: Project
-    CODEARTIFACT_AUTH_TOKEN: codeartifact-token
+    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
@@ -15,13 +15,10 @@ phases:
   pre_build:
     commands:
       - apt-get update
-      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
-      - apt -y install nodejs
-      - node -v
       - apt-get install -y jq checkstyle
-      - wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
-      - tar xzf apache-maven-3.5.4-bin.tar.gz
-      - ln -s apache-maven-3.5.4 maven
+      - wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+      - tar xzvf apache-maven-3.9.4-bin.tar.gz
+      - ln -s apache-maven-3.9.4 maven
       - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
       - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
