@@ -205,12 +205,13 @@
 - **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
     - Download the Splunk RPM installer package for Linux
+    - Link: 
     ```bash
-    wget -O splunk-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.0.5/linux/splunk-9.0.5-e9494146ae5c.x86_64.rpm"
+    wget -O splunk-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.1.1/linux/splunk-9.1.1-64e843ea36b1.x86_64.rpm"
     ```
     - Install Splunk
     ```
-    sudo yum install ./splunk-9.0.5-e9494146ae5c.x86_64.rpm -y
+    sudo yum install ./splunk-9.1.1-64e843ea36b1.x86_64.rpm -y
     ```
     - Start the splunk server 
     ```bash
@@ -248,13 +249,13 @@
 - **SSH** Into your instances, as normal user `ec2-user` or ubuntu or centos etc
 
 - Download the Splunk forwarder RPM installer package 
-```
-wget -O splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.0.5/linux/splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm"
+```bash
+wget -O splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.1.1/linux/splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm"
 ```
 - Install the Forwarder
 ```bash
 ls -al
-sudo yum install ./splunkforwarder-9.0.5-e9494146ae5c.x86_64.rpm -y
+sudo yum install ./splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm -y
 ```
 
 - Change to the splunkforwarder bin directory and start the forwarder
