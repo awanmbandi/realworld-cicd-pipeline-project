@@ -30,55 +30,63 @@
     - Confirm that the code exist on GitHub
 
 2) Jenkins/Maven/Ansible
-    - Create an Amazon Linux 2 VM instance and call it "jenkins-maven-ansible"
+    - Create an Amazon Linux 2 VM instance 
+    - Name: Jenkins/Maven/Ansible
     - Instance type: t2.medium
-    - Security Group (Open): 8080, 9100 and 22 to 0.0.0.0/0
+    - Security Group (Edit/Open): 8080, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
     - Launch Instance
 
 3) SonarQube
-    - Create an Create an Ubuntu 20.04 VM instance and call it "SonarQube"
+    - Create an Create an Ubuntu 20.04 VM instance 
+    - Name: SonarQube
     - Instance type: t2.medium
-    - Security Group (Open): 9000, 9100 and 22 to 0.0.0.0/0
+    - Security Group (Eit/Open): 9000, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
     - Launch Instance
 
 4) Nexus
-    - Create an Amazon Linux 2 VM instance and call it "Nexus"
+    - Create an Amazon Linux 2 VM instance 
+    - Name: Nexus
     - Instance type: t2.medium
-    - Security Group (Open): 8081, 9100 and 22 to 0.0.0.0/0
+    - Security Group (Eit/Open): 8081, 9100 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
     - Launch Instance
 
 5) EC2 (Dev/Stage/Prod)
-    - Create 3 Amazon Linux 2 VM instance and call them (Names: Dev-Env, Stage-Env and Prod-Env)
+    - Create 3 Amazon Linux 2 VM instance
+    - Names: Dev-Env, Stage-Env and Prod-Env
+    - Number: `3`
     - Instance type: t2.micro
-    - Security Group (Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
+    - Security Group (Eit/Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
 6) Prometheus
-    - Create an Ubuntu 20.04 VM instance and call it "Prometheus"
+    - Create an Ubuntu 20.04 VM instance 
+    - Name: Prometheus
     - Instance type: t2.micro
-    - Security Group (Open): 9090 and 22 to 0.0.0.0/0
+    - Security Group (Eit/Open): 9090 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - Launch Instance
 
 7) Grafana
-    - Create an Ubuntu 20.04 VM instance and call it "Grafana"
+    - Create an Ubuntu 20.04 VM instance
+    - Name: Grafana
     - Instance type: t2.micro
-    - Security Group (Open): 3000 and 22 to 0.0.0.0/0
+    - Security Group (Eit/Open): 3000 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - Launch Instance
 
 8) EC2 (Splunk)
-    - Create an Amazon Linux 2 VM instance and call it (Names: Splunk-Indexer)
+    - Create an Amazon Linux 2 VM instance
+    - Name: Splunk-Indexer
     - Instance type: t2.large
-    - Security Group (Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
+    - Security Group (Eit/Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - Launch Instance
 
