@@ -275,8 +275,6 @@ cd /opt/splunkforwarder/bin
 ./splunk start --accept-license --answer-yes
 ```
 
-![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2011.31.42%20AM.png)
-
 - Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
 ```
 ./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997
