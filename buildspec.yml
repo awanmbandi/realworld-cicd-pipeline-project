@@ -2,12 +2,20 @@ version: 0.2
 env: 
   parameter-store:
     CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
-
 phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - apt-get update
+      - apt-get install -y jq 
+      - wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+      - tar xzvf apache-maven-3.9.4-bin.tar.gz
+      - ln -s apache-maven-3.9.4 maven
   build:
     commands:
-      - echo Build completed on `date`
-      - mvn package
+      - mvn clean install -DskipTests
 
 artifacts:
   files:

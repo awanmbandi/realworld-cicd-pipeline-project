@@ -1,0 +1,14 @@
+version: 0.2
+env: 
+  parameter-store:
+    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+
+phases:
+  build:
+    commands:
+      - echo Build completed on `date`
+      - mvn package
+
+artifacts:
+  files:
+    - '**/*'
