@@ -15,7 +15,7 @@ phases:
       - ln -s apache-maven-3.9.4 maven
   build:
     commands:
-      - mvn clean install -DskipTests
+      - mvn clean package -DskipTests
 
 artifacts:
   files:
