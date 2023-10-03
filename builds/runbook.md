@@ -37,6 +37,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 ## 3) Create A CodeDeploy IAM Profile/Role
 - Create a CodeBuild Service Role in IAM with Administrator Privilege 
+![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
 - Navigate to IAM
     - Click on `Roles`
     - Click on `Create Role`
@@ -59,7 +60,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 ## 5) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
-- Click on `Create Project` 
+- Click on `Create Build Project` 
     - Project Name: `Java-Webapp-CB-Build-Job`
     - Source Provider: Select `AWS CodeCommit`
     - Repository: Select `AWS-Native-CICD-Pipeline-Project`
@@ -83,7 +84,7 @@ b) You must Login as an IAM User before you can complete the below steps success
     - CLICK: Click `CREATE BUILD PROJECT`
 
 ## 6) Create Deployment Area/Environment
-![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.22.57%20PM%20(3).png)
+![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Navigate to EC2
 - Click `Launch Instances`
     - Name: `Prod-Env`
