@@ -33,6 +33,7 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Click `Next` 
         - Role Name: `AWS-CodeBuild-Admin-Role` 
         - Click `Create`
+![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
 
 ## 3) Create A CodeDeploy IAM Profile/Role
 - Create a CodeBuild Service Role in IAM with Administrator Privilege 
@@ -82,6 +83,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 
 ## 6) Create Deployment Area/Environment
+![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.22.57%20PM%20(3).png)
 - Navigate to EC2
 - Click `Launch Instances`
     - Name: `Prod-Env`
@@ -125,7 +127,7 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Name: `Java-Webapp-CodeDeploy-Application`
         - Compute Platform: `EC2/On-premises`
         - Click `Create Application`
-
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
 ## 8) Create CodeDeploy Deployment Group
 - Navigate to CodeDeploy
 - Click on `Applications`
@@ -142,9 +144,11 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Deployment settings: Select `CodeDeployDefault.HalfAtATime`
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 
 ## 9) Create The CI/CD Automation Pipeline With CodePipeline
 - Navigate to `CodePipeline`
+![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Create Pipeline`
     - Name: `AWS-Native-Java-Webapp-CICD-Pipeline-Automation`
     - Service role: `New service role`
