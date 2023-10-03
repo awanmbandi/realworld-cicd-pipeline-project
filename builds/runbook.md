@@ -150,7 +150,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 ## 9) Create The CI/CD Automation Pipeline With CodePipeline
 - Navigate to `CodePipeline`
-![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
+![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Pipeline.png)
 - Click on `Create Pipeline`
     - Name: `AWS-Native-Java-Webapp-CICD-Pipeline-Automation`
     - Service role: `New service role`
