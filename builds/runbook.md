@@ -23,6 +23,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 ## 2) Create A CodeBuild IAM Profile/Role
 - Create a CodeBuild Service Role in IAM with Administrator Privilege 
+![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
 - Navigate to IAM
     - Click on `Roles`
     - Click on `Create Role`
@@ -33,7 +34,6 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Click `Next` 
         - Role Name: `AWS-CodeBuild-Admin-Role` 
         - Click `Create`
-![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
 
 ## 3) Create A CodeDeploy IAM Profile/Role
 - Create a CodeBuild Service Role in IAM with Administrator Privilege 
@@ -50,14 +50,15 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 ## 4) Create An S3 Bucket Where The Build Artifact Will Be Stored
 - Navigate to Amazon S3
+![S3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.15.44%20PM.png)
 - Click `Create Bucket` 
     - Name: `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
     - Region: `Select Your working Region`
     - Click: `CREATE Bucket`
-![S3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.15.44%20PM.png)
 
 ## 5) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
+![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 - Click on `Create Project` 
     - Project Name: `Java-Webapp-CB-Build-Job`
     - Source Provider: Select `AWS CodeCommit`
@@ -80,7 +81,6 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Group Name: `Java-Webapp-CodeBuild-Build-Logs`
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
-![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 
 ## 6) Create Deployment Area/Environment
 ![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.22.57%20PM%20(3).png)
@@ -121,15 +121,17 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Click `Launch Instance`
 
 ## 7) Create CodeDeploy Application
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
 - Navigate to CodeDeploy
     - Click on `Applications`
     - Click `Create Application`
         - Name: `Java-Webapp-CodeDeploy-Application`
         - Compute Platform: `EC2/On-premises`
         - Click `Create Application`
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
+
 ## 8) Create CodeDeploy Deployment Group
 - Navigate to CodeDeploy
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Applications`
     - Click on `Java-Webapp-CodeDeploy-Application`
     - Click on `Create deployment group`
@@ -144,7 +146,6 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Deployment settings: Select `CodeDeployDefault.HalfAtATime`
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 
 ## 9) Create The CI/CD Automation Pipeline With CodePipeline
 - Navigate to `CodePipeline`
