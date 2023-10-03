@@ -8,9 +8,9 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 ## 1) Create a CodeCommit Project Repository
 1.1) Navigate to CodeCommit to create a Project Repository
-    - Click on `Create Repository`
-    - Name your repository `AWS-Native-CICD-Pipeline-Project`
-    - Click `Create`
+- Click on `Create Repository`
+- Name your repository `AWS-Native-CICD-Pipeline-Project`
+- Click `Create`
 
 1.2) Configure SSH Connection On Local MacOs or Windows With CodeCommit
 - Follow the steps provided in the Runbook below
