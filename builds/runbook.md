@@ -4,13 +4,12 @@
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
 b) You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
 
-**Pre-requisites**
-
 ## 1) Create a CodeCommit Project Repository
 1.1) Navigate to CodeCommit to create a Project Repository
 - Click on `Create Repository`
 - Name your repository `AWS-Native-CICD-Pipeline-Project`
 - Click `Create`
+![CodeCommit!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.11.38%20PM.png)
 
 1.2) Configure SSH Connection On Local MacOs or Windows With CodeCommit
 - Follow the steps provided in the Runbook below
@@ -54,6 +53,7 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Name: `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
     - Region: `Select Your working Region`
     - Click: `CREATE Bucket`
+![S3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.15.44%20PM.png)
 
 ## 5) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
@@ -79,6 +79,7 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Group Name: `Java-Webapp-CodeBuild-Build-Logs`
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
+![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 
 ## 6) Create Deployment Area/Environment
 - Navigate to EC2
