@@ -1,4 +1,5 @@
 # CI/CD Pipeline Project Using AWS Native SDLC Automation Tools
+![CompleteAWSNativeCICDProject!](https://lucid.app/publicSegments/view/798557ac-1687-465b-888b-e7c28207a3c9/image.png)
 
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
