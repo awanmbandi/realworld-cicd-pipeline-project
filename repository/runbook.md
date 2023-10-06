@@ -1,5 +1,5 @@
 # CI/CD Pipeline Project Using AWS Native SDLC Automation Tools
-![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%209.47.12%20PM.png)
+![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cloudnative_optimized_cicd_pipeline_project_arch_v2.png)
 
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
