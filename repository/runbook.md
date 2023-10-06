@@ -351,20 +351,20 @@ D) Create a SonarCloud Project
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
-## 12) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
+### 12) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
 - CLICK on `Release Changes`
 
-## 10) REVIEW ALL JOBS (Whle The Pipeline Is Running)
+### 10) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
 - Go through the `CodeDeploy JOB Output`
 - Go through the `SonarCloud Project/Analysis`
 
-## 11) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
+### 11) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
 - Navigate to `CodeBuild`
     - Click on the Project 
     - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
 
-## ) TEST ACCESS TO THE APPLICATION
+### ) TEST ACCESS TO THE APPLICATION
 - Navigate to EC2 
     - Copy the Public IP Addresses of the Instances and Try Accessing the Application
     - URL: INSTANCE_PUBLIC_IP:8080/webapp
