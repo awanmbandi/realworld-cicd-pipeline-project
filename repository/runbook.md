@@ -114,7 +114,7 @@ D) Create a SonarCloud Project
   - Value (String/Secure String): `provide your SonaCloud Project Token`
 **NOTE:** Confirm that these same parameter names exist in your `sonacloud_buildspec.yaml` configuration.
 
-## 5) Create The Project Build Job in CodeBuild
+## 7) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 - Click on `Create Build Project` 
@@ -140,7 +140,7 @@ D) Create a SonarCloud Project
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
 
-## 5) Create The SonarCloud Code Analysis Job in CodeBuild
+## 8) Create The SonarCloud Code Analysis Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
 - Click on `Create Build Project` 
@@ -164,7 +164,7 @@ D) Create a SonarCloud Project
         - Stream name: `Java-Webapp-CodeBuild-SonarCloud-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
 
-## 6) Create Staging Deployment Area/Environment
+## 9) Create Staging Deployment Area/Environment
 ![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Navigate to EC2
 - Click `Launch Instances`
@@ -203,7 +203,7 @@ D) Create a SonarCloud Project
 
         - Click `Launch Instance`
 
-## 6) Create Production Deployment Area/Environment
+## 10) Create Production Deployment Area/Environment
 ![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Navigate to EC2
 - Click `Launch Instances`
@@ -240,7 +240,7 @@ D) Create a SonarCloud Project
 
         - Click `Launch Instance`
 
-## 7) Create CodeDeploy Application
+## 11) Create CodeDeploy Application
 ![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
 - Navigate to CodeDeploy
     - Click on `Applications`
@@ -249,7 +249,7 @@ D) Create a SonarCloud Project
         - Compute Platform: `EC2/On-premises`
         - Click `Create Application`
 
-## 8) Create CodeDeploy Deployment Group
+## 12) Create CodeDeploy Deployment Group
 - Navigate to CodeDeploy
 ![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Applications`
@@ -267,7 +267,7 @@ D) Create a SonarCloud Project
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
 
-## 8) Create CodeDeploy Deployment Group
+## 13) Create CodeDeploy Deployment Group
 - Navigate to CodeDeploy
 ![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Applications`
@@ -285,7 +285,7 @@ D) Create a SonarCloud Project
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
 
-## 9) Create The CI/CD Automation Pipeline With CodePipeline
+## 14) Create The CI/CD Automation Pipeline With CodePipeline
 - Navigate to `CodePipeline`
 ![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Pipeline.png)
 - Click on `Create Pipeline`
@@ -318,7 +318,7 @@ D) Create a SonarCloud Project
     - NOTE: Once you create the pipeline, it'll start Running Immediate. Just wait for all the various stages to complete
     - **NOTE2:** The Deployment Will Only Take Place In The Staging Environment (With Continuous Deployment)
 
-## 10) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
+## 15) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
 ![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
 - Click on `Edit` to add the `Manual Approval` and `Prod Deployment Stage`
 
@@ -334,7 +334,7 @@ D) Create a SonarCloud Project
 
   - Click on `Done` to save changes
 
-## 11) Add The Deploy To Production Stage With CodeDeploy
+## 16) Add The Deploy To Production Stage With CodeDeploy
 - Click on `Add stage`
 ![DeployProd!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.10.51%20PM.png)
 - Stage name: `Deploy-Prod`
@@ -351,15 +351,15 @@ D) Create a SonarCloud Project
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
-### 12) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
+### 17) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
 - CLICK on `Release Changes`
 
-### 10) REVIEW ALL JOBS (Whle The Pipeline Is Running)
+### 18) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
 - Go through the `CodeDeploy JOB Output`
 - Go through the `SonarCloud Project/Analysis`
 
-### 11) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
+### 19) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
 - Navigate to `CodeBuild`
     - Click on the Project 
     - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
