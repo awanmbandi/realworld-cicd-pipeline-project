@@ -58,6 +58,62 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Region: `Select Your working Region`
     - Click: `CREATE Bucket`
 
+
+## 5) Sign Up For SonarCloud Account
+A) Sign up for SonarCloud using this URL: https://sonarcloud.io or https://sonarsource.com or https://sonarcloud.io/login 
+![SonarCloud!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%2012.59.04%20PM.png)
+- Click on `“FREE SONAR”`
+- Click on `TRY SONARCLOUD`
+- Sign in with your `“GitHub” Account`
+- Click on `“Authorize SonarCloud”`
+    - **NOTE:** Once you Authorize SonarCloud, It’ll take you directly to Dashboard (Similar to Traditional SonarQube Server Dashboard but this is cloud based)
+
+B) We have to Generate a Token which CodeBuild will use during the Maven Execution
+![SonarCloud2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.03.17%20PM.png)
+- Click on your Profile at the Top right and click on `My Account`
+- Click on `Security`
+- Generate Tokens (Provide a Name): `aws-native-cicd-pipeline-project`
+- Copy the Token and Save it somewhere (on your NOTEPAD)
+
+C) Click on the “+”  symbol at the Top Right
+![SonarCloud3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.06.19%20PM.png)
+- Click on Analyze new project
+- Click on `create a project manually`.
+    - Click on `Create another organization` 
+        - Name (Must be Unique): `yourfirst-or-lastname-aws-devops`
+        - Choose a plan: Select `“Free Plan”`
+        - Click on `Create Organization`
+
+D) Create a SonarCloud Project
+- Click on `Create Project`
+    - Project Key: aws-native-cicd-pipeline-project
+    - Display name: aws-native-cicd-pipeline-project
+    - Public/Private: Public  (because we’re using a free account)
+    - Click “Set Up”
+**NOTE** **Save your `Project Name` as well on Notepad, Save your `Organization name` and the Sonarcloud url (`https://sonarcloud.io`). Make sure your `Token` has been saved also.
+
+## 6) Store Your SonarCloud Project Parameters In SSM Parameter Store
+- Navigate to SSM
+- Make sure you create the parameters in the same Region as the bucket (same for all project resources)
+![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.18.36%20PM.png)
+- **a)** Click on `Parameter Store`
+  - Click on `Create Parameter`
+  - Name: `Organization`
+  - Value (String/Text): `provide your SnarCloud Org name`
+
+- **b)** Click on `Parameter Store`
+  - Name: `HOST`
+  - Value (String/Text): https://sonarcloud.io
+
+- **c)** Click on `Parameter Store`
+  - Name: `Project`
+  - Value (String/Text): `provide your SonaCloud Project name`
+
+- **d)** Click on `Parameter Store`
+  - Name: `sonartoken`
+  - Value (String/Secure String): `provide your SonaCloud Project Token`
+**NOTE:** Confirm that these same parameter names exist in your `sonacloud_buildspec.yaml` configuration.
+
 ## 5) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
@@ -73,7 +129,7 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Environment type: Select `Linux EC2`
     - Service Role: `Existing Service Role`
         - Role name: Select `AWS-CodeBuild-Admin-Role` 
-    - Build Specifications: Select `Use a buildspec file`
+    - Build Specifications: Pass `buildspecs/buildspec.yaml`
     - Artifacts:
         - Type: Select `Amazon S3`
         - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
@@ -84,7 +140,70 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
 
-## 6) Create Deployment Area/Environment
+## 5) Create The SonarCloud Code Analysis Job in CodeBuild
+- Navigate To The AWS `CodeBuild` Service
+![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
+- Click on `Create Build Project` 
+    - Project Name: `Java-Webapp-CB-SonarCloud-Job`
+    - Source Provider: Select `AWS CodeCommit`
+    - Repository: Select `AWS-Native-CICD-Pipeline-Project`
+    - Branch: `master`
+    - Operating System: `Ubuntu`
+    - Runtime: `Standard`
+    - Image: MUST USE  (`aws/codebuild/standard:5.0`) or else it’ll BREAK
+    - Image version: Select `Always use the latest for this runtime version` 
+    - Environment type: Select `Linux EC2`
+    - Service Role: `Existing Service Role`
+        - Role name: Select `AWS-CodeBuild-Admin-Role` 
+    - Build Specifications: Pass `buildspecs/sonarcloud_buildspec.yaml`
+    - Artifacts:
+        - Type: Select `No Artifact`
+    - Logs
+        - CloudWatch Logs: `Enable`
+        - Group Name: `Java-Webapp-CodeBuild-Build-Logs`
+        - Stream name: `Java-Webapp-CodeBuild-SonarCloud-Logs`
+    - CLICK: Click `CREATE BUILD PROJECT`
+
+## 6) Create Staging Deployment Area/Environment
+![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
+- Navigate to EC2
+- Click `Launch Instances`
+    - Name: `Stage-Env`
+    - Click `Add additional tags`
+        - Click `Add new tag`
+            - Key: `Env`
+            - Value: `Stage`
+    - Number of Instances: `1`
+    - AMI: `Amazon Linux 2 (HVM)`
+    - Instance type: `t2.micro`
+    - Key pair: `Select an existing Key` or `Create New`
+    - Network Settings: 
+        - VPC: `Default` or a network that has Internet access
+        - Auto-assign public IP: `Enable`
+        - Firewall (security groups): Open the following Ports
+            - Name: `Tomcat-App-SG`
+            - Description: `Tomcat-App-SG`
+            - Open Port `8080` to `0.0.0.0/0`
+            - Open Port `22` to eith your Network or Internet
+    - Edvance Details:
+        - IAM instance profile: `Select an EC2 Admin Role`
+            - NOTE: `If you do not have one, please go ahead and create before creating instance`
+        - User data: 
+        ```bash
+        #!/bin/bash
+        sudo yum update
+        sudo yum install ruby -y
+        sudo yum install wget -y
+        cd /home/ec2-user
+        wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
+        chmod +x ./install
+        sudo ./install auto
+        sudo service codedeploy-agent status
+        ```
+
+        - Click `Launch Instance`
+
+## 6) Create Production Deployment Area/Environment
 ![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Navigate to EC2
 - Click `Launch Instances`
@@ -93,7 +212,7 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Click `Add new tag`
             - Key: `Env`
             - Value: `Prod`
-    - Number of Instances: `2`
+    - Number of Instances: `1`
     - AMI: `Amazon Linux 2 (HVM)`
     - Instance type: `t2.micro`
     - Key pair: `Select an existing Key` or `Create New`
@@ -101,12 +220,11 @@ b) You must Login as an IAM User before you can complete the below steps success
         - VPC: `Default` or a network that has Internet access
         - Auto-assign public IP: `Enable`
         - Firewall (security groups): Open the following Ports
-            - Name: `Tomcat-SG`
-            - Description: `Tomcat-SG`
-            - Open Port `8080` to `0.0.0.0/0`
-            - Open Port `22` to eith your Network or Internet
+            - Click on `Select existing security group`
+            - Security group: Select `Tomcat-App-SG`
     - Edvance Details:
         - IAM instance profile: Select an EC2 Admin Role
+            - NOTE: `If you do not have one, please go ahead and create before creating instance`
         - User data: 
         ```bash
         #!/bin/bash
@@ -137,7 +255,25 @@ b) You must Login as an IAM User before you can complete the below steps success
 - Click on `Applications`
     - Click on `Java-Webapp-CodeDeploy-Application`
     - Click on `Create deployment group`
-        - Deployment group name: `Java-Webapp-CodeDeploy-DG`
+        - Deployment group name: `Java-Webapp-CodeDeploy-Stage-DG`
+        - Service role: `AWS-CodeDeploy-Deployment-Role`
+        - Deployment type: Select `In-place`
+        - Environment configuration: Select `Amazon EC2 instances`
+            - Key: `Env`
+            - Value: `Stage`
+        - Agent configuration with AWS Systems Manager: `Now and schedule updates`
+            - Basic Scheduler
+        - Deployment settings: Select `CodeDeployDefault.HalfAtATime`
+        - Load balancer: Uncheck the box to `Disable`
+        - Click `Create deployment group`
+
+## 8) Create CodeDeploy Deployment Group
+- Navigate to CodeDeploy
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
+- Click on `Applications`
+    - Click on `Java-Webapp-CodeDeploy-Application`
+    - Click on `Create deployment group`
+        - Deployment group name: `Java-Webapp-CodeDeploy-Prod-DG`
         - Service role: `AWS-CodeDeploy-Deployment-Role`
         - Deployment type: Select `In-place`
         - Environment configuration: Select `Amazon EC2 instances`
@@ -175,21 +311,60 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Deploy provider: `AWS CodeDeploy`
         - Region: `Your region will populate`
         - Application name: `Java-Webapp-CodeDeploy-Application`
-        - Deployment group: `Java-Webapp-CodeDeploy-DG`
+        - Deployment group: `Java-Webapp-CodeDeploy-Stage-DG`
         - Click `Next`
     
     - Click `CREATE PIPELINE`
     - NOTE: Once you create the pipeline, it'll start Running Immediate. Just wait for all the various stages to complete
+    - **NOTE2:** The Deployment Will Only Take Place In The Staging Environment (With Continuous Deployment)
 
-## 10) REVIEW ALL JOBS 
+## 10) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.52.25%20PM.png)
+- Click on `Edit` to add the `Manual Approval` and `Prod Deployment Stage`
+
+- Click on `Add stage`
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.54.56%20PM.png)
+- Stage name: `Manual-Approval`
+
+- Click on `Add action group`
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.00.26%20PM.png)
+  - Action name: `Manual-Approval`
+  - Action provider: `Manual approval`
+  - Click `Done`
+
+  - Click on `Done` to save changes
+
+## 11) Add The Deploy To Production Stage With CodeDeploy
+- Click on `Add stage`
+![DeployProd!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.10.51%20PM.png)
+- Stage name: `Deploy-Prod`
+- Click on `Add action group`
+  - Action name: `Deploy-Prod`
+  - Action provider: `AWS CodeDeploy`
+  - Region: `Select your project region`
+  - Input artifact: `BuildArtifact`
+  - Application name: `Java-Webapp-CodeDeploy-Application`
+  - Deployment group: `Java-Webapp-CodeDeploy-Stage-DG`
+  - Click `Done`
+
+  - Click on `Done` to save changes
+  - `SCROLL UP` and Click on `SAVE`
+  - Click `SAVE`
+
+## 12) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
+- CLICK on `Release Changes`
+
+## 10) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
 - Go through the `CodeDeploy JOB Output`
+- Go through the `SonarCloud Project/Analysis`
 
-## 11) TEST APPLICATION
+## 11) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
 - Navigate to `CodeBuild`
     - Click on the Project 
     - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
 
+## ) TEST ACCESS TO THE APPLICATION
 - Navigate to EC2 
     - Copy the Public IP Addresses of the Instances and Try Accessing the Application
     - URL: INSTANCE_PUBLIC_IP:8080/webapp
