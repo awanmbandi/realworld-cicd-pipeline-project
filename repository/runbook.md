@@ -319,7 +319,7 @@ D) Create a SonarCloud Project
     - **NOTE2:** The Deployment Will Only Take Place In The Staging Environment (With Continuous Deployment)
 
 ## 10) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.52.25%20PM.png)
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
 - Click on `Edit` to add the `Manual Approval` and `Prod Deployment Stage`
 
 - Click on `Add stage`
