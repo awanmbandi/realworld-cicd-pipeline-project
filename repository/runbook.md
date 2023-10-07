@@ -385,7 +385,7 @@ D) Create a SonarCloud Project
     - Click on the Project 
     - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
 
-### ) TEST ACCESS TO THE APPLICATION
+### 21) TEST ACCESS TO THE APPLICATION
 - Navigate to EC2 
     - Copy the Public IP Addresses of the Instances and Try Accessing the Application
     - URL: INSTANCE_PUBLIC_IP:8080/webapp
