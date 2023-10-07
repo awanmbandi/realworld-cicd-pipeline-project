@@ -344,7 +344,8 @@ D) Create a SonarCloud Project
   - Region: `Select your project region`
   - Input artifact: `BuildArtifact`
   - Application name: `Java-Webapp-CodeDeploy-Application`
-  - Deployment group: `Java-Webapp-CodeDeploy-Stage-DG`
+  - Deployment group: `Java-Webapp-CodeDeploy-Prod-DG`
+  - Variable namespace: `DeployVariables`
   - Click `Done`
 
   - Click on `Done` to save changes
