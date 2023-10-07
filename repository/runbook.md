@@ -318,23 +318,12 @@ D) Create a SonarCloud Project
     - NOTE: Once you create the pipeline, it'll start Running Immediate. Just wait for all the various stages to complete
     - **NOTE2:** The Deployment Will Only Take Place In The Staging Environment (With Continuous Deployment)
 
-## 15) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
-- Click on `Edit` to add the `Manual Approval` and `Prod Deployment Stage`
-
-- Click on `Add stage`
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.54.56%20PM.png)
-- Stage name: `Manual-Approval`
-
-- Click on `Add action group`
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.00.26%20PM.png)
-  - Action name: `Manual-Approval`
-  - Action provider: `Manual approval`
-  - Click `Done`
-
-  - Click on `Done` again
-
-## 16) Add The SAST Test Stage With SonarCloud
+## 15) Add The SAST Test Stage With SonarCloud
+![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
+- Click on `Edit` to add the following Pipeline Stages
+    - `Testing Stage`
+    - `Manual Approval Stage` and 
+    - `Prod Deployment Stage`
 - Click on `Add stage`
 - **NOTE:** Make sure to add this Stage in between the `Build` and `Desploy` Stage
 ![SASTStage!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-07%20at%201.33.14%20PM.png)
@@ -350,8 +339,20 @@ D) Create a SonarCloud Project
 
   - Click on `Done` again
 
+## 16) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
+- Click on `Add stage`
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.54.56%20PM.png)
+- Stage name: `Manual-Approval`
 
-## 16) Add The Deploy To Production Stage With CodeDeploy
+- Click on `Add action group`
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.00.26%20PM.png)
+  - Action name: `Manual-Approval`
+  - Action provider: `Manual approval`
+  - Click `Done`
+
+  - Click on `Done` again
+
+## 17) Add The Deploy To Production Stage With CodeDeploy
 - Click on `Add stage`
 ![DeployProd!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.10.51%20PM.png)
 - Stage name: `Deploy-Prod`
@@ -369,15 +370,15 @@ D) Create a SonarCloud Project
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
-### 17) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
+### 18) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
 - CLICK on `Release Changes`
 
-### 18) REVIEW ALL JOBS (Whle The Pipeline Is Running)
+### 19) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
 - Go through the `CodeDeploy JOB Output`
 - Go through the `SonarCloud Project/Analysis`
 
-### 19) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
+### 20) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
 - Navigate to `CodeBuild`
     - Click on the Project 
     - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
