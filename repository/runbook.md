@@ -320,10 +320,10 @@ D) Create a SonarCloud Project
 
 ## 15) Add The SAST Test Stage With SonarCloud
 ![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
-- Click on `Edit` to add the following Pipeline Stages
-    - `Testing Stage`
-    - `Manual Approval Stage` and 
-    - `Prod Deployment Stage`
+- Click on `Edit` to add the following Pipeline Stages;
+    - The `Testing Stage`
+    - The `Manual Approval Stage`  
+    - The `Prod Deployment Stage`
 - Click on `Add stage`
 - **NOTE:** Make sure to add this Stage in between the `Build` and `Desploy` Stage
 ![SASTStage!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-07%20at%201.33.14%20PM.png)
