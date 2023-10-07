@@ -293,7 +293,7 @@ D) Create a SonarCloud Project
     - Service role: `New service role`
         - Role name: `The name will populate automatically`
     - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline: Chech box to `Enable`
-    - Click `Next`
+        - Click `Next`
     - **SOURCE PROVIDER**
     - Source provider: Select `AWS CodeCommit`
         - Repository name: `AWS-Native-CICD-Pipeline-Project`
