@@ -332,7 +332,24 @@ D) Create a SonarCloud Project
   - Action provider: `Manual approval`
   - Click `Done`
 
-  - Click on `Done` to save changes
+  - Click on `Done` again
+
+## 16) Add The SAST Test Stage With SonarCloud
+- Click on `Add stage`
+- **NOTE:** Make sure to add this Stage in between the `Build` and `Desploy` Stage
+![SASTStage!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-07%20at%201.33.14%20PM.png)
+- Stage name: `SAST-Test-SonarCloud`
+- Click on `Add action group`
+  - Action name: `SAST-Test-SonarCloud`
+  - Action provider: `AWS CodeBuild`
+  - Region: `Select your project region`
+  - Input artifact: `SourceArtifact`
+  - Project name: `Select Your SonarCloud CodeBuild Job/Project`
+  - Build type: `Single build`
+  - Click `Done`
+
+  - Click on `Done` again
+
 
 ## 16) Add The Deploy To Production Stage With CodeDeploy
 - Click on `Add stage`
