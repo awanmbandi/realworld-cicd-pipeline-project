@@ -341,7 +341,7 @@ D) Create a SonarCloud Project
 
 ## 16) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
 - Click on `Add stage`
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.54.56%20PM.png)
+![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-07%20at%202.07.16%20PM.png)
 - Stage name: `Manual-Approval`
 
 - Click on `Add action group`
