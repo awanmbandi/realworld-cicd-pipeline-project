@@ -249,7 +249,7 @@ D) Create a SonarCloud Project
         - Compute Platform: `EC2/On-premises`
         - Click `Create Application`
 
-## 12) Create CodeDeploy Deployment Group
+## 12) Create A CodeDeploy Deployment Group To Deploy Staging Env
 - Navigate to CodeDeploy
 ![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Applications`
@@ -263,11 +263,12 @@ D) Create a SonarCloud Project
             - Value: `Stage`
         - Agent configuration with AWS Systems Manager: `Now and schedule updates`
             - Basic Scheduler
-        - Deployment settings: Select `CodeDeployDefault.HalfAtATime`
+        - Deployment settings: Select `CodeDeployDefault.AllAtOnce`
+            - **NOTE:** CONFIRM THAT YOU SELECTED `CodeDeployDefault.AllAtOnce` IF Not, yours will break.
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
 
-## 13) Create CodeDeploy Deployment Group
+## 13) Create A CodeDeploy Deployment Group For The Production Env
 - Navigate to CodeDeploy
 ![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
 - Click on `Applications`
@@ -281,7 +282,8 @@ D) Create a SonarCloud Project
             - Value: `Prod`
         - Agent configuration with AWS Systems Manager: `Now and schedule updates`
             - Basic Scheduler
-        - Deployment settings: Select `CodeDeployDefault.HalfAtATime`
+        - Deployment settings: Select `CodeDeployDefault.AllAtOnce`
+            - **NOTE:** CONFIRM THAT YOU SELECTED `CodeDeployDefault.AllAtOnce` IF Not, yours will break.
         - Load balancer: Uncheck the box to `Disable`
         - Click `Create deployment group`
 
@@ -363,7 +365,6 @@ D) Create a SonarCloud Project
   - Input artifact: `BuildArtifact`
   - Application name: `Java-Webapp-CodeDeploy-Application`
   - Deployment group: `Java-Webapp-CodeDeploy-Prod-DG`
-  - Variable namespace: `DeployVariables`
   - Click `Done`
 
   - Click on `Done` to save changes
@@ -372,6 +373,7 @@ D) Create a SonarCloud Project
 
 ### 18) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
 - CLICK on `Release Changes`
+![SuccessPipeResults!](https://lucid.app/publicSegments/view/747b2c4f-4f8b-4e1b-b83e-377c91a09cd8/image.png)
 
 ### 19) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
