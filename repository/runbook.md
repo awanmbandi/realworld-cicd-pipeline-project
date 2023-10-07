@@ -294,20 +294,20 @@ D) Create a SonarCloud Project
         - Role name: `The name will populate automatically`
     - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline: Chech box to `Enable`
     - Click `Next`
-#### SOURCE PROVIDER
+    - **SOURCE PROVIDER**
     - Source provider: Select `AWS CodeCommit`
         - Repository name: `AWS-Native-CICD-Pipeline-Project`
         - Branch name: `Master`
         - Change detection options: `Amazon CloudWatch Events (recommended)`
         - Output artifact format: `CodePipeline default`
         - Click `Next`
-#### BUILD PROVIDER
+    - **BUILD PROVIDER**
     - Build provider: `AWS CodeBuild`
         - Region: `Your region will populate`
         - Project name: `Java-Webapp-CB-Build-Job`
         - Build type: `Single build`
         - Click `Next`
-#### DEPLOY PROVIDER
+    - **DEPLOY PROVIDER**
     - Deploy provider: `AWS CodeDeploy`
         - Region: `Your region will populate`
         - Application name: `Java-Webapp-CodeDeploy-Application`
