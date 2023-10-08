@@ -5,6 +5,7 @@ env:
     HOST:    HOST
     Organization: Organization
     Project: Project
+    # CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
