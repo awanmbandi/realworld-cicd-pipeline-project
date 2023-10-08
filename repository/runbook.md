@@ -142,7 +142,7 @@ D) Create a SonarCloud Project
 
 ## 8) Create The SonarCloud Code Analysis Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
-![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
+![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-08%20at%201.33.52%20AM.png)
 - Click on `Create Build Project` 
     - Project Name: `Java-Webapp-CB-SonarCloud-Job`
     - Source Provider: Select `AWS CodeCommit`
