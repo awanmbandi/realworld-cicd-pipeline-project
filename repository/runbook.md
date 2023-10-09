@@ -314,7 +314,7 @@ D) Create a SonarCloud Project
         ```
 
         - Click `Launch Instance`
-**Confirm that you have both the Stage and Prod Environments**
+#### Confirm that you have both the Stage and Prod Environments
 ![Stage&ProdInstances!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2010.25.51%20AM.png)
 
 ## 11) Create CodeDeploy Application
