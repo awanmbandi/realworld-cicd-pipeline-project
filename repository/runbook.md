@@ -240,7 +240,7 @@ D) Create a SonarCloud Project
     - Service Role: `Existing Service Role`
         - Role name: Select `AWS-CodeBuild-Admin-Role` 
         - Allow AWS CodeBuild to modify this service role so it can be used with this build project: `Disable/Uncheck`
-    - Build Specifications: Pass `buildspecs/sonarcloud_buildspec.yaml`
+    - Build Specifications: Pass `buildspecs/sonarcloud_buildspec.yml`
     - Artifacts:
         - Type: Select `No Artifact`
     - Logs
