@@ -483,7 +483,11 @@ D) Create a SonarCloud Project
 - Go through the *`SonarCloud Project/Analysis` etc*
 
 #### 20A) CodeArtifact Maven Project Repository
+i) CodeArtifact `maven-central-store` (These Dependencies Where All Downloaded From `Maven Central` and Stored Here)
 ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.35.20%20AM.png)
+
+ii) CodeBuild Project Logs (Build and Test Jobs)
+![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.58.45%20PM.png)
 
 #### 20B) CodeBuild Build Job Results
 ![CodeBuildBuildJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.12.18%20AM.png)
