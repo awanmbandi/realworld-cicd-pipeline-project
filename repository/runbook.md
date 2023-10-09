@@ -455,6 +455,21 @@ D) Create a SonarCloud Project
 - Go through the `CodeDeploy JOB Output`
 - Go through the `SonarCloud Project/Analysis`
 
+#### 19A) CodeArtifact Maven Project Repository
+![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.35.20%20AM.png)
+
+#### 19B) CodeBuild Build Job Results
+![CodeBuildBuildJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.12.18%20AM.png)
+
+#### 19C) CodeBuild SonaCloud SAST Job Results
+![CodeBuildSASTJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.17.50%20AM.png)
+
+#### 19D) SonaCloud SAST Test Results
+![CodeBuildSASTtestResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.21.56%20AM.png)
+
+#### 19E) CodeDeploy Deployment Results (Stage&Prod)
+![CodeDeploy!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.28.15%20AM.png)
+
 ### 20) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
 - Navigate to `CodeBuild`
     - Click on the Project 
@@ -464,6 +479,7 @@ D) Create a SonarCloud Project
 - Navigate to EC2 
     - Copy the Public IP Addresses of the Instances and Try Accessing the Application
     - URL: INSTANCE_PUBLIC_IP:8080/javawebapp
+![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.33.23%20AM.png)
 
 #### CONGRATULATIONS!! CONGRATULATIONS!! CONGRATULATIONS!!
 
