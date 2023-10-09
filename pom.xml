@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.visualpathit</groupId>
-    <artifactId>vprofile</artifactId>
+    <artifactId>javawebapp</artifactId>
     <packaging>war</packaging>
     <version>v2</version>
     <name>Advance Java Webapp</name>
