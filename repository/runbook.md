@@ -453,7 +453,7 @@ D) Create a SonarCloud Project
 ### 19) REVIEW ALL JOBS (Whle The Pipeline Is Running)
 - Go through the `CodeBuild JOB Output`
 - Go through the `CodeDeploy JOB Output`
-- Go through the `SonarCloud Project/Analysis`
+- Go through the `SonarCloud Project/Analysis` etc
 
 #### 19A) CodeArtifact Maven Project Repository
 ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.35.20%20AM.png)
