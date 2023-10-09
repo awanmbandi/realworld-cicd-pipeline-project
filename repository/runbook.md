@@ -451,8 +451,9 @@ D) Create a SonarCloud Project
 ![SuccessPipeResults!](https://lucid.app/publicSegments/view/747b2c4f-4f8b-4e1b-b83e-377c91a09cd8/image.png)
 
 ### 19) REVIEW ALL JOBS (Whle The Pipeline Is Running)
-- Go through the `CodeBuild JOB Output`
-- Go through the `CodeDeploy JOB Output`
+- Go through the `CodeArtifact Downloaded Dependencies`
+- Go through the `CodeBuild Build & Test Job Outputs`
+- Go through the `CodeDeploy Stage & Prod Prod Deployment Results`
 - Go through the `SonarCloud Project/Analysis` etc
 
 #### 19A) CodeArtifact Maven Project Repository
