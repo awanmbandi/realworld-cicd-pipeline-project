@@ -481,7 +481,7 @@ D) Create a SonarCloud Project
 * URL: http://INSTANCE_PUBLIC_IP:8080/javawebapp 
 ![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/user_login_application_test_successful.png)
 
-## 😃 CONGRATULATIONS TEAM!! CONGRATULATIONS TEAM!! 😃
+## 👨‍💻😃 CONGRATULATIONS TEAM!! CONGRATULATIONS TEAM!! 👨‍💻😃
 
 
 
