@@ -2,16 +2,16 @@
 ![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/aws_native_project_v2.2.png)
 
 ###### Project ToolBox 🧰
-- [AWS CodeCommit](https://aws.amazon.com/codecommit/)
-- [AWS CodeBuild](https://aws.amazon.com/codebuild/)
-- [AWS CodeArtifact](https://aws.amazon.com/codeartifact/)
-- [AWS CodeDeploy](https://aws.amazon.com/codedeploy/)
-- [AWS CodePipeline](https://aws.amazon.com/codepipeline/)
-- [AWS S3](https://aws.amazon.com/s3/)
-- [AWS EC2](https://aws.amazon.com/ec2/)
-- [AWS CloudWatch](https://aws.amazon.com/cloudwatch/)
-- [AWS SNS](https://aws.amazon.com/sns/)
-- [SonarCloud](https://sonarcloud.io/)
+- [AWS CodeCommit](https://aws.amazon.com/codecommit/) CodeCommit is a secure, highly scalable, fully managed source control service that hosts private Git repositories.
+- [AWS CodeBuild](https://aws.amazon.com/codebuild/) CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces ready-to-deploy software packages.
+- [AWS CodeArtifact](https://aws.amazon.com/codeartifact/) CodeArtifact allows you to store artifacts using popular package managers and build tools like Maven, Gradle, npm, Yarn, Twine, pip, NuGet, and SwiftPM.
+- [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) CodeDeploy is a fully managed deployment service that automates software deployments to various compute services, such as Amazon Elastic Compute Cloud (EC2), Amazon Elastic Container Service (ECS), AWS Lambda, and your on-premises servers.
+- [AWS CodePipeline](https://aws.amazon.com/codepipeline/) CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
+- [AWS S3](https://aws.amazon.com/s3/) Amazon S3 is an object storage service offering industry-leading scalability, data availability, security, and performance.
+- [AWS EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
+- [AWS CloudWatch](https://aws.amazon.com/cloudwatch/) CloudWatch collects and visualizes real-time logs, metrics, and event data in automated dashboards to streamline your infrastructure and application maintenance.
+- [AWS SNS](https://aws.amazon.com/sns/) Amazon SNS sends notifications two ways and provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. 
+- [SonarCloud](https://sonarcloud.io/) SonarCloud is a cloud-based code analysis service designed to detect coding issues in 26 different programming languages.
 
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
