@@ -468,12 +468,11 @@ D) Create a SonarCloud Project
 ![CodeBuildSASTtestResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.21.56%20AM.png)
 
 #### 19E) CodeDeploy Deployment Results (Stage&Prod)
+- Navigate to `CodeDeploy`
 ![CodeDeploy!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.28.15%20AM.png)
 
 ### 20) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
-- Navigate to `CodeBuild`
-    - Click on the Project 
-    - Click on Build Phases and Confirm the Validate Script/Phase Was Successful
+![CodeDeploy!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%209.26.28%20AM.png)
 
 ### 21) TEST ACCESS TO THE APPLICATION
 * Navigate to EC2 
