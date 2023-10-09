@@ -462,7 +462,7 @@ D) Create a SonarCloud Project
   - Click `SAVE`
 
 ### 19) RE-RUN YOUR PIPELINE and CONFIRM THE APP IS AVAILABLE IN STAGING ENV BEFORE APPROVING PRODUCTION
-- CLICK on `Release Changes`
+- CLICK on `Release Change`
 ![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.43%20PM.png)
 
 #### 19.1) Test To The Application Running In The Staging Environment
