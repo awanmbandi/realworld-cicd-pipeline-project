@@ -92,10 +92,70 @@ D) Create a SonarCloud Project
     - Click “Set Up”
 **NOTE** **Save your `Project Name` as well on Notepad, Save your `Organization name` and the Sonarcloud url (`https://sonarcloud.io`). Make sure your `Token` has been saved also.
 
-## 6) Store Your SonarCloud Project Parameters In SSM Parameter Store
+## 6) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
+### A) Create CodeArtifact Project Repository
+* Navigate to AWS `CodeArtifact` 
+* Click on `Repository`
+    * Click `Create Repositoy`
+![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-08%20at%2011.55.53%20PM.png)
+  * Repository Name: `java-webapp-maven-repo`
+  * Public Upstream Repository: Select `maven-central-store`
+  * Click on `Next`
+    * AWS Account: Select `This AWS Account`
+    * Domain Name: `java-webapp-maven-repo`
+    * Click on `Next`
+    * Click `Create Repository`
+  * **NOTE:** Verify and Confirm both the `Repository` and the `Repository Domain` were created successfully
+![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.13.04%20AM.png)
+
+### B) Configure Your CodeArtifact Project Repository With Maven POM.xml and Settings.xml
+  * Click on `Repositories` if you’ve not already
+    * Click on `maven-central-store`
+    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.21%20AM.png)
+    * Click on `View Connection Instructions`
+      * **Step 1:** Choose a package manager client: "Select (on the drop down):" `mvn`
+      * **Step 3:** Copy and Run The `export` Command on your Local Terminal where `awscli` is installed
+        * *NOTE:NOTE:NOTE:NOTE* 
+        - The command will look like this 
+        - BUT COPY YOUR OWN
+        - Make sure your AWSCLI is configured (with a user with "Admin Priviledges")
+        ```bash
+        export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain java-webapp-maven-repo --domain-owner 213424289791 --region us-east-1 --query authorizationToken --output text`
+        ```
+        - Also RUN: `echo $CODEARTIFACT_AUTH_TOKEN`
+        * *NOTE:NOTE:*
+            - Copy the `CODEARTIFACT_AUTH_TOKEN` Encrypted Credential and `SAVE` on your `NOTEPAD/Somewhere`
+            - We’re going to store this Token in SSM Parameter Store from where our CodeBuild Job is going pick it up
+        ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.59.21%20AM.png)
+
+### B.1) Update the Settings.xml File With CodeArtifact Repository Configurations
+  * Still on `“View Connection Instructions”` in `maven-central-store`
+  ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.51.13%20AM.png)
+  * Under Step 5: 
+    - `COPY` the Repository `id` and Paste it in the `settings.xml` file on `line 29` at the time of this
+    - `COPY` the Repository `url` and Paste on `Line 18` and `Line 30` in the `settings.xml` at the time of this
+    - `SAVE` the changes made in the file
+    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.54.34%20AM.png)
+
+### B.2) Update the POM.xml File With CodeArtifact Repository Configurations
+  * Still on `“View Connection Instructions”` in `maven-central-store`
+  ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.51.13%20AM.png)
+  * Under Step 5: 
+    - `COPY` the Repository `id` and Paste it in the `POM.xml` file on `Line 75` at the time of this
+    - `COPY` the Repository `url` and Paste on `Line 76` in the `POM.xml` at the time of this
+    - `SAVE` the changes made in the file
+    - `COMMIT` the changes and `PUSH` to UpStream to `CodeCommit`
+    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%201.03.00%20AM.png)
+
+## 7) Store Your AWS CodeArtifact & SonarCloud Project Parameters/Values In SSM Parameter Store
 - Navigate to SSM
 - Make sure you create the parameters in the same Region as the bucket (same for all project resources)
 ![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.18.36%20PM.png)
+- **a)** Click on `Parameter Store`
+  - Click on `Create Parameter`
+  - Name: `CODEARTIFACT_AUTH_TOKEN`
+  - Value (String/Secure String): `provide your CodeArtifact Token` the one you copied when you ran `echo $CODEARTIFACT_AUTH_TOKEN`
+
 - **a)** Click on `Parameter Store`
   - Click on `Create Parameter`
   - Name: `Organization`
@@ -390,7 +450,7 @@ D) Create a SonarCloud Project
 ### 21) TEST ACCESS TO THE APPLICATION
 - Navigate to EC2 
     - Copy the Public IP Addresses of the Instances and Try Accessing the Application
-    - URL: INSTANCE_PUBLIC_IP:8080/webapp
+    - URL: INSTANCE_PUBLIC_IP:8080/javawebapp
 
 #### CONGRATULATIONS!! CONGRATULATIONS!! CONGRATULATIONS!!
 
