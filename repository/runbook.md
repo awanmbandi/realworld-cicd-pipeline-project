@@ -73,10 +73,10 @@ b) You must Login as an IAM User before you can complete the below steps success
 
 
 ## 5) Sign Up For SonarCloud Account
-A) Sign up for SonarCloud using this URL: https://sonarcloud.io or https://sonarsource.com or https://sonarcloud.io/login 
+A) Sign up for SonarCloud using this URL: https://sonarcloud.io or https://sonarcloud.io/login 
 ![SonarCloud!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%2012.59.04%20PM.png)
-- Click on `“FREE SONAR”`
-- Click on `TRY SONARCLOUD`
+- Click on `SIGN UP`
+- Click Sign Up With `GITHUB`
 - Sign in with your `“GitHub” Account`
 - Click on `“Authorize SonarCloud”`
     - **NOTE:** Once you Authorize SonarCloud, It’ll take you directly to Dashboard (Similar to Traditional SonarQube Server Dashboard but this is cloud based)
@@ -93,16 +93,17 @@ C) Click on the “+”  symbol at the Top Right
 - Click on Analyze new project
 - Click on `create a project manually`.
     - Click on `Create another organization` 
-        - Name (Must be Unique): `yourfirst-or-lastname-aws-devops`
+        - Name (Must be Unique): `yourfirst-or-lastname-aws-devops-org`
         - Choose a plan: Select `“Free Plan”`
         - Click on `Create Organization`
 
 D) Create a SonarCloud Project
 - Click on `Create Project`
-    - Project Key: aws-native-cicd-pipeline-project
-    - Display name: aws-native-cicd-pipeline-project
+    - Project Key: `aws-native-cicd-pipeline-project`
+    - Display name: `This Will Populate Automatically`
     - Public/Private: Public  (because we’re using a free account)
     - Click “Set Up”
+    ![SonarCloud4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2011.07.09%20AM.png)
 **NOTE** **Save your `Project Name` as well on Notepad, Save your `Organization name` and the Sonarcloud url (`https://sonarcloud.io`). Make sure your `Token` has been saved also.
 
 ## 6) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
