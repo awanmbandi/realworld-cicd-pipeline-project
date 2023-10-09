@@ -1,6 +1,18 @@
 # CI/CD Pipeline Project Using AWS Native SDLC Automation Tools
 ![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/aws_native_project_v2.2.png)
 
+###### Project ToolBox 🧰
+- [AWS CodeCommit](https://aws.amazon.com/codecommit/)
+- [AWS CodeBuild](https://aws.amazon.com/codebuild/)
+- [AWS CodeArtifact](https://aws.amazon.com/codeartifact/)
+- [AWS CodeDeploy](https://aws.amazon.com/codedeploy/)
+- [AWS CodePipeline](https://aws.amazon.com/codepipeline/)
+- [AWS S3](https://aws.amazon.com/s3/)
+- [AWS EC2](https://aws.amazon.com/ec2/)
+- [AWS CloudWatch](https://aws.amazon.com/cloudwatch/)
+- [AWS SNS](https://aws.amazon.com/sns/)
+- [SonarCloud](https://sonarcloud.io/)
+
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
 b) You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
