@@ -186,6 +186,8 @@ D) Create a SonarCloud Project
   - Name: `sonartoken`
   - Value (String/Secure String): `provide your SonaCloud Project Token`
 **NOTE:** Confirm that these same parameter names exist in your `sonacloud_buildspec.yaml` configuration.
+#### 7.1) Confirm That Have All Required Parameters Created With Their Respective Values
+![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2010.32.08%20AM.png)
 
 ## 7) Create The Project Build Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
