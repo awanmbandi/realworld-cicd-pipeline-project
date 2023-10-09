@@ -5,11 +5,13 @@ env:
     HOST:    HOST
     Organization: Organization
     Project: Project
-    # CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
       java: corretto8
+    commands:
+    - cp ./settings.xml /root/.m2/settings.xml
   pre_build:
     commands:
       - apt-get update
@@ -27,8 +29,7 @@ phases:
       - echo "Installing JDK11 as its a dependency for sonarqube code analysis"
       - apt-get install -y openjdk-11-jdk
       - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-      - mvn install
-      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
+      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization 
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
       - cat result.json

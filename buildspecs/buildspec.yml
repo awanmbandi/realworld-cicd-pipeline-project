@@ -1,11 +1,13 @@
 version: 0.2
-# env:
-#   parameter-store:
-#     CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+env:
+  parameter-store:
+    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
       java: corretto8
+    commands:
+      - cp ./settings.xml /root/.m2/settings.xml
   pre_build:
     commands:
       - apt-get update
@@ -15,7 +17,8 @@ phases:
       - ln -s apache-maven-3.9.4 maven
   build:
     commands:
-      - mvn clean package -DskipTests
+      - mvn clean install -DskipTests
+      - mv target/maven-project-1.0-RELEASE.war target/javawebapp.war
 
 artifacts:
   files:

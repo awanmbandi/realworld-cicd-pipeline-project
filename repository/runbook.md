@@ -127,11 +127,11 @@ D) Create a SonarCloud Project
 ### B) Configure Your CodeArtifact Project Repository With Maven POM.xml and Settings.xml
   * Click on `Repositories` if you’ve not already
     * Click on `maven-central-store`
-    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.21%20AM.png)
     * Click on `View Connection Instructions`
+    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.21%20AM.png)
       * **Step 1:** Choose a package manager client: "Select (on the drop down):" `mvn`
-      * **Step 3:** Copy and Run The `export` Command on your Local Terminal where `awscli` is installed
-        * *NOTE:NOTE:NOTE:NOTE* 
+      * **Step 3:** **COPY** and Run The `export` Command on your Local Terminal where `awscli` is installed
+        * *NOTE:NOTE:NOTE:NOTE!!* 
         - The command will look like this 
         - BUT COPY YOUR OWN
         - Make sure your AWSCLI is configured (with a user with "Admin Priviledges")
@@ -165,29 +165,34 @@ D) Create a SonarCloud Project
 
 ## 7) Store Your AWS CodeArtifact & SonarCloud Project Parameters/Values In SSM Parameter Store
 - Navigate to SSM
-- Make sure you create the parameters in the same Region as the bucket (same for all project resources)
+- **NOTE!!** Make sure you create the parameters in the same Region as the bucket (same for all project resources)
 ![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.18.36%20PM.png)
 - **a)** Click on `Parameter Store`
   - Click on `Create Parameter`
   - Name: `CODEARTIFACT_AUTH_TOKEN`
-  - Value (String/Secure String): `provide your CodeArtifact Token` the one you copied when you ran `echo $CODEARTIFACT_AUTH_TOKEN`
+  - Type: Select `Secure/String`
+  - Value: `provide your CodeArtifact Token` the one you copied when you ran `echo $CODEARTIFACT_AUTH_TOKEN`
 
 - **a)** Click on `Parameter Store`
   - Click on `Create Parameter`
   - Name: `Organization`
-  - Value (String/Text): `provide your SnarCloud Org name`
+  - Type: Select `String`
+  - Value: `provide your SnarCloud Org name`
 
 - **b)** Click on `Parameter Store`
   - Name: `HOST`
-  - Value (String/Text): https://sonarcloud.io
+  - Type: Select `String`
+  - Value: https://sonarcloud.io
 
 - **c)** Click on `Parameter Store`
   - Name: `Project`
-  - Value (String/Text): `provide your SonaCloud Project name`
+  - Type: Select `String`
+  - Value: `provide your SonaCloud Project name`
 
 - **d)** Click on `Parameter Store`
   - Name: `sonartoken`
-  - Value (String/Secure String): `provide your SonaCloud Project Token`
+  - Type: Select `Secure/String`
+  - Value: `provide your SonaCloud Project Token`
 **NOTE:** Confirm that these same parameter names exist in your `sonacloud_buildspec.yaml` configuration.
 #### 7.1) Confirm That Have All Required Parameters Created With Their Respective Values
 ![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2010.32.08%20AM.png)
