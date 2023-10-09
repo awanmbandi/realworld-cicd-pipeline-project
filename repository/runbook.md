@@ -314,11 +314,13 @@ D) Create a SonarCloud Project
         ```
 
         - Click `Launch Instance`
+**Confirm that you have both the Stage and Prod Environments**
+![Stage&ProdInstances!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2010.25.51%20AM.png)
 
 ## 11) Create CodeDeploy Application
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
 - Navigate to CodeDeploy
-    - Click on `Applications`
+![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
+- Click on `Applications`
     - Click `Create Application`
         - Name: `Java-Webapp-CodeDeploy-Application`
         - Compute Platform: `EC2/On-premises`
