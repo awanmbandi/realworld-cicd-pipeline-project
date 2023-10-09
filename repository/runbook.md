@@ -479,7 +479,7 @@ D) Create a SonarCloud Project
 * Navigate to EC2 
 * Copy the Public IP Addresses of the Instances and Try Accessing the Application
 * URL: http://INSTANCE_PUBLIC_IP:8080/javawebapp 
-![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.33.23%20AM.png)
+![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/user_login_application_test_successful.png)
 
 #### CONGRATULATIONS!! CONGRATULATIONS!! CONGRATULATIONS!!
 
