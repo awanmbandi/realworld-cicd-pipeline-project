@@ -220,7 +220,7 @@ D) Create a SonarCloud Project
         - Artifacts packaging: Select `Zip`
     - Logs
         - CloudWatch Logs: `Enable`
-        - Group Name: `Java-Webapp-CodeBuild-Build-Logs`
+        - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
 
@@ -245,13 +245,14 @@ D) Create a SonarCloud Project
         - Type: Select `No Artifact`
     - Logs
         - CloudWatch Logs: `Enable`
-        - Group Name: `Java-Webapp-CodeBuild-Build-Logs`
+        - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
         - Stream name: `Java-Webapp-CodeBuild-SonarCloud-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
+![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.04.26%20PM.png)
 
 ## 10) Create Staging Deployment Area/Environment
-![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Navigate to EC2
+![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
 - Click `Launch Instances`
     - Name: `Stage-Env`
     - Click `Add additional tags`
@@ -273,6 +274,7 @@ D) Create a SonarCloud Project
     - Edvance Details:
         - IAM instance profile: `Select an EC2 Admin Role`
             - NOTE: `If you do not have one, please go ahead and create before creating instance`
+            - NOTE: `If Not Yours Will Break`
         - User data: 
         ```bash
         #!/bin/bash
@@ -310,6 +312,7 @@ D) Create a SonarCloud Project
     - Edvance Details:
         - IAM instance profile: Select an EC2 Admin Role
             - NOTE: `If you do not have one, please go ahead and create before creating instance`
+            - NOTE: `If Not Yours Will Break`
         - User data: 
         ```bash
         #!/bin/bash
@@ -458,8 +461,18 @@ D) Create a SonarCloud Project
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
-### 19) RE-RUN YOUR PIPELINE & CONFIRM ALL 6 STAGES SUCCEEDS
+### 19) RE-RUN YOUR PIPELINE and CONFIRM THE APP IS AVAILABLE IN STAGING ENV BEFORE APPROVING PRODUCTION
 - CLICK on `Release Changes`
+
+##### 19.1) Test To The Application Running In The Staging Environment
+* Navigate to EC2 
+* Copy the Public IP Addresses of the `Stage Instance` and Try Accessing the Application
+* URL: http://INSTANCE_PUBLIC_IP:8080/javawebapp 
+![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/user_login_application_test_successful.png)
+
+### REVIEW AND APPROVE PRODUCTION DEPLOYMENT
+- Once you Confirm that The Application is working as Expected...
+- You Then `APPROVE PROD` Deployment
 ![SuccessPipeResults!](https://lucid.app/publicSegments/view/747b2c4f-4f8b-4e1b-b83e-377c91a09cd8/image.png)
 
 ### 20) REVIEW ALL JOBS (Whle The Pipeline Is Running)
