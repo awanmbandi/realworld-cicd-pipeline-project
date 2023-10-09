@@ -102,8 +102,10 @@ D) Create a SonarCloud Project
     - Project Key: `aws-native-cicd-pipeline-project`
     - Display name: `This Will Populate Automatically`
     - Public/Private: Public  (because we’re using a free account)
-    - Click “Set Up”
+    - Click on `Next`
     ![SonarCloud4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2011.07.09%20AM.png)
+    - Select `Previous version`
+    - Click on `Create Project`
 **NOTE** **Save your `Project Name` as well on Notepad, Save your `Organization name` and the Sonarcloud url (`https://sonarcloud.io`). Make sure your `Token` has been saved also.
 
 ## 6) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
