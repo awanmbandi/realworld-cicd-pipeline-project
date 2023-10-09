@@ -465,7 +465,7 @@ D) Create a SonarCloud Project
 - CLICK on `Release Changes`
 ![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.43%20PM.png)
 
-##### 19.1) Test To The Application Running In The Staging Environment
+#### 19.1) Test To The Application Running In The Staging Environment
 * Navigate to EC2 
 * Copy the Public IP Addresses of the `Stage Instance` and Try Accessing the Application
 * URL: http://INSTANCE_PUBLIC_IP:8080/javawebapp 
