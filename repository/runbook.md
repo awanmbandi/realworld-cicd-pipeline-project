@@ -5,7 +5,7 @@
 - [AWS CodeCommit](https://aws.amazon.com/codecommit/) CodeCommit is a secure, highly scalable, fully managed source control service that hosts private Git repositories.
 - [AWS CodeBuild](https://aws.amazon.com/codebuild/) CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces ready-to-deploy software packages.
 - [AWS CodeArtifact](https://aws.amazon.com/codeartifact/) CodeArtifact allows you to store artifacts using popular package managers and build tools like Maven, Gradle, npm, Yarn, Twine, pip, NuGet, and SwiftPM.
-- [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) CodeDeploy is a fully managed deployment service that automates software deployments to various compute services, such as Amazon Elastic Compute Cloud (EC2), Amazon Elastic Container Service (ECS), AWS Lambda, and your on-premises servers.
+- [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) CodeDeploy is a fully managed deployment service that automates software deployments to various compute services, such as EC2, ECS, Lambda, and on-premises.
 - [AWS CodePipeline](https://aws.amazon.com/codepipeline/) CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
 - [AWS S3](https://aws.amazon.com/s3/) Amazon S3 is an object storage service offering industry-leading scalability, data availability, security, and performance.
 - [AWS EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
