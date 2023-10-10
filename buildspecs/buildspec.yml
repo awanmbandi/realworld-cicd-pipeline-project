@@ -20,10 +20,6 @@ phases:
       - echo "Executing Gralde Build"
       - ./gradlew build
       - mv build/libs/aws-native-cicd-pipeline-project-1.0-RELEASE.war build/libs/javawebapp.war
-        # -Dsonar.projectKey=aws-native-cicd-pipeline-project \
-        # -Dsonar.organization=mbandi-aak-aws-devops-org \
-        # -Dsonar.host.url=https://sonarcloud.io \
-        # -Dsonar.login=8e2577b93b2d36e36800c1360a2ac3ab13572dfc
 
 artifacts:
   files:
