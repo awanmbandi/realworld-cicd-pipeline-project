@@ -19,7 +19,7 @@ phases:
     commands:
       - echo "Executing Gralde Build"
       - ./gradlew build
-      - mv build/libs/maven-project-1.0-RELEASE.war build/libs/javawebapp.war
+      - mv build/libs/aws-native-cicd-pipeline-project-1.0-RELEASE.war build/libs/javawebapp.war
         # -Dsonar.projectKey=aws-native-cicd-pipeline-project \
         # -Dsonar.organization=mbandi-aak-aws-devops-org \
         # -Dsonar.host.url=https://sonarcloud.io \
