@@ -24,3 +24,7 @@ phases:
         # -Dsonar.organization=mbandi-aak-aws-devops-org \
         # -Dsonar.host.url=https://sonarcloud.io \
         # -Dsonar.login=8e2577b93b2d36e36800c1360a2ac3ab13572dfc
+
+artifacts:
+  files:
+    - '**/*'
