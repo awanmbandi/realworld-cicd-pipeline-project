@@ -1,0 +1,25 @@
+version: 0.2
+env:
+  parameter-store:
+    LOGIN:   SONAR_TOKEN
+    HOST:    HOST
+    Organization: Organization
+    Project: Project
+    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+phases:
+  install:
+    runtime-versions:
+      java: 11  # You can use "8" if you prefer Java 8
+  pre_build:
+    commands:
+      - export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+  build:
+    commands:
+      - mvn clean install
+      - mvn sonar:sonar -Dsonar.projectKey=Project -Dsonar.organization=Organization -Dsonar.host.url=HOST -Dsonar.login=$SONAR_TOKEN
+  post_build:
+    commands:
+      # Any post-build commands you need to execute
+
+artifacts:
+  files: '**/*'
