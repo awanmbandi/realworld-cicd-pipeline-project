@@ -116,9 +116,9 @@ D) Create a SonarCloud Project
     - Source Provider: Select `AWS CodeCommit`
     - Repository: Select `AWS-Native-CICD-Pipeline-Project`
     - Branch: `master`
-    - Operating System: `Ubuntu`
+    - Operating System: `Amazon Linux 2`
     - Runtime: `Standard`
-    - Image: MUST USE  (`aws/codebuild/standard:5.0`) or else it’ll BREAK
+    - Image: MUST USE  (`aws/codebuild/amazonlinux2-x86_64-standard:corretto11`) or else it’ll BREAK
     - Image version: Select `Always use the latest for this runtime version` 
     - Environment type: Select `Linux EC2`
     - Service Role: `Existing Service Role`
@@ -134,6 +134,7 @@ D) Create a SonarCloud Project
         - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
         - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
+    - CLICK on `Start Build` to `TEST` your Build Job
 
 ## 7) Create The SonarCloud Code Analysis Job in CodeBuild
 - Navigate To The AWS `CodeBuild` Service
@@ -143,9 +144,9 @@ D) Create a SonarCloud Project
     - Source Provider: Select `AWS CodeCommit`
     - Repository: Select `AWS-Native-CICD-Pipeline-Project`
     - Branch: `master`
-    - Operating System: `Ubuntu`
+    - Operating System: `Amazon Linux 2`
     - Runtime: `Standard`
-    - Image: MUST USE  (`aws/codebuild/standard:5.0`) or else it’ll BREAK
+    - Image: MUST USE  (`aws/codebuild/amazonlinux2-x86_64-standard:corretto11`) or else it’ll BREAK
     - Image version: Select `Always use the latest for this runtime version` 
     - Environment type: Select `Linux EC2`
     - Service Role: `Existing Service Role`
@@ -159,6 +160,7 @@ D) Create a SonarCloud Project
         - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
         - Stream name: `Java-Webapp-CodeBuild-SonarCloud-Logs`
     - CLICK: Click `CREATE BUILD PROJECT`
+    - CLICK on `Start Build` to `TEST` your SonaCloud Test Job
 ![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.04.26%20PM.png)
 
 ## 8) Create Staging Deployment Area/Environment
