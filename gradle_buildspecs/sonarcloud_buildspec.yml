@@ -1,11 +1,7 @@
 version: 0.2
 # env:
 #   parameter-store:
-    # SONAR_TOKEN:   SONAR_TOKEN
-    # HOST:    HOST
-    # Organization: Organization
-    # Project: Project
-    # CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+#     CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
@@ -17,8 +13,4 @@ phases:
   #     - export SONAR_TOKEN=$(cat /tmp/SONAR_TOKEN)
   build:
     commands:
-      # - echo "Installing JDK11 as its a dependency for sonarqube code analysis"
-      # - apt-get install -y openjdk-11-jdk
-      # - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-      # - ./gradlew build
       - ./gradlew sonarqube
