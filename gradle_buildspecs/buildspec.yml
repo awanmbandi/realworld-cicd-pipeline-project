@@ -17,7 +17,7 @@ phases:
   #     - export SONAR_TOKEN=$(cat /tmp/SONAR_TOKEN)
   build:
     commands:
-      - echo "Executing SonaCloud code Analysis"
+      - echo "Executing Gralde Build"
       - ./gradlew build
       - mv build/libs/maven-project-1.0-RELEASE.war build/libs/javawebapp.war
         # -Dsonar.projectKey=aws-native-cicd-pipeline-project \
