@@ -17,6 +17,8 @@ phases:
   #     - export SONAR_TOKEN=$(cat /tmp/SONAR_TOKEN)
   build:
     commands:
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain java-webapp-maven-repo --domain-owner 213424289791 --region us-east-1 --query authorizationToken --output text`
+      - echo "CODEARTIFACT_AUTH_TOKEN=$CODEARTIFACT_AUTH_TOKEN" > gradle.properties
       - echo "Executing SonaCloud code Analysis"
       - ./gradlew sonarqube
         # -Dsonar.projectKey=aws-native-cicd-pipeline-project \

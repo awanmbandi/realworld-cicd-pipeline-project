@@ -17,6 +17,15 @@ repositories {
    jcenter()
 }
 
+maven {
+    // CodeArtifact Repository Domain/DNS
+    url 'https://java-webapp-maven-repo-213424289791.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/'
+    credentials {
+        username "aws"
+        password System.env.CODEARTIFACT_AUTH_TOKEN
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.apache.tomcat:tomcat-jasper:9.0.31'
@@ -42,6 +51,7 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+// SonarCloud SAST Testing
 sonarqube {
     properties {
         property "sonar.projectKey", "aws-native-cicd-pipeline-project-v2"
@@ -51,4 +61,5 @@ sonarqube {
         // Add other SonarQube properties as needed
     }
 }
+
 
