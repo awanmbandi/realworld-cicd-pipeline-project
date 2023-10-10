@@ -18,8 +18,8 @@ phases:
   build:
     commands:
       - echo "Executing SonaCloud code Analysis"
-      - ./gradlew sonarqube --scan
+      - ./gradlew sonarqube
         -Dsonar.projectKey=aws-native-cicd-pipeline-project-v2 \
         -Dsonar.organization=mbandi-aak-aws-devops-org \
         -Dsonar.host.url=https://sonarcloud.io \
-        -Dsonar.login="8260e159660ec86a7d43c6764764762b1ab0c736"
+        -Dsonar.login=8260e159660ec86a7d43c6764764762b1ab0c736
