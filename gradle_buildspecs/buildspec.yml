@@ -1,25 +1,26 @@
 version: 0.2
-env:
-  parameter-store:
-    CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+# env:
+#   parameter-store:
+#     SONAR_TOKEN: SONAR_TOKEN
+    # HOST:    HOST
+    # Organization: Organization
+    # Project: Project
+    # CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
-      java: corretto8
+      java: corretto11
     commands:
-      - cp ./settings.xml /root/.m2/settings.xml
-  pre_build:
-    commands:
-      - apt-get update
-      - apt-get install -y jq 
-      - wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
-      - tar xzvf apache-maven-3.9.4-bin.tar.gz
-      - ln -s apache-maven-3.9.4 maven
+    - chmod +x ./gradlew
+  # pre_build:
+  #   commands:
+  #     - export SONAR_TOKEN=$(cat /tmp/SONAR_TOKEN)
   build:
     commands:
-      - mvn clean install -DskipTests
-      - mv target/maven-project-1.0-RELEASE.war target/javawebapp.war
-
-artifacts:
-  files:
-    - '**/*'
+      - echo "Executing SonaCloud code Analysis"
+      - ./gradlew build
+      - mv build/libs/maven-project-1.0-RELEASE.war build/libs/javawebapp.war
+        # -Dsonar.projectKey=aws-native-cicd-pipeline-project \
+        # -Dsonar.organization=mbandi-aak-aws-devops-org \
+        # -Dsonar.host.url=https://sonarcloud.io \
+        # -Dsonar.login=8e2577b93b2d36e36800c1360a2ac3ab13572dfc
