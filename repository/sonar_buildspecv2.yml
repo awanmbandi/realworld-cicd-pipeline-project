@@ -1,10 +1,10 @@
 version: 0.2
 env:
   parameter-store:
-    LOGIN:   SONAR_TOKEN
-    HOST:    HOST
-    Organization: Organization
-    Project: Project
+    # LOGIN:   SONAR_TOKEN
+    # HOST:    HOST
+    # Organization: Organization
+    # Project: Project
     CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
@@ -16,7 +16,7 @@ phases:
   build:
     commands:
       - mvn clean install
-      - mvn sonar:sonar -Dsonar.projectKey=Project -Dsonar.organization=Organization -Dsonar.host.url=HOST -Dsonar.login=$SONAR_TOKEN
+      - mvn sonar:sonar -Dsonar.projectKey=aws-native-cicd-pipeline-project -Dsonar.organization=mbandi-aak-aws-devops-org -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=8260e159660ec86a7d43c6764764762b1ab0c736
   post_build:
     commands:
       # Any post-build commands you need to execute
