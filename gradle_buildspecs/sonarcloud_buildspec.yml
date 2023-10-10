@@ -1,7 +1,11 @@
 version: 0.2
 # env:
 #   parameter-store:
-#     CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
+#     SONAR_TOKEN: SONAR_TOKEN
+    # HOST:    HOST
+    # Organization: Organization
+    # Project: Project
+    # CODEARTIFACT_AUTH_TOKEN: CODEARTIFACT_AUTH_TOKEN
 phases:
   install:
     runtime-versions:
@@ -13,4 +17,9 @@ phases:
   #     - export SONAR_TOKEN=$(cat /tmp/SONAR_TOKEN)
   build:
     commands:
-      - ./gradlew sonarqube
+      - echo "Executing SonaCloud code Analysis"
+      - ./gradlew sonarqube --scan
+        -Dsonar.projectKey=aws-native-cicd-pipeline-project-v2 \
+        -Dsonar.organization=mbandi-aak-aws-devops-org \
+        -Dsonar.host.url=https://sonarcloud.io \
+        -Dsonar.login="8260e159660ec86a7d43c6764764762b1ab0c736"
