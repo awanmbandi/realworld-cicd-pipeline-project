@@ -9,7 +9,7 @@ env:
 phases:
   install:
     runtime-versions:
-      java: 11  # You can use "8" if you prefer Java 8
+      java: corretto17  # You can use "8" if you prefer Java 8
   pre_build:
     commands:
       - export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
