@@ -81,7 +81,7 @@ A) Sign up for SonarCloud using this URL: https://sonarcloud.io or https://sonar
 - Click on `“Authorize SonarCloud”`
     - **NOTE:** Once you Authorize SonarCloud, It’ll take you directly to Dashboard (Similar to Traditional SonarQube Server Dashboard but this is cloud based)
 
-B) We have to Generate a Token which CodeBuild will use during the Maven Execution
+B) We have to Generate a Token which CodeBuild will use during the Gradle Execution
 ![SonarCloud2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.03.17%20PM.png)
 - Click on your Profile at the Top right and click on `My Account`
 - Click on `Security`
