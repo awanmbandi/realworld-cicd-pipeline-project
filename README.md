@@ -443,7 +443,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 - Go through the *`CodeBuild Build & Test Job Outputs`*
 - Go through the *`CodeDeploy Stage & Prod Prod Deployment Results`*
 - Go through the *`PMD Project/Analysis` etc*
-    - *Download the Reports From s3*
+    - *Download the Reports From s3. The CodePipeline Bucket >> BuildArtifact*
     - *Navigate to server --> target --> site --> Click on the `pmd.html` Report*
 
 #### 20A) CodeArtifact Maven Project Repository
