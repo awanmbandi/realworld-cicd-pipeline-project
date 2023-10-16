@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /build/libs/javawebapp.war
+  - source: webapp/target/login.war
     destination: /var/lib/tomcat/webapps
 hooks:
   ApplicationStop:

@@ -18,8 +18,7 @@ phases:
       # - ln -s apache-maven-3.9.4 maven
   build:
     commands:
-      - mvn clean install -DskipTests
-      - mv webapp/target/webapp.war webapp/target/login.war
+      - mvn clean pmd:pmd
 
 artifacts:
   files:
