@@ -77,11 +77,11 @@ b) You must Login as an IAM User before you can complete the below steps success
 * Navigate to the Folder name `pmd`
     * Confirm that you have the `pmd-ruleset.xml` config file with the `rulesets`
     ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.21.21%20PM.png)
-* Also Confirm that the following command has been defined in your `pmd_buildspec.yml` 
+* Also Confirm that the following command has been defined in your `pmd_buildspec.yml` in the `"buildspecs" folder`
 ```bash
 cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 ```
-* Verify that the destination path define above for the rulesets `/root/.m2/pmd-ruleset.xml` is specified in your `pom.xml` as shown below.
+* Verify that the destination path define above for the rulesets `/root/.m2/pmd-ruleset.xml` is specified in your maven `pom.xml` file as shown below.
 ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.11.51%20PM.png)
 
 ## 15) Configure Continuous Alerting/Feedback Loop With AWS ChatBot and Slack
