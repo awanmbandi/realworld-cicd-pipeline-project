@@ -85,7 +85,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.11.51%20PM.png)
 
 ## 15) Configure Continuous Alerting/Feedback Loop With AWS ChatBot and Slack
-#### A) First We Need To Create an SNS Topic Which'll Act As Our Notification Bus
+### A) First We Need To Create an SNS Topic Which'll Act As Our Notification Bus
 * Navigate to the AWS SNS Service
 * Select your project Region
 ![SNS!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%209.11.40%20AM.png)
@@ -94,7 +94,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
   * Display name: `ChatBot-Slack-Integration-Topic`
   * Click `Create topic`
 
-#### B) Click on the following Link to Join the Slack `Workspace` & Create a Channel
+### B) Click on the following Link to Join the Slack `Workspace` & Create a Channel
 * Link: https://jjtechtowerba-zuj7343.slack.com 
 * Click on `Add channels` and select `Create a new channel` to create a Changel
     * Name: `YOUR-FIRST-&-LASTNAME-INITIAL-aws-native-cicd-project-alerts`
@@ -102,7 +102,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
     * Select `Private` and 
     * Click `Create` and Skip the option to add members to the channel
 
-#### C) Create an AWS ChatBot Client
+### C) Create an AWS ChatBot Client
 * Navigate to `AWS ChatBot` Service
 * Open the service and Select Slack
 ![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.59.11%20AM.png)
@@ -126,7 +126,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 
 * Click on `Configure`
 
-#### D) Add The AWS ChatBot App To Your Slack Channel
+### D) Add The AWS ChatBot App To Your Slack Channel
 * Navigate to `Slack`
 * Right Click on your Channel Name and select `view chanel details`
 ![SlackAWSChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.58.33%20PM.png)
