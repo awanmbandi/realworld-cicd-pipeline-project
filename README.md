@@ -82,6 +82,48 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 * Verify that the destination path define above for the rulesets `/root/.m2/pmd-ruleset.xml` is specified in your `pom.xml` as shown below.
 ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.11.51%20PM.png)
 
+## 15) Configure Continuous Alerting/Feedback Loop With AWS ChatBot and Slack
+#### A) First We Need To Create an SNS Topic Which'll Act As Our Notification Bus
+* Navigate to the AWS SNS Service
+* Select your project Region
+![SNS!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%209.11.40%20AM.png)
+  * Type: `Standard` 
+  * Name: `ChatBot-Slack-Integration-Topic`
+  * Display name: `ChatBot-Slack-Integration-Topic`
+  * Click `Create topic`
+
+#### B) Click on the following Link to Join the Slack `Workspace` & Create a Channel
+* Link: https://jjtechtowerba-zuj7343.slack.com 
+* Click on `Add channels` and select `Create a new channel` to create a Changel
+    * Name: `YOUR-FIRST-&-LASTNAME-INITIAL-aws-native-cicd-project-alerts`
+    ![Slack!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.51.41%20AM.png)
+    * Select `Private` and 
+    * Click `Create` and Skip the option to add members to the channel
+
+#### C) Create an AWS ChatBot Client
+* Navigate to `AWS ChatBot` Service
+* Open the service and Select Slack
+![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.59.11%20AM.png)
+
+![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%202.02.56%20AM.png)
+
+* Configure Slack Integration In AWS ChatBot
+![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%208.49.32%20AM.png)
+* Configuration name: `AWS-CICD-Pipeline-Project-ChatBot-Config`
+* Channel type: `Private`
+    * Channel ID: `Follow The Steps Below To Get The Chanel ID and Pass it Here`
+    ![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%208.59.19%20AM.png)
+* Role settings: `Channel role`
+* Channel role: `Create an IAM Role Using a Template`
+* Role name: `ChatBot-Slack-Integration-Role`
+* Policy templates: Make sure `Notification permissions` and `Resource Explorer Permissions` roles are selected
+* Policy name: `ReadOnlyAccess`
+* SNS topics
+    * Region 1: Select `Your Working/Topic Region`
+    * Topics 1: Select `Your Topic`, which should be `ChatBot-Slack-Integration-Topic`
+
+* Click on `Configure`
+
 ## 6) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
 ### A) Create CodeArtifact Project Repository
 * Navigate to AWS `CodeArtifact` 
@@ -420,9 +462,28 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
+## 19) Integrate The AWS ChatBot and Slack Configuration With Your Pipeline
+* Confirm that you've added all pipeline Stages
+* Click on `Notify`
+    * Click on `Create notification rule`
+![PipelineNotifier!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%209.46.41%20AM.png)
+* Name: `Slack-Notification`
+* Detail type: `Basic`
+* Events that trigger notifications: `Select Important Events`
+![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%2010.22.24%20AM.png)
+* Targets
+    * Choose target type: `AWS ChatBot Slack`
+    * Choose target: Select your ChatBot Config `AWS-CICD-Pipeline-Project-ChatBot-Config`
+    * Click `SUBMIT`
+
 ### 19) RE-RUN YOUR PIPELINE and CONFIRM THE APP IS AVAILABLE IN STAGING ENV BEFORE APPROVING PRODUCTION
+- Click on `Pipeline` on your left
 - CLICK on `Release Change`
 ![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.43%20PM.png)
+
+#### Slack Notification With AWS ChatBot
+* Check Your Pipeline Slack Channel For Updates Regarding Your Pipeline
+![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%2010.29.11%20AM.png)
 
 #### 19.1) Test To The Application Running In The Staging Environment
 * Navigate to EC2 
