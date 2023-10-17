@@ -126,6 +126,13 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 
 * Click on `Configure`
 
+#### D) Add The AWS ChatBot App To Your Slack Channel
+* Navigate to `Slack`
+* Right Click on your Channel Name and select `view chanel details`
+![SlackAWSChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.58.33%20PM.png)
+* Install `AWS ChatBot` App
+![SlackAWSChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%202.01.29%20PM.png)
+
 ## 6) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
 ### A) Create CodeArtifact Project Repository
 * Navigate to AWS `CodeArtifact` 
@@ -217,6 +224,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
     - Artifacts:
         - Type: Select `Amazon S3`
         - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
+        - Name: `CodeBuild-Build-Artifact`
         - Artifacts packaging: Select `Zip`
     - Logs
         - CloudWatch Logs: `Enable`
@@ -276,7 +284,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
             - Open Port `22` to eith your Network or Internet
     - Edvance Details:
         - IAM instance profile: `Select an EC2 Admin Role`
-            - NOTE: `If you do not have one, please go ahead and create before creating instance`
+            - NOTE: `If you do not have one, please go ahead and create before creating the instance`
             - NOTE: `If Not Yours Will Break`
         - User data: 
         ```bash
@@ -314,7 +322,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
             - Security group: Select `Tomcat-App-SG`
     - Edvance Details:
         - IAM instance profile: Select an EC2 Admin Role
-            - NOTE: `If you do not have one, please go ahead and create before creating instance`
+            - NOTE: `If you do not have one, please go ahead and create before creating the instance`
             - NOTE: `If Not Yours Will Break`
         - User data: 
         ```bash
@@ -393,7 +401,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
     - Source provider: Select `AWS CodeCommit`
         - Repository name: `AWS-Native-CICD-Pipeline-Project`
         - Branch name: `Master`
-        - Change detection options: `Amazon CloudWatch Events (recommended)`
+        - Change detection options: Select `Amazon CloudWatch Events (recommended)`
         - Output artifact format: `CodePipeline default`
         - Click `Next`
     - **BUILD PROVIDER**
@@ -410,8 +418,8 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
         - Click `Next`
     
     - Click `CREATE PIPELINE`
-    - NOTE: Once you create the pipeline, it'll start Running Immediate. Just wait for all the various stages to complete
-    - **NOTE2:** The Deployment Will Only Take Place In The Staging Environment (With Continuous Deployment)
+    - **NOTE:** Once you create the pipeline, it'll start Running Immediate. CLICK ON `STOP EXECUTION`
+    ()
 
 ## 16) Add The SAST Test Stage With PMD Test Stage
 ![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
@@ -464,7 +472,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
   - `SCROLL UP` and Click on `SAVE`
   - Click `SAVE`
 
-## 19) Integrate The AWS ChatBot and Slack Configuration With Your Pipeline
+## 19) Integrate The AWS ChatBot/Slack Configuration With Your Pipeline
 * Confirm that you've added all pipeline Stages
 * Click on `Notify`
     * Click on `Create notification rule`
