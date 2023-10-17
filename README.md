@@ -60,7 +60,7 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Select `Service Role`
     - Search/Select `CodeDeploy`
         - Click on `Next` 
-        - Attach Policy: `AdministratorAccess`
+        - Attach Policy: `AdministratorAccess` (Attach this after creating the Role)
         - Click `Next` 
         - Role Name: `AWS-CodeDeploy-Deployment-Role`
         - Click `Create`
