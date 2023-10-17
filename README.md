@@ -14,7 +14,7 @@
 - [CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) Amazon CloudWatch can load all the metrics in your account (both AWS resource metrics and application metrics that you provide) for search, graphing, and alarms.
 - [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) You can use CloudWatch Logs to monitor applications and systems using log data. 
 - [Amazon SNS](https://aws.amazon.com/sns/) Amazon SNS is a Message Bus use to send notifications. It provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. 
-- [PMD SAST](https://docs.pmd-code.org/latest/) PMD is a static source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. It’s mainly concerned with Java and Apex, but supports 16 other languages.
+- [PMD SAST](https://docs.pmd-code.org/latest/) PMD (Programming Mistake Detector) is a static source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. It’s mainly concerned with Java and Apex, but supports 16 other languages.
 
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
@@ -73,7 +73,7 @@ b) You must Login as an IAM User before you can complete the below steps success
     - Region: `Select Your working Region`
     - Click: `CREATE Bucket`
 
-## 5) Satic Application Security Testing (SAST) With PMD
+## 5) Satic Application Security Testing (SAST) With PMD (Programming Mistake Detector)
 * Navigate to the Folder name `pmd`
     * Confirm that you have the `pmd-ruleset.xml` config file with the `rulesets`
     ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.21.21%20PM.png)
@@ -533,7 +533,7 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 #### 25D) CodeBuild PMD SAST Job Results
 ![CodeBuildSASTJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.16.47%20PM.png)
 
-#### 25E) SonaCloud SAST Test Results
+#### 25E) PMD SAST Test Results
 ![CodeBuildSASTtestResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.20.27%20PM.png)
 
 #### 25F) CodeDeploy Deployment Results (Stage&Prod)
