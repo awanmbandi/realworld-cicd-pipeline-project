@@ -95,7 +95,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
   * Click `Create topic`
 
 ### B) Click on the following Link to Join the Slack `Workspace` & Create a Channel
-* Link: https://jjtechtowerba-zuj7343.slack.com 
+* Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
 * Click on `Add channels` and select `Create a new channel` to create a Changel
     * Name: `YOUR-FIRST-&-LASTNAME-INITIAL-aws-native-cicd-project-alerts`
     ![Slack!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.51.41%20AM.png)
