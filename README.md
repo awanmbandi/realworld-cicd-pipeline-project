@@ -95,7 +95,7 @@
 
 9) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
-    - Link: https://join.slack.com/t/realworldcicdproject/shared_invite/zt-1tryd7x1v-g8a~zEJBKKchVvvK87jkeQ  
+    - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `cicd-pipeline-project-alerts`
       - Click on the Drop down on the Channel and select Integrations and take `Add an App`
