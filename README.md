@@ -141,7 +141,7 @@
   - Install git by running: sudo yum install git -y 
   - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Swtitch to the "prometheus-and-grafana-install" git branch 
   - Run: ls or ll  (to confirm you have the branch files)
   - Run: ./install-node-exporter.sh
   - Confirm the status shows "Active (running)"
@@ -157,7 +157,7 @@
   - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
   - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
   - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Swtitch to the "prometheus-and-grafana-install" git branch 
   - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
   - Run: ./install-node-exporter.sh
   - Make sure the status shows "Active (running)"
