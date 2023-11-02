@@ -1,5 +1,5 @@
 def COLOR_MAP = [
-    'SUCCESS': 'good', 
+    'SUCCESS': 'good',
     'FAILURE': 'danger',
     'UNSTABLE': 'danger'
 ]
@@ -53,7 +53,7 @@ pipeline {
     }
     stage('SonarQube Inspection') {
         steps {
-            withSonarQubeEnv('SonarQube') { 
+            withSonarQubeEnv('SonarQube') {
                 withCredentials([string(credentialsId: 'SonarQube-Token', variable: 'SONAR_TOKEN')]) {
                 sh """
                 mvn sonar:sonar \
@@ -130,10 +130,9 @@ pipeline {
   post {
     always {
         echo 'Slack Notifications.'
-        slackSend channel: '#cicd-pipeline-project-alerts', //update and provide your channel name
+        slackSend channel: '#cicd-pipeline-project-alerts25', //update and provide your channel name
         color: COLOR_MAP[currentBuild.currentResult],
         message: "*${currentBuild.currentResult}:* Job Name '${env.JOB_NAME}' build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Project Workspace: ${env.WORKSPACE} \n More info at: ${env.BUILD_URL}"
     }
   }
 }
-
