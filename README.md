@@ -90,7 +90,7 @@
     - Key pair: Select or create a new keypair
     - Launch Instance
 
-#### NOTE: Confirm and make sure you have a total of 8 VM instances
+#### NOTE: Confirm and make sure you have a total of 9 VM instances
 ![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.51.21%20PM.png)
 
 9) Slack 
