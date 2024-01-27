@@ -1,555 +1,648 @@
-## CI/CD Pipeline Project Using AWS Native SDLC Automation Tools
-![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/advanced_aws_native_cicd_project.png)
+# End-to-End Jenkins CI/CD Pipeline Project Architecture (Java Web Application)
+![CompleteCICDProject!](https://lucid.app/publicSegments/view/0c183bd6-73f4-4547-93e1-5246db5e863c/image.png) 
 
 ###### Project ToolBox 🧰
-- [CodeCommit](https://aws.amazon.com/codecommit/) CodeCommit is a secure, highly scalable, fully managed source control service that hosts private Git repositories.
-- [CodeBuild](https://aws.amazon.com/codebuild/) CodeBuild is a fully managed continuous integration service that compiles source code, runs tests, and produces ready-to-deploy software packages.
-- [CodeArtifact](https://aws.amazon.com/codeartifact/) CodeArtifact allows you to store artifacts using popular package managers and build tools like Maven, Gradle, npm, Yarn, Twine, pip, NuGet, and SwiftPM.
-- [CodeDeploy](https://aws.amazon.com/codedeploy/) CodeDeploy is a fully managed deployment service that automates software deployments to various compute services, such as EC2, ECS, Lambda, and on-premises.
-- [CodePipeline](https://aws.amazon.com/codepipeline/) CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
-- [Amazon S3](https://aws.amazon.com/s3/) Amazon S3 is an object storage service offering industry-leading scalability, data availability, security, and performance.
-- [AWS ChatBot](https://aws.amazon.com/chatbot/) AWS Chatbot lets you monitor, troubleshoot, and operate your AWS environments natively from within your chat channels.
-- [Slack](https://slack.com/) Slack is a communication platform designed for collaboration which can be leveraged to build and develop a very robust DevOps culture. Will be used for Continuous feedback loop.
+- [Git](https://git-scm.com/) Git will be used to manage our application source code.
+- [Github](https://github.com/) Github is a free and open source distributed VCS designed to handle everything from small to very large projects with speed and efficiency
+- [Jenkins](https://www.jenkins.io/) Jenkins is an open source automation CI tool which enables developers around the world to reliably build, test, and deploy their software
+- [Maven](https://maven.apache.org/) Maven will be used for the application packaging and building including running unit test cases
+- [Checkstyle](https://checkstyle.sourceforge.io/) Checkstyle is a static code analysis tool used in software development for checking if Java source code is compliant with specified coding rules and practices.
+- [SonarQube](https://docs.sonarqube.org/) SonarQube Catches bugs and vulnerabilities in your app, with thousands of automated Static Code Analysis rules.
+- [Nexus](https://www.sonatype.com/) Nexus Manage Binaries and build artifacts across your software supply chain
+- [Ansible](https://docs.ansible.com/) Ansible will be used for the application deployment to both lower environments and production
 - [EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
-- [CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html) Amazon CloudWatch can load all the metrics in your account (both AWS resource metrics and application metrics that you provide) for search, graphing, and alarms.
-- [CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) You can use CloudWatch Logs to monitor applications and systems using log data. 
-- [Amazon SNS](https://aws.amazon.com/sns/) Amazon SNS is a Message Bus use to send notifications. It provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. 
-- [PMD SAST](https://docs.pmd-code.org/latest/) PMD (Programming Mistake Detector) is a static source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. It’s mainly concerned with Java and Apex, but supports 16 other languages.
+- [Slack](https://slack.com/) Slack is a communication platform designed for collaboration which can be leveraged to build and develop a very robust DevOps culture. Will be used for Continuous feedback loop.
+- [Prometheus](https://prometheus.io/) Prometheus is a free software application used for event/metric monitoring and alerting for both application and infrastructure.
+- [Grafana](https://grafana.com/) Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
+- [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes application/system log files and helps organizations derive insights from the data.
 
-**NOTE:** 
-a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
-b) You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
+# Jenkins Complete CI/CD Pipeline Environment Setup Runbook
+1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
+    your remote repository (your newly created repository). 
+    - Go to GitHub (github.com)
+    - Login to your GitHub Account
+    - Create a Repository called "Jenkins-CICD-Project"
+    - Clone the Repository in the "Repository" directory/folder in your local
+    - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+    - Unzip the code/zipped file
+    - Copy and Paste everything from the zipped file into the repository you cloned in your local
+    - Add the code to git, commit and push it to your upstream branch "main or master"
+    - Confirm that the code exist on GitHub
 
-## 1) Create a CodeCommit Project Repository
-1.1) Navigate to CodeCommit to create a Project Repository
-- Click on `Create Repository`
-- Name your repository `AWS-Native-CICD-Pipeline-Project`
-- Click `Create`
-![CodeCommit!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.11.38%20PM.png)
+2) Jenkins/Maven/Ansible
+    - Create an Amazon Linux 2 VM instance 
+    - Name: Jenkins/Maven/Ansible
+    - Instance type: t2.medium
+    - Security Group (Edit/Open): 8080, 9100 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
+    - Launch Instance
 
-1.2) Configure SSH Connection On Local MacOs or Windows With CodeCommit
-- Follow the steps provided in the Runbook below
-- Runbook: https://docs.google.com/document/d/1vDu6TBcIrh2NbUtv5eayur1Cdo3Z8X5YSZ9t58ItlXo/edit?usp=sharing
+3) SonarQube
+    - Create an Create an Ubuntu 20.04 VM instance 
+    - Name: SonarQube
+    - Instance type: t2.medium
+    - Security Group (Eit/Open): 9000, 9100 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
+    - Launch Instance
 
-1.3) Download the Project Zip Code From The Below Repository Link
-- Project Code: https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/aws-native-cicd-pipeline-project
-- Unzip and Copy everything to the Code Commit Repository you just cloned
-- Push the Code Upstream to Your CodeCommit Project Repository and Confirm you have everything in the Repository 
-- NOTE: Use the same Git commands you have always used to Push code to GitHub
+4) Nexus
+    - Create an Amazon Linux 2 VM instance 
+    - Name: Nexus
+    - Instance type: t2.medium
+    - Security Group (Eit/Open): 8081, 9100 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
+    - Launch Instance
 
-## 2) Create A CodeBuild IAM Profile/Role
-- Create a CodeBuild Service Role in IAM with Administrator Privilege 
-![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
-- Navigate to IAM
-    - Click on `Roles`
-    - Click on `Create Role`
-    - Select `Service Role`
-    - Search/Select `CodeBuild`
-        - Click on `Next` 
-        - Attach Policy: `AdministratorAccess`
-        - Click `Next` 
-        - Role Name: `AWS-CodeBuild-Admin-Role` 
-        - Click `Create`
+5) EC2 (Dev/Stage/Prod)
+    - Create 3 Amazon Linux 2 VM instance
+    - Names: Dev-Env, Stage-Env and Prod-Env
+    - Number: `3`
+    - Instance type: t2.micro
+    - Security Group (Eit/Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
+    - Launch Instance
 
-## 3) Create A CodeDeploy IAM Profile/Role
-- Create a CodeBuild Service Role in IAM with Administrator Privilege 
-![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
-- Navigate to IAM
-    - Click on `Roles`
-    - Click on `Create Role`
-    - Select `Service Role`
-    - Search/Select `CodeDeploy`
-        - Click on `Next` 
-        - Attach Policy: `AdministratorAccess` (Attach this after creating the Role)
-        - Click `Next` 
-        - Role Name: `AWS-CodeDeploy-Deployment-Role`
-        - Click `Create`
+6) Prometheus
+    - Create an Ubuntu 20.04 VM instance 
+    - Name: Prometheus
+    - Instance type: t2.micro
+    - Security Group (Eit/Open): 9090 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - Launch Instance
 
-## 4) Create An S3 Bucket Where The Build Artifact Will Be Stored
-- Navigate to Amazon S3
-![S3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.15.44%20PM.png)
-- Click `Create Bucket` 
-    - Name: `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
-    - Region: `Select Your working Region`
-    - Click: `CREATE Bucket`
+7) Grafana
+    - Create an Ubuntu 20.04 VM instance
+    - Name: Grafana
+    - Instance type: t2.micro
+    - Security Group (Eit/Open): 3000 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - Launch Instance
 
-## 5) Satic Application Security Testing (SAST) With PMD (Programming Mistake Detector)
-* Navigate to the Folder name `pmd`
-    * Confirm that you have the `pmd-ruleset.xml` config file with the `rulesets`
-    ![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.21.21%20PM.png)
-* Also Confirm that the following command has been defined in your `pmd_buildspec.yml` in the `"buildspecs" folder`
+8) EC2 (Splunk)
+    - Create an Amazon Linux 2 VM instance
+    - Name: Splunk-Indexer
+    - Instance type: t2.large
+    - Security Group (Eit/Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - Launch Instance
+
+#### NOTE: Confirm and make sure you have a total of 8 VM instances
+![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.51.21%20PM.png)
+
+9) Slack 
+    - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
+    - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
+      - You can either join through the browser or your local Slack App
+      - Create a `Private Channel` using the naming convention `cicd-pipeline-project-alerts`
+      - Click on the Drop down on the Channel and select Integrations and take `Add an App`
+      - Search for `Jenkins` and click on `View` -->> `Configuration/Install` -->> `Add to Slack` 
+      - On Post to Channel: Click the Drop Down and select your channel above `cicd-pipeline-project-alerts`
+      - Click `Add Jenkins CI Integration`
+      - SAVE SETTINGS/CONFIGURATIONS
+      - Leave this page open
+      ![SlackConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.08.55%20PM.png)
+    
+    #### NOTE: Update Your Jenkins file with your Slack Channel Name
+    - Go back to your local, open your "Jenkins-CICD-Project" repo/folder/directory on VSCODE
+    - Open your "Jenkinsfile"
+    - Update the slack channel name on line "97" (there about)
+    - Change name from "cicd-project-alerts" (or whatever name thst's there) to yours
+    - Add the changes to git, commit and push to GitHub
+    - Confirm the changes are available on GitHub
+		- Save and Push to GitHub
+
+## Configure All Systems
+### Configure Promitheus
+  - Login/SSH to your Prometheus Server
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Change directory to "realworld-cicd-pipeline-project"
+  - Swtitch to the "prometheus-and-grafana" git branch  
+  - Run: ./install-prometheus.sh
+  - Confirm the status shows "Active (running)"
+  - Exit
+
+### Configure Grafana
+  - Login/SSH to your Grafana Server
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Change directory to "realworld-cicd-pipeline-project"
+  - Swtitch to the "prometheus-and-grafana" git branch 
+  - Run: ls or ll  (to confirm you have the branch files)
+  - Run: ./install-grafana.sh
+  - Confirm the status shows "Active (running)"
+  - Exit
+
+### Configure The "Node Exporter" accross the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
+  - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
+  - Perform the following operations on all of them
+  - Install git by running: sudo yum install git -y 
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Change directory to "realworld-cicd-pipeline-project"
+  - Swtitch to the "prometheus-and-grafana-install" git branch 
+  - Run: ls or ll  (to confirm you have the branch files)
+  - Run: ./install-node-exporter.sh
+  - Confirm the status shows "Active (running)"
+  - Access the Node Exporters running on port "9100", open your browser and run the below
+      - Dev-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+      - Stage-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+      - Prod-EnvPublicIPaddress:9100   (Confirm this page is accessible)
+  - Exit
+
+### Configure The "Node Exporter" on the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" instances 
+  - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
+  - Perform the following operations on all of them
+  - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
+  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+  - Change directory to "realworld-cicd-pipeline-project"
+  - Swtitch to the "prometheus-and-grafana-install" git branch 
+  - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
+  - Run: ./install-node-exporter.sh
+  - Make sure the status shows "Active (running)"
+  - Access the Node Exporters running on port "9100", open your browser and run the below
+      - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
+      - NexusPublicIPaddress:9100   
+      - SonarQubePublicIPaddress:9100   
+  - Exit
+  ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
+
+### Update the Prometheus config file and include all the IP Addresses of the Pipeline Instances that are 
+  running the Node Exporter API. That'll include ("Dev", "Stage", "Prod", "Jenkins-Maven-Ansible", "Nexus" and "SonarQube")
+  - SSH into the Prometheus instance either using your GitBash (Windows) or Terminal (macOS) or browser
+  - Run the command: sudo vi /etc/prometheus/prometheus.yml
+      - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
+      - Save the Config File and Quit
+  - Open a TAB on your choice browser
+  - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9100 e.g "PrometheusPublicIPAddres:9100"
+      - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
+  - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
+  - Done
+  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/prometheus-targets.png)
+
+### Open a New Tab on your browser for Grafana also if you've not done so already. 
+  - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
+  - Once the UI Opens pass the following username and password
+      - Username: admin
+      - Password: admin
+      - New Username: admin
+      - New Password: admin
+      - Save and Continue
+  ![ConfigureGrafana!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/raspberry-grafana-login-window-e1560717895280.png)
+  - Once you get into Grafana, follow the below steps to Import a Dashboard into Grafana to visualize your Infrastructure/App Metrics
+      - Click on "Configuration/Settings" on your left
+      - Click on "Data Sources"
+      - Click on "Add Data Source"
+      - Select Prometheus
+      - Underneath HTTP URL: http://PrometheusPublicOrPrivateIPaddress:9090
+      - Click on "SAVE and TEST"
+  - Navigate to "Create" on your left (the `+` sign)
+      - Click on "Import"
+      - Copy the following link: https://grafana.com/grafana/dashboards/1860
+      - Paste the above link where you have "Import Via Grafana.com"
+      - Click on Load (The one right beside the link you just pasted)
+      - Scrol down to "Prometheus" and select the "Data Source" you defined ealier which is "Prometheus"
+      - CLICK on "Import"
+  - Refresh your Grafana Dashbaord 
+      - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
+  ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
+
+### Setup Splunk Server and Configure Forwarders
+#### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances to Configure Splunk
+- **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
+- **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
+    - Download the Splunk RPM installer package for Linux
+    - Link: 
+    ```bash
+    wget -O splunk-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/splunk/releases/9.1.1/linux/splunk-9.1.1-64e843ea36b1.x86_64.rpm"
+    ```
+    - Install Splunk
+    ```
+    sudo yum install ./splunk-9.1.1-64e843ea36b1.x86_64.rpm -y
+    ```
+    - Start the splunk server 
+    ```bash
+    sudo bash
+    cd /opt/splunk/bin
+    ./splunk start --accept-license --answer-yes
+    ```
+- Enter administrator ``username`` and ``password``, remember this because you will need this to log into the application
+- NOTE: The Password must be up to `8` characters. You can assign `adminadmin`
+    ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
+
+- Access your Splunk Installation at http://Splunk-Server-IP:8000 and log into splunk
+    - Username: `admin`, Password: `Same Password You Just Configured Above`
+    ![SplunkSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/splunk-login-page.png)
+
+- **NOTE(MANDATORY):** Once you login to the splunk Indexer
+    - Click on `Settings` 
+        - Click `Server Settings` 
+        - Click `General Settings`
+        - Go ahead and Change the `Pause indexing if free disk space` from `5000 to 50`
+    - Click on `Save`
+
+    - Confirm that 
+    ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.34.45%20PM.png)
+
+    - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
+    - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
+        - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
+        ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
+    - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
+
+#### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
+- **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
+- **NOTE:** Do Not install the Splunk Server in these resources/environments
+- **SSH** Into your instances, as normal user `ec2-user` or ubuntu or centos etc
+
+- Download the Splunk forwarder RPM installer package 
 ```bash
-cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
+wget -O splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.1.1/linux/splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm"
 ```
-* Verify that the destination path define above for the rulesets `/root/.m2/pmd-ruleset.xml` is specified in your maven `pom.xml` file as shown below.
-![PMDPOMConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.11.51%20PM.png)
+- Install the Forwarder
+```bash
+ls -al
+sudo yum install ./splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm -y
+```
 
-## 6) Configure Continuous Alerting/Feedback Loop With AWS ChatBot and Slack
-### A) First We Need To Create an SNS Topic Which'll Act As Our Notification Bus
-* Navigate to the AWS SNS Service
-* Select your project Region
-![SNS!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%209.11.40%20AM.png)
-  * Type: `Standard` 
-  * Name: `ChatBot-Slack-Integration-Topic`
-  * Display name: `ChatBot-Slack-Integration-Topic`
-  * Click `Create topic`
+- Change to the splunkforwarder bin directory and start the forwarder
+- NOTE: The Password must be at least `8` characters long.
+- Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
+```bash
+sudo bash
+cd /opt/splunkforwarder/bin
+./splunk start --accept-license --answer-yes
+```
 
-### B) Click on the following Link to Join the Slack `Workspace` & Create a Channel
-* Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
-* Click on `Add channels` and select `Create a new channel` to create a Changel
-    * Name: `YOUR-FIRST-&-LASTNAME-INITIAL-aws-native-cicd-project-alerts`
-    ![Slack!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.51.41%20AM.png)
-    * Select `Private` and 
-    * Click `Create` and Skip the option to add members to the channel
+- Set the forwarder to forward to the splunk server on port ``9997``, and will need to enter username and password (change IP address with your own server IP address). When prompted for username and password, enter what you set above for username and password.
+```
+./splunk add forward-server SPLUNK-SERVER-Public-IP-Address:9997
+```
 
-### C) Create an AWS ChatBot Client
-* Navigate to `AWS ChatBot` Service
-* Open the service and Select Slack
-![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.59.11%20AM.png)
+- Restart Splunk on the VM you are configuring the Forwarder
+```
+./splunk restart
+```
 
-![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/sasasasasasasasasasas.png)
+- Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
+```
+./splunk add monitor /var/log/tomcat/
+```
 
-* Configure Slack Integration In AWS ChatBot
-![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%208.49.32%20AM.png)
-* Configuration name: `AWS-CICD-Pipeline-Project-ChatBot-Config`
-* Channel type: `Private`
-    * Channel ID: `Follow The Steps Below To Get The Chanel ID and Pass it Here`
-    ![ChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%208.59.19%20AM.png)
-* Role settings: `Channel role`
-* Channel role: `Create an IAM Role Using a Template`
-* Role name: `ChatBot-Slack-Integration-Role`
-* Policy templates: Make sure `Notification permissions` and `Resource Explorer Permissions` roles are selected
-* Policy name: `ReadOnlyAccess`
-* SNS topics
-    * Region 1: Select `Your Working/Topic Region`
-    * Topics 1: Select `Your Topic`, which should be `ChatBot-Slack-Integration-Topic`
+2. Navigate Back to Your `Splunk Indexer/Server` 
+- Set the port for the Splunk Indexer or Server to listen on 9997 and restart
+```bash
+cd /opt/splunk/bin
+./splunk enable listen 9997
+```
+- Restart Splunk on the VM you are configuring the Forwarder
+```
+./splunk restart
+```
 
-* Click on `Configure`
+#### Step 3: View Application Logs in Splunk
+- Login to your `Splunk Server` at http://Splunk-Server-IP:8000
+- Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
+![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
 
-### D) Add The AWS ChatBot App To Your Slack Channel
-* Navigate to `Slack`
-* Right Click on your Channel Name and select `view chanel details`
-![SlackAWSChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%201.58.33%20PM.png)
-* Add the `AWS ChatBot` App to your Pipeline Channel
-![SlackAWSChatBot!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%202.01.29%20PM.png)
+- Application Log Indexed
+![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
 
-## 7) Create & Configure CodeArtifact Repository to Store and Manage All Application Maven Dependencies.
-### A) Create CodeArtifact Project Repository
-* Navigate to AWS `CodeArtifact` 
-* Click on `Repository`
-    * Click `Create Repositoy`
-![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-08%20at%2011.55.53%20PM.png)
-  * Repository Name: `java-webapp-maven-repo`
-  * Public Upstream Repository: Select `maven-central-store`
-  * Click on `Next`
-    * AWS Account: Select `This AWS Account`
-    * Domain Name: `java-webapp-maven-repo`
-    * Click on `Next`
-    * Click `Create Repository`
-  * **NOTE:** Verify and Confirm both the `Repository` and the `Repository Domain` were created successfully
-![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.13.04%20AM.png)
+### Jenkins setup
+1) #### Access Jenkins
+    Copy your Jenkins Public IP Address and paste on the browser = ExternalIP:8080
+    - Login to your Jenkins instance using your Shell (GitBash or your Mac Terminal)
+    - Copy the Path from the Jenkins UI to get the Administrator Password
+        - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+        - Copy the password and login to Jenkins
+    ![JenkinsSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png) 
+    - Plugins: Choose Install Suggested Plugings 
+    - Provide 
+        - Username: **admin**
+        - Password: **admin**
+        - Name and Email can also be admin. You can use `admin` all, as its a poc.
+    - Continue and Start using Jenkins
+    ![JenkinsSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
 
-### B) Configure Your CodeArtifact Project Repository With Maven POM.xml and Settings.xml
-  * Click on `Repositories` if you’ve not already
-    * Click on `maven-central-store`
-    * Click on `View Connection Instructions`
-    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.21%20AM.png)
-      * **Step 1:** Choose a package manager client: "Select (on the drop down):" `mvn`
-      * **Step 3:** **COPY** and Run The `export` Command on your Local Terminal where `awscli` is installed
-        * *NOTE:NOTE:NOTE:NOTE!!* 
-        - The command will look like this 
-        - BUT COPY YOUR OWN
-        - Make sure your AWSCLI is configured (with a user with "Admin Priviledges")
-        ```bash
-        export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain java-webapp-maven-repo --domain-owner 213424289791 --region us-east-1 --query authorizationToken --output text`
-        ```
-        - Also RUN: `echo $CODEARTIFACT_AUTH_TOKEN`
-        * *NOTE:NOTE:*
-            - Copy the `CODEARTIFACT_AUTH_TOKEN` Encrypted Credential and `SAVE` on your `NOTEPAD/Somewhere`
-            - We’re going to store this Token in SSM Parameter Store from where our CodeBuild Job is going pick it up
-        ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.59.21%20AM.png)
+2)  #### Plugin installations:
+    - Click on "Manage Jenkins"
+    - Click on "Plugin Manager"
+    - Click "Available"
+    - Search and Install the following Plugings "Install Without Restart"
+        - **SonarQube Scanner**
+        - **Maven Integration**
+        - **Pipeline Maven Integration**
+        - **Maven Release Plug-In**
+        - **Slack Notification**
+        - **Nexus Artifact Uploader**
+        - **Build Timestamp (Needed for Artifact versioning)**
+    - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
+    ![PluginInstallation!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
 
-### B.1) Update the Settings.xml File With CodeArtifact Repository Configurations
-  * Still on `“View Connection Instructions”` in `maven-central-store`
-  ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.51.13%20AM.png)
-  * Under Step 5: 
-    - `COPY` the Repository `id` and Paste it in the `settings.xml` file on `line 29` at the time of this
-    - `COPY` the Repository `url` and Paste on `Line 18` and `Line 30` in the `settings.xml` at the time of this
-    - `SAVE` the changes made in the file
-    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%201.14.26%20PM.png)
+3)  #### Global tools configuration:
+    - Click on Manage Jenkins -->> Global Tool Configuration
+    ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
 
-### B.2) Update the POM.xml File With CodeArtifact Repository Configurations
-  * Still on `“View Connection Instructions”` in `maven-central-store`
-  ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.51.13%20AM.png)
-  * Under Step 5: 
-    - `COPY` the Repository `id` and Paste it in the `POM.xml` file on `Line 32` at the time of this
-    - `COPY` the Repository `url` and Paste on `Line 33` in the `POM.xml` at the time of this
-    - `SAVE` the changes made in the file
-    - `COMMIT` the changes and `PUSH` to UpStream to `CodeCommit`
-    ![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%201.19.35%20PM.png)
+        **JDK** -->> Add JDK -->> Make sure **Install automatically** is enabled -->> 
+        
+        **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
 
-## 8) Store Your AWS CodeArtifact Repository Access Token In SSM Parameter Store
-- Navigate to SSM
-- **NOTE!!** Make sure you create the parameters in the same Region as the bucket (same for all project resources)
-![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%201.18.36%20PM.png)
-- **a)** Click on `Parameter Store`
-  - Click on `Create Parameter`
-  - Name: `CODEARTIFACT_AUTH_TOKEN`
-  - Type: Select `Secure/String`
-  - Value: `provide your CodeArtifact Token` the one you copied when you ran the command...
+        ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
+
+        * Click on Add installer
+        * Select Extract *.zip/*.tar.gz -->> Fill the below values
+        * Name: **localJdk**
+        * Download URL for binary archive: **https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz**
+        * Subdirectory of extracted archive: **jdk-11.0.1**
+    - **Git** -->> Add Git -->> Install automatically(Optional)
+      ![GitSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.36.23%20AM.png)
+    
+    - **SonarQube Scanner** -->> Add SonarQube Scanner -->> Install automatically(Optional)
+      ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
+
+    - **Maven** -->> Add Maven -->> Make sure **Install automatically** is enabled -->> Install from Apache -->> Fill the below values
+      * Name: **localMaven**
+      * Version: Keep the default version as it is 
+    - Click on SAVE
+    ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
+    
+4)  #### Credentials setup(SonarQube, Nexus, Ansible and Slack):
+    - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
+      1)  ##### SonarQube secret token (SonarQube-Token)
+          - ###### Generating SonarQube secret token:
+              - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
+              - Click on profile -->> My Account -->> Security -->> Tokens
+              - Generate Tokens: Fill ``SonarQube-Token``
+              - Click on **Generate**
+              - Copy the token 
+          - ###### Store SonarQube Secret token in Jenkins:
+              - Click on ``Add Credentials``
+              - Kind: Secret text!! 
+              - Secret: Fill the SonarQube token value that we have created on the SonarQube server
+              - ID: ``SonarQube-Token``
+              - Description: SonarQube-Token
+              - Click on Create
+
+      2)  ##### Slack secret token (slack-token)
+          - Click on ``Add Credentials``
+          - Kind: Secret text            
+          - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
+          - ID: ``Slack-Token``
+          - Description: slack-token
+          - Click on Create  
+
+      3)  ##### Nexus Credentials (Username and Password)
+          - ###### Login to Nexus and Set Password
+              - Access Nexus: http://Nexus-Pub-IP:8081/
+	          - Default Username: admin
+	          - NOTE: Login into your "Nexus" VM and "cat" the following file to get the password.
+	          - Command: ``sudo cat /opt/nexus/sonatype-work/nexus3/admin.password``
+	          - Password: `Fill In The Password and Click Sign In`
+	          - Click Next -->> Provide New Password: "admin" 
+	          - Configure Anonymous Access: "Enable anonymous access" -->> Finish
+          - ###### Nexus credentials (username & password)
+	          - Click on ``Add Credentials``
+	          - Kind: Username with password                  
+	          - Username: ``admin``
+	          - Enable Treat username as secret
+	          - Password: ``admin``
+	          - ID: ``Nexus-Credential``
+	          - Description: nexus-credential
+	          - Click on Create   
+
+      4)  ##### Ansible deployment server credential (username & password)
+          - Click on ``Add Credentials``
+          - Kind: Username with password          
+          - Username: ``ansibleadmin``
+          - Enable Treat username as secret
+          - Password: ``ansibleadmin``
+          - ID: ``Ansible-Credential``
+          - Description: Ansible-Credential
+          - Click on Create   
+      ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.10.40%20PM.png)
+
+5)  #### Configure system:    
+    1)  - Click on ``Manage Jenkins`` -->> ``Configure System`` 
+        - `SonarQube Servers`
+        ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
+
+    2)  - Click on Manage Jenkins -->> Configure System
+        - Go to section Slack
+            - Use new team subdomain & integration token credentials created in the above slack joining step
+            - Workspace: **Replace with Team Subdomain value** (created above)
+            - Credentials: select the slack-token credentials (created above) 
+            - Default channel / member id: #PROVIDE_YOUR_CHANNEL_NAME_HERE
+            - Test Connection
+            - Click on Save
+        ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
+
+### SonarQube Configuration
+2)  ### Setup SonarQube GateKeeper
+    - Click on -->> Quality Gate 
+    ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.17.50%20PM.png)
+    - Click on -->> Create
+    ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.00.25%20AM.png)
+    - Add a Quality Gate Condition to Validate the Code Against (Code Smells or Bugs)
+    ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.02.36%20AM.png)
+    
+    - Add Quality to SonarQube Project
+    -  ``NOTE:`` Make sure to update the `SonarQube` stage in your `Jenkinsfile` and Test the Pipeline so your project will be visible on the SonarQube Project Dashboard.
+    - Click on Projects -->> Administration -->> Select `Quality Gate`
+    ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.05.47%20AM.png)
+
+3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
+    - Still on `Administration`
+    - Select `Webhook`
+    - Click on `Create Webhook` 
+      - Name: `jenkinswebhook`
+      - URL: `http://Jenkins-Server-Private-IP:8080/sonarqube-webhook`
+    ![SonarQubeSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.08.26%20AM.png)
+
+    - Go ahead and Confirm in the Jenkinsfile you have the “Quality Gate Stage”. The stage code should look like the below;
+    ```bash
+    stage('SonarQube GateKeeper') {
+        steps {
+          timeout(time : 1, unit : 'HOURS'){
+          waitForQualityGate abortPipeline: true
+          }
+       }
+    }
+    ```
+     - Run Your Pipeline To Test Your Quality Gate (It should PASS QG)
+     - **(OPTIONAL)** FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
+     - **(OPTIONAL)** Run/Test Your Pipeline Again and This Time Your Quality Gate Should Fail 
+     - **(OPTIONAL)** Go back and Update the Quality Gate value to 10. The Exercise was just to see how Quality Gate Works
+
+### Pipeline creation
+- Update The ``Jenkinsfile`` If Neccessary
+- Update `SonarQube IP address` in your `Jenkinsfile`
+- Update the `SonarQube projectKey or name` in your `Jenkinsfile`
+- Update your `Slack Channel Name` in the `Jenkinsfile` 
+    
+    - Log into Jenkins: http://Jenkins-Public-IP:8080/
+    - Click on **New Item**
+    - Enter an item name: **Jenkins-Complete-CICD-Pipeline** & select the category as **Pipeline**
+    - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
+    - GitHub project: `Provide Your Project Repo Git URL`
+    - GitHub hook trigger for GITScm polling: `Check the box` 
+      - NOTE: Make sure to also configure it on GitHub's side
+    - SCM: **Git**
+    - Repositories
+        - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
+        - Branch Specifier (blank for 'any'): ``*/main``
+        - Script Path: ``Jenkinsfile``
+    - Save
+    - NOTE: Make Sure Your Pipeline Succeeds Until ``SonarQube GateKeeper``. Upload to Artifactory would fail.
+    - TEST Pipeline 
+
+    ### A. Pipeline Test Results 
+    - Jenkins Pipeline Job
+    ![JenkinsJobResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-pipeline-first-run.png)
+
+    - SonarQube Code Inspection Result
+    ![SonarQubeResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-result.png)
+
+    - Slack Continuous Feedback Alert
+    ![SlackResult!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/slack-first-notification-from-pipeline-job2.png)
+
+    - SonarQube GateKeeper Webhook Payload
+    ![SonarQubeGateKeeper!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/sonarqube-webhook-forGateKepper-Result.png)
+
+    ### B. Troubleshooting (Possible Issues You May Encounter and Suggested Solutions)
+    1) **1st ISSUE:** If you experience a long wait time at the level of `GateKeeper`, please check if your `Sonar Webhook` is associated with your `SonarQube Project` with `SonarQube Results`
+    - If you check your jenkins Pipeline you'll most likely find the below message at the `SonarQube GateKeper` stage
+    ```bash
+    JENKINS CONSOLE OUTPUT
+
+    Checking status of SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' on server 'SonarQube'
+    SonarQube task 'AYfEB4IQ3rP3Y6VQ_yIa' status is 'PENDING'
+    ```
+
+### Nexus Configuration
+1)  ### Accessing Nexus: 
+    The nexus service on port 8081. To access the nexus dashboard, visit http://Nexus-Pub-IP:8081. You will be able to see the nexus homepage as shown below.
+    - Default username: ``admin``
+    - Default Password: ```sudo cat /app/sonatype-work/nexus3/admin.password```
+    - NOTE: Once you login, you will be prompted to reset the password
+
+    ### Go ahead and create your Nexus Project Repositories
+    - CREATE 1st REPO: Click on the Gear Icon -->> Repository -->> Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-releases` -->> Create Repository
+
+    - CREATE 2nd REPO: Click Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-snapshots` -->> Version Policy: Select `Snapshot` -->> Create Repository
+
+    - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Remote Storage: provide this link https://repo.maven.apache.org/maven2 -->> Create Repository
+
+    - CREATE 4th REPO: Click Create Repository -->> Select `maven2(group)` -->> Name: `maven-project-group` -->> Version Policy: Select `Mixed` -->> Assign All The Repos You Created to The Group -->> Create Repository
+    - Once you select create repository and select maven2(group)
+
+    ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%203.42.03%20PM.png) 
+
+### Update Maven POM and Integrate/Configure Nexus With Jenkins
+A) Update Maven `POM.xml` file
+- Update the Following lines of Code ``(Line 32 and 36)`` in the maven `POM` file and save
+```bash
+<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-snapshots/</url>
+
+<url>http://Nexus-Server-Private-IP:8081/repository/maven-project-releases/</url>
+```
+
+-  Add the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
+- The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
   ```bash
-  echo $CODEARTIFACT_AUTH_TOKEN
+  environment {
+    WORKSPACE = "${env.WORKSPACE}"
+    NEXUS_CREDENTIAL_ID = 'Nexus-Credential'
+  }
   ```
 
-![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.51.13%20PM.png)
-**NOTE:** Confirm that this same parameter names exist in your `pmd_buildspec.yaml` configuration.
+- Here we're using the `Nexus Artifact Uploader` stage config to store the app artifact
+  ```bash
+  stage("Nexus Artifact Uploader"){
+      steps{
+          nexusArtifactUploader(
+            nexusVersion: 'nexus3',
+            protocol: 'http',
+            nexusUrl: '172.31.82.36:8081',
+            groupId: 'webapp',
+            version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+            repository: 'maven-project-releases',  //"${NEXUS_REPOSITORY}",
+            credentialsId: "${NEXUS_CREDENTIAL_ID}",
+            artifacts: [
+                [artifactId: 'webapp',
+                classifier: '',
+                file: '/var/lib/jenkins/workspace/jenkins-complete-cicd-pipeline/webapp/target/webapp.war',
+                type: 'war']
+            ]
+          )
+      }
+  }
+  ```
+- After confirming all changes, go ahead and save, then push to GitHub.
+- Test your Pipeline to ``Make Sure That The Artifacts Upload Stage Succeeds``.
+- Navigate to Jenkins Dashboard (Run/Test The Job) 
+![PipelineStagesArtifactSuccess!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/second-pipeline-run.png)
 
-## 9) Create The Project Build Job in CodeBuild
-- Navigate To The AWS `CodeBuild` Service
-![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.17.16%20PM.png)
-- Click on `Create Build Project` 
-    - Project Name: `Java-Webapp-CB-Build-Job`
-    - Source Provider: Select `AWS CodeCommit`
-    - Repository: Select `AWS-Native-CICD-Pipeline-Project`
-    - Branch: `master`
-    - Operating System: `Amazon Linux`
-    - Runtime: `Standard`
-    - Image: MUST USE  (`aws/codebuild/amazonlinux2-x86_64-standard:5.0`) or latest
-    - Image version: Select `Always use the latest for this runtime version` 
-    - Environment type: Select `Linux EC2`
-    - Service Role: `Existing Service Role`
-        - Role name: Select `AWS-CodeBuild-Admin-Role` 
-        - Allow AWS CodeBuild to modify this service role so it can be used with this build project: `Disable/Uncheck`
-    - Build Specifications: Pass `buildspecs/buildspec.yml`
-    - Artifacts:
-        - Type: Select `Amazon S3`
-        - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
-        - Name: `CodeBuild-Build-Artifact`
-        - Artifacts packaging: Select `Zip`
-    - Logs
-        - CloudWatch Logs: `Enable`
-        - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
-        - Stream name: `Java-Webapp-CodeBuild-Build-Logs`
-    - CLICK: Click `CREATE BUILD PROJECT`
+- Navigate to `Nexus` as well to confirm that the artifact was `Stored` in the `maven-project-releases` repository
+![ArtifactStored!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.08.33%20PM.png)
 
-## 10) Create The PMD Code Analysis Job in CodeBuild
-- Navigate To The AWS `CodeBuild` Service
-![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/patisdsd_dah_sada.png)
-- Click on `Create Build Project` 
-    - Project Name: `Java-Webapp-CB-PMD-Job`
-    - Source Provider: Select `AWS CodeCommit`
-    - Repository: Select `AWS-Native-CICD-Pipeline-Project`
-    - Branch: `master`
-    - Operating System: `Amazon Linux`
-    - Runtime: `Standard`
-    - Image: MUST USE  (`aws/codebuild/amazonlinux2-x86_64-standard:5.0`) or latest
-    - Image version: Select `Always use the latest for this runtime version` 
-    - Environment type: Select `Linux EC2`
-    - Service Role: `Existing Service Role`
-        - Role name: Select `AWS-CodeBuild-Admin-Role` 
-        - Allow AWS CodeBuild to modify this service role so it can be used with this build project: `Disable/Uncheck`
-    - Build Specifications: Pass `buildspecs/pmd_buildspec.yml`
-    - Artifacts:
-        - Type: Select `Amazon S3`
-        - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
-        - Name: `PMD-Test-Results`
-        - Artifacts packaging: Select `Zip`
-    - Logs
-        - CloudWatch Logs: `Enable`
-        - Group Name: `Java-Webapp-CodeBuild-Project-Logs`
-        - Stream name: `Java-Webapp-CodeBuild-PMD-Logs`
-    - CLICK: Click `CREATE BUILD PROJECT`
-![CodeBuild!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%201.45.44%20PM.png)
+## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
+- NOTE: That you passed a Userdata in the Jenkins/Maven/Ansible and Dev,Stage and Prod Instances to Configure the Environments already. So you do not have to perform these operations again. You just Have to confirm, the Configurations where all Successful.
+- NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
+- NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
+- Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
+```bash
+#!/bin/bash
+# Tomcat Server Installation
+sudo su
+amazon-linux-extras install tomcat8.5 -y
+systemctl enable tomcat
+systemctl start tomcat
 
-## 11) Create Staging Deployment Area/Environment
-- Navigate to EC2
-![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
-- Click `Launch Instances`
-    - Name: `Stage-Env`
-    - Click `Add additional tags`
-        - Click `Add new tag`
-            - Key: `Env`
-            - Value: `Stage`
-    - Number of Instances: `1`
-    - AMI: `Amazon Linux 2 (HVM)`
-    - Instance type: `t2.micro`
-    - Key pair: `Select an existing Key` or `Create New`
-    - Network Settings: 
-        - VPC: `Default` or a network that has Internet access
-        - Auto-assign public IP: `Enable`
-        - Firewall (security groups): Open the following Ports
-            - Name: `Tomcat-App-SG`
-            - Description: `Tomcat-App-SG`
-            - Open Port `8080` to `0.0.0.0/0`
-            - Open Port `22` to eith your Network or Internet
-    - Edvance Details:
-        - IAM instance profile: `Select an EC2 Admin Role`
-            - NOTE: `If you do not have one, please go ahead and create before creating the instance`
-            - NOTE: `If Not Yours Will Break`
-        - User data: 
-        ```bash
-        #!/bin/bash
-        sudo yum update
-        sudo yum install ruby -y
-        sudo yum install wget -y
-        cd /home/ec2-user
-        wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
-        chmod +x ./install
-        sudo ./install auto
-        sudo service codedeploy-agent status
-        ```
+# Provisioning Ansible Deployer Access
+useradd ansibleadmin
+echo ansibleadmin | passwd ansibleadmin --stdin
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+systemctl restart sshd
+echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+```
 
-        - Click `Launch Instance`
+### Setup a CI Integration Between `GitHub` and `Jenkins`
+1. Navigate to your GitHub project repository
+    - Open the repository
+    - Click on the repository `Settings`
+        - Click on `Webhooks`
+        - Click `Add webhook`
+            - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
+            - Content type: `application/json`
+            - Active: Confirm it is `Enable`
+            - Click on `Add Webhook`
 
-## 12) Create Production Deployment Area/Environment
-![EC2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.34.34%20PM.png)
-- Navigate to EC2
-- Click `Launch Instances`
-    - Name: `Prod-Env`
-    - Click `Add additional tags`
-        - Click `Add new tag`
-            - Key: `Env`
-            - Value: `Prod`
-    - Number of Instances: `1`
-    - AMI: `Amazon Linux 2 (HVM)`
-    - Instance type: `t2.micro`
-    - Key pair: `Select an existing Key` or `Create New`
-    - Network Settings: 
-        - VPC: `Default` or a network that has Internet access
-        - Auto-assign public IP: `Enable`
-        - Firewall (security groups): Open the following Ports
-            - Click on `Select existing security group`
-            - Security group: Select `Tomcat-App-SG`
-    - Edvance Details:
-        - IAM instance profile: Select an EC2 Admin Role
-            - NOTE: `If you do not have one, please go ahead and create before creating the instance`
-            - NOTE: `If Not Yours Will Break`
-        - User data: 
-        ```bash
-        #!/bin/bash
-        sudo yum update
-        sudo yum install ruby -y
-        sudo yum install wget -y
-        cd /home/ec2-user
-        wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
-        chmod +x ./install
-        sudo ./install auto
-        sudo service codedeploy-agent status
-        ```
+2. Confirm that this is Enabled at the Level of the Jenkins Job as well
+    - Navigate to your Jenkins Application: http://JENKINS-PUBLIC-IP-ADDRESS:8080
+        - Click on the `Job Name`
+        - Navigate to `Build Triggers`
+            - Enable/Check the box `GitHub hook trigger for GITScm polling`
+        - Click on `Apply and Save`
 
-        - Click `Launch Instance`
-#### 12.1) Confirm that you have both the Stage and Prod Environments
-![Stage&ProdInstances!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2010.25.51%20AM.png)
+### TEST PIPELINE DEPLOYMENT
+- Confirm/Confirm that your deployments where all successful accross all Environments
+![PipelineStagesCompleted!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.44.30%20PM.png)
 
-## 13) Create CodeDeploy Application
-- Navigate to CodeDeploy
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%205.11.57%20PM.png)
-- Click on `Applications`
-    - Click `Create Application`
-        - Name: `Java-Webapp-CodeDeploy-Application`
-        - Compute Platform: `EC2/On-premises`
-        - Click `Create Application`
+- Verify/Confirm Slack Success Feedback.
+![SlackSuccessAllStages!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%205.06.44%20PM.png)
 
-## 14) Create A CodeDeploy Deployment Group To Deploy Staging Env
-- Navigate to CodeDeploy
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
-- Click on `Applications`
-    - Click on `Java-Webapp-CodeDeploy-Application`
-    - Click on `Create deployment group`
-        - Deployment group name: `Java-Webapp-CodeDeploy-Stage-DG`
-        - Service role: `AWS-CodeDeploy-Deployment-Role`
-        - Deployment type: Select `In-place`
-        - Environment configuration: Select `Amazon EC2 instances`
-            - Key: `Env`
-            - Value: `Stage`
-        - Agent configuration with AWS Systems Manager: `Now and schedule updates`
-            - Basic Scheduler
-        - Deployment settings: Select `CodeDeployDefault.AllAtOnce`
-            - **NOTE:** CONFIRM THAT YOU SELECTED `CodeDeployDefault.AllAtOnce` IF Not, yours will break.
-        - Load balancer: Uncheck the box to `Disable`
-        - Click `Create deployment group`
+- Confirm Access to your application: http://Dev-or-Stage-or-Prod-PubIP:8080/webapp/
+![FinalProductDisplay!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.50.42%20PM.png)
 
-## 15) Create A CodeDeploy Deployment Group For The Production Env
-- Navigate to CodeDeploy
-![CDApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.26.42%20PM.png)
-- Click on `Applications`
-    - Click on `Java-Webapp-CodeDeploy-Application`
-    - Click on `Create deployment group`
-        - Deployment group name: `Java-Webapp-CodeDeploy-Prod-DG`
-        - Service role: `AWS-CodeDeploy-Deployment-Role`
-        - Deployment type: Select `In-place`
-        - Environment configuration: Select `Amazon EC2 instances`
-            - Key: `Env`
-            - Value: `Prod`
-        - Agent configuration with AWS Systems Manager: `Now and schedule updates`
-            - Basic Scheduler
-        - Deployment settings: Select `CodeDeployDefault.AllAtOnce`
-            - **NOTE:** CONFIRM THAT YOU SELECTED `CodeDeployDefault.AllAtOnce` IF Not, yours will break.
-        - Load balancer: Uncheck the box to `Disable`
-        - Click `Create deployment group`
+### NOTE: That By completing this project, you are now considered a Professional DevOps Engineer.  
+You've been able to accomplish something very unique and special which most people only dream of in their IT journey. Remmber that during an interview, you may be asked some challenging questions or be faced with a trial assignment that require you to both utilize your existing skillsets and think out of the box. During this time you must be very confident and determined in your pursuit. 
 
-## 16) Create The CI/CD Automation Pipeline With CodePipeline
-- Navigate to `CodePipeline`
-![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Pipeline.png)
-- Click on `Create Pipeline`
-    - Name: `AWS-Native-Java-Webapp-CICD-Pipeline-Automation`
-    - Service role: `New service role`
-        - Role name: `The name will populate automatically`
-    - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline: Chech box to `Enable`
-        - Click `Next`
-    - **SOURCE PROVIDER**
-    - Source provider: Select `AWS CodeCommit`
-        - Repository name: `AWS-Native-CICD-Pipeline-Project`
-        - Branch name: `Master`
-        - Change detection options: Select `Amazon CloudWatch Events (recommended)`
-        - Output artifact format: `CodePipeline default`
-        - Click `Next`
-    - **BUILD PROVIDER**
-    - Build provider: `AWS CodeBuild`
-        - Region: `Your region will populate`
-        - Project name: `Java-Webapp-CB-Build-Job`
-        - Build type: `Single build`
-        - Click `Next`
-    - **DEPLOY PROVIDER**
-    - Deploy provider: `AWS CodeDeploy`
-        - Region: `Your region will populate`
-        - Application name: `Java-Webapp-CodeDeploy-Application`
-        - Deployment group: `Java-Webapp-CodeDeploy-Stage-DG`
-        - Click `Next`
-    
-    - Click `CREATE PIPELINE`
-    - **NOTE:** Once you create the pipeline, it'll start Running Immediate. CLICK ON `STOP EXECUTION`
-    ()
+Never forget that you have what it takes to add more than enough VALUE to any organization out there in the industry and to STAND OUT in any interview setting no matter who is sitted on the interview seat.
 
-## 17) Add The SAST Test Stage With PMD Test Stage
-![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsd.png)
-- Click on `Edit` to add the following Pipeline Stages;
-    - The `Testing Stage`
-    - The `Manual Approval Stage`  
-    - The `Prod Deployment Stage`
-- Click on `Add stage`
-- **NOTE:** Make sure to add this Stage in between the `Build` and `Desploy` Stage
-![SASTStage!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%202.03.54%20PM.png)
-- Stage name: `SAST-Test-PMD`
-- Click on `Add action group`
-  - Action name: `SAST-Test-PMD`
-  - Action provider: `AWS CodeBuild`
-  - Region: `Select your project region`
-  - Input artifact: `SourceArtifact`
-  - Project name: `Select Your PMD CodeBuild Job/Project`
-  - Build type: `Single build`
-  - Click `Done`
+### Congratulations Team!!!👨🏼‍💻 Congratulations!!!👨🏼‍💻
 
-  - Click on `Done` again
 
-## 18) Add The Manual Approval Stage (To Achieve Continuous Delivery To Production)
-- Click on `Add stage`
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%202.07.58%20PM.png)
-- Stage name: `Manual-Approval`
-
-- Click on `Add action group`
-![AddMA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.00.26%20PM.png)
-  - Action name: `Manual-Approval`
-  - Action provider: `Manual approval`
-  - Click `Done`
-
-  - Click on `Done` again
-
-## 19) Add The Deploy To Production Stage With CodeDeploy
-- Click on `Add stage`
-![DeployProd!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-06%20at%202.10.51%20PM.png)
-- Stage name: `Deploy-Prod`
-- Click on `Add action group`
-  - Action name: `Deploy-Prod`
-  - Action provider: `AWS CodeDeploy`
-  - Region: `Select your project region`
-  - Input artifact: `BuildArtifact`
-  - Application name: `Java-Webapp-CodeDeploy-Application`
-  - Deployment group: `Java-Webapp-CodeDeploy-Prod-DG`
-  - Click `Done`
-
-  - Click on `Done` to save changes
-  - `SCROLL UP` and Click on `SAVE`
-  - Click `SAVE`
-
-## 20) Integrate The AWS ChatBot/Slack Configuration With Your Pipeline
-* Confirm that you've added all pipeline Stages
-* Click on `Notify`
-    * Click on `Create notification rule`
-![PipelineNotifier!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%209.46.41%20AM.png)
-* Name: `Slack-Notification`
-* Detail type: `Basic`
-* Events that trigger notifications: `Select Important Events`
-![EditPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%2010.22.24%20AM.png)
-* Targets
-    * Choose target type: `AWS ChatBot Slack`
-    * Choose target: Select your ChatBot Config `AWS-CICD-Pipeline-Project-ChatBot-Config`
-    * Click `SUBMIT`
-
-### 21) RE-RUN YOUR PIPELINE and CONFIRM THE APP IS AVAILABLE IN STAGING ENV BEFORE APPROVING PRODUCTION
-- Click on `Pipeline` on your left
-- CLICK on `Release Change`
-![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.45.43%20PM.png)
-
-#### 22) Slack Notification With AWS ChatBot
-* Check Your Pipeline Slack Channel For Updates Regarding Your Pipeline
-![ReRunPipeline!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%2010.29.11%20AM.png)
-
-#### 23) Test To The Application Running In The Staging Environment
-* Navigate to EC2 
-* Copy the Public IP Addresses of the `Stage Instance` and Try Accessing the Application
-* URL: http://INSTANCE_PUBLIC_IP:8080/login 
-![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.04.28%20PM.png)
-
-### 24) REVIEW AND APPROVE PRODUCTION DEPLOYMENT
-- Once you Confirm that The Application is working as Expected...
-- Click on `Review` 
-- Then `APPROVE` to Deploy to the `Prod Environment`
-![SuccessPipeResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.30.14%20PM.png)
-![SuccessPipeResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.31.11%20PM.png)
-![SuccessPipeResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.31.33%20PM.png)
-
-### 25) REVIEW ALL JOBS (Whle The Pipeline Is Running)
-- Go through the *`CodeArtifact Downloaded Dependencies`*
-- Go through the *`CodeBuild Build & Test Job Outputs`*
-- Go through the *`CodeDeploy Stage & Prod Prod Deployment Results`*
-- Go through the *`PMD Project/Analysis` etc*
-    - *Download the Reports From s3. The CodePipeline Bucket >> BuildArtifact*
-    - *Navigate to server --> target --> site --> Click on the `pmd.html` Report*
-
-#### 25A) CodeArtifact Maven Project Repository
-i) CodeArtifact `maven-central-store` (These Dependencies Where All Downloaded From `Maven Central` and Stored Here)
-![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.35.20%20AM.png)
-
-ii) CodeBuild Project Logs (Build and Test Jobs)
-![CodeArtifact!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%2012.58.45%20PM.png)
-
-#### 25B) Continuous Pipeline Notification With AWS ChatBot & Slack
-![ChatBotSlack!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-17%20at%2010.29.11%20AM.png)
-
-#### 25C) CodeBuild Build Job Results
-![CodeBuildBuildJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.12.18%20AM.png)
-
-#### 25D) CodeBuild PMD SAST Job Results
-![CodeBuildSASTJob!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.16.47%20PM.png)
-
-#### 25E) PMD SAST Test Results
-![CodeBuildSASTtestResults!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.20.27%20PM.png)
-
-#### 25F) CodeDeploy Deployment Results (Stage&Prod)
-- Navigate to `CodeDeploy`
-![CodeDeploy!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%203.28.15%20AM.png)
-
-### 26) CONFIRM THAT THE APPLICATION VALIDATE TEST PASSED
-![CodeDeploy!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-09%20at%209.26.28%20AM.png)
-
-### 29) TEST ACCESS TO THE APPLICATION
-* Navigate to EC2 
-* Copy the Public IP Addresses of the Instances and Try Accessing the Application
-* URL: http://INSTANCE_PUBLIC_IP:8080/login 
-![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.25.08%20PM.png)
-
-## 👨‍💻😃 CONGRATULATIONS TEAM!! CONGRATULATIONS TEAM!! 👨‍💻😃
 
 
 
