@@ -150,7 +150,7 @@
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
   - Install Prometheus: `bash install-prometheus.sh`
-  - Confirm the status shows "Active (running)"
+  - Confirm the status shows *"Active (running)"*
   - Exit
 
 ### Configure Grafana
@@ -160,7 +160,7 @@
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
   - Install Prometheus: `bash install-grafana.sh`
-  - Confirm the status shows "Active (running)"
+  - Confirm the status shows *"Active (running)"*
   - Exit
 
 ### Configure The "Node Exporter" accross the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
