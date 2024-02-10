@@ -45,8 +45,8 @@
 
 3) Jenkins/Maven/Ansible
     - Create a Jenkins VM instance 
-    - AMI: `Amazon Linux 2`
     - Name: `Jenkins/Maven/Ansible`
+    - AMI: `Amazon Linux 2`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Edit/Open): `8080, 9100` and `22 to 0.0.0.0/0`
@@ -56,8 +56,8 @@
 
 4) SonarQube
     - Create a SonarQube VM instance 
-    - AMI: `Ubuntu 20.04`
     - Name: `SonarQube`
+    - AMI: `Ubuntu 20.04`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Eit/Open): `9000, 9100` and `22 to 0.0.0.0/0`
@@ -66,8 +66,8 @@
 
 5) Nexus
     - Create a Nexus VM instance 
-    - AMI: `Amazon Linux 2`
     - Name: `Nexus`
+    - AMI: `Amazon Linux 2`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Eit/Open): `8081, 9100` and `22 to 0.0.0.0/0`
@@ -76,8 +76,8 @@
 
 6) EC2 (Dev/Stage/Prod)
     - Create 3 Deployment VM instances
-    - AMI: `Amazon Linux 2`
     - Names: `Dev-Env, Stage-Env` and `Prod-Env`
+    - AMI: `Amazon Linux 2`
     - Number: `3`
     - Instance type: `t2.micro`
     - Key pair: `Select` or `create a new keypair`
@@ -87,8 +87,8 @@
 
 7) Prometheus
     - Create a Prometheus VM instance 
-    - AMI: `Ubuntu 20.04`
     - Name: `Prometheus`
+    - AMI: `Ubuntu 20.04`
     - Instance type: `t2.micro`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
@@ -96,8 +96,8 @@
 
 8) Grafana
     - Create a Grafana VM instance
-    - AMI: `Ubuntu 20.04`
     - Name: `Grafana`
+    - AMI: `Ubuntu 20.04`
     - Instance type: `t2.micro`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
@@ -105,8 +105,8 @@
 
 9) EC2 (Splunk)
     - Create a Splunk/Indexer VM instance
-    - AMI: `Amazon Linux 2`
     - Name: `Splunk-Indexer`
+    - AMI: `Amazon Linux 2`
     - Instance type: `t2.large`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Eit/Open): `22, 8000, 9997, 9100` to `0.0.0.0/0`
