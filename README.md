@@ -209,11 +209,12 @@
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
   - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
   - Once the UI Opens pass the following username and password
-      - Username: admin
-      - Password: admin
-      - New Username: admin
-      - New Password: admin
-      - Save and Continue
+      - Username: `admin`
+      - Password: `admin`
+      - Click on `Log In`
+      - New Username: `admin`
+      - New Password: `admin`
+      - Click on `Submit`
   ![ConfigureGrafana!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/raspberry-grafana-login-window-e1560717895280.png)
   - Once you get into Grafana, follow the below steps to Import a Dashboard into Grafana to visualize your Infrastructure/App Metrics
       - Click on "Configuration/Settings" on your left
