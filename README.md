@@ -21,7 +21,7 @@
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
     - Login to your GitHub Account
-    - Create a Repository called "Jenkins-CICD-Project"
+    - Create a Repository called `Jenkins-CICD-Project`
     - Clone the Repository in the "Repository" directory/folder in your local
     - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
     - Unzip the code/zipped file
@@ -30,7 +30,7 @@
     - Confirm that the code exist on GitHub
 
 2) Create An IAM Profile/Role For The Ansible Automation Engine (Dynamic Inventory)
-- Create a CodeBuild Service Role in IAM with Administrator Privilege 
+- Create an EC2 Service Role in IAM with AmazonEC2FullAccess Privilege 
 ![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
 - Navigate to IAM
     - Click on `Roles`
