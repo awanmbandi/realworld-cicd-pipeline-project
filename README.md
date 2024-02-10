@@ -145,7 +145,7 @@
 ## Configure All Systems
 ### Configure Promitheus
   - Login/SSH to your Prometheus Server
-  - Clone the project repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
@@ -155,7 +155,7 @@
 
 ### Configure Grafana
   - Login/SSH to your Grafana Server
-  - Clone the project repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
@@ -166,13 +166,13 @@
 ### Configure The "Node Exporter" accross the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
-  - Install git by running: sudo yum install git -y 
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-  - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana-install" git branch 
-  - Run: ls or ll  (to confirm you have the branch files)
-  - Run: ./install-node-exporter.sh
-  - Confirm the status shows "Active (running)"
+  - Install git by running: `sudo yum install git -y `
+  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Change directory: `cd realworld-cicd-pipeline-project`
+  - Swtitch branch: `git switch prometheus-and-grafana-install`
+  - Confirm Branch Switch: `git branch` and `ls -al` (to confirm you have the branch files)
+  - Install The Node Exporter: `bash install-node-exporter.sh`
+  - Confirm the status shows *"Active (running)"*
   - Access the Node Exporters running on port "9100", open your browser and run the below
       - Dev-EnvPublicIPaddress:9100   (Confirm this page is accessible)
       - Stage-EnvPublicIPaddress:9100   (Confirm this page is accessible)
