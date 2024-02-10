@@ -238,9 +238,8 @@
   ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
 
 ### Setup Splunk Server/Indexer and Configure Forwarders
-#### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances to Configure Splunk
-- **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
-- **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
+#### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances
+- **NOTE:** Run The Following Commands On The `Splunk Server/Indexer Only`
     - Download the Splunk RPM installer package for Linux
     - Link: 
     ```bash
@@ -256,7 +255,7 @@
     cd /opt/splunk/bin
     ./splunk start --accept-license --answer-yes
     ```
-- Enter administrator ``username`` and ``password``, remember this because you will need this to log into the application
+- Enter `adminadmin` as the ``username`` and as the ``password``, remember this because you will need this to log into Splunk on the Browser
 - NOTE: The Password must be up to `8` characters. You can assign `adminadmin`
     ![SplunkSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-28%20at%2010.48.24%20AM%20copy.png)
 
@@ -276,8 +275,8 @@
 
     - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
     - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
-        - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
-        ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
+    - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
+    ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
     - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
