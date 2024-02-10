@@ -368,28 +368,35 @@ cd /opt/splunk/bin
         - **Slack Notification**
         - **Nexus Artifact Uploader**
         - **Build Timestamp (Needed for Artifact versioning)**
-    - Once all plugins are installed, select **Restart Jenkins when installation is complete and no jobs are running**
+    - Click on `Install`
+    - Once all plugins are installed
+    - Select/Check the Box **Restart Jenkins when installation is complete and no jobs are running**
     ![PluginInstallation!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.07.32%20PM.png)
+    - Refresh your Browser and Log back into Jenkins
+    - Once you log back into Jenkins
 
 3)  #### Global tools configuration:
     - Click on Manage Jenkins -->> Global Tool Configuration
-    ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
+    ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/sdsdsdsdsd.png)
 
-        **JDK** -->> Add JDK -->> Make sure **Install automatically** is enabled -->> 
+    - **JDK** 
+        - Click on `Add JDK` -->> Make sure **Install automatically** is enabled 
         
         **Note:** By default the **Install Oracle Java SE Development Kit from the website** make sure to close that option by clicking on the image as shown below.
 
-        ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.59.50%20AM.png)
+        ![JDKSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsdsd.png)
 
-        * Click on Add installer
-        * Select Extract *.zip/*.tar.gz -->> Fill the below values
-        * Name: **localJdk**
+        * Click on `Add installer`
+        * Select `Extract *.zip/*.tar.gz` 
+        * Name: **`localJdk`**
         * Download URL for binary archive: **https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz**
-        * Subdirectory of extracted archive: **jdk-11.0.1**
+        * Subdirectory of extracted archive: **`jdk-11.0.1`**
     - **Git** -->> Add Git -->> Install automatically(Optional)
       ![GitSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.36.23%20AM.png)
     
-    - **SonarQube Scanner** -->> Add SonarQube Scanner -->> Install automatically(Optional)
+    - **SonarQube Scanner** 
+      - Click on `Add SonarQube Scanner` 
+      - Enable: `Install automatically` (Optional)
       ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
 
     - **Maven** -->> Add Maven -->> Make sure **Install automatically** is enabled -->> Install from Apache -->> Fill the below values
