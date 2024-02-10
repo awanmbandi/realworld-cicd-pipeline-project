@@ -192,9 +192,9 @@
   - Install The Node Exporter: `bash install-node-exporter.sh`
   - Confirm the status shows *"Active (running)"*
   - Access the Node Exporters running on port `"9100"`, open your browser and run the below
-      - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
-      - NexusPublicIPaddress:9100   
-      - SonarQubePublicIPaddress:9100   
+      - *Jenkins-Maven-AnsiblePublicIPaddress:9100*   (Confirm the pages are accessible)
+      - *NexusPublicIPaddress:9100*   
+      - *SonarQubePublicIPaddress:9100*   
   - Exit
   ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
 
