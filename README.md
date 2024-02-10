@@ -17,11 +17,11 @@
 - [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes application/system log files and helps organizations derive insights from the data.
 
 # Jenkins Complete CI/CD Pipeline Environment Setup Runbook
-1) Create a GitHub Repository with the name `Jenkins-CICD-Project` and push the code in this branch(main) to 
+1) Create a GitHub Repository with the name `Jenkins-Realworld-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub (github.com)
     - Login to your GitHub Account
-    - Create a Repository called `Jenkins-CICD-Project`
+    - Create a Repository called `Jenkins-Realworld-CICD-Project`
     - Clone the Repository in the "Repository" directory/folder in your local
     - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
     - Unzip the code/zipped file
@@ -37,11 +37,11 @@
     - Click on `Create Role`
     - Select `Service Role`
     - Use Case: Select `EC2`
-        - Click on `Next` 
-        - Attach Policy: `AmazonEC2FullAccess`
-        - Click `Next` 
-        - Role Name: `AWS-EC2FullAccess-Role`
-        - Click `Create`
+    - Click on `Next` 
+    - Attach Policy: `AmazonEC2FullAccess`
+    - Click `Next` 
+    - Role Name: `AWS-EC2FullAccess-Role`
+    - Click `Create`
 
 3) Jenkins/Maven/Ansible
     - Create an Amazon Linux 2 VM instance 
@@ -122,7 +122,7 @@
       ![SlackConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.08.55%20PM.png)
     
     #### NOTE: Update Your Jenkins file with your Slack Channel Name
-    - Go back to your local, open your "Jenkins-CICD-Project" repo/folder/directory on VSCODE
+    - Go back to your local, open your "Jenkins-Realworld-CICD-Project" repo/folder/directory on VSCODE
     - Open your "Jenkinsfile"
     - Update the slack channel name on line "97" (there about)
     - Change name from "cicd-project-alerts" (or whatever name thst's there) to yours
