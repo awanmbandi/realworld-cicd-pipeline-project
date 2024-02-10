@@ -92,6 +92,7 @@
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
+    - IAM instance profile: Select `AWS-EC2FullAccess-Role`
     - Launch Instance
 
 8) Grafana
@@ -198,10 +199,14 @@
   - Exit
   ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
 
-### Update the Prometheus config file and include all the IP Addresses of the Pipeline Instances that are 
-  running the Node Exporter API. That'll include ("Dev", "Stage", "Prod", "Jenkins-Maven-Ansible", "Nexus" and "SonarQube")
-  - SSH into the Prometheus instance either using your GitBash (Windows) or Terminal (macOS) or browser
-  - Run the command: sudo vi /etc/prometheus/prometheus.yml
+### Update the Prometheus With The Service Disconvery Config 
+  - SSH into the Prometheus instance
+  - Change directory: `cd realworld-cicd-pipeline-project`
+  - Confirm you're in the `prometheus-and-grafana-install` branch: `git branch`
+  - Update Prom Config File: `sudo cp ~/realworld-cicd-pipeline-project/service-discovery/prometheus.yml /etc/prometheus/`
+  - Update Prom Config File: `sudo cp ~/realworld-cicd-pipeline-project/prometheus.service /etc/systemd/system/prometheus.service`
+  - Change Config File Ownership: `sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml`
+  - Restart Prometheus: `sudo systemctl restart promethe`
       - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
       - Save the Config File and Quit
   - Open a TAB on your choice browser
