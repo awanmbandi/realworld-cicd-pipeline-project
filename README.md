@@ -47,7 +47,7 @@
     - Create an Amazon Linux 2 VM instance 
     - Name: `Jenkins/Maven/Ansible`
     - Instance type: `t2.medium`
-    - Key pair: Select or create a new keypair
+    - Key pair: `Select` or `create a new keypair`
     - Security Group (Edit/Open): `8080, 9100` and `22 to 0.0.0.0/0`
     - IAM instance profile: Select `AWS-EC2FullAccess-Role`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
