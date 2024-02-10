@@ -274,10 +274,12 @@
     ![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.34.45%20PM.png)
 
     - **NOTE:** If You Do Not Complete This Part Your Splunk Configuration Won't Work
-    - **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
-    - **Restart Splunk** (For those changes to be captured):  `./splunk restart`
-    ![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
-    - Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and log back into splunk
+- **IMPORTANT:** Navigate Back to your `Terminal` where you're `Configuring the Indexer`
+- **Restart Splunk** (For those changes to be captured): RUN the command `./splunk restart`
+![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-07-02%20at%209.50.16%20PM.png)
+- Refresh The Splunk Tab at http://Splunk-Server-IP:8000 and *`log back into splunk`*
+- After `Logging In Back` into Splunk, Confirm that your Stat's Showing Green as shown in the screenshot below
+![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/fwefwrfwrsgvsdsd.png) 
 
 #### Step 2: Install The Splunk Forwarder only on the `Dev, Stage and Prod` Servers
 - **NOTE:** Execute every command mentioned bellow across all application servers in all the enviroments
@@ -294,8 +296,8 @@ ls -al
 sudo yum install ./splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm -y
 ```
 
-- Change to the splunkforwarder bin directory and start the forwarder
-- NOTE: The Password must be at least `8` characters long.
+- Change to the `splunkforwarder bin` directory and start the forwarder
+- NOTE: `The Password` must be at least `8` characters long.
 - Set the port for the forwarder to ``9997``, this is to keep splunk server from conflicting with the splunk forwarder
 ```bash
 sudo bash
