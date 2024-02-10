@@ -55,54 +55,54 @@
 
 4) SonarQube
     - Create an Create an Ubuntu 20.04 VM instance 
-    - Name: SonarQube
-    - Instance type: t2.medium
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 9000, 9100 and 22 to 0.0.0.0/0
+    - Name: `SonarQube`
+    - Instance type: `t2.medium`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `9000, 9100` and `22 to 0.0.0.0/0`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
     - Launch Instance
 
 5) Nexus
     - Create an Amazon Linux 2 VM instance 
-    - Name: Nexus
-    - Instance type: t2.medium
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 8081, 9100 and 22 to 0.0.0.0/0
+    - Name: `Nexus`
+    - Instance type: `t2.medium`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `8081, 9100` and `22 to 0.0.0.0/0`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
     - Launch Instance
 
 6) EC2 (Dev/Stage/Prod)
     - Create 3 Amazon Linux 2 VM instance
-    - Names: Dev-Env, Stage-Env and Prod-Env
+    - Names: `Dev-Env, Stage-Env` and `Prod-Env`
     - Number: `3`
-    - Instance type: t2.micro
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 8080, 9100, 9997 and 22 to 0.0.0.0/0
+    - Instance type: `t2.micro`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
 7) Prometheus
     - Create an Ubuntu 20.04 VM instance 
-    - Name: Prometheus
-    - Instance type: t2.micro
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 9090 and 22 to 0.0.0.0/0
+    - Name: `Prometheus`
+    - Instance type: `t2.micro`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
     - Launch Instance
 
 8) Grafana
     - Create an Ubuntu 20.04 VM instance
-    - Name: Grafana
-    - Instance type: t2.micro
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 3000 and 22 to 0.0.0.0/0
+    - Name: `Grafana`
+    - Instance type: `t2.micro`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
     - Launch Instance
 
 9) EC2 (Splunk)
     - Create an Amazon Linux 2 VM instance
-    - Name: Splunk-Indexer
-    - Instance type: t2.large
-    - Key pair: Select or create a new keypair
-    - Security Group (Eit/Open): 22, 8000, 9997, 9100 to 0.0.0.0/0
+    - Name: `Splunk-Indexer`
+    - Instance type: `t2.large`
+    - Key pair: `Select` or `create a new keypair`
+    - Security Group (Eit/Open): `22, 8000, 9997, 9100` to `0.0.0.0/0`
     - Launch Instance
 
 #### NOTE: Confirm and make sure you have a total of 8 VM instances
