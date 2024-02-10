@@ -320,7 +320,7 @@ cd /opt/splunkforwarder/bin
 ./splunk add monitor /var/log/tomcat/
 ```
 
-2. Navigate Back to Your `Splunk Indexer/Server` 
+### 2. Navigate Back to Your `Splunk Indexer/Server` 
 - Set the port for the Splunk Indexer or Server to listen on 9997 and restart
 ```bash
 cd /opt/splunk/bin
@@ -347,12 +347,13 @@ cd /opt/splunk/bin
         - Run: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
         - Copy the password and login to Jenkins
     ![JenkinsSetup1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/jenkins-signup.png) 
-    - Plugins: Choose Install Suggested Plugings 
+    - Plugins: Choose `Install Suggested Plugings` 
     - Provide 
-        - Username: **admin**
-        - Password: **admin**
-        - Name and Email can also be admin. You can use `admin` all, as its a poc.
-    - Continue and Start using Jenkins
+        - Username: **`admin`**
+        - Password: **`admin`**
+        - `Name` and `Email` can also be admin. You can use `admin` all, as its a poc.
+    - Click `Continue`
+    - Click on `Start using Jenkins`
     ![JenkinsSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
 
 2)  #### Plugin installations:
