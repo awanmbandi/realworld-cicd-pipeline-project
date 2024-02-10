@@ -205,7 +205,7 @@
       - Once you get to the Prometheus Dashboard Click on `"Status"` and Click on `"Targets"`
   - Confirm that Prometheus is able to reach everyone of your `Nodes`, do this by confirming the Status `"UP" (green)`
   - Done
-  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%204.35.42%E2%80%AFPM.png)
+  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%204.44.02%E2%80%AFPM.png)
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
   - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
