@@ -399,10 +399,12 @@ cd /opt/splunk/bin
       - Enable: `Install automatically` (Optional)
       ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
 
-    - **Maven** -->> Add Maven -->> Make sure **Install automatically** is enabled -->> Install from Apache -->> Fill the below values
+    - **Maven** 
+      - Click on `Add Maven` 
+      - Enable **`Install automatically`** is enabled 
       * Name: **localMaven**
-      * Version: Keep the default version as it is 
-    - Click on SAVE
+      * Version: Keep the default version as it is to latest
+    - Click on `SAVE`
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
     
 4)  #### Credentials setup(SonarQube, Nexus, Ansible and Slack):
