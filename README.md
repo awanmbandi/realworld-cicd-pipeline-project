@@ -360,7 +360,7 @@ cd /opt/splunk/bin
     - Click on `Manage Jenkins`
     - Click on `Plugins`
     - Click `Available`
-    - Search and Install the following Plugings "Install Without Restart"
+    - Search and Install the following Plugings `"Install Without Restart"`
         - **SonarQube Scanner**
         - **Maven Integration**
         - **Pipeline Maven Integration**
