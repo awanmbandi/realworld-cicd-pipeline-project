@@ -207,7 +207,7 @@
   ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%204.44.02%E2%80%AFPM.png)
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
-  - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
+  - Copy your `Grafana Instance Public IP` and put on the browser with port `3000` e.g `"GrafanaInstancePublic:3000"`
   - Once the UI Opens pass the following username and password
       - Username: `admin`
       - Password: `admin`
