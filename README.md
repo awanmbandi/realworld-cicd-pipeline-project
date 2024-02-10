@@ -44,7 +44,8 @@
     - Click `Create`
 
 3) Jenkins/Maven/Ansible
-    - Create an Amazon Linux 2 VM instance 
+    - Create a Jenkins VM instance 
+    - AMI: `Amazon Linux 2`
     - Name: `Jenkins/Maven/Ansible`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
@@ -54,7 +55,8 @@
     - Launch Instance
 
 4) SonarQube
-    - Create an Create an Ubuntu 20.04 VM instance 
+    - Create a SonarQube VM instance 
+    - AMI: `Ubuntu 20.04`
     - Name: `SonarQube`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
@@ -63,7 +65,8 @@
     - Launch Instance
 
 5) Nexus
-    - Create an Amazon Linux 2 VM instance 
+    - Create a Nexus VM instance 
+    - AMI: `Amazon Linux 2`
     - Name: `Nexus`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
@@ -72,7 +75,8 @@
     - Launch Instance
 
 6) EC2 (Dev/Stage/Prod)
-    - Create 3 Amazon Linux 2 VM instance
+    - Create 3 Deployment VM instances
+    - AMI: `Amazon Linux 2`
     - Names: `Dev-Env, Stage-Env` and `Prod-Env`
     - Number: `3`
     - Instance type: `t2.micro`
@@ -82,7 +86,8 @@
     - Launch Instance
 
 7) Prometheus
-    - Create an Ubuntu 20.04 VM instance 
+    - Create a Prometheus VM instance 
+    - AMI: `Ubuntu 20.04`
     - Name: `Prometheus`
     - Instance type: `t2.micro`
     - Key pair: `Select` or `create a new keypair`
@@ -90,7 +95,8 @@
     - Launch Instance
 
 8) Grafana
-    - Create an Ubuntu 20.04 VM instance
+    - Create a Grafana VM instance
+    - AMI: `Ubuntu 20.04`
     - Name: `Grafana`
     - Instance type: `t2.micro`
     - Key pair: `Select` or `create a new keypair`
@@ -98,7 +104,8 @@
     - Launch Instance
 
 9) EC2 (Splunk)
-    - Create an Amazon Linux 2 VM instance
+    - Create a Splunk/Indexer VM instance
+    - AMI: `Amazon Linux 2`
     - Name: `Splunk-Indexer`
     - Instance type: `t2.large`
     - Key pair: `Select` or `create a new keypair`
