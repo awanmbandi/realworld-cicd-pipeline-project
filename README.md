@@ -357,9 +357,9 @@ cd /opt/splunk/bin
     ![JenkinsSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%208.49.43%20AM.png) 
 
 2)  #### Plugin installations:
-    - Click on "Manage Jenkins"
-    - Click on "Plugin Manager"
-    - Click "Available"
+    - Click on `Manage Jenkins`
+    - Click on `Plugins`
+    - Click `Available`
     - Search and Install the following Plugings "Install Without Restart"
         - **SonarQube Scanner**
         - **Maven Integration**
