@@ -145,20 +145,21 @@
 ## Configure All Systems
 ### Configure Promitheus
   - Login/SSH to your Prometheus Server
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-  - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch  
-  - Run: ./install-prometheus.sh
+  - Clone the project repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Change directory: `cd realworld-cicd-pipeline-project`
+  - Swtitch branch: `git switch prometheus-and-grafana-install`
+  - Confirm Branch Switch: `git branch` and `ls -al`
+  - Install Prometheus: `bash install-prometheus.sh`
   - Confirm the status shows "Active (running)"
   - Exit
 
 ### Configure Grafana
   - Login/SSH to your Grafana Server
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-  - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana" git branch 
-  - Run: ls or ll  (to confirm you have the branch files)
-  - Run: ./install-grafana.sh
+  - Clone the project repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Change directory: `cd realworld-cicd-pipeline-project`
+  - Swtitch branch: `git switch prometheus-and-grafana-install`
+  - Confirm Branch Switch: `git branch` and `ls -al`
+  - Install Prometheus: `bash install-grafana.sh`
   - Confirm the status shows "Active (running)"
   - Exit
 
