@@ -112,7 +112,7 @@
     - Security Group (Eit/Open): `22, 8000, 9997, 9100` to `0.0.0.0/0`
     - Launch Instance
 
-#### NOTE: Confirm and make sure you have a total of 8 VM instances
+#### NOTE: Confirm and make sure you have a total of 9 VM instances
 ![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%202.17.03%E2%80%AFPM.png)
 
 9) Slack 
