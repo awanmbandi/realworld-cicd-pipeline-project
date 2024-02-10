@@ -170,7 +170,7 @@
   - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
-  - Confirm Branch Switch: `git branch` and `ls -al` (to confirm you have the branch files)
+  - Confirm Branch Switch: `git branch` and `ls -al` *(to confirm you have the branch files)*
   - Install The Node Exporter: `bash install-node-exporter.sh`
   - Confirm the status shows *"Active (running)"*
   - Access the Node Exporters running on port "9100", open your browser and run the below
@@ -180,16 +180,18 @@
   - Exit
 
 ### Configure The "Node Exporter" on the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" instances 
-  - Login/SSH into the "Jenkins-Maven-Ansible", "Nexus" and "SonarQube" VM instance
+  - Login/SSH into the `"Jenkins-Maven-Ansible"`, `"Nexus"` and `"SonarQube"` VM instance
   - Perform the following operations on all of them
-  - Install git by running: sudo yum install git -y    (The SonarQube server already has git)
-  - Clone the following repository: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-  - Change directory to "realworld-cicd-pipeline-project"
-  - Swtitch to the "prometheus-and-grafana-install" git branch 
-  - Run: ls or ll  (to confirm you have the branch files including "install-node-exporter.sh")
-  - Run: ./install-node-exporter.sh
-  - Make sure the status shows "Active (running)"
-  - Access the Node Exporters running on port "9100", open your browser and run the below
+  - Install git: 
+    - Jenkins/Maven/Ansible and Nexus VMs: `sudo yum install git -y`   
+    - SonarQube VM: `sudo apt install git -y`
+  - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Change directory: `cd realworld-cicd-pipeline-project`
+  - Swtitch branch: `git switch prometheus-and-grafana-install`
+  - Confirm Branch Switch: `git branch` and `ls -al` *(to confirm you have the branch files)*
+  - Install The Node Exporter: `bash install-node-exporter.sh`
+  - Confirm the status shows *"Active (running)"*
+  - Access the Node Exporters running on port `"9100"`, open your browser and run the below
       - Jenkins-Maven-AnsiblePublicIPaddress:9100   (Confirm the pages are accessible)
       - NexusPublicIPaddress:9100   
       - SonarQubePublicIPaddress:9100   
