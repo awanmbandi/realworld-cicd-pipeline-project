@@ -199,22 +199,13 @@
   - Exit
   ![NodeExporter!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.00.23%20PM.png)
 
-### Update the Prometheus With The Service Disconvery Config 
-  - SSH into the Prometheus instance
-  - Change directory: `cd realworld-cicd-pipeline-project`
-  - Confirm you're in the `prometheus-and-grafana-install` branch: `git branch`
-  - Update Prom Config File: `sudo cp ~/realworld-cicd-pipeline-project/service-discovery/prometheus.yml /etc/prometheus/`
-  - Update Prom Config File: `sudo cp ~/realworld-cicd-pipeline-project/prometheus.service /etc/systemd/system/prometheus.service`
-  - Change Config File Ownership: `sudo chown prometheus:prometheus /etc/prometheus/prometheus.yml`
-  - Restart Prometheus: `sudo systemctl restart promethe`
-      - Navigate to "- targets: ['localhost:9090']" and add the "IPAddress:9100" for all the above Pipeline instances. Ecample "- targets: ['localhost:9090', 'DevIPAddress:9100', 'StageIPAddress:9100', 'ProdIPAddress:9100', 'Jenkins-Maven-AnsibleIPAddress:9100'] ETC..."
-      - Save the Config File and Quit
-  - Open a TAB on your choice browser
-  - Copy the Prometheus PublicIP Addres and paste on the browser/tab with port 9100 e.g "PrometheusPublicIPAddres:9100"
-      - Once you get to the Prometheus Dashboard Click on "Status" and Click on "Targets"
-  - Confirm that Prometheus is able to reach everyone of your Nodes, do this by confirming the Status "UP" (green)
+### Confirm That The Prometheus Service Disconvery Config Works As Expected
+  - Open a TAB on your choice `Browser`
+  - Copy the Prometheus `PublicIP Address` and paste on the `browser/tab` with port `9090` e.g `"PrometheusPublicIPAddres:9090"`
+      - Once you get to the Prometheus Dashboard Click on `"Status"` and Click on `"Targets"`
+  - Confirm that Prometheus is able to reach everyone of your `Nodes`, do this by confirming the Status `"UP" (green)`
   - Done
-  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/prometheus-targets.png)
+  ![ConfigurePrometheus!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%204.35.42%E2%80%AFPM.png)
 
 ### Open a New Tab on your browser for Grafana also if you've not done so already. 
   - Copy your Grafana Instance Public IP and put on the browser with port 3000 e.g "GrafanaPublic:3000"
