@@ -136,7 +136,7 @@
     - Open your `Jenkinsfile`
     - Update the slack channel name on line `"133"` (there about)
     - Change the name from whatever that is there to your Slack Channel Name `YOUR_INITIAL-cicd-pipeline-alerts`
-        - Bring up your `Terminal` (Depending on your machine type)
+        - Bring up your `Terminal` (Depending on your machine type) and run the following commands
         - Add the changes to git: `git add -A`
         - Commit the changes: `git commit -m "updated Jenkinsfile with slack channel name"`
         - Push the changes to GitHub: `git push` 
