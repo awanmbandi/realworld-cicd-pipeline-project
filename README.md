@@ -29,7 +29,21 @@
     - Add the code to git, commit and push it to your upstream branch "main or master"
     - Confirm that the code exist on GitHub
 
-2) Jenkins/Maven/Ansible
+2) Create An IAM Profile/Role For The Ansible Automation Engine (Dynamic Inventory)
+- Create a CodeBuild Service Role in IAM with Administrator Privilege 
+![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
+- Navigate to IAM
+    - Click on `Roles`
+    - Click on `Create Role`
+    - Select `Service Role`
+    - Use Case: Select `EC2`
+        - Click on `Next` 
+        - Attach Policy: `AmazonEC2FullAccess`
+        - Click `Next` 
+        - Role Name: `AWS-EC2FullAccess-Role`
+        - Click `Create`
+
+3) Jenkins/Maven/Ansible
     - Create an Amazon Linux 2 VM instance 
     - Name: Jenkins/Maven/Ansible
     - Instance type: t2.medium
@@ -38,7 +52,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
     - Launch Instance
 
-3) SonarQube
+4) SonarQube
     - Create an Create an Ubuntu 20.04 VM instance 
     - Name: SonarQube
     - Instance type: t2.medium
@@ -47,7 +61,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/sonarqube-install.sh
     - Launch Instance
 
-4) Nexus
+5) Nexus
     - Create an Amazon Linux 2 VM instance 
     - Name: Nexus
     - Instance type: t2.medium
@@ -56,7 +70,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
     - Launch Instance
 
-5) EC2 (Dev/Stage/Prod)
+6) EC2 (Dev/Stage/Prod)
     - Create 3 Amazon Linux 2 VM instance
     - Names: Dev-Env, Stage-Env and Prod-Env
     - Number: `3`
@@ -66,7 +80,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
-6) Prometheus
+7) Prometheus
     - Create an Ubuntu 20.04 VM instance 
     - Name: Prometheus
     - Instance type: t2.micro
@@ -74,7 +88,7 @@
     - Key pair: Select or create a new keypair
     - Launch Instance
 
-7) Grafana
+8) Grafana
     - Create an Ubuntu 20.04 VM instance
     - Name: Grafana
     - Instance type: t2.micro
@@ -82,7 +96,7 @@
     - Key pair: Select or create a new keypair
     - Launch Instance
 
-8) EC2 (Splunk)
+9) EC2 (Splunk)
     - Create an Amazon Linux 2 VM instance
     - Name: Splunk-Indexer
     - Instance type: t2.large
