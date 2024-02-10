@@ -225,7 +225,7 @@
       - Click on `SAVE and TEST`
   - Download the Prometheus `Node Exporter Full` Grafana Dashboard JSON
     - Click on this link to Download the JSON: https://grafana.com/api/dashboards/1860/revisions/25/download
-    - **NOTE:** *Confirm that the Dashboard JSON was downloaded successfully*
+    - **NOTE:** *(Confirm that the Dashboard JSON was downloaded successfully)*
 
   - Navigate to `"Create"` on your left (the `+` sign)
       - Click on `Import`
@@ -237,7 +237,7 @@
       - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
   ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
 
-### Setup Splunk Server and Configure Forwarders
+### Setup Splunk Server/Indexer and Configure Forwarders
 #### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances to Configure Splunk
 - **NOTE:** Execute and Perform all operations across all your `Dev, Stage and Prod` Environments
 - **NOTE:** Run all commands and queries across all your VMs (Dev, Stage and Prod)
