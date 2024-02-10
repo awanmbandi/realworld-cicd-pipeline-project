@@ -119,13 +119,13 @@
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
       - You can either join through the browser or your local Slack App
-      - Create a `Private Channel` using the naming convention `YOUR_FIRST_&_LAST_NAME_INITIAL-cicd-pipeline-alerts`
+      - Create a `Private Channel` using the naming convention `YOUR_INITIAL-cicd-pipeline-alerts`
         - **NOTE:** *`(The Channel Name Must Be Unique, meaning it must be available for use)`*
       - Visibility: Select `Private`
       - Click on the `Channel Drop Down` and select `Integrations` and Click on `Add an App`
       - Search for `Jenkins` and Click on `View`
       - Click on `Configuration/Install` and Click `Add to Slack` 
-      - On Post to Channel: Click the Drop Down and select your channel above `YOUR_FIRST_&_LAST_NAME_INITIAL-cicd-pipeline-alerts`
+      - On Post to Channel: Click the Drop Down and select your channel above `YOUR_INITIAL-cicd-pipeline-alerts`
       - Click `Add Jenkins CI Integration`
       - Scrol Down and Click `SAVE SETTINGS/CONFIGURATIONS`
       - Leave this page open
@@ -134,8 +134,8 @@
     #### NOTE: Update Your Jenkins file with your Slack Channel Name
     - Go back to your local, open your `Jenkins-Realworld-CICD-Project` repo/folder/directory on VSCODE
     - Open your `Jenkinsfile`
-    - Update the slack channel name on line `"97"` (there about)
-    - Change name from whatever that is there to your Slack Channel Name
+    - Update the slack channel name on line `"133"` (there about)
+    - Change the name from whatever that is there to your Slack Channel Name `YOUR_INITIAL-cicd-pipeline-alerts`
         - Bring up your `Terminal` (Depending on your machine type)
         - Add the changes to git: `git add -A`
         - Commit the changes: `git commit -m "updated Jenkinsfile with slack channel name"`
