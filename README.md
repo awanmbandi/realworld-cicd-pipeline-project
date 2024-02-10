@@ -121,22 +121,26 @@
       - You can either join through the browser or your local Slack App
       - Create a `Private Channel` using the naming convention `YOUR_FIRST_&_LAST_NAME_INITIAL-cicd-pipeline-alerts`
         - **NOTE:** *`(The Channel Name Must Be Unique, meaning it must be available for use)`*
-      - Click on the Drop down on the Channel and select Integrations and take `Add an App`
-      - Search for `Jenkins` and click on `View` -->> `Configuration/Install` -->> `Add to Slack` 
+      - Visibility: Select `Private`
+      - Click on the `Channel Drop Down` and select `Integrations` and Click on `Add an App`
+      - Search for `Jenkins` and Click on `View`
+      - Click on `Configuration/Install` and Click `Add to Slack` 
       - On Post to Channel: Click the Drop Down and select your channel above `YOUR_FIRST_&_LAST_NAME_INITIAL-cicd-pipeline-alerts`
       - Click `Add Jenkins CI Integration`
-      - SAVE SETTINGS/CONFIGURATIONS
+      - Scrol Down and Click `SAVE SETTINGS/CONFIGURATIONS`
       - Leave this page open
       ![SlackConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.08.55%20PM.png)
     
     #### NOTE: Update Your Jenkins file with your Slack Channel Name
-    - Go back to your local, open your "Jenkins-Realworld-CICD-Project" repo/folder/directory on VSCODE
-    - Open your "Jenkinsfile"
-    - Update the slack channel name on line "97" (there about)
-    - Change name from "cicd-project-alerts" (or whatever name thst's there) to yours
-    - Add the changes to git, commit and push to GitHub
-    - Confirm the changes are available on GitHub
-		- Save and Push to GitHub
+    - Go back to your local, open your `Jenkins-Realworld-CICD-Project` repo/folder/directory on VSCODE
+    - Open your `Jenkinsfile`
+    - Update the slack channel name on line `"97"` (there about)
+    - Change name from whatever that is there to your Slack Channel Name
+        - Bring up your `Terminal` (Depending on your machine type)
+        - Add the changes to git: `git add -A`
+        - Commit the changes: `git commit -m "updated Jenkinsfile with slack channel name"`
+        - Push the changes to GitHub: `git push` 
+    - Confirm that the changes are available on GitHub
 
 ## Configure All Systems
 ### Configure Promitheus
