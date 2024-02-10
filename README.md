@@ -145,7 +145,7 @@
 ## Configure All Systems
 ### Configure Promitheus
   - Login/SSH to your Prometheus Server
-  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
@@ -155,7 +155,7 @@
 
 ### Configure Grafana
   - Login/SSH to your Grafana Server
-  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
@@ -167,7 +167,7 @@
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
   - Install git by running: `sudo yum install git -y `
-  - Clone the following repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
+  - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al` (to confirm you have the branch files)
