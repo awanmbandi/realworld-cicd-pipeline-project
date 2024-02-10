@@ -404,13 +404,16 @@ cd /opt/splunk/bin
     - **Maven** 
       - Click on `Add Maven` 
       - Enable **`Install automatically`** is enabled 
-      * Name: **localMaven**
+      * Name: **`localMaven`**
       * Version: Keep the default version as it is to latest
     - Click on `SAVE`
     ![MavenSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.44.14%20AM.png)
     
 4)  #### Credentials setup(SonarQube, Nexus, Ansible and Slack):
-    - Click on Manage Jenkins -->> Manage Credentials -->> Global credentials (unrestricted) -->> Add Credentials
+    - Click on `Manage Jenkins` 
+      - Click on `Credentials` 
+      - Click on `Global credentials` (unrestricted)
+      - Click on `Add Credentials`
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
               - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
