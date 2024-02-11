@@ -772,7 +772,8 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
     - Then `Re-Run The Pipeline`
     - Finally `Try Accessing The Application` Now
 
-- You also might want to Confirm that the `Jenkins/Maven/Ansible` instance has an `IAM Profile with EC2 Access`
+- Verify that the `Jenkins/Maven/Ansible` instance has an `IAM Profile with EC2 Access`
+- Also Confirm that the `Dev, Stage` and `Prod` Environments have their assigned Environment tags
 
 ### TEST PIPELINE DEPLOYMENT
 - Confirm/Confirm that your deployments where all successful accross all Environments
