@@ -5,9 +5,9 @@ regions:
 filters:
   # Different Evironments
   tag:Environment:
-    - Dev
-    - Stage
-    - Prod
+    - dev
+    - stage
+    - prod
   # Filter Running instances only
   instance-state-name: running
 # Resource Grouping

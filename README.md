@@ -763,6 +763,16 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
         - Navigate to `Build Triggers`
             - Enable/Check the box `GitHub hook trigger for GITScm polling`
         - Click on `Apply and Save`
+### TROUBLESHOOT
+#### A) Ansible Automation
+- **`NOTE:`** You pipeline can actually Run to the end and you get a Success. But you might not have access to the Application. Could be due the fact that you're using a different `Region` as compared to what's stated in the `ansible-config/aws_ec2.yaml` config file. 
+    - To Reolve this, Navigate to this file 
+    - Change the `Region` to `Your Region`
+    - Commit the Changes and Push to GitHub
+    - Then `Re-Run The Pipeline`
+    - Finally `Try Accessing The Application` Now
+
+- You also might want to Confirm that the `Jenkins/Maven/Ansible` instance has an `IAM Profile with EC2 Access`
 
 ### TEST PIPELINE DEPLOYMENT
 - Confirm/Confirm that your deployments where all successful accross all Environments
