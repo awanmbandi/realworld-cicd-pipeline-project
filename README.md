@@ -416,19 +416,19 @@ cd /opt/splunk/bin
       - Click on `Add Credentials`
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
-              - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials 
+              - Login to your SonarQube Application (http://SonarServer-Sublic-IP:9000)
                 - Default username: **`admin`** 
                 - Default password: **`admin`**
-              - Click on profile -->> My Account -->> Security -->> Tokens
+              - Click on `your profile` -->> Click `My Account` -->> Click `Security` --> Tokens
               - Generate Tokens: Fill ``SonarQube-Token``
               - Click on `Generate`
-              - Copy the token 
+              - Copy the token
           - ###### Store SonarQube Secret token in Jenkins:
               - Click on ``Add Credentials``
               - Kind: Secret text!! 
-              - Secret: Fill the SonarQube token value that we have created on the SonarQube server
+              - Secret: `Paste the SonarQube token` value that we have created on the SonarQube server
               - ID: ``SonarQube-Token``
-              - Description: SonarQube-Token
+              - Description: `SonarQube-Token`
               - Click on Create
 
       2)  ##### Slack secret token (slack-token)
@@ -484,18 +484,22 @@ cd /opt/splunk/bin
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.10.40%20PM.png)
 
 5)  #### Configure system:    
-    1)  - Click on ``Manage Jenkins`` -->> ``Configure System`` 
-        - `SonarQube Servers`
+    1)  - Click on ``Manage Jenkins`` 
+        - Click on ``Configure System`` and navigate to the `SonarQube Servers` section
+        - Click on Add `SonarQube`
+        - Server URL: http://YOUR_SONARQUBE_PRIVATE_IP:9000
+        - Server authentication token: Select `SonarQube-Token`
         ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.13.39%20AM.png)
 
-    2)  - Click on Manage Jenkins -->> Configure System
-        - Go to section Slack
-            - Use new team subdomain & integration token credentials created in the above slack joining step
-            - Workspace: **Replace with Team Subdomain value** (created above)
-            - Credentials: select the slack-token credentials (created above) 
-            - Default channel / member id: #PROVIDE_YOUR_CHANNEL_NAME_HERE
-            - Test Connection
-            - Click on Save
+    2)  - Still on `Manage Jenkins` and `Configure System`
+        - Scroll down to the `Slack` Section (at the very bottom)
+        - Go to section `Slack`
+            - `NOTE:` *Make sure you still have the Slack Page that has the `team subdomain` & `integration token` open*
+            - Workspace: **Replace with `Team Subdomain` value** (created above)
+            - Credentials: select the `Slack-Token` credentials (created above) 
+            - Default channel / member id: #`PROVIDE_YOUR_CHANNEL_NAME_HERE`
+            - Click on `Test Connection`
+            - Click on `Save`
         ![SlackSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2010.31.12%20AM.png)
 
 ### SonarQube Configuration
