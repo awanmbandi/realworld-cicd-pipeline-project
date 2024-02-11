@@ -608,14 +608,38 @@ cd /opt/splunk/bin
     - Password: `admin`
 
     ### Go ahead and Create your Nexus Project Repositories
-    - CREATE 1st REPO: Click on the Gear Icon -->> Repository -->> Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-releases` -->> Create Repository
+    - CREATE 1st REPO: 
+        - Click on the Gear Icon 
+        - Click on `Repository` 
+        - Click `Create Repository` 
+        - Select Recipe: `maven2(hosted)` 
+        - Name: `maven-project-releases` 
+        - Version Policy: Select `Release`
+        - Click `Create Repository`
 
-    - CREATE 2nd REPO: Click Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-snapshots` -->> Version Policy: Select `Snapshot` -->> Create Repository
+    - CREATE 2nd REPO: 
+        - Click on `Create Repository` 
+        - Select Recipe: `maven2(hosted)` 
+        - Name: `maven-project-snapshots` 
+        - Version Policy: Select `Snapshot` 
+        - Click `Create Repository`
 
-    - CREATE 3rd REPO: Click Create Repository -->> Select `maven2(proxy)` -->> Name: `maven-project-central` -->> Remote Storage: provide this link https://repo.maven.apache.org/maven2 -->> Create Repository
+    - CREATE 3rd REPO: 
+        - Click on `Create Repository` 
+        - Select Recipe: `maven2(proxy)` 
+        - Name: `maven-project-central` 
+        - Version Policy: Select `Release`
+        - Remote Storage: https://repo.maven.apache.org/maven2 
+        - Click `Create Repository`
 
-    - CREATE 4th REPO: Click Create Repository -->> Select `maven2(group)` -->> Name: `maven-project-group` -->> Version Policy: Select `Mixed` -->> Assign All The Repos You Created to The Group -->> Create Repository
-    - Once you select create repository and select maven2(group)
+    - CREATE 4th REPO: 
+        - Click on `Create Repository` 
+        - Select Recipe: `maven2(group)` 
+        - Name: `maven-project-group` 
+        - Version Policy: Select `Mixed` 
+        - Member Repositories: Assign All The Repos You Created to The Group 
+          - **MEANING:** *Move all 4 repositories to the Box on your Right*
+        - Click `Create Repository`
 
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%203.42.03%20PM.png) 
 
