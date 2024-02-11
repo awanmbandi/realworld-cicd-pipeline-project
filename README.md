@@ -608,7 +608,7 @@ cd /opt/splunk/bin
     - Password: `admin`
 
     ### Go ahead and Create your Nexus Project Repositories
-    - CREATE 1st REPO: 
+    - CREATE 1st REPO (Release Repo): 
         - Click on the Gear Icon 
         - Click on `Repository` 
         - Click `Create Repository` 
@@ -617,14 +617,14 @@ cd /opt/splunk/bin
         - Version Policy: Select `Release`
         - Click `Create Repository`
 
-    - CREATE 2nd REPO: 
+    - CREATE 2nd REPO (Snapshot Repo): 
         - Click on `Create Repository` 
         - Select Recipe: `maven2(hosted)` 
         - Name: `maven-project-snapshots` 
         - Version Policy: Select `Snapshot` 
         - Click `Create Repository`
 
-    - CREATE 3rd REPO: 
+    - CREATE 3rd REPO (Proxy/Remote Repo): 
         - Click on `Create Repository` 
         - Select Recipe: `maven2(proxy)` 
         - Name: `maven-project-central` 
@@ -632,7 +632,7 @@ cd /opt/splunk/bin
         - Remote Storage: https://repo.maven.apache.org/maven2 
         - Click `Create Repository`
 
-    - CREATE 4th REPO: 
+    - CREATE 4th REPO (Group Repo): 
         - Click on `Create Repository` 
         - Select Recipe: `maven2(group)` 
         - Name: `maven-project-group` 
