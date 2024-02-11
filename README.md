@@ -690,8 +690,8 @@ A) Update Maven `POM.xml` file
     - Push to GitHub: `git push`
 
 - Test your Pipeline to ``Make Sure That The Artifacts Upload Stage Succeeds``.
-- Navigate to Jenkins Dashboard (Run/Test The Job) 
-- Click on `Build Now`
+    - Navigate to Jenkins Dashboard (Run/Test The Job) 
+    - Click on `Build Now`
 ![PipelineStagesArtifactSuccess!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/second-pipeline-run.png)
 
 - Navigate to `Nexus` as well to confirm that the artifact was `Stored` in the `maven-project-releases` repository
