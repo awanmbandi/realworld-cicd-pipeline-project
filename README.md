@@ -576,7 +576,7 @@ cd /opt/splunk/bin
         - Script Path: ``Jenkinsfile``
     - Click on `SAVE`
     - NOTE: Make Sure Your Pipeline Succeeds Until ``SonarQube GateKeeper``. Upload to Artifactory would fail.
-    - TEST Pipeline 
+    - Click on `Build Now` to TEST Pipeline 
 
     ### A. Pipeline Test Results 
     - Jenkins Pipeline Job
@@ -602,13 +602,12 @@ cd /opt/splunk/bin
     ```
 
 ### Nexus Configuration
-1)  ### Accessing Nexus: 
-    The nexus service on port 8081. To access the nexus dashboard, visit http://Nexus-Pub-IP:8081. You will be able to see the nexus homepage as shown below.
-    - Default username: ``admin``
-    - Default Password: ```sudo cat /app/sonatype-work/nexus3/admin.password```
-    - NOTE: Once you login, you will be prompted to reset the password
+1)  ### Navigate to Accessing Nexus: 
+    The nexus service on port `8081`. To access the nexus dashboard, visit http://Nexus-Pub-IP:8081. 
+    - Username: ``admin``
+    - Password: `admin`
 
-    ### Go ahead and create your Nexus Project Repositories
+    ### Go ahead and Create your Nexus Project Repositories
     - CREATE 1st REPO: Click on the Gear Icon -->> Repository -->> Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-releases` -->> Create Repository
 
     - CREATE 2nd REPO: Click Create Repository -->> Select `maven2(hosted)` -->> Name: `maven-project-snapshots` -->> Version Policy: Select `Snapshot` -->> Create Repository
