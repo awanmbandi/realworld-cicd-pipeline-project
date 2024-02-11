@@ -558,6 +558,7 @@ cd /opt/splunk/bin
 - Update `SonarQube IP address` in your `Jenkinsfile` On `Line 61`
 - Update the `SonarQube projectKey or name` in your `Jenkinsfile` On `Line 60`
 - Update your `Slack Channel Name` in the `Jenkinsfile` on `Line 133`
+- Update Your `Nexus IP` in the `Jenkinsfile` on `Line 80`
     
     - Log into Jenkins: http://Jenkins-Public-IP:8080/
     - Click on `New Item`
@@ -652,7 +653,7 @@ A) Update Maven `POM.xml` file
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-releases/</url>
 ```
 
--  **`NOTE:`** Confirm that you have the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
+-  **`NOTE:`** Confirm that you have the following Stage in your Jenkins pipeline config. Once you Confirm, Go ahead and Update the following Values (`nexusUrl`(Your Nexus IP), `repository`, `credentialsId` (Variable)). If necessary 
 - **`NOTE:`** The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
   ```bash
   environment {
