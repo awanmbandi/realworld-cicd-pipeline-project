@@ -419,11 +419,19 @@ cd /opt/splunk/bin
               - Login to your SonarQube Application (http://SonarServer-Sublic-IP:9000)
                 - Default username: **`admin`** 
                 - Default password: **`admin`**
-              - Click on `your profile` -->> Click `My Account` -->> Click `Security` --> Tokens
-              - Generate Tokens: Fill ``SonarQube-Token``
+              - Click on `Projects`
+              - Click on `Create New Project`
+                - Project key: `JavaWebApp-Project`
+                - Display name: `JavaWebApp-Project`
+              - Click on `Set Up`
+              - Generate a Tokens: Provide Name ``JavaWebApp-SonarQube-Token``
               - Click on `Generate`
-              - Copy the token
-          - ###### Store SonarQube Secret token in Jenkins:
+              - Click on `Continue`
+              - Run analysis on your project: Select `Java`
+              - Build technology: Select `Maven`
+              - COPY the `TOKEN`
+          - ###### Store SonarQube Secret Token in Jenkins:
+              - Navigate back to Jenkins
               - Click on ``Add Credentials``
               - Kind: Secret text!! 
               - Secret: `Paste the SonarQube token` value that we have created on the SonarQube server
@@ -506,16 +514,22 @@ cd /opt/splunk/bin
 2)  ### Setup SonarQube GateKeeper
     - Click on `Quality Gate` 
     - Click on `Create`
+    - Name: `JavaWebApp-QualityGate`
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsdsdsdsdsdsds.png)
-    - Click on -->> Create
+    - Click on `Save` to Create
     ![SonarQubeSetup2!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.00.25%20AM.png)
     - Add a Quality Gate Condition to Validate the Code Against (Code Smells or Bugs)
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.02.36%20AM.png)
     
     - Add Quality to SonarQube Project
     -  ``NOTE:`` Make sure to update the `SonarQube` stage in your `Jenkinsfile` and Test the Pipeline so your project will be visible on the SonarQube Project Dashboard.
-    - Click on Projects -->> Administration -->> Select `Quality Gate`
-    ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%2011.05.47%20AM.png)
+    - Click on `Projects` 
+    - Click on your project name `JavaWebApp-Project` 
+      - Click on `Project Settings`
+      - Click on `Quality Gate`
+      - Select your QG `JavaWebApp-QualityGate`
+
+    ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDFVDSFVDFV.png)
 
 3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
     - Still on `Administration`
