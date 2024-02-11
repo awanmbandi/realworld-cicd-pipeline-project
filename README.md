@@ -1,4 +1,4 @@
-# End-to-End Jenkins CI/CD Pipeline Project Architecture (Java Web Application)
+# End-to-End Jenkins CI/CD Pipeline Project (Java Web Application)
 ![CompleteCICDProject!](https://lucid.app/publicSegments/view/0c183bd6-73f4-4547-93e1-5246db5e863c/image.png) 
 
 ###### Project ToolBox 🧰
@@ -16,11 +16,11 @@
 - [Grafana](https://grafana.com/) Grafana is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
 - [Splunk](https://www.splunk.com/) Splunk is an innovative technology which searches and indexes application/system log files and helps organizations derive insights from the data.
 
-# Jenkins Complete CI/CD Pipeline Environment Setup Runbook
+# Jenkins Complete CI/CD Pipeline Project Runbook
 1) Create a GitHub Repository with the name `Jenkins-Realworld-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
     - Go to GitHub: https://github.com
-    - Login to your GitHub Account
+    - Login to `Your GitHub Account`
     - Create a Repository called `Jenkins-Realworld-CICD-Project`
     - Clone the Repository in the `Repository` directory/folder on your `local machine`
     - Download the code in in this repository `"Main branch"`: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
