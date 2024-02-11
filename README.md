@@ -22,12 +22,16 @@
     - Go to GitHub (github.com)
     - Login to your GitHub Account
     - Create a Repository called `Jenkins-Realworld-CICD-Project`
-    - Clone the Repository in the "Repository" directory/folder in your local
-    - Download the code in in this repository "Main branch": https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
-    - Unzip the code/zipped file
-    - Copy and Paste everything from the zipped file into the repository you cloned in your local
-    - Add the code to git, commit and push it to your upstream branch "main or master"
-    - Confirm that the code exist on GitHub
+    - Clone the Repository in the `Repository` directory/folder on your `local machine`
+    - Download the code in in this repository `"Main branch"`: https://github.com/awanmbandi/realworld-cicd-pipeline-project.git
+    - `Unzip` the `code/zipped file`
+    - `Copy` and `Paste` everything `from the zipped file` into the `repository you cloned` in your local
+    - Open your `Terminal`
+        - Add the code to git, commit and push it to your upstream branch "main or master"
+        - Add the changes: `git add -A`
+        - Commit changes: `git commit -m "updated project POM and Jenkinsfile"`
+        - Push to GitHub: `git push`
+    - Confirm that the code is now available on GitHub
 
 2) Create An IAM Profile/Role For The Ansible Automation Engine (Dynamic Inventory)
 - Create an EC2 Service Role in IAM with AmazonEC2FullAccess Privilege 
