@@ -416,7 +416,9 @@ cd /opt/splunk/bin
       - Click on `Add Credentials`
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
-              - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
+              - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials 
+                - Default username: **`admin`** 
+                - Default password: **`admin`**
               - Click on profile -->> My Account -->> Security -->> Tokens
               - Generate Tokens: Fill ``SonarQube-Token``
               - Click on `Generate`
@@ -451,12 +453,15 @@ cd /opt/splunk/bin
       3)  ##### Nexus Credentials (Username and Password)
           - ###### Login to Nexus and Set Password
               - Access Nexus: http://Nexus-Pub-IP:8081/
-	          - Default Username: admin
+	          - Default Username: `admin`
 	          - NOTE: Login into your "Nexus" VM and "cat" the following file to get the password.
 	          - Command: ``sudo cat /opt/nexus/sonatype-work/nexus3/admin.password``
 	          - Password: `Fill In The Password and Click Sign In`
-	          - Click Next -->> Provide New Password: "admin" 
-	          - Configure Anonymous Access: "Enable anonymous access" -->> Finish
+	          - Click `Next` 
+              - Provide New Password: `admin`
+	          - Configure Anonymous Access: `Disable anonymous access`
+              - Click on `Finish`
+
           - ###### Nexus credentials (username & password)
 	          - Click on ``Add Credentials``
 	          - Kind: Username with password                  
@@ -464,8 +469,8 @@ cd /opt/splunk/bin
 	          - Enable Treat username as secret
 	          - Password: ``admin``
 	          - ID: ``Nexus-Credential``
-	          - Description: nexus-credential
-	          - Click on Create   
+	          - Description: `nexus-credential`
+	          - Click on `Create`   
 
       4)  ##### Ansible deployment server credential (username & password)
           - Click on ``Add Credentials``
@@ -474,8 +479,8 @@ cd /opt/splunk/bin
           - Enable Treat username as secret
           - Password: ``ansibleadmin``
           - ID: ``Ansible-Credential``
-          - Description: Ansible-Credential
-          - Click on Create   
+          - Description: `Ansible-Credential`
+          - Click on `Create`   
       ![SonarQubeServerSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%202.10.40%20PM.png)
 
 5)  #### Configure system:    
