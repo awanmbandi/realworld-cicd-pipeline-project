@@ -19,7 +19,7 @@
 # Jenkins Complete CI/CD Pipeline Environment Setup Runbook
 1) Create a GitHub Repository with the name `Jenkins-Realworld-CICD-Project` and push the code in this branch(main) to 
     your remote repository (your newly created repository). 
-    - Go to GitHub (github.com)
+    - Go to GitHub: https://github.com
     - Login to your GitHub Account
     - Create a Repository called `Jenkins-Realworld-CICD-Project`
     - Clone the Repository in the `Repository` directory/folder on your `local machine`
