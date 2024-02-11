@@ -652,8 +652,8 @@ A) Update Maven `POM.xml` file
 <url>http://Nexus-Server-Private-IP:8081/repository/maven-project-releases/</url>
 ```
 
--  Add the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
-- The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
+-  **`NOTE:`** Confirm that you have the following Stage in your Jenkins pipeline config and Update the following Values (nexusUrl, repository, credentialsId, artifactId, file etc.). If necessary 
+- **`NOTE:`** The following `environment` config represents the NEXUS CREDENTIAL stored in jenkins. we're pulling the credential with the use of the predefine ``NEXUS_CREDENTIAL_ID`` environment variable key. Which jenkins already understands. 
   ```bash
   environment {
     WORKSPACE = "${env.WORKSPACE}"
