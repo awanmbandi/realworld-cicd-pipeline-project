@@ -78,7 +78,7 @@
     - Click on Launch instances
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Dev-Env`
-      - Tag 2: Name: `Environment`, Value: `Dev`
+      - Tag 2: Name: `Environment`, Value: `dev`
     - AMI: `Amazon Linux 2`
     - Number: `3`
     - Instance type: `t2.micro`
@@ -87,11 +87,11 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
-6) EC2 (Stage Environment)
+7) EC2 (Stage Environment)
     - Click on Launch instances
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Stage-Env`
-      - Tag 2: Name: `Environment`, Value: `Stage`
+      - Tag 2: Name: `Environment`, Value: `stage`
     - AMI: `Amazon Linux 2`
     - Number: `3`
     - Instance type: `t2.micro`
@@ -100,11 +100,11 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
-6) EC2 (Prod Environment)
+8) EC2 (Prod Environment)
     - Click on Launch instances
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Prod-Env`
-      - Tag 2: Name: `Environment`, Value: `Prod`
+      - Tag 2: Name: `Environment`, Value: `prod`
     - AMI: `Amazon Linux 2`
     - Number: `3`
     - Instance type: `t2.micro`
@@ -113,7 +113,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/tomcat-splunk-installation/tomcat-ssh-configure.sh
     - Launch Instance
 
-7) Prometheus
+9) Prometheus
     - Create a Prometheus VM instance 
     - Name: `Prometheus`
     - AMI: `Ubuntu 20.04`
@@ -123,7 +123,7 @@
     - IAM instance profile: Select `AWS-EC2FullAccess-Role`
     - Launch Instance
 
-8) Grafana
+10) Grafana
     - Create a Grafana VM instance
     - Name: `Grafana`
     - AMI: `Ubuntu 20.04`
@@ -132,7 +132,7 @@
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
     - Launch Instance
 
-9) EC2 (Splunk)
+11) EC2 (Splunk)
     - Create a Splunk/Indexer VM instance
     - Name: `Splunk-Indexer`
     - AMI: `Amazon Linux 2`
@@ -144,7 +144,7 @@
 #### NOTE: Confirm and make sure you have a total of 9 VM instances
 ![PipelineEnvSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screenshot%202024-02-10%20at%202.17.03%E2%80%AFPM.png)
 
-10) Slack 
+12) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
       - You can either join through the browser or your local Slack App
