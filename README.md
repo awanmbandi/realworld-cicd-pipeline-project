@@ -412,14 +412,14 @@ cd /opt/splunk/bin
 4)  #### Credentials setup(SonarQube, Nexus, Ansible and Slack):
     - Click on `Manage Jenkins` 
       - Click on `Credentials` 
-      - Click on `Global credentials` (unrestricted)
+      - Click on `Global` (unrestricted)
       - Click on `Add Credentials`
       1)  ##### SonarQube secret token (SonarQube-Token)
           - ###### Generating SonarQube secret token:
               - Login to your SonarQube server (http://SonarServer-Sublic-IP:9000, with the credentials username: **admin** & password: **admin**)
               - Click on profile -->> My Account -->> Security -->> Tokens
               - Generate Tokens: Fill ``SonarQube-Token``
-              - Click on **Generate**
+              - Click on `Generate`
               - Copy the token 
           - ###### Store SonarQube Secret token in Jenkins:
               - Click on ``Add Credentials``
@@ -430,12 +430,23 @@ cd /opt/splunk/bin
               - Click on Create
 
       2)  ##### Slack secret token (slack-token)
-          - Click on ``Add Credentials``
-          - Kind: Secret text            
-          - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
-          - ID: ``Slack-Token``
-          - Description: slack-token
-          - Click on Create  
+          - ###### Get The Slack Token: 
+              - Slack: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ
+              - Navigate to the Slack "Channel you created": `YOUR_INITIAL-cicd-pipeline-alerts`
+              - Click on your `Channel Drop Down`
+              - Click on `Integrations` and Click on `Add an App`
+              - Click on `Jenkins CI VIEW` and Click on `Configuration`
+              - Click on `Add to Slack`, Click on the Drop Down and `Select your Channel`
+              - Click on `Add Jenkins CI Integration`
+              - **`NOTE:`** *The TOKEN is on Step 3*
+
+          - ###### Create The Slack Credential For Jenkins:
+              - Click on ``Add Credentials``
+              - Kind: Secret text            
+              - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
+              - ID: ``Slack-Token``
+              - Description: `slack-token`
+              - Click on `Create`  
 
       3)  ##### Nexus Credentials (Username and Password)
           - ###### Login to Nexus and Set Password
