@@ -532,8 +532,7 @@ cd /opt/splunk/bin
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDFVDSFVDFV.png)
 
 3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
-    - Still on `Administration`
-    - Select `Webhook`
+    - Click on `Administration` and Select `Webhook`
     - Click on `Create Webhook` 
       - Name: `jenkinswebhook`
       - URL: `http://Jenkins-Server-Private-IP:8080/sonarqube-webhook`
@@ -556,9 +555,9 @@ cd /opt/splunk/bin
 
 ### Pipeline creation
 - Update The ``Jenkinsfile`` If Neccessary
-- Update `SonarQube IP address` in your `Jenkinsfile`
-- Update the `SonarQube projectKey or name` in your `Jenkinsfile`
-- Update your `Slack Channel Name` in the `Jenkinsfile` 
+- Update `SonarQube IP address` in your `Jenkinsfile` On `Line 61`
+- Update the `SonarQube projectKey or name` in your `Jenkinsfile` On `Line 60`
+- Update your `Slack Channel Name` in the `Jenkinsfile` on `Line 133`
     
     - Log into Jenkins: http://Jenkins-Public-IP:8080/
     - Click on **New Item**
