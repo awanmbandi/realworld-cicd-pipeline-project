@@ -560,18 +560,21 @@ cd /opt/splunk/bin
 - Update your `Slack Channel Name` in the `Jenkinsfile` on `Line 133`
     
     - Log into Jenkins: http://Jenkins-Public-IP:8080/
-    - Click on **New Item**
-    - Enter an item name: **Jenkins-Complete-CICD-Pipeline** & select the category as **Pipeline**
-    - Now scroll-down and in the Pipeline section -->> Definition -->> Select Pipeline script from SCM
-    - GitHub project: `Provide Your Project Repo Git URL`
+    - Click on `New Item`
+    - Enter an item name: `Jenkins-Complete-CICD-Pipeline` 
+    - Select the category as **`Pipeline`**
+    - Click `OK`
+    - Select GitHub project: Project url `Provide Your Project Repo Git URL`
     - GitHub hook trigger for GITScm polling: `Check the box` 
       - NOTE: Make sure to also configure it on GitHub's side
-    - SCM: **Git**
-    - Repositories
-        - Repository URL: FILL YOUR OWN REPO URL (that we created by importing in the first step)
+    - Pipeline Definition: Select `Pipeline script from SCM`
+      - SCM: `Git`
+      - Repositories
+        - Repository URL: `Provide Your Project Repo Git URL` (the one you created in the initial phase)
+        - Credentials: `none` *since the repository is public*
         - Branch Specifier (blank for 'any'): ``*/main``
         - Script Path: ``Jenkinsfile``
-    - Save
+    - Click on `SAVE`
     - NOTE: Make Sure Your Pipeline Succeeds Until ``SonarQube GateKeeper``. Upload to Artifactory would fail.
     - TEST Pipeline 
 
