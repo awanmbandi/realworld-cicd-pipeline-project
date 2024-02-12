@@ -79,7 +79,7 @@
     - Launch Instance
 
 6) EC2 (Dev Environment)
-    - Click on Launch instances
+    - Create a Development VM instance
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Dev-Env`
       - Tag 2: Name: `Environment`, Value: `dev`
@@ -92,7 +92,7 @@
     - Launch Instance
 
 7) EC2 (Stage Environment)
-    - Click on Launch instances
+    - Create a Staging VM instance
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Stage-Env`
       - Tag 2: Name: `Environment`, Value: `stage`
@@ -105,7 +105,7 @@
     - Launch Instance
 
 8) EC2 (Prod Environment)
-    - Click on Launch instances
+    - Create a Production VM instance
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Prod-Env`
       - Tag 2: Name: `Environment`, Value: `prod`
