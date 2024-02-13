@@ -259,7 +259,7 @@
     - Click on this link to Download the JSON: https://grafana.com/api/dashboards/1860/revisions/25/download
     - **NOTE:** *(Confirm that the Dashboard JSON was downloaded successfully)*
 
-  - Navigate to `"Create"` on your left (the `+` sign)
+  - Navigate to `"Create"` on your left (the `+` sign) on Grafana
       - Click on `Import`
       - Click on `Upload JSON file` and Select the `Dashboard JASON` file you just downloaded
   ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/fwefwrfwrsgvsd.png)
