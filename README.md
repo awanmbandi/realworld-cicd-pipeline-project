@@ -54,7 +54,7 @@
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Edit/Open): `8080, 9100` and `22 to 0.0.0.0/0`
-    - IAM instance profile: Select `AWS-EC2FullAccess-Role`
+    - IAM instance profile: Select the `AWS-EC2FullAccess-Role`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/jenkins-install.sh
     - Launch Instance
 
@@ -124,7 +124,7 @@
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
-    - IAM instance profile: Select `AWS-EC2FullAccess-Role`
+    - IAM instance profile: Select the `AWS-EC2FullAccess-Role`
     - Launch Instance
 
 10) Grafana
@@ -182,6 +182,7 @@
   - Change directory: `cd realworld-cicd-pipeline-project`
   - Swtitch branch: `git switch prometheus-and-grafana-install`
   - Confirm Branch Switch: `git branch` and `ls -al`
+  - Change directory to Service Discovery: `cd service-discovery`
   - Install Prometheus: `bash install-prometheus.sh`
   - Confirm the status shows *"Active (running)"*
   - Exit
@@ -196,7 +197,7 @@
   - Confirm the status shows *"Active (running)"*
   - Exit
 
-### Configure The "Node Exporter" accross the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
+### Configure The "Node Exporter" on the "Dev", "Stage" and "Prod" instances including your "Pipeline Infra"
   - Login/SSH into the "Dev-Env", "Stage-Env" and "Prod-Env" VM instance
   - Perform the following operations on all of them
   - Install git by running: `sudo yum install git -y `
