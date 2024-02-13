@@ -731,7 +731,7 @@ A) Update Maven `POM.xml` file
 
 ## Confirm Ansible Deployment to `Dev`, `Stage` and `Prod` Was Successful
 - ((NOTE)): That you passed the Userdata in the `Jenkins/Maven/Ansible` and `Dev,Stage` and `Prod` Instances to Configure the Environments, then you should not have issues. And if that is the case, you do not have to perform the operations that follows this step to re-configure `Anasible` and `Tomcat` again. You just Have to confirm, the Configurations where all Successful and Move to the Next step to Setup a CI Integration Between `GitHub` and `Jenkins`.
-- ((NOTE)): Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
+- ((NOTE)): Confim you did `Assign an IAM ROLE / PROFILE` with `EC2 Access` to your `Jenkins/Maven/Ansible VM`
 - ((NOTE)): Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - ((NOTE)): Make sure the following Userdata was executed across all the Environment Deployment Nodes/Instances
 ```bash
