@@ -769,12 +769,16 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
         - Click on `Apply and Save`
 ### TROUBLESHOOT (BUG FIX)
 #### A) Ansible Automation
-- **`NOTE:`** You pipeline can actually Run to the end and you get a Success. But you might not have access to the Application. Could be due the fact that you're using a different `Region` as compared to what's stated in the `ansible-config/aws_ec2.yaml` config file. 
-    - To Reolve this, Navigate to this file 
+- **`NOTE:`** If you followed the steps as mentioned in this Runbook, your pipeline normally should run successfully to the end. 
+- **`NOTE:`** However, you may not be able to reach the Web Application. This could be due to the fact that you're using a different `Region` as compared to what's actually stated in the `ansible-config/aws_ec2.yaml` config script.
+    - To Reolve this issue, Navigate to this file
+      - Go to your Project Code
+      - Open the `ansible-config` folder
+      - You will see the `aws_ec2.yaml` config file
     - Change the `Region` to `Your Region`
     - Commit the Changes and Push to GitHub
-    - Then `Re-Run The Pipeline`
-    - Finally `Try Accessing The Application` Now
+    - Then `Re-Run The Pipeline` 
+    - Finally `Try Accessing The Application` Now from a Web Browser
 
 - Verify that the `Jenkins/Maven/Ansible` instance has an `IAM Profile with EC2 Access`
 - Also Confirm that the `Dev, Stage` and `Prod` Environments have their assigned Environment tags
