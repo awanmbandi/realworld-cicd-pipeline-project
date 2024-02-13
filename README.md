@@ -266,7 +266,7 @@
       - Scrol down to `"Prometheus"` and select the `"Prometheus Data Source"` you defined ealier which is `Prometheus`
       - CLICK on `"Import"`
   - Refresh your Grafana Dashbaord 
-      - Click on the "Drop Down" for "Host" and select any of the "Instances(IP)"
+      - Click on the `"Drop Down"` for `"Host"` and select any of the `"Instances(IP)"`
   ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
 
 ### Setup Splunk Server/Indexer and Configure Forwarders
