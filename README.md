@@ -176,7 +176,7 @@
     - Confirm that the changes are available on GitHub
 
 ## Configure All Systems
-### Configure Promitheus
+### Configure Promitheus With (Service Discovery)
   - Login/SSH to your Prometheus Server
   - Clone repository: `git clone https://github.com/awanmbandi/realworld-cicd-pipeline-project.git`
   - Change directory: `cd realworld-cicd-pipeline-project`
