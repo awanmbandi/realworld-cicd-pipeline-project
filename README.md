@@ -772,7 +772,7 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 - **`NOTE:`** If you followed the steps as mentioned in this Runbook, your pipeline normally should run successfully to the end. 
 - **`NOTE:`** However, you may not be able to reach the Web Application. This could be due to the fact that you're using a different `Region` as compared to what's actually stated in the `ansible-config/aws_ec2.yaml` config script.
     - To Reolve this issue, Navigate to this file 
-      - Go to your Project Code
+      - Go to your `Project Code`
       - Open the `ansible-config` folder
       - You will see the `aws_ec2.yaml` config file
     - Change the `Region` to `Your Region`
