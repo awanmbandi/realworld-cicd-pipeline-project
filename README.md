@@ -392,7 +392,7 @@ cd /opt/splunk/bin
     - Click on `Manage Jenkins`
     - Click on `Plugins`
     - Click `Available`
-    - Search and Install the following Plugings `"Install Without Restart"`
+    - Search and Install the following Plugings and `"Install"`
         - **SonarQube Scanner**
         - **Maven Integration**
         - **Pipeline Maven Integration**
@@ -694,7 +694,7 @@ A) Update Maven `POM.xml` file
   }
   ```
 
-- Here we're using the `Nexus Artifact Uploader` stage config to store the app artifact
+- Here we're using the `Nexus Artifact Uploader` stage config to publish the app artifacts to Nexus
   ```bash
   stage("Nexus Artifact Uploader"){
       steps{
@@ -721,16 +721,16 @@ A) Update Maven `POM.xml` file
     - Commit changes: `git commit -m "updated project POM and Jenkinsfile"`
     - Push to GitHub: `git push`
 
-- Test your Pipeline to ``Make Sure That The Artifacts Upload Stage Succeeds``.
+- Test your Pipeline to `Make Sure That The Artifacts Upload Stage Succeeds` including the `Deployments`.
     - Navigate to Jenkins Dashboard (Run/Test The Job) 
     - Click on `Build Now`
-![PipelineStagesArtifactSuccess!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/second-pipeline-run.png)
+![PipelineStagesArtifactSuccess!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.44.30%20PM.png)
 
 - Navigate to `Nexus` as well to confirm that the artifact was `Stored` in the `maven-project-releases` repository
 ![ArtifactStored!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%204.08.33%20PM.png)
 
-## Configure Ansible To Deploy to `Dev`, `Stage` and `Prod`
-- NOTE: That you passed a Userdata in the Jenkins/Maven/Ansible and Dev,Stage and Prod Instances to Configure the Environments already. So you do not have to perform these operations again. You just Have to confirm, the Configurations where all Successful.
+## Confirm Ansible Deployment to `Dev`, `Stage` and `Prod` Was Successful
+- ((NOTE)): That you passed the Userdata in the Jenkins/Maven/Ansible and Dev,Stage and Prod Instances to Configure the Environments, then you should not have issues. And if that is the case, you do not have to perform the operations that follows this step to re-configure `Anasible` and `Tomcat` again. You just Have to confirm, the Configurations where all Successful and Move to the Next step to Setup a CI Integration Between `GitHub` and `Jenkins`.
 - NOTE: Make sure you `Assign an IAM ROLE / PROFILE` with `EC2 Full Access` to your `JENKINS server`
 - NOTE: Update `ALL Pipeline Deploy Stages` with your `Ansible Credentials ID` (IMPORTANT)
 - Also Make sure the following Userdata was executed across all the Environment Deployment Nodes/Areas
