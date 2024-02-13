@@ -29,7 +29,7 @@
     - Open your `Terminal`
         - Add the code to git, commit and push it to your upstream branch "main or master"
         - Add the changes: `git add -A`
-        - Commit changes: `git commit -m "updated project POM and Jenkinsfile"`
+        - Commit changes: `git commit -m "adding project source code"`
         - Push to GitHub: `git push`
     - Confirm that the code is now available on GitHub
 
