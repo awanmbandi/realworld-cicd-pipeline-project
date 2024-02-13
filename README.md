@@ -767,7 +767,7 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
         - Navigate to `Build Triggers`
             - Enable/Check the box `GitHub hook trigger for GITScm polling`
         - Click on `Apply and Save`
-### TROUBLESHOOT
+### TROUBLESHOOT (BUG FIX)
 #### A) Ansible Automation
 - **`NOTE:`** You pipeline can actually Run to the end and you get a Success. But you might not have access to the Application. Could be due the fact that you're using a different `Region` as compared to what's stated in the `ansible-config/aws_ec2.yaml` config file. 
     - To Reolve this, Navigate to this file 
