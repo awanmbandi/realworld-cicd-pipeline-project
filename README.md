@@ -233,7 +233,8 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
     - Service Role: `Existing Service Role`
         - Role name: Select `AWS-CodeBuild-Admin-Role` 
         - Allow AWS CodeBuild to modify this service role so it can be used with this build project: `Disable/Uncheck`
-    - Build Specifications: Pass `buildspecs/buildspec.yml`
+    - Build Specifications: Select `Use a buildspec file`
+        - Provide this Path `buildspecs/buildspec.yml`
     - Artifacts:
         - Type: Select `Amazon S3`
         - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
@@ -261,7 +262,8 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
     - Service Role: `Existing Service Role`
         - Role name: Select `AWS-CodeBuild-Admin-Role` 
         - Allow AWS CodeBuild to modify this service role so it can be used with this build project: `Disable/Uncheck`
-    - Build Specifications: Pass `buildspecs/pmd_buildspec.yml`
+    - Build Specifications: Select `Use a buildspec file`
+        - Pass `buildspecs/pmd_buildspec.yml`
     - Artifacts:
         - Type: Select `Amazon S3`
         - Bucket name: Select your bucket `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
