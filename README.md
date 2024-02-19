@@ -42,6 +42,10 @@
 - Project Code: https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/advanced-aws-native-cicd-project-one
 - Unzip and Copy everything to the Code Commit Repository you just cloned
 - Push the Code Upstream to Your CodeCommit Project Repository and Confirm you have everything in the Repository 
+    - Add the code to git, commit and push it to your upstream branch "main or master"
+    - Add the changes: `git add -A`
+    - Commit changes: `git commit -m "adding project source code"`
+    - Push to GitHub: `git push`
 - NOTE: Use the same Git commands you have always used to Push code to GitHub
 
 ## 2) Create A CodeBuild IAM Profile/Role
