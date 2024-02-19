@@ -30,7 +30,7 @@ b) You must Login as an IAM User before you can complete the below steps success
 - Runbook: https://docs.google.com/document/d/1vDu6TBcIrh2NbUtv5eayur1Cdo3Z8X5YSZ9t58ItlXo/edit?usp=sharing
 
 1.3) Download the Project Zip Code From The Below Repository Link
-- Project Code: https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/advanced-native-cicd-pipeline-project
+- Project Code: https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/advanced-aws-native-cicd-project-two
 - Unzip and Copy everything to the Code Commit Repository you just cloned
 - Push the Code Upstream to Your CodeCommit Project Repository and Confirm you have everything in the Repository 
 - NOTE: Use the same Git commands you have always used to Push code to GitHub
