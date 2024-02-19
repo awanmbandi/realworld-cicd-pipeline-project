@@ -25,7 +25,7 @@
 
 **NOTE:** 
 * Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
-* You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
+* You must `Login` as an `IAM User` before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
 
 ## 1) Create a CodeCommit Project Repository
 1.1) Navigate to CodeCommit to create a Project Repository
