@@ -16,6 +16,13 @@
 - [Amazon SNS](https://aws.amazon.com/sns/) Amazon SNS is a Message Bus use to send notifications. It provides high-throughput, push-based, many-to-many messaging between distributed systems, microservices, and event-driven serverless applications. 
 - [PMD SAST](https://docs.pmd-code.org/latest/) PMD (Programming Mistake Detector) is a static source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. It’s mainly concerned with Java and Apex, but supports 16 other languages.
 
+# Prerequisites
+a). Confirm that you have an active `AWS account`.
+b). Use a `Region` that offers the `CodeArtifact` service.
+c). Confirm you have `Git` configured on your local system.
+d). Confirm that you have a `GitHub` account.
+e). Confirm that you have at least one `IDE` software installed locally.
+
 **NOTE:** 
 a) Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
 b) You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
