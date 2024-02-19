@@ -423,6 +423,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
 ![CP!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Pipeline.png)
 - Click on `Create Pipeline`
     - Name: `AWS-Native-Java-Webapp-CICD-Pipeline-Automation`
+    - Pipeline type: `V1`
     - Service role: `New service role`
         - Role name: `The name will populate automatically`
     - Allow AWS CodePipeline to create a service role so it can be used with this new pipeline: Chech box to `Enable`
