@@ -82,6 +82,7 @@
 - Click `Create Bucket` 
     - Name: `java-webapp-project-artifact-YOUR_ACCOUNT_ID`
     - Region: `Select Your working Region`
+        - **NOTE:** Confirm the Region selected is your working Region
     - Click: `CREATE Bucket`
 
 ## 5) Satic Application Security Testing (SAST) With PMD (Programming Mistake Detector)
