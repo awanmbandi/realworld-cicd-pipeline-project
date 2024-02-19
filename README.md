@@ -17,15 +17,15 @@
 - [PMD SAST](https://docs.pmd-code.org/latest/) PMD (Programming Mistake Detector) is a static source code analyzer. It finds common programming flaws like unused variables, empty catch blocks, unnecessary object creation, and so forth. It’s mainly concerned with Java and Apex, but supports 16 other languages.
 
 ## Prerequisites
-- Confirm that you have an active `AWS account`.
-- Use a `Region` that offers the `CodeArtifact` service.
-- Confirm you have `Git` configured on your local system.
-- Confirm that you have a `GitHub` account.
-- Confirm that you have at least one `IDE` software installed locally.
+* Confirm that you have an active `AWS account`.
+* Use a `Region` that offers the `CodeArtifact` service.
+* Confirm you have `Git` configured on your local system.
+* Confirm that you have a `GitHub` account.
+* Confirm that you have at least one `IDE` software installed locally.
 
 **NOTE:** 
-- Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
-- You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
+* Navigate to a Region on AWS that has all the AWS Code services (CodeCommit, CodeBuild, CodeArtifact, CodeDeploy and CodePipeline)
+* You must Login as an IAM User before you can complete the below steps successfully (Login with a user that has Administrator Privileges)
 
 ## 1) Create a CodeCommit Project Repository
 1.1) Navigate to CodeCommit to create a Project Repository
