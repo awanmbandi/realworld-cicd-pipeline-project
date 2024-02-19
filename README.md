@@ -214,6 +214,7 @@ cp ./pmd/pmd-ruleset.xml /root/.m2/pmd-ruleset.xml
   ```
 
 ![ssmps!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%2012.51.13%20PM.png)
+  - Click `Create`
 **NOTE:** Confirm that this same parameter names exist in your `pmd_buildspec.yaml` configuration.
 
 ## 9) Create The Project Build Job in CodeBuild
