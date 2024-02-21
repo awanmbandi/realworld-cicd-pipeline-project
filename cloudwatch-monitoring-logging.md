@@ -38,9 +38,6 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 
 ## Validate Configuration
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
-
-## Start the CloudWatch Agent
-sudo systemctl start amazon-cloudwatch-agent
 ```
 - CloudWatch Agent Configuration Interactive Wizard
 ![CWA1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw1.png)
@@ -50,6 +47,25 @@ sudo systemctl start amazon-cloudwatch-agent
 ![CWA5!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw5.png)
 ![CWA6!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw6.png)
 
+```bash
+## Start the CloudWatch Agent
+sudo systemctl start amazon-cloudwatch-agent
+
+## Check the CloudWatch Agent status
+sudo systemctl status amazon-cloudwatch-agent
+```
+
+#### B) Confirm That The CloudWatch Unified Log/Metric Agent Is Working
+#### CloudWatch Metrics (CPU, RAM, Memory, Storage and Network)
+- Navigate to the `CloudWatch Service`
+- Click on `Metrics` and `All metrics`
+![CWA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/aAAASdssd.png)
+
+#### CloudWatch Logs (Application Logs)
+- Navigate to the `CloudWatch Service`
+- Click on `Logs` and `Log groups`
+![CWA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/sdfsvdfs.png)
+![CWA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/csdcsdsc.png)
 
 
 
@@ -69,9 +85,3 @@ sudo systemctl start amazon-cloudwatch-agent
 
 
 #### Step 3: View Application Logs on Splunk
-- Login to your `Splunk Server` at http://Splunk-Server-IP:8000
-- Click on `Search and Reporting` -->> `Data Summary` -->> Select any of the displayed `Environments Host` to visualize `App Logs`
-![SplunkSetup4!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2011.39.03%20PM.png)
-
-- Application Log Indexed
-![SplunkSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-29%20at%2010.55.36%20PM.png)
