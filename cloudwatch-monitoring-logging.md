@@ -1,5 +1,5 @@
-### Setup and Configure The Unified CloudWatch Agent For (Metrics and Logs Collection)
-#### A) Install the CloudWatch Agent Using SSM (Run Command)
+### 30) Setup and Configure The Unified CloudWatch Agent For (Metrics and Logs Collection)
+#### 30A) Install the CloudWatch Agent Using SSM (Run Command)
 - Navigate to the `SSM Service` in your `Working Region`
 - Click on `Quick Setup`
 - Click on the `Create` option on `Host Management`
@@ -26,7 +26,7 @@
     - Click on `RUN`
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDVSS.png)
 
-#### A) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
+#### 30B) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
 - Login to both the `Stage` and `Prod` VMs
 - Run the following commands on both Environment instances/vms
 ```bash
@@ -45,7 +45,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 ![CWA6!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw6.png)
 
 ```bash
-## Validate Configuration
+## Validate the CloudWatch Agent Configuration
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 
 ## Start the CloudWatch Agent
@@ -55,7 +55,7 @@ sudo systemctl start amazon-cloudwatch-agent
 sudo systemctl status amazon-cloudwatch-agent
 ```
 
-#### B) Confirm That The CloudWatch Unified Log/Metric Agent Is Working
+#### 30C) Confirm That The CloudWatch Unified Log/Metric Agent Is Working
 #### CloudWatch Metrics (CPU, RAM, Memory, Storage and Network)
 - Navigate to the `CloudWatch Service`
 - Click on `Metrics` and `All metrics`
