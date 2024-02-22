@@ -77,7 +77,7 @@
         - Click `Create`
 
 ## 3.2) Create An EC2 IAM Profile/Role
-- Create an EC2 Service Role in IAM with AmazonEC2FullAccess Privilege 
+- Create an EC2 Service Role in IAM with Admin Privileges
 - Navigate to IAM
 ![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
     - Click on `Roles`
