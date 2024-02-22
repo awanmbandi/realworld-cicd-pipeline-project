@@ -63,6 +63,21 @@ b) You must Login as an IAM User before you can complete the below steps success
         - Role Name: `AWS-CodeDeploy-Deployment-Role`
         - Click `Create`
 
+## 3.2) Create An EC2 IAM Profile/Role
+- Create an EC2 Service Role in IAM with Admin Privileges
+- Navigate to IAM
+![IAM!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.20.44%20PM.png)
+    - Click on `Roles`
+    - Click on `Create Role`
+    - Select `Service Role`
+    - Use Case: Select `EC2`
+    - Click on `Next` 
+    - Attach Policy: `AdministratorAccess` and `CloudWatchAgentServerPolicy`
+    - Click `Next` 
+    - Role Name: `AWS-EC2-Administrator-Role`
+    - Click `Create`
+    **NOTE:** There's no need to create if you already have one
+
 ## 4) Create An S3 Bucket Where The Build Artifact Will Be Stored
 - Navigate to Amazon S3
 ![S3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.15.44%20PM.png)
