@@ -28,7 +28,7 @@
 
 #### 30B) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
 - Login to both the `Stage` and `Prod` VMs
-- Run the following commands on both Environment instances/vms
+- RUN the following commands on both the `Stage-Env` and `Prod-Env` instances/vms
 ```bash
 ## Install the Collectd
 sudo amazon-linux-extras install collectd
