@@ -1,5 +1,5 @@
-### Setup Tomcat Server and Configure The CloudWatch Agent For (Metrics and Logs)
-#### A) Install the CloudWatch Unified Agent Using SSM (Run Command)
+### Setup and Configure The Unified CloudWatch Agent For (Metrics and Logs Collection)
+#### A) Install the CloudWatch Agent Using SSM (Run Command)
 - Navigate to the `SSM Service` in your `Working Region`
 - Click on `Quick Setup`
 - Click on the `Create` option on `Host Management`
