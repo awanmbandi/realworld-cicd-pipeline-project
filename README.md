@@ -32,7 +32,7 @@
 - Click on `Create Repository`
 - Name your repository `AWS-Native-CICD-Pipeline-Project`
 - Click `Create`
-![CodeCommit!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-03%20at%206.11.38%20PM.png)
+![CodeCommit!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/dsbfdsbbfdf.png)
 
 1.2) Configure SSH Connection On Local MacOs or Windows With CodeCommit
 - Follow the steps provided in the Runbook below
