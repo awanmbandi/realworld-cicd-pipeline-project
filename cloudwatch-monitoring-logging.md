@@ -35,9 +35,6 @@ sudo amazon-linux-extras install collectd
 
 ## Execute/Run the CloudWatch Config Wizard
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
-
-## Validate Configuration
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
 ```
 - CloudWatch Agent Configuration Interactive Wizard
 ![CWA1!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw1.png)
@@ -48,6 +45,9 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-c
 ![CWA6!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/cw6.png)
 
 ```bash
+## Validate Configuration
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
 ## Start the CloudWatch Agent
 sudo systemctl start amazon-cloudwatch-agent
 
