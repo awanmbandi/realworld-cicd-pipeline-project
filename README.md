@@ -85,9 +85,9 @@
     - Select `Service Role`
     - Use Case: Select `EC2`
     - Click on `Next` 
-    - Attach Policy: `AmazonEC2FullAccess`
+    - Attach Policy: `AdministratorAccess` and `CloudWatchAgentServerPolicy`
     - Click `Next` 
-    - Role Name: `AWS-EC2FullAccess-Role`
+    - Role Name: `AWS-EC2-Administrator-Role`
     - Click `Create`
     **NOTE:** There's no need to create if you already have one
 
@@ -591,11 +591,12 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
     - Amazon CloudWatch
     - Install and configure the CloudWatch agent: `Enable`
     - Update the CloudWatch agent once every 30 days: `Enable`
-![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsdsd.png)
-- Targets (make sure to select them `Manual` (however we can use tags as well))
+    ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsdsd.png)
+    - TARGETS (make sure to select them `Manual` (however we can use tags as well))
     - Choose between deploying to the current Region or a custom set of Regions: Select `Current Region`
     - Choose how you want to target instances: Select `Manual`
     - Instances: Select your `Stage-Env` and `Prod-Env` instances
+    - Click on `CREATE`
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/acdac.png)
 - Navigate to `Run Command`
     - Click on `Run Command`
