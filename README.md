@@ -581,7 +581,7 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 * URL: http://INSTANCE_PUBLIC_IP:8080/login 
 ![WebApp!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/Screen%20Shot%202023-10-16%20at%203.25.08%20PM.png)
 
-### 30) Setup and Configure The Unified CloudWatch Agent For (Metrics and Logs Collection)
+### 30) CONFIGURE THE CLOUDWATCH AGENT (METRIC AND LOG COLLECTOR)
 #### 30A) Install the CloudWatch Agent Using SSM (Run Command)
 - Navigate to the `SSM Service` in your `Working Region`
 - Click on `Quick Setup`
@@ -610,7 +610,7 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
     - Click on `RUN`
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDVSS.png)
 
-#### 30B) CONFIGURE THE CLOUDWATCH AGENT (METRIC AND LOG COLLECTOR)
+#### 30B) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
 - Login/SSH into both the `Stage` and `Prod` VMs
 - RUN the following commands on both the `Stage-Env` and `Prod-Env` instances/vms
 ```bash
