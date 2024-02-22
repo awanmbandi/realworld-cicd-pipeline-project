@@ -1,4 +1,4 @@
-## CI/CD Pipeline Project Using AWS Native SDLC Automation Tools
+## CI/CD Pipeline Automation Project Using AWS Native SDLC Tools
 ![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/advanced_aws_native_cicd_project.png)
 
 ###### Project ToolBox 🧰
