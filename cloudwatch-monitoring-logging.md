@@ -80,8 +80,3 @@ sudo systemctl status amazon-cloudwatch-agent
 
 
 
-
-
-
-
-#### Step 3: View Application Logs on Splunk
