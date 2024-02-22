@@ -611,7 +611,7 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDVSS.png)
 
 #### 30B) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
-- Login to both the `Stage` and `Prod` VMs
+- Login/SSH into both the `Stage` and `Prod` VMs
 - RUN the following commands on both the `Stage-Env` and `Prod-Env` instances/vms
 ```bash
 ## Install the Collectd
