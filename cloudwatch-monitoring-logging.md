@@ -1,4 +1,4 @@
-### 30) Setup and Configure The Unified CloudWatch Agent For (Metrics and Logs Collection)
+### 30) CONFIGURE THE CLOUDWATCH AGENT (METRIC AND LOG COLLECTOR)
 #### 30A) Install the CloudWatch Agent Using SSM (Run Command)
 - Navigate to the `SSM Service` in your `Working Region`
 - Click on `Quick Setup`
@@ -8,11 +8,12 @@
     - Amazon CloudWatch
     - Install and configure the CloudWatch agent: `Enable`
     - Update the CloudWatch agent once every 30 days: `Enable`
-![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsdsd.png)
-- Targets (make sure to select them `Manual` (however we can use tags as well))
+    ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsdsd.png)
+    - TARGETS (make sure to select them `Manual` (however we can use tags as well))
     - Choose between deploying to the current Region or a custom set of Regions: Select `Current Region`
     - Choose how you want to target instances: Select `Manual`
     - Instances: Select your `Stage-Env` and `Prod-Env` instances
+    - Click on `CREATE`
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/acdac.png)
 - Navigate to `Run Command`
     - Click on `Run Command`
@@ -27,7 +28,7 @@
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDVSS.png)
 
 #### 30B) Configure the CloudWatch Agent (Metric and Log Collector (Collectd))
-- Login to both the `Stage` and `Prod` VMs
+- Login/SSH into both the `Stage` and `Prod` VMs
 - RUN the following commands on both the `Stage-Env` and `Prod-Env` instances/vms
 ```bash
 ## Install the Collectd
@@ -66,13 +67,6 @@ sudo systemctl status amazon-cloudwatch-agent
 - Click on `Logs` and `Log groups`
 ![CWA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/sdfsvdfs.png)
 ![CWA!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/csdcsdsc.png)
-
-
-
-
-
-
-
 
 
 
