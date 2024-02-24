@@ -29,8 +29,8 @@
     </site>
     <repository>
         <id>codeartifact</id>
-        <name>java-webapp-maven-repo-maven-central-store</name>
-    <url>https://java-webapp-maven-repo-835142541205.d.codeartifact.us-east-2.amazonaws.com/maven/maven-central-store/</url>
+        <name>java-webapp-maven-rep-maven-central-store</name>
+    <url>https://java-webapp-maven-rep-087195027919.d.codeartifact.us-east-1.amazonaws.com/maven/maven-central-store/</url>
       </repository>
   </distributionManagement>
 
