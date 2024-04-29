@@ -1,12 +1,9 @@
 # Development Environemnt Project
-![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
 
 ###### Project ToolBox 🧰
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
 - [Github](https://github.com/) Github is a free and open source distributed VCS designed to handle everything from small to very large projects with speed and efficiency
 - [Maven](https://maven.apache.org/) Maven will be used for the application packaging and building including running unit test cases
-- [SonarQube](https://docs.sonarqube.org/) SonarQube Catches bugs and vulnerabilities in your app, with thousands of automated Static Code Analysis rules.
-- [Nexus](https://www.sonatype.com/) Nexus Manage Binaries and build artifacts across your software supply chain
 - [EC2](https://aws.amazon.com/ec2/) EC2 allows users to rent virtual computers (EC2) to run their own workloads and applications.
 
 ## Configure Environments
@@ -19,28 +16,12 @@
      - Download the Project Zip from https://github.com/awanmbandi/realworld-cicd-pipeline-project/tree/maven-sonarqube-nexus
      - Unzip and Push the code to the Repository you just provisioned
 
-2) SonarQube
-    - Create an Create an Ubuntu 20.04 VM instance and call it "SonarQube"
-    - Instance type: t2.medium
-    - Security Group (Open): 9000 and 22 to 0.0.0.0/0
-    - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/sonarqube-install.sh
-    - Launch Instance
-
-3) Maven
+2) Maven
     - Create an Amazon Linux 2 VM instance and call it "jenkins-maven-ansible"
     - Instance type: t2.micro
     - Security Group (Open): 22 to 0.0.0.0/0 or Your-IP
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/maven-install.md
-    - Launch Instance
-
-4) Nexus
-    - Create an Amazon Linux 2 VM instance and call it "Nexus"
-    - Instance type: t2.medium
-    - Security Group (Open): 8081 and 22 to 0.0.0.0/0
-    - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install.sh
     - Launch Instance
 
 ## Configure Nexus Repository
