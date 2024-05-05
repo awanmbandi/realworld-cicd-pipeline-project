@@ -84,7 +84,7 @@
       - Tag 1: Name: `Name`, Value: `Dev-Env`
       - Tag 2: Name: `Environment`, Value: `dev`
     - AMI: `Amazon Linux 2`
-    - Number: `3`
+    - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
@@ -97,7 +97,7 @@
       - Tag 1: Name: `Name`, Value: `Stage-Env`
       - Tag 2: Name: `Environment`, Value: `stage`
     - AMI: `Amazon Linux 2`
-    - Number: `3`
+    - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
@@ -110,7 +110,7 @@
       - Tag 1: Name: `Name`, Value: `Prod-Env`
       - Tag 2: Name: `Environment`, Value: `prod`
     - AMI: `Amazon Linux 2`
-    - Number: `3`
+    - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8080, 9100, 9997` and `22 to 0.0.0.0/0`
