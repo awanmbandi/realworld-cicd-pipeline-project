@@ -10,14 +10,14 @@ pipeline {
             sh 'mvn test'
         }
     }
-    stage('Integration Test'){
-        steps {
-            sh 'mvn verify -DskipUnitTests'
-        }
-    }
     stage('App Packaging'){
         steps {
             sh 'mvn package'
+        }
+    }
+    stage('Integration Test'){
+        steps {
+            sh 'mvn verify -DskipUnitTests'
         }
     }
     stage ('Checkstyle Code Analysis'){
