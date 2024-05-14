@@ -1,7 +1,4 @@
 pipeline {
-  agent {
-    label 'Maven-Build-Env' // Use the Maven slave node for this pipeline
-  }
   stages {
     stage('Validate Project') {
         steps {
