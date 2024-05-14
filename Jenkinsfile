@@ -32,11 +32,11 @@ pipeline {
                    -Dsonar.host.url=http://PROVIDE_YOUR_SONAR_IP:9000 \
                    -Dsonar.login=PROVIDE_YOUR_SONAR_TOKEN"""
         }
-    }
+    } 
     stage("Upload Artifact To Nexus"){
         steps{
              sh 'mvn deploy'
-        }
+        } 
         post {
             success {
               echo 'Successfully Uploaded Artifact to Nexus Artifactory'
