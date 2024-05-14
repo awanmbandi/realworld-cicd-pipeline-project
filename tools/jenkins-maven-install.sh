@@ -31,7 +31,6 @@ wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-projec
 chown -R jenkins:jenkins /var/lib/jenkins/.m2/
 chown -R jenkins:jenkins /var/lib/jenkins/.m2/settings.xml
 
-
 # Installing Git
 yum install git -y
 
