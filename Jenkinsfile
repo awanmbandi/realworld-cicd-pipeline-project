@@ -10,7 +10,7 @@ pipeline {
             sh 'mvn test'
         }
     }
-    stage('App Packaging'){
+    stage('App Packaging | Build'){
         steps {
             sh 'mvn package'
         }
