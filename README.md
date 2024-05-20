@@ -68,4 +68,6 @@
 5) Install Plugins
 - Snyk 
 - Slack
+- Blue Ocean
+- Pipeline: Stage View
 
