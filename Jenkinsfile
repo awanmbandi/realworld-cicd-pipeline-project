@@ -45,7 +45,7 @@ pipeline {
         // Generating Execution Plan
         stage('Generate Terraform Plan') {
             steps {
-                sh 'terraform plan --var-file=prod.tfvars'
+                sh 'terraform plan'
             }
         }
         // Snyk Infrastructure Automation Test
@@ -69,7 +69,7 @@ pipeline {
         // Deploy Terraform Infrastructure
         stage('Deploy Infrastructure') {
             steps {
-                sh 'terraform apply --var-file=prod.tfvars --auto-approve'
+                sh 'terraform apply --auto-approve'
             }
         }
         // Destroy Environment
