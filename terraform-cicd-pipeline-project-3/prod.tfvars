@@ -16,3 +16,6 @@ user_data              = <<-EOF
                          sudo rm -f /var/www/html/index.html 
                          sudo cp -rf jjtech-streaming-application-v1/* /var/www/html/ 
                          EOF 
+
+## Security Group Variable Values
+vpc_id                 = "vpc-08b0c56cb29df4c44"

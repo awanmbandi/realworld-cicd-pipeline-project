@@ -22,3 +22,9 @@ variable "user_data" {
   type        = string
   description = "provide userdata"
 }
+
+## Security Group Variables
+variable "vpc_id" {
+  type        = string
+  description = "provide vpc id"
+}
