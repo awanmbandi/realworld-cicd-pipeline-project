@@ -38,7 +38,7 @@
     - Role Name: `AWS-AdministratorAccess-Role`
     - Click `Create`
 
-3) Jenkins/Maven/Ansible
+3) Jenkins
     - Create a Jenkins VM instance 
     - Name: `Jenkins-CI`
     - AMI: `Amazon Linux 2`
