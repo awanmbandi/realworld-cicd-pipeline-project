@@ -38,7 +38,7 @@
     - Role Name: `AWS-AdministratorAccess-Role`
     - Click `Create`
 
-1) Jenkins/Maven/Ansible
+3) Jenkins/Maven/Ansible
     - Create a Jenkins VM instance 
     - Name: `Jenkins-CI`
     - AMI: `Amazon Linux 2`
@@ -49,7 +49,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/terraform-jenkins-cicd-pipeline-project/installations/jenkins-install.sh
     - Launch Instance
 
-3) Slack 
+4) Slack 
     - Go to the bellow Workspace and create a Private Slack Channel and name it "yourfirstname-jenkins-cicd-pipeline-alerts"
     - Link: https://join.slack.com/t/jjtechtowerba-zuj7343/shared_invite/zt-24mgawshy-EhixQsRyVuCo8UD~AbhQYQ  
       - You can either join through the browser or your local Slack App
