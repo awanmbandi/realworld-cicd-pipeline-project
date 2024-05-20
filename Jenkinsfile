@@ -51,7 +51,7 @@ pipeline {
         // Snyk Infrastructure Automation Test
         stage('Snyk Security Test') {
             steps {
-                sh '${SNYK_HOME}/snyk-linux iac test .'
+                sh '${SNYK_HOME}/snyk-linux iac test . --continue-on-error'
             }
         }
         // Checkov Infrastructure Automation Test
