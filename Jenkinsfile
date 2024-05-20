@@ -6,78 +6,79 @@ def COLOR_MAP = [
 pipeline {
     agent any
     stages {
-        stage('Git Checkout') {
+        // Verifying setup
+        stage('Confirm Tools Installations') {
             steps {
-                git branch: 'terraform-jenkins-pipeline-project', 
-                url: 'https://github.com/awanmbandi/realworld-cicd-pipeline-project.git'
+                sh 'git --version'
+                sh 'terraform version'
+                sh 'npm snyk --version'
+                sh 'checkov --version'
             }
         }
-         stage('Verify Terraform Version') {
+        // Providing Snyk Access
+        stage('Authenticate Snyk') {
             steps {
-                sh 'terraform --version'
+                withCredentials([string(credentialsId: 'snyk-api-token', variable: 'SNYK_TOKEN')]) {
+                    sh "snyk auth $SNYK_TOKEN"
+                }
             }
         }
-        stage('Terraform Init') {
+        // IInitialize Terraform
+        stage('Initialize Terraform Environment') {
             steps {
-                sh 'sudo terraform init'
+                sh 'terraform init'
+            }
+        }
+        // Check terraform confugirations syntax
+        stage('Validate Terraform Configurations') {
+            steps {
+                sh 'terraform validate'
                
             }
         }
-        stage('Terraform Validate') {
+        // Generating Execution Plan
+        stage('Generate Terraform Plan') {
             steps {
-                sh 'sudo terraform validate'
-               
+                sh 'terraform plan --var-file=prod.tfvars'
             }
         }
-        stage('Terraform Plan') {
+        // Snyk Infrastructure Automation Test
+        stage('Snyk Security Test') {
             steps {
-                sh 'sudo terraform plan'
-               
+                sh 'snyk iac test .'
             }
         }
-        stage('Snyk Security Testing') {
+        // Checkov Infrastructure Automation Test
+        stage('Checkov scan') {
             steps {
-                // Run Snyk for security testing
-                sh 'npx snyk test'
+                sh 'checkov -d .'
             }
         }
-        stage('DAST Testing With Terratest') {
-            steps {
-                // Install and set up Go (if not already installed)
-                // You may need to adjust the Go version based on your requirements
-                sh 'wget -O go.tar.gz https://dl.google.com/go/go1.16.7.linux-amd64.tar.gz'
-                sh 'tar -xvf go.tar.gz'
-                sh 'sudo chown -R root:root ./go'
-                sh 'sudo mv go /usr/local'
-                sh 'echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc'
-                sh 'source ~/.bashrc'
-
-                // Clone your Terratest test repository
-                git 'https://github.com/awanmbandi/realworld-cicd-pipeline-project.git'
-
-                // Run Terratest tests
-                sh 'cd realworld-cicd-pipeline-project'
-                sh 'git checkout terraform-jenkins-pipeline-project'
-                sh 'go test -v -timeout 30m'
-            }
-        }
+        // Deployment Apporval
         stage('Manual Approval') {
             steps {
-                input 'Approval required for deployment'
+                input 'Approval Infra Deployment'
             }
         }
-        stage('Terraform Apply') {
+        // Deploy Terraform Infrastructure
+        stage('Deploy Infrastructure') {
             steps {
-                sh 'sudo terraform apply --auto-approve'
+                sh 'terraform apply --var-file=prod.tfvars --auto-approve'
             }
         }
-     }
-     post { 
-        always { 
-            echo 'Slack Notifications.'
-            slackSend channel: '#cicd-pipeline-project-alerts', //update and provide your channel name
-            color: COLOR_MAP[currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job Name '${env.JOB_NAME}' build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Project Workspace: ${env.WORKSPACE} \n More info at: ${env.BUILD_URL}"
-        }
+        // Destroy Environment
+        // stage('Terraform Destroy') {
+        //     steps {
+        //         sh 'terraform destroy --var-file=prod.tfvars --auto-approve'
+        //     }
+        // }
     }
+    post {
+    always {
+        echo 'Slack Notifications.'
+        slackSend channel: '#ma-terraform-cicd-alerts', //update and provide your channel name
+        color: COLOR_MAP[currentBuild.currentResult],
+        message: "*${currentBuild.currentResult}:* Job Name '${env.JOB_NAME}' build ${env.BUILD_NUMBER} \n Build Timestamp: ${env.BUILD_TIMESTAMP} \n Project Workspace: ${env.WORKSPACE} \n More info at: ${env.BUILD_URL}"
+    }
+  }
 }
