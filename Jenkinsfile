@@ -9,7 +9,7 @@ pipeline {
         SNYK_HOME = tool name: 'Snyk'
     }
     tools {
-        Snyk 'Snyk'
+        snyk 'Snyk'
     }
     stages {
         // Verifying setup
