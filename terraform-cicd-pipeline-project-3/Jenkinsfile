@@ -66,13 +66,13 @@ pipeline {
         // Deploy Terraform Infrastructure
         stage('Deploy Infrastructure') {
             steps {
-                sh 'terraform apply --var-file=prod.tfvars'
+                sh 'terraform apply --var-file=prod.tfvars --auto-approve'
             }
         }
         // Destroy Environment
         // stage('Terraform Destroy') {
         //     steps {
-        //         sh 'terraform destroy -auto-approve'
+        //         sh 'terraform destroy --var-file=prod.tfvars --auto-approve'
         //     }
         // }
     }
