@@ -45,16 +45,13 @@ pipeline {
         // Snyk Infrastructure Automation Test
         stage('Snyk Security Test') {
             steps {
-                sh 'snyk iac test deploy-ec2'
-                sh 'snyk iac test deploy-s3'
+                sh 'snyk iac test .'
             }
         }
         // Checkov Infrastructure Automation Test
         stage('Checkov scan') {
             steps {
-                sh """
-                checkov -d .
-                """
+                sh 'checkov -d .'
             }
         }
         // Deployment Apporval
