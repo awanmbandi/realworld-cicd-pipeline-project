@@ -65,4 +65,7 @@
       - Leave this page open
       ![SlackConfig!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-26%20at%202.08.55%20PM.png)
 
+5) Install Plugins
+- Snyk 
+- Slack
 

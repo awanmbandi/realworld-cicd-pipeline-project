@@ -8,6 +8,9 @@ pipeline {
     environment {
         SNYK_HOME = tool name: 'Snyk'
     }
+    tools {
+        Snyk 'Snyk'
+    }
     stages {
         // Verifying setup
         stage('Confirm Tools Installations') {
