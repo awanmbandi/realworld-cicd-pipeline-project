@@ -5,6 +5,9 @@ def COLOR_MAP = [
 ]
 pipeline {
     agent any
+    environment {
+        SNYK_HOME = tool name: 'Snyk'
+    }
     stages {
         // Verifying setup
         stage('Confirm Tools Installations') {
@@ -19,7 +22,7 @@ pipeline {
         stage('Authenticate Snyk') {
             steps {
                 withCredentials([string(credentialsId: 'Snyk-API-Token', variable: 'SNYK_TOKEN')]) {
-                    sh "snyk auth $SNYK_TOKEN"
+                    sh "${SNYK_HOME}/snyk-linux auth $SNYK_TOKEN"
                 }
             }
         }
@@ -45,7 +48,7 @@ pipeline {
         // Snyk Infrastructure Automation Test
         stage('Snyk Security Test') {
             steps {
-                sh 'snyk iac test .'
+                sh '${SNYK_HOME}/snyk-linux iac test .'
             }
         }
         // Checkov Infrastructure Automation Test
