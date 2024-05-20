@@ -1,3 +1,10 @@
+# Security Group Variables
+variable "vpc_id" {
+  type        = string
+  description = "provide vpc id"
+}
+
+# EC2 Web Server Variables
 variable "ami" {
   type        = string
   description = "provide an ubuntu or debian ami"
@@ -21,10 +28,4 @@ variable "key_name" {
 variable "user_data" {
   type        = string
   description = "provide userdata"
-}
-
-## Security Group Variables
-variable "vpc_id" {
-  type        = string
-  description = "provide vpc id"
 }
