@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'git --version'
                 sh 'terraform version'
-                sh 'npm snyk --version'
+                // sh 'npm snyk --version'
                 sh 'checkov --version'
             }
         }
