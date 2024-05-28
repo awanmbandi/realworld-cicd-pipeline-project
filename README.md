@@ -269,7 +269,7 @@
       - CLICK on `"Import"`
   - Refresh your Grafana Dashbaord 
       - Click on the `"Drop Down"` for `"Host"` and select any of the `"Instances(IP)"`
-  ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/1_KimwgjULRZzONpjGFH1sTA%20(1).png)
+  ![GrafanaMetrics!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/all_node_dashboard.jpeg)
 
 ### Setup Splunk Server/Indexer and Configure Forwarders
 #### A) SSH into your `Splunk Server` including `Dev`, `Stage` and `Prod` Instances
