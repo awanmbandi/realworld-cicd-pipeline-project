@@ -1,5 +1,5 @@
 ## CI/CD Pipeline Automation Project Using AWS Native SDLC Tools
-![CompleteAWSNativeCICDProject!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/v3.3_advanced_aws_native_cicd_project.png)
+![CompleteAWSNativeCICDProject!]()
 
 ###### Project ToolBox 🧰
 - [CodeCommit](https://aws.amazon.com/codecommit/) CodeCommit is a secure, highly scalable, fully managed source control service that hosts private Git repositories.
