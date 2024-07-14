@@ -60,7 +60,7 @@ under the License.
        <repository>
          <id>nexus-snapshot-repo</id>
          <name>your custom repo</name>
-         <url>http://ARTIFACTORY_IP_ADDRESS:PORT_NUMBER/repository/RELEASE_REPOSITORY_NAME/</url>
+         <url>http://54.82.18.55:8081/repository/maven-snapshots/</url>
        </repository>
 	   
      </repositories>
@@ -71,7 +71,7 @@ under the License.
        <repository>
          <id>nexus-release-repo</id>
          <name>your custom repo</name>
-         <url>http://ARTIFACTORY_IP_ADDRESS:PORT_NUMBER/repository/RELEASE_REPOSITORY_NAME/</url>
+         <url>http://54.82.18.55:8081/repository/maven-snapshots/</url>
        </repository>
      </repositories>
    </profile>
