@@ -36,7 +36,7 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
     ```
 - When prompted, enter the number `4` for Java 11.
 
-5. Enter the following to set Java 8 as the default compiler on your EC2 instance.
+5. Enter the following to set Java 11 as the default compiler on your EC2 instance.
 
     ```
     sudo /usr/sbin/alternatives --config javac
@@ -48,6 +48,10 @@ The following are instructions for installing Apache Maven and Java 8 on an Amaz
     ```
     mvn -v
     ```
+7. Install The tree data structure linux Utility (Check directory structure from ROOT to CHILD to FILES)
+   ```
+   sudo yum install tree -y
+   ```
 
 ### Install Git
 ```
