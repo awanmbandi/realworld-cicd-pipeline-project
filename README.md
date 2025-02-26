@@ -43,6 +43,14 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install.sh
     - Launch Instance
 
+5) Nexus
+    - Create an Ubuntu 24.04 VM instance and call it "Nexus"
+    - Instance type: t2.medium
+    - Security Group (Open): 8081 and 22 to 0.0.0.0/0
+    - Key pair: Select or create a new keypair
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-ubuntu24.04.sh
+    - Launch Instance
+
 ## Configure Nexus Repository
 Series of tutorial code snippets for use
 #Maven publish tutorial steps
