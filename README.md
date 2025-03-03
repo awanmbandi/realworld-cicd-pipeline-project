@@ -40,7 +40,7 @@
     - Instance type: `t2.medium`
     - Security Group (Open): 8081 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-ubuntu24.04.sh
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-t2large.sh
     - Launch Instance
 
 ## Configure Nexus Repository
