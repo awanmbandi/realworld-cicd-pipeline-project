@@ -20,7 +20,7 @@
      - Unzip and Push the code to the Repository you just provisioned
 
 2) SonarQube
-    - Create an Create an Ubuntu 20.04 VM instance and call it "SonarQube"
+    - Create an Create an Ubuntu 24.04 LTS (HVM) VM instance and call it "SonarQube"
     - Instance type: `t2.medium`
     - Security Group (Open): 9000 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
@@ -36,8 +36,8 @@
     - Launch Instance
 
 4) Nexus
-    - Create an Amazon Linux 2 VM instance and call it "Nexus"
-    - Instance type: `t2.medium`
+    - Create an Ubuntu 24.04 LTS (HVM) VM instance and call it "Nexus"
+    - Instance type: `t2.large`
     - Security Group (Open): 8081 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-t2large.sh
