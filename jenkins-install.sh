@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 # Update the system
 yum update -y
 # Install Java 17 (Amazon Corretto)
