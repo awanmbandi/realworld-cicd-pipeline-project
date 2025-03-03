@@ -17,7 +17,7 @@ sudo tar -xvzf /opt/latest-unix.tar.gz -C /opt
 
 # Rename the extracted directory to /opt/nexus
 # Note: The exact version number may vary; using a wildcard to handle this
-sudo mv /opt/nexus-3.* /opt/nexus
+sudo mv /opt/latest-unix.* /opt/nexus
 
 # Create a nexus user non-interactively
 sudo adduser --disabled-password --gecos "" nexus
