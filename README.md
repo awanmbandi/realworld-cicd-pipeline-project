@@ -24,7 +24,7 @@
     - Instance type: `t2.medium`
     - Security Group (Open): 9000 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-p1/tools/sonarqube-install.sh
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/sonarqube-install.sh
     - Launch Instance
 
 3) Jenkins/Maven
@@ -32,7 +32,7 @@
     - Instance type: `t2.medium`
     - Security Group (Open): 8080 and 22 to 0.0.0.0/0 or Your-IP
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-p1/tools/jenkins-maven-install.sh
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/jenkins-install.sh
     - Launch Instance
 
 4) Nexus
@@ -40,7 +40,7 @@
     - Instance type: `t2.medium`
     - Security Group (Open): 8081 and 22 to 0.0.0.0/0
     - Key pair: Select or create a new keypair
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-p1/tools/nexus-install.sh
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-ubuntu24.04.sh
     - Launch Instance
 
 ## Configure Nexus Repository
