@@ -28,7 +28,7 @@ mvn -v
 # Create ".m2" and download your "settings.xml" file into it to Authorize Maven
 ## Make sure to Update the RAW GITHUB Link to your "settings.xml" config
 mkdir /var/lib/jenkins/.m2
-wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/maven-sonarqube-nexus-jenkins-p1/settings.xml -P /var/lib/jenkins/.m2/
+wget https://raw.githubusercontent.com/awanmbandi/realworld-cicd-pipeline-project/refs/heads/jenkins-maven-sonarqube-nexus/settings.xml -P /var/lib/jenkins/.m2/
 chown -R jenkins:jenkins /var/lib/jenkins/.m2/
 chown -R jenkins:jenkins /var/lib/jenkins/.m2/settings.xml
 
