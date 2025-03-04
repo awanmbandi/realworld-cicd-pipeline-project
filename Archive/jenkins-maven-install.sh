@@ -11,6 +11,7 @@ systemctl enable jenkins
 systemctl start jenkins
 
 # Apache Maven Installation/Config
+sudo su
 yum update -y
 yum install java-1.8.0-devel -y  # Use for Java and Maven Compiler
 java --version
