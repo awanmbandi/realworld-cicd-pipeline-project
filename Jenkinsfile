@@ -24,7 +24,6 @@ pipeline {
     stage ('Checkstyle Code Analysis'){
         steps {
             sh 'mvn checkstyle:checkstyle'
-            sh 'export MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED"'
         }
     }
     stage('SonarQube Inspection') {
