@@ -17,13 +17,24 @@
   - RUN MANUAL COMMANDS to setup and configure MAVEN from `manual-maven-install.sh` = https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-maven-sonarqube-nexus/Archive/manual-maven-install.sh 
 
 ## CONFIGURE AND SETUP JENKINS | CREATE PROJECT
-1. Install Plugins (`Pipeline: Stage View` and `Blue Ocean`)
+1. Install Plugins (`Pipeline: Stage View`, `Blue Ocean` and `Slack Notification`)
 
-## Maven + SonarQube 
-mvn clean sonar:sonar \
-  -Dsonar.projectKey=JavaWebApp \
-  -Dsonar.host.url=http://44.203.4.255:9000 \
-  -Dsonar.login=<sonarqube prject token>
+
+## SLACK INTEGRATION CONFIGS
+- Channel ID/Sub Domain: `realworldcicdpipeline`
+- Integration Token: `wDDbV4aWatMgEFMIFxQeZDZR`
+
+## CREATE SLACK CREDENTIAL
+
+
+## CONFIGURE SLACK IN `JENKINS SYSTEM`
+- Workspace: `realworldcicdpipeline`
+- Credential: Select `Slack-Token`
+- Channel ID: #devops
+
+
+
+
 
 
 
