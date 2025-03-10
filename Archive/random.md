@@ -6,15 +6,18 @@
   - Update Jenkins Installation SETTINGS.xml RAW script URL
   - `PUSH` Chnages to `GITHUB`
 
-3. Create Jenkins VM
-  - Pass Userdata to install Jenkins
-  - RUN MANUAL COMMANDS to setup and configure MAVEN from `manual-maven-install.sh` = https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-maven-sonarqube-nexus/Archive/manual-maven-install.sh 
-
-## THINGS TO UPDATE BEFORE 
+## THINGS TO UPDATE BEFORE CREATING JENKINS VM
 1. Update the Jenkinsfile (SonarQube Configs)
 2. Update the POM.XMl file (Nexus Repositories)
 3. Update the SETTINGS.XML file (Nexus Username and Password, Nexus Repositories)
 4. Update Jenkins/Maven JAVA version to JAVA 11
+
+3. Create Jenkins VM
+  - Pass Userdata to install Jenkins
+  - RUN MANUAL COMMANDS to setup and configure MAVEN from `manual-maven-install.sh` = https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-maven-sonarqube-nexus/Archive/manual-maven-install.sh 
+
+## CONFIGURE AND SETUP JENKINS | CREATE PROJECT
+1. Install Plugins (`Pipeline: Stage View` and `Blue Ocean`)
 
 ## Maven + SonarQube 
 mvn clean sonar:sonar \

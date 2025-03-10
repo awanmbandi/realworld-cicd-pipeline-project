@@ -2,7 +2,7 @@
 sudo su
 yum update -y
 sudo amazon-linux-extras install java-openjdk11 -y  # Use for Java and Maven Compiler
-sudo /usr/sbin/alternatives --config java  # NOTE: Select 4 for java11
+sudo /usr/sbin/alternatives --config java  # NOTE: Select 4 or 2 or 3 for java11
 java --version
 wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
