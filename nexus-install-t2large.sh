@@ -10,7 +10,7 @@ sudo apt install openjdk-17-jdk -y
 java --version
 
 # Download the latest Nexus tarball to /opt
-sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz -O /opt/latest-unix.tar.gz
+sudo wget https://download.sonatype.com/nexus/3/nexus-unix-x86-64-3.78.1-02.tar.gz -O /opt/latest-unix.tar.gz
 
 # Extract the tarball
 sudo tar -xvzf /opt/latest-unix.tar.gz -C /opt
