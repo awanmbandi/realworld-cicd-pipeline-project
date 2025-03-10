@@ -8,7 +8,7 @@
 
 3. Create Jenkins VM
   - Pass Userdata to install Jenkins
-  - RUN MANUAL COMMANDS to setup and configure MAVEN from `manual-maven-install.sh`
+  - RUN MANUAL COMMANDS to setup and configure MAVEN from `manual-maven-install.sh` = https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/jenkins-maven-sonarqube-nexus/Archive/manual-maven-install.sh 
 
 ## THINGS TO UPDATE BEFORE 
 1. Update the Jenkinsfile (SonarQube Configs)
