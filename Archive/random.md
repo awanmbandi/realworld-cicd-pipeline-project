@@ -4,7 +4,7 @@
   - Create the Maven `Snapshot` and `Release` repositories
   - Update POM.xml and SETTINGS.xml with Nexus values (URLs and CREDENTIALS)
   - Update Jenkins Installation SETTINGS.xml RAW script URL
-  - PUSH Chnages to GITHUB
+  - `PUSH` Chnages to `GITHUB`
 
 3. Create Jenkins VM
   - Pass Userdata to install Jenkins
