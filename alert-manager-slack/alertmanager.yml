@@ -1,5 +1,5 @@
 global:
-  resolve_timeout: 2m
+  resolve_timeout: 3m
 
 route:
   receiver: 'slack-notifications'
