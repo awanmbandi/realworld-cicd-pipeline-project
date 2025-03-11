@@ -10,7 +10,7 @@ alerting:
           - 'localhost:9093'  # Alertmanager address
 
 rule_files:
-  - "alert_rules.yml"  # Path to alert rules file
+  - "prometheus_alert_rules.yml"  # Path to alert rules file
 
 scrape_configs:
   - job_name: 'prometheus'
