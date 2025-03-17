@@ -675,7 +675,7 @@ cd /opt/splunkforwarder/bin
         - Name: `maven-project-group` 
         - Version Policy: Select `Mixed` 
         - Member Repositories: Assign All The Repos You Created to The Group 
-          - **MEANING:** *Move all 4 repositories to the Box on your Right*
+          - **MEANING:** *Move all 3 repositories to the Box on your Right*
         - Click `Create Repository`
 
     ![NexusSetup!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-27%20at%203.42.03%20PM.png) 
