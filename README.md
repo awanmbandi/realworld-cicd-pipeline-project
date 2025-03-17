@@ -357,7 +357,7 @@ cd /opt/splunkforwarder/bin
 ### 2. Navigate Back to Your `Splunk Indexer/Server` 
 - Set the port for the Splunk Indexer or Server to listen on 9997 and restart
 ```bash
-cd /opt/splunk/bin
+cd /opt/splunkforwarder/bin
 ./splunk enable listen 9997
 ```
 - Restart Splunk on the VM you are configuring the Forwarder
@@ -401,6 +401,8 @@ cd /opt/splunk/bin
         - **Maven Release Plug-In**
         - **Slack Notification**
         - **Nexus Artifact Uploader**
+        - **Pipeline: Stage View**
+        - **Blue Ocean**
         - **Build Timestamp (Needed for Artifact versioning)**
     - Click on `Install`
     - Once all plugins are installed
@@ -432,7 +434,7 @@ cd /opt/splunk/bin
     
     - **SonarQube Scanner** 
       - Click on `Add SonarQube Scanner` 
-      - Enable: `Install automatically` (Optional)
+      - Enable: `Install automatically` 
       ![SonarQubeScanner!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/raw/zdocs/images/Screen%20Shot%202023-04-24%20at%209.35.20%20AM.png)
 
     - **Maven** 
@@ -566,7 +568,7 @@ cd /opt/splunk/bin
     ![SonarQubeSetup3!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/SDFVDSFVDFV.png)
 
 3)  ### Setup SonarQube Webhook to Integrate Jenkins (To pass the results to Jenkins)
-    - Click on `Administration` and Select `Webhook`
+    - Click on `Administration` and click on `Configuration` and Select `Webhook`
     - Click on `Create Webhook` 
       - Name: `jenkinswebhook`
       - URL: `http://Jenkins-Server-Private-IP:8080/sonarqube-webhook`
