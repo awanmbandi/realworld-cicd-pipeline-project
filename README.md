@@ -357,7 +357,7 @@ cd /opt/splunkforwarder/bin
 ### 2. Navigate Back to Your `Splunk Indexer/Server` 
 - Set the port for the Splunk Indexer or Server to listen on 9997 and restart
 ```bash
-cd /opt/splunkforwarder/bin
+cd /opt/splunk/bin
 ./splunk enable listen 9997
 ```
 - Restart Splunk on the VM you are configuring the Forwarder
