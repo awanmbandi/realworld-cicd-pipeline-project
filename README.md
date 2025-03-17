@@ -62,7 +62,7 @@
 4) SonarQube
     - Create a SonarQube VM instance 
     - Name: `SonarQube`
-    - AMI: `Ubuntu 22.04`
+    - AMI: `Ubuntu 24.04`
     - Instance type: `t2.medium`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9000, 9100` and `22 to 0.0.0.0/0`
@@ -72,11 +72,11 @@
 5) Nexus
     - Create a Nexus VM instance 
     - Name: `Nexus`
-    - AMI: `Amazon Linux 2`
-    - Instance type: `t2.medium`
+    - AMI: `Ubuntu 24.04`
+    - Instance type: `t2.large`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `8081, 9100` and `22 to 0.0.0.0/0`
-    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-nexus-sonarqube-jenkins-install/nexus-install.sh
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/maven-sonarqube-nexus-jenkins-install/nexus-install-t2large.sh
     - Launch Instance
 
 6) EC2 (Dev Environment)
