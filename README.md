@@ -121,7 +121,7 @@
 9) Prometheus
     - Create a Prometheus VM instance 
     - Name: `Prometheus`
-    - AMI: `Ubuntu 22.04`
+    - AMI: `Ubuntu 24.04`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
@@ -131,7 +131,7 @@
 10) Grafana
     - Create a Grafana VM instance
     - Name: `Grafana`
-    - AMI: `Ubuntu 22.04`
+    - AMI: `Ubuntu 24.04`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
