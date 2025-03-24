@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: webapp/target/webapp.war
+    destination: /var/lib/tomcat/webapps
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_application.sh
+      timeout: 300
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/write_codedeploy_config.sh
+    - location: scripts/start_application.sh
+      timeout: 300
+  ValidateService:
+    - location: scripts/basic_health_check.sh
