@@ -23,4 +23,4 @@ phases:
       
 artifacts:
   files:
-    - target/*.war
+    - '**/*'
