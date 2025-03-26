@@ -7,7 +7,7 @@ env:
 phases:
   install:
     runtime-versions:
-      java: corretto11
+      java: corretto17
     commands:
       - echo "Installing dependencies and setting up environment..."
       - yum install java-17-amazon-corretto-devel -y
