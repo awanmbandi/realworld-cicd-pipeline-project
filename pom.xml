@@ -17,6 +17,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- Use whichever version of Tomcat/Servlet API is appropriate -->
         <javax.servlet.version>4.0.1</javax.servlet.version>
+        <!-- SonarCloud configuration -->
+        <sonar.organization>jjtech-aws-devops</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
