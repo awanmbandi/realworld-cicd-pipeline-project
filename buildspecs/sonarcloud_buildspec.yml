@@ -15,6 +15,13 @@ phases:
       - echo "Setting JAVA_HOME to $JAVA_HOME"
       - export JAVA_HOME=$JAVA_HOME
       - java -version
+
+      # Installing NodeJS
+      - echo "Installing Node.js"
+      - curl -sL https://rpm.nodesource.com/setup_14.x | bash -
+      - yum install -y nodejs
+      - node -v
+      
   pre_build:
     commands:
       - echo "Running pre-build tasks..."
