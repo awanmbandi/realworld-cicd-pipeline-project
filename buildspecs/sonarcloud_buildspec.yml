@@ -21,9 +21,7 @@ phases:
   build:
     commands:
       - echo "Building the application..."
-      - mvn verify sonar:sonar \
-        -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 \
-        -Dsonar.login=$SONAR_TOKEN
+      - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN
  
   post_build:
     commands:
