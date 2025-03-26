@@ -33,7 +33,7 @@ phases:
   build:
     commands:
       - echo "Building the application..."
-      #- mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
+      - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
  
   post_build:
     commands:
