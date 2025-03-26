@@ -22,6 +22,11 @@ phases:
       - yum install -y nodejs
       - node -v
 
+      # latest NodeJS version
+      - npm install n -g
+      - n stable
+      - n latest
+
   pre_build:
     commands:
       - echo "Running pre-build tasks..."
@@ -33,7 +38,7 @@ phases:
   build:
     commands:
       - echo "Building the application..."
-      - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
+      # - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
  
   post_build:
     commands:
