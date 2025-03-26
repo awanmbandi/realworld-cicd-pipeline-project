@@ -5,7 +5,6 @@ phases:
       java: corretto11
     commands:
       - echo "Installing dependencies and setting up environment..."
-      - yum install java-17-amazon-corretto-devel
   pre_build:
     commands:
       - echo "Running pre-build tasks..."
