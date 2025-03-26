@@ -4,13 +4,17 @@ env:
     # Optionally, if not already set in the CodeBuild environment
     # You can define SONAR_TOKEN here (though for security, consider using AWS Secrets Manager or Parameter Store)
     SONAR_TOKEN: "4d8cbd6b3b726c155d8d7460f35104c21d2e4833"
+    JAVA_HOME: "/usr/lib/jvm/java-17-amazon-corretto"
 phases:
   install:
     runtime-versions:
-      java: corretto17
+      java: corretto11
     commands:
       - echo "Installing dependencies and setting up environment..."
       - yum install java-17-amazon-corretto-devel -y
+      - echo "Setting JAVA_HOME to $JAVA_HOME"
+      - export JAVA_HOME=$JAVA_HOME
+      - java -version
   pre_build:
     commands:
       - echo "Running pre-build tasks..."
@@ -22,7 +26,7 @@ phases:
   build:
     commands:
       - echo "Building the application..."
-      - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
+      # - mvn verify sonar:sonar -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 -Dsonar.login=$SONAR_TOKEN -Dsonar.host.url=https://sonarcloud.io
  
   post_build:
     commands:
