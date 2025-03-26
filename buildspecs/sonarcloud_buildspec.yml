@@ -26,6 +26,7 @@ phases:
       - npm install n -g
       - n stable
       - n latest
+      - - node -v
 
   pre_build:
     commands:
