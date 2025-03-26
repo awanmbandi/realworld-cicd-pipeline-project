@@ -1,0 +1,34 @@
+version: 0.2
+env:
+  variables:
+    # Optionally, if not already set in the CodeBuild environment
+    # You can define SONAR_TOKEN here (though for security, consider using AWS Secrets Manager or Parameter Store)
+    SONAR_TOKEN: "4d8cbd6b3b726c155d8d7460f35104c21d2e4833"
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+    commands:
+      - echo "Installing dependencies and setting up environment..."
+  pre_build:
+    commands:
+      - echo "Running pre-build tasks..."
+      # - apt-get update
+      # - apt-get install -y jq 
+      # - wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+      # - tar xzvf apache-maven-3.9.4-bin.tar.gz
+      # - ln -s apache-maven-3.9.4 maven
+  build:
+    commands:
+      - echo "Building the application..."
+      - mvn verify sonar:sonar \
+        -Dsonar.projectKey=jjtech-aws-devops_java-webapp-test-2 \
+        -Dsonar.login=$SONAR_TOKEN
+ 
+  post_build:
+    commands:
+      - echo "Build completed on $(date)"
+      
+artifacts:
+  files:
+    - '**/*'
