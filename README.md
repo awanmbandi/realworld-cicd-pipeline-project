@@ -584,9 +584,6 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 ### 30) CONFIGURE THE CLOUDWATCH AGENT (METRIC AND LOG COLLECTOR)
 #### 30A) Install the CloudWatch Agent Using SSM (Run Command)
 - Navigate to the `SSM Service` in your `Working Region`
-- Click on `Quick Setup`
-- Click on the `Create` option on `Host Management`
-![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsd.png)
 - Configuration Options
     - Amazon CloudWatch
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/acdac.png)
