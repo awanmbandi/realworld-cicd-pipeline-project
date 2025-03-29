@@ -589,14 +589,6 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsd.png)
 - Configuration Options
     - Amazon CloudWatch
-    - Install and configure the CloudWatch agent: `Enable`
-    - Update the CloudWatch agent once every 30 days: `Enable`
-    ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/adavadvavdvavsfdfsdsd.png)
-    - TARGETS (make sure to select them `Manual` (however we can use tags as well))
-    - Choose between deploying to the current Region or a custom set of Regions: Select `Current Region`
-    - Choose how you want to target instances: Select `Manual`
-    - Instances: Select your `Stage-Env` and `Prod-Env` instances
-    - Click on `CREATE`
 ![SSMCloudWatchInstall!](https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/zdocs/images/acdac.png)
 - Navigate to `Run Command`
     - Click on `Run Command`
@@ -615,7 +607,7 @@ ii) CodeBuild Project Logs (Build and Test Jobs)
 - RUN the following commands on both the `Stage-Env` and `Prod-Env` instances/vms
 ```bash
 ## Install the Collectd
-sudo amazon-linux-extras install collectd
+sudo amazon-linux-extras install collectd -y
 
 ## Execute/Run the CloudWatch Config Wizard
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
