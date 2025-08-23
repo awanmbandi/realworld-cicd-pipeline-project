@@ -1,8 +1,8 @@
 # E-Commerce WebApp (JSP/Servlet + Maven)
-Build with `mvn clean package` and deploy `target/webapp.war` to Tomcat 9/8.5.
 ![DevelopmentEnvironemntSetupProject!](https://lucid.app/publicSegments/view/ab240636-23d5-4a9b-9409-50128564c9ab/image.png)
 
 # Development Environemnt Project
+Build with `mvn clean package` and deploy `target/webapp.war` to Tomcat 9/8.5.
 
 ###### Project ToolBox 🧰
 - [Git](https://git-scm.com/) Git will be used to manage our application source code.
