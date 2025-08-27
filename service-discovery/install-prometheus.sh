@@ -3,7 +3,7 @@
 # Attach a role to this Prometheus server with IAM policy as --> AmazonEC2ReadOnlyAccess
 
 # Installing Git
-sudo yum install git -y
+sudo apt install git -y
 
 # Setting up prometheus
 sudo useradd --no-create-home prometheus
