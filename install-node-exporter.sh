@@ -5,9 +5,9 @@ tar xzf node_exporter-1.0.1.linux-amd64.tar.gz
 sudo cp node_exporter-1.0.1.linux-amd64/node_exporter /usr/local/bin/node_exporter
 rm -rf node_exporter-1.0.1.linux-amd64.tar.gz node_exporter-1.0.1.linux-amd64
 
-sudo cp node-exporter.service /etc/systemd/system/node-exporter.service
+sudo cp node_exporter.service /etc/systemd/system/node_exporter.service
 
 sudo systemctl daemon-reload
-sudo systemctl enable node-exporter
-sudo systemctl start node-exporter
-sudo systemctl status node-exporter
+sudo systemctl enable node_xporter
+sudo systemctl start node_exporter
+sudo systemctl status node_exporter
