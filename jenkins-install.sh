@@ -1,61 +1,79 @@
 #!/bin/bash
-# Update the system
-yum update -y
-# Install Java 17 (Amazon Corretto)
-amazon-linux-extras enable corretto17
-yum install -y java-17-amazon-corretto-devel
-# Add Jenkins repository
-wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+# Userdata script for Ubuntu 24.04 AWS VM
+# ----------------------------------------
 # Install Jenkins
-yum install -y jenkins
-# Start and enable Jenkins service
-systemctl enable jenkins
-systemctl start jenkins
-# Wait for Jenkins to initialize
-echo "Waiting for Jenkins to start..."
-sleep 30
-# Retrieve and display initial admin password
-echo "Jenkins initial admin password:"
-cat /var/lib/jenkins/secrets/initialAdminPassword 2>/dev/null || echo "Password file not ready yet. Try again in a few minutes."
-# Optional: Open firewall port 8080 if using firewalld
-# systemctl status firewalld >/dev/null 2>&1
-# if [ $? -eq 0 ]; then
-#     firewall-cmd --permanent --add-port=8080/tcp
-#     firewall-cmd --reload
-# fi
-echo "Setup complete!"
-echo "Access Jenkins at: http://$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4):8080"
+# ----------------------------------------
+sudo su
+sudo apt-get update -y && apt-get upgrade -y
+sudo apt-get install -y curl unzip gnupg fontconfig openjdk-17-jre
+sudo apt-get install -y openjdk-11-jdk
+sudo curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | \
+  tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update -y
+sudo apt-get install -y jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
 
+# ----------------------------------------
+# Change The Java Version to JAVA11
+# ----------------------------------------
+# Find the path of Java 11
+JAVA11_PATH=$(update-alternatives --list java | grep "java-11")
+# Set Java 11 as the default
+update-alternatives --set java "$JAVA11_PATH"
+update-alternatives --set javac "$(dirname $JAVA11_PATH)/javac"
+
+# ----------------------------------------
+# Installing Apache Maven
+# ----------------------------------------
+sudo apt-get install maven -y
+mvn -v
+
+# ----------------------------------------
+# Install and Configure Ansible
+# ----------------------------------------
+# Create ansible user with sudo privileges
+# sudo useradd -m -s /bin/bash ansible
+sudo useradd ansible -m 
+echo 'ansible:ansible' | sudo chpasswd
+sudo usermod -aG sudo ansible
+
+# Give user Authorization | Without Needing Password
+sudo EDITOR='tee -a' visudo << 'EOF'
+ansible ALL=(ALL) NOPASSWD:ALL
+EOF
+
+# Update the sshd_config Authentication file (Password and SSH)
+sudo sed -i 's@^#\?PasswordAuthentication .*@PasswordAuthentication yes@' /etc/ssh/sshd_config
+sudo sed -i '/^PasswordAuthentication yes/a ChallengeResponseAuthentication yes' /etc/ssh/sshd_config
+sudo systemctl restart ssh
+
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+# Install the necessary software-properties-common package:
+sudo apt install -y software-properties-common
+# Add the Ansible PPA (Personal Package Archive) to your system:
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+
+# Install Ansible using apt:
+sudo apt update -y
+sudo apt install -y ansible
+# Verify Ansible installation
+ansible --version
+
+# Update the ansible config file
+sudo tee -a /etc/ansible/ansible.cfg > /dev/null <<EOF
+[defaults]
+inventory = /etc/ansible/hosts
+remote_user = ansible
+host_key_checking = False
+EOF
+
+# ----------------------------------------
 # Installing Git
-yum install git -y
+# ----------------------------------------
+sudo apt install git -y
 
-# Installing Ansible
-amazon-linux-extras install ansible2 -y
-yum install python-pip -y
-pip install boto3
-
-# Provisioning Ansible Deployer Access
-useradd ansibleadmin
-echo ansibleadmin | passwd ansibleadmin --stdin
-sed -i "s/.*#host_key_checking = False/host_key_checking = False/g" /etc/ansible/ansible.cfg
-sed -i "s/.*#enable_plugins = host_list, virtualbox, yaml, constructed/enable_plugins = aws_ec2/g" /etc/ansible/ansible.cfg
-ansible-galaxy collection install amazon.aws
-
-# Enable Password Authentication and Grant Sudo Privilege
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-systemctl restart sshd
-echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-# Apache Maven Installation/Config
-#sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-#sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
-#sudo yum install -y apache-maven
-#sudo yum install java-1.8.0-devel
-
-#sudo /usr/sbin/alternatives --config java
-#sudo /usr/sbin/alternatives --config javac
-
-# Use The Amazon Linux 2 AMI When Launching The Jenkins VM/EC2 Instance
-# Instance Type: t2.medium or small minimum
-# Open Port (Security Group): 8080 
