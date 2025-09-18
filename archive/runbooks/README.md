@@ -84,7 +84,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Dev-Env`
       - Tag 2: Name: `Environment`, Value: `dev`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Bitnami package for Apache Tomcat`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
@@ -97,7 +97,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Stage-Env`
       - Tag 2: Name: `Environment`, Value: `stage`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Bitnami package for Apache Tomcat`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
@@ -110,7 +110,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Prod-Env`
       - Tag 2: Name: `Environment`, Value: `prod`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Bitnami package for Apache Tomcat`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
