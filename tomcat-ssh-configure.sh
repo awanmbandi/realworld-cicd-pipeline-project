@@ -1,30 +1,92 @@
 #!/bin/bash
-# Tomcat Server Installation
-sudo su
-amazon-linux-extras install tomcat8.5 -y
+# ----------------------------------------
+# Install and Configure Apache Tomcat
+# ----------------------------------------
+apt-get update -y
+apt-get upgrade -y
+
+# Install Java (Tomcat needs Java)
+apt-get install -y openjdk-17-jdk wget curl tar
+
+# Set JAVA_HOME
+JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+echo "JAVA_HOME=${JAVA_HOME}" >> /etc/environment
+source /etc/environment
+
+# Download Tomcat (latest stable Tomcat 10.x)
+cd /opt
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.46/bin/apache-tomcat-10.1.46.tar.gz
+
+# Extract and rename
+tar xzvf apache-tomcat-10.1.46.tar.gz
+mv apache-tomcat-10.1.46 tomcat
+rm apache-tomcat-10.1.46.tar.gz
+
+# Set permissions
+chown -R ubuntu:ubuntu /opt/tomcat
+chmod +x /opt/tomcat/bin/*.sh
+
+# Create systemd service
+cat <<EOF >/etc/systemd/system/tomcat.service
+[Unit]
+Description=Apache Tomcat 10 Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+User=ubuntu
+Group=ubuntu
+
+Environment=JAVA_HOME=${JAVA_HOME}
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Reload systemd and start Tomcat
+systemctl daemon-reload
 systemctl enable tomcat
 systemctl start tomcat
 
-# Provisioning Ansible Deployer Access
-useradd ansibleadmin
-echo ansibleadmin | passwd ansibleadmin --stdin
-sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-systemctl restart sshd
-echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# Add admin user to tomcat-users.xml
+sed -i '/<\/tomcat-users>/i \
+<role rolename="admin-gui"/>\n\
+<role rolename="admin-script"/>\n\
+<user username="admin" password="StrongPassword123" roles="admin-gui,admin-script"/>' /opt/tomcat/conf/tomcat-users.xml
 
-# : <<'END'
-# # Tomcat Server Installation
-# sudo su
-# amazon-linux-extras install tomcat8.5 -y
-# systemctl enable tomcat
-# systemctl start tomcat
+# Remove the RemoteAddrValve line in host-manager
+sed -i '/RemoteAddrValve/d' /opt/tomcat/webapps/host-manager/META-INF/context.xml
 
-# # Provisioning Ansible Deployer Access
-# useradd ansibleadmin
-# echo ansibleadmin | passwd ansibleadmin --stdin
-# sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-# systemctl restart sshd
-# echo "ansadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-# END
+# Remove the RemoteAddrValve line in manager
+sed -i '/RemoteAddrValve/d' /opt/tomcat/webapps/manager/META-INF/context.xml
 
+# Restart The Tomcat Application
+sudo systemctl restart tomcat
+
+# ----------------------------------------
+# Install and Configure Ansible
+# ----------------------------------------
+# Create ansible user with sudo privileges
+# sudo useradd -m -s /bin/bash ansible
+sudo useradd ansible -m 
+echo 'ansible:ansible' | sudo chpasswd
+sudo usermod -aG sudo ansible
+
+# Give user Authorization | Without Needing Password
+sudo EDITOR='tee -a' visudo << 'EOF'
+ansible ALL=(ALL) NOPASSWD:ALL
+EOF
+
+# Update the sshd_config Authentication file (Password and SSH)
+sudo sed -i 's@^#\?PasswordAuthentication .*@PasswordAuthentication yes@' /etc/ssh/sshd_config
+sudo sed -i '/^PasswordAuthentication yes/a ChallengeResponseAuthentication yes' /etc/ssh/sshd_config
+sudo systemctl restart ssh
 
