@@ -51,7 +51,7 @@
 3) Jenkins/Maven/Ansible
     - Create a Jenkins VM instance 
     - Name: `Jenkins/Maven/Ansible`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Ubuntu 24.04`
     - Instance type: `t2.medium`
     - Key pair: `Select` or `create a new keypair`
     - Security Group (Edit/Open): `8080, 9100` and `22 to 0.0.0.0/0`
@@ -84,7 +84,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Dev-Env`
       - Tag 2: Name: `Environment`, Value: `dev`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
@@ -97,7 +97,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Stage-Env`
       - Tag 2: Name: `Environment`, Value: `stage`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
@@ -110,7 +110,7 @@
     - Click `Add additional tags`
       - Tag 1: Name: `Name`, Value: `Prod-Env`
       - Tag 2: Name: `Environment`, Value: `prod`
-    - AMI: `Amazon Linux 2`
+    - AMI: `Ubuntu 24.04`
     - Number: `1`
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
