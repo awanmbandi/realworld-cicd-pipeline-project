@@ -138,7 +138,7 @@
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/prometheus-and-grafana-install/userdatas/install-grafana.sh
     - Launch Instance
-
+htt p://PrometheusPublicOrPrivateIPaddress:9090
 11) EC2 (Splunk)
     - Create a Splunk/Indexer VM instance
     - Name: `Splunk-Indexer`
@@ -324,12 +324,12 @@
 
 - Download the Splunk forwarder RPM installer package 
 ```bash
-wget -O splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm "https://download.splunk.com/products/universalforwarder/releases/9.1.1/linux/splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm"
+wget -O splunkforwarder-10.0.0-e8eb0c4654f8-linux-amd64.deb "https://download.splunk.com/products/universalforwarder/releases/10.0.0/linux/splunkforwarder-10.0.0-e8eb0c4654f8-linux-amd64.deb"
 ```
 - Install the Forwarder
 ```bash
 ls -al
-sudo yum install ./splunkforwarder-9.1.1-64e843ea36b1.x86_64.rpm -y
+sudo apt-get install ./splunkforwarder-10.0.0-e8eb0c4654f8-linux-amd64.deb -y
 ```
 
 - Change to the `splunkforwarder bin` directory and start the forwarder
@@ -351,9 +351,9 @@ cd /opt/splunkforwarder/bin
 ./splunk restart
 ```
 
-- Set the forwarder to monitor the ``/var/log/tomcat/`` directory and restart
+- Set the forwarder to monitor the ``/opt/tomcat/logs/`` directory and restart
 ```
-./splunk add monitor /var/log/tomcat/
+./splunk add monitor /opt/tomcat/logs/
 ```
 
 ### 2. Navigate Back to Your `Splunk Indexer/Server` 
