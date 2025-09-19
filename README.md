@@ -126,6 +126,7 @@
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `9090` and `22 to 0.0.0.0/0`
     - IAM instance profile: Select the `AWS-EC2FullAccess-Role`
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/prometheus-and-grafana-install/userdatas/install-prometheus.sh 
     - Launch Instance
 
 10) Grafana
@@ -135,6 +136,7 @@
     - Instance type: `t2.micro`
     - Key pair: `Select a keypair`
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
+    - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/prometheus-and-grafana-install/userdatas/install-grafana.sh
     - Launch Instance
 
 11) EC2 (Splunk)
