@@ -138,7 +138,8 @@
     - Security Group (Eit/Open): `3000` and `22 to 0.0.0.0/0`
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/prometheus-and-grafana-install/userdatas/install-grafana.sh
     - Launch Instance
-htt p://PrometheusPublicOrPrivateIPaddress:9090
+    http://PrometheusPublicOrPrivateIPaddress:9090
+    
 11) EC2 (Splunk)
     - Create a Splunk/Indexer VM instance
     - Name: `Splunk-Indexer`
