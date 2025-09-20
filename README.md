@@ -521,9 +521,9 @@ cd /opt/splunk/bin
       4)  ##### Ansible deployment server credential (username & password)
           - Click on ``Add Credentials``
           - Kind: Username with password          
-          - Username: ``andible``
+          - Username: ``ansible``
           - Enable Treat username as secret
-          - Password: ``andible``
+          - Password: ``ansible``
           - ID: ``Ansible-Credential``
           - Description: `Ansible-Credential`
           - Click on `Create`   
