@@ -542,6 +542,7 @@ cd /opt/splunk/bin
         - Go to section `Slack`
             - `NOTE:` *Make sure you still have the Slack Page that has the `team subdomain` & `integration token` open*
             - Workspace: **Replace with `Team Subdomain` value** (created above)
+                - **Team SubDomain:** `realworldcicdpipeline`
             - Credentials: select the `Slack-Token` credentials (created above) 
             - Default channel / member id: `#PROVIDE_YOUR_CHANNEL_NAME_HERE`
             - Click on `Test Connection`
