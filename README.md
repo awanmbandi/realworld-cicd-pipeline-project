@@ -139,7 +139,7 @@
     - User data (Copy the following user data): https://github.com/awanmbandi/realworld-cicd-pipeline-project/blob/prometheus-and-grafana-install/userdatas/install-grafana.sh
     - Launch Instance
     http://PrometheusPublicOrPrivateIPaddress:9090
-    
+
 11) EC2 (Splunk)
     - Create a Splunk/Indexer VM instance
     - Name: `Splunk-Indexer`
@@ -586,7 +586,6 @@ cd /opt/splunk/bin
           waitForQualityGate abortPipeline: true
           }
        }
-    }
     ```
      - Run Your Pipeline To Test Your Quality Gate (It should PASS QG)
      - **(OPTIONAL)** FAIL Your Quality Gate: Go back to SonarQube -->> Open your Project -->> Click on Quality Gates at the top -->> Select your Project Quality Gate -->> Click EDIT -->> Change the Value to “0” -->> Update Condition
@@ -765,6 +764,7 @@ echo "ansibleadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
         - Click `Add webhook`
             - Payload URL: http://JENKINS-PUBLIC-IP-ADDRESS/github-webhook/
             - Content type: `application/json`
+            - SSL Verification: `Disable (not recommended)`
             - Active: Confirm it is `Enable`
             - Click on `Add Webhook`
 
