@@ -493,7 +493,7 @@ cd /opt/splunk/bin
               - Kind: Secret text            
               - Secret: Place the Integration Token Credential ID (Note: Generate for slack setup)
               - ID: ``Slack-Token``
-              - Description: `slack-token`
+              - Description: `Slack-Token`
               - Click on `Create`  
 
       3)  ##### Nexus Credentials (Username and Password)
@@ -721,7 +721,6 @@ A) Update Maven `POM.xml` file
             ]
           )
       }
-  }
   ```
 - After confirming all changes, go ahead and save, then push to GitHub.
     - Add the changes: `git add -A`
